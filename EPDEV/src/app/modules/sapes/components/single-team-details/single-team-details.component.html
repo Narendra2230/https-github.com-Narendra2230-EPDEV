@@ -1,0 +1,65 @@
+<div *ngIf="isLoading">
+    <app-preloader class="go-center"></app-preloader>
+</div>
+<h6 *ngIf="showPlzWait && !isLoading"> Please wait...!</h6>
+<h6 *ngIf="EmpList=='' && !showPlzWait && !isLoading"> No Data...!</h6>
+<a *ngFor="let data of EmpList;let i=index;" class="single_team_details" (click)="navigate(data,data.id)">
+
+    <div class="empl_logo" *ngIf="!isLoading">
+        <img [src]="data.profileImage" />
+        <div *ngIf="!data.isGoalAssigned || LatestpmsStatusId===1" class="" (click)="checkEmp(data,i,$event)" class="team_checkbox checkbox">
+            <span *ngIf="data.isEmpChecked">
+                <input [value]="true" type="checkbox" id="checkbox" class="team_input" checked />
+                <label for="checkbox"><span></span></label>
+            </span>
+            <span *ngIf="!data.isEmpChecked">
+                <input [value]="true" type="checkbox" id="checkbox" class="team_input" />
+                <label for="checkbox"><span></span></label>
+            </span>
+        </div>
+    </div>
+    <div class="team_full_details" *ngIf="!isLoading">
+        <ul>
+            <li>
+                <h5>Employee Name</h5>
+                <h6 class="ellipsis">{{data.firstName + " "+ data.lastName}}</h6>
+            </li>
+            <li>
+                <h5>Employee</h5>
+                <h6 class="ellipsis">{{data.associateId}}</h6>
+            </li>
+            <li>
+                <h5>Designation</h5>
+                <h6 class="ellipsis">{{data.designation}}</h6>
+            </li>
+            <li>
+                <h5>Level</h5>
+                <h6 class="ellipsis">{{data.associateLevel}}</h6>
+            </li>
+            <li>
+                <h5>Band</h5>
+                <h6 class="ellipsis">{{data.band}}</h6>
+            </li>
+           
+            <li>
+                <h5>BTU</h5>
+                <h6 class="ellipsis">{{data.bu}}</h6>
+            </li>
+            <li>
+                <h5>Sub-BU</h5>
+                <h6 class="ellipsis">{{data.subBu}}</h6>
+            </li>
+            <li>
+                <h5>Track</h5>
+                <h6 class="ellipsis">{{data.track}}</h6>
+            </li>
+
+            <li>
+                <h5>Eligibility</h5>
+                <h6 class="ellipsis">{{data.ogpbEligibility}}</h6>
+            </li>
+
+        </ul>
+    </div>
+
+</a>

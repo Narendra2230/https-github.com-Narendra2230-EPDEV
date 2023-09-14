@@ -1,0 +1,313 @@
+<div class="time_sheet p-r-0" >
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="http://epstaging.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/ogpb/#/leave">Billable Report</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <div class="time_sheet_heading row">
+        <div class="toogle_slide col-4">
+        </div> 
+        <div class="col-4 text-center">
+            <h4>Monthly Billable Report</h4>
+        </div>
+        <div class="col-4 text-center associateLeave">
+       </div>
+    </div>
+    <!-- <app-page-header from="TEAM" [onLeaves]="onLeaves" headingText='Associate Request List'></app-page-header> -->
+    <!-- time_sheet_heading-End-->
+
+    <!-- Apply Leave page -->
+    <app-preloader class="go-center go-center-body" *ngIf="isLoading"></app-preloader>
+    <div class="apply_leave_page">
+        <div class="table_header row">
+            <div class="col-3"><span class="title_tabe">Billable Report</span>
+              </div> 
+            <div class="col-9" style="padding: 0 30px 10px 0">
+               
+                <div class="history_filter">
+                    <button class="btn_1 btn_history_filter float-right open-filters"  (click)="showDropDown=!showDropDown">
+                        Customize Columns <span></span>
+                    </button>
+                    <div id="filtersWrap" class="filter_block"   [ngStyle]="showDropDown  ? { 'display' : 'block' }    : ''  ">
+                        <a style="cursor:pointer" (click)="showDropDown=!showDropDown" class="close_btn hide-filters"><img src="assets/images/leave/icon-close.png" alt=""></a>
+                        <hr>
+                       
+                        <div class="col-12 display_inline">
+                            <span class="filter_heading">Start Date</span>
+                            <div class="element_input">
+                                <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true" placeholder="MM/DD/YY"
+                                    [(ngModel)]="filter.fromDate"></p-calendar>
+                            </div>
+                        </div>
+
+                        <div class="col-12 display_inline" style="margin: 5px 0 10px 0;">
+                            <span class="filter_heading">End Date</span>
+                            <div class="element_input">
+                                <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true" [minDate]="filter.fromDate" placeholder="MM/DD/YY"
+                                    [(ngModel)]="filter.toDate"></p-calendar>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 display_inline">
+                            <div class="filter_btns">
+                                <button class="btn btn-sm" (click)="showDropDown=!showDropDown;onFilter()">Apply</button>
+                                <button class="btn btn-sm reset_btn" (click)="reset()"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="esi_history">
+            <div class="esi_history_table">
+            <div>
+                <mat-table [dataSource]="data" class="table table-bordered" matSort matSortActive="fromDate"
+                    matSortDisableClear matSortDirection="desc">
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef class="checkbox_style2 checkmark_td" >
+                            <label class="check_mng">
+                                <input (change)="checkAll($event)" type="checkbox" class="" />
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                        </th>
+                        <td mat-cell *matCellDef="let s; let i = index;"  class="checkbox_style2 checkmark_td">
+                            <label class="check_mng"  *ngIf="s.leaveStatus!=2 && s.leaveStatus!=3 && s.leaveStatus!=4">
+                                <input (change)="checkCount(s,i)"  [checked]="s['isChecked']" class=""  type="checkbox" />
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="typeOfEngagement">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">Type Of Engagement</th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.sowEngagementType}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="COA">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">COA</th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.receivables_Account}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="UniqCode">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">UniQ Code</th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.Uniqcode}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Template">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">Template</th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.Template}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="empId">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">Emp ID</th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.emp_Id}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="firstName">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">First Name<span></span></th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.first_Name}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lastName">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">Last Name<span></span></th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.last_Name}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="csu">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">CSU<span></span></th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.csu}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="subcsu">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">Sub CSU<span></span></th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.csu}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="btu">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">BTU<span></span></th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.btu}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="subbtu">
+                        <th mat-header-cell *matHeaderCellDef class="td-one">SubBTU<span></span></th>
+                        <td mat-cell *matCellDef="let s" class="td-one">{{s.subBTU}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="clientName">
+                        <th mat-header-cell *matHeaderCellDef>Customer Name</th>
+                        <td mat-cell *matCellDef="let s">{{s.clientName}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="sowName">
+                        <th mat-header-cell *matHeaderCellDef>Project Name</th>
+                        <td mat-cell *matCellDef="let s">{{s.sowName}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="po">
+                        <th mat-header-cell *matHeaderCellDef>PO</th>
+                        <td mat-cell *matCellDef="let s">{{s.poNumber}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="startDate">
+                        <th mat-header-cell *matHeaderCellDef>Start Date</th>
+                        <td mat-cell *matCellDef="let s">{{formatDate(s.startDate)}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="endDate">
+                        <th mat-header-cell *matHeaderCellDef>End Date</th>
+                        <td mat-cell *matCellDef="let s">{{formatDate(s.endDate)}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="postingperiod">
+                        <th mat-header-cell *matHeaderCellDef>Posting Period</th>
+                        <td mat-cell *matCellDef="let s">{{s.posting_Period}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="duration">
+                        <th mat-header-cell *matHeaderCellDef>Duration</th>
+                        <td mat-cell *matCellDef="let s">{{s.timeHours}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="invoiceEntity">
+                        <th mat-header-cell *matHeaderCellDef>Invoice Entity</th>
+                        <td mat-cell *matCellDef="let s">{{s.timeInvoiceEntity}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="timeHours">
+                        <th mat-header-cell *matHeaderCellDef>T&M Hours</th>
+                        <td mat-cell *matCellDef="let s">{{s.timeHours}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="sellRate">
+                        <th mat-header-cell *matHeaderCellDef>Sell Rate</th>
+                        <td mat-cell *matCellDef="let s">{{s.billingRate}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="sellRateUnits">
+                        <th mat-header-cell *matHeaderCellDef>Sell Rate Units</th>
+                        <td mat-cell *matCellDef="let s">{{s.billingUnit}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="sellCurrency">
+                        <th mat-header-cell *matHeaderCellDef>Sell Currency</th>
+                        <td mat-cell *matCellDef="let s">{{s.currency}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="billableHoursPerDay">
+                        <th mat-header-cell *matHeaderCellDef>Billable Hours Per Day</th>
+                        <td mat-cell *matCellDef="let s">{{s.budgetHours}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="invoicingFrequency">
+                        <th mat-header-cell *matHeaderCellDef>Invoicing Frequency</th>
+                        <td mat-cell *matCellDef="let s">{{s.frequencyType}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="netTerms">
+                        <th mat-header-cell *matHeaderCellDef>Net Terms</th>
+                        <td mat-cell *matCellDef="let s">{{s.netTerms}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="modeOfInvoiceDelivery">
+                        <th mat-header-cell *matHeaderCellDef>Mode Of Invoice Delivery</th>
+                        <td mat-cell *matCellDef="let s">{{s.modeofdelivery}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="employeeType">
+                        <th mat-header-cell *matHeaderCellDef>Employee Type</th>
+                        <td mat-cell *matCellDef="let s">{{s.type}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="location">
+                        <th mat-header-cell *matHeaderCellDef>Location</th>
+                        <td mat-cell *matCellDef="let s">{{s.location}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="worklocation">
+                        <th mat-header-cell *matHeaderCellDef>LCA: Work Location</th>
+                        <td mat-cell *matCellDef="let s">{{s.address}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Endclientname">
+                        <th mat-header-cell *matHeaderCellDef>End Client Name</th>
+                        <td mat-cell *matCellDef="let s">{{s.endClient}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="invoicetype">
+                        <th mat-header-cell *matHeaderCellDef>Invoice type</th>
+                        <td mat-cell *matCellDef="let s">{{s.invoicetype}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="InvoiceNumber">
+                        <th mat-header-cell *matHeaderCellDef>Invoice Number</th>
+                        <td mat-cell *matCellDef="let s">{{s.InvoiceNumber}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="InvoiceDate">
+                        <th mat-header-cell *matHeaderCellDef>Invoice Date</th>
+                        <td mat-cell *matCellDef="let s">{{s.InvoiceDate}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Description">
+                        <th mat-header-cell *matHeaderCellDef>Description</th>
+                        <td mat-cell *matCellDef="let s">{{s.description}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="memo">
+                        <th mat-header-cell *matHeaderCellDef>Memo</th>
+                        <td mat-cell *matCellDef="let s">{{s.memo}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="TotalAmount">
+                        <th mat-header-cell *matHeaderCellDef>Total Amount</th>
+                        <td mat-cell *matCellDef="let s">{{s.invoiceamount}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Salesrep">
+                        <th mat-header-cell *matHeaderCellDef>Sales Rep</th>
+                        <td mat-cell *matCellDef="let s">{{s.salesRep}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="DeliveryManager">
+                        <th mat-header-cell *matHeaderCellDef>Delivery Manager</th>
+                        <td mat-cell *matCellDef="let s">{{s.deliveryManager}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="PrintAll">
+                        <th mat-header-cell *matHeaderCellDef>Print All Resources</th>
+                        <td mat-cell *matCellDef="let s">{{s.invoicePdfAll}}</td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </mat-table>  
+            
+                <p style="text-align:center;margin-top: 5%;" *ngIf="esiData.length===0  && !isLoading">No Data Found</p>
+                <mat-paginator [pageIndex]="0"
+                [pageSize]="10"  [length]="resultsLength" ></mat-paginator>
+              
+               </div>
+            </div>
+
+            <div class="fotterbtn">
+                <div class="pull-right">
+                    <button (click)="refreshData()" [disabled]="isLoading"
+                    class="btn  btn-sm m-w-100 btn-style mr-10">Refresh</button>
+                    <button (click)="deleteMbrDat()" [disabled]="isLoading" class="btn btn-danger btn-sm m-w-100 btn-style mr-10">Delete</button>
+                    <button (click)="pushMbrData()" [disabled]="isLoading"
+                        class="btn btn-success mr-3 btn-sm  m-w-100 btn-style">Push</button>
+                </div>
+            </div> 
+        </section>
+        <!-- Leave Applied History end -->
+    </div>
+    <!-- Leave page end -->
+</div>
+<p-confirmDialog  header="Confirmation" appendTo="body"></p-confirmDialog>

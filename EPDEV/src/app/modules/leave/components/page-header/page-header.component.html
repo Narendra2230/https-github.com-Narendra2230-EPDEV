@@ -1,0 +1,28 @@
+<div class="time_sheet_heading row">
+    <div class="toogle_slide col-4">
+        <ul>
+            <!-- <li style="margin-left: 0;">
+                <span>ME</span>
+                <label class="switch">
+                  <input (change)="onChageTeam($event)" type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                <span class="unchecked">ASSOCIATES</span>
+            </li> -->
+            <li *ngIf="isManager">
+                <span [ngClass]="!checked ?'active':'unchecked'">ME</span>
+                <mat-slide-toggle  [disabled]="!isManager"  [checked]="checked" (change)="onChageTeam($event)" ></mat-slide-toggle>
+                <span  [ngClass]="checked?'active':'unchecked'">TEAM</span>
+            </li>
+            <li>&nbsp;</li>
+        </ul>
+    </div>
+    <div class="col-4 text-center">
+        <h4>{{headingText}}</h4>
+    </div>
+    <div class="col-4 text-center associateLeave">
+       <button *ngIf="from=='TEAM'" (click)="openAssociateonLeaveDialog()" class="btn_1 f-l btn-leave-balance ">
+        Associate on Leave <span><img src="assets/images/leave/associateleave.svg" alt="" class="associateLeave_icon"></span>
+    </button>
+   </div>
+</div>

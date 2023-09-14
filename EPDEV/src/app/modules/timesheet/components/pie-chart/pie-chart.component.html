@@ -1,0 +1,22 @@
+
+<div style="float: right; width: 260px;margin: 30px 0 0 0;position: relative;">
+    
+    <div class="chart-cont">
+    <highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor" [options]="chartOptions"
+        [callbackFunction]="chartCallback" [(update)]="updateFlag" [oneToOne]="oneToOneFlag"
+        [runOutsideAngular]="runOutsideAngularFlag" style="width: 120px; height: 120px; position: relative; top: -10px; display: block;">
+    </highcharts-chart>
+</div>
+<div class="pie_value">
+    <ol *ngIf="type==='ASSOC'">
+        <li><span class="billable">&nbsp;</span> Billable <span class="billable_color">{{chartData?.billablePercentage}}</span>%</li>
+        <li><span class="nonbillable">&nbsp;</span> Non-Billable <span class="non_billablecolor">{{chartData?.nonBillablePercentage}}</span>%</li>
+        <li><span class="support">&nbsp;</span> Support Services <span class="internal_color">{{chartData?.sharedPercentage}}</span>%</li>
+        <li><span class="ippoc">&nbsp;</span> IP/POC <span class="un_allocated_color">{{chartData?.pocPercentage}}</span>%</li>
+    </ol>
+    <ol *ngIf="type==='MNGR'">
+        <li *ngFor="let o  of mngrChartData;"><span class="billable" [ngStyle]="{background:getClassName(o.allocationStatus)}">&nbsp;</span> {{o.allocationStatus}} <span class="billable_color">{{o.pt}}</span>%</li>
+    </ol>
+</div>
+
+</div>

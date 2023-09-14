@@ -1,0 +1,37 @@
+<div class="time_sheet performance_evaluation">
+    <div class="fixed_header">
+       <!-- <app-bread-crumb></app-bread-crumb> -->
+       <div class="breadcrumb_list">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="http://epstaging.suneratech.com/Home/Dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="/modules/#/" class="default_cursor">Performance Mgmt</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">Performance Assessment</a></li>
+          </ol>
+        </div>
+        <!-- time_sheet_heading -->
+       <app-emplyee-snapshot-header></app-emplyee-snapshot-header>
+        <!-- time_sheet_heading-End-->
+      <app-emplyee-snapshot-details></app-emplyee-snapshot-details>
+    </div>
+    <div class="fixed_body">
+       <app-performan-evalution [isPersonal]="true" [KPIData]="KPIData"></app-performan-evalution>
+        <app-requisitions [isPersonal]="true" [KPIData]="KPIData"></app-requisitions>
+    </div>                           
+    <div class="submit_rating">
+        <ul>
+            <li class="cancel">
+                <input type="button" name="button" (click)="goToHome()" value="CANCEL">
+            </li>
+             <li class="submit" >  
+             <!-- <input (click)="getRatingValues()" [ngClass]="(!isCurrentQuarter||!checkisTrue) || submitDisable ? 'btn-no-active' : 'btn-active'"  [disabled]="(!isCurrentQuarter|| !checkisTrue)" type="button" name="button" value="SUBMIT RATINGS" disabled> --> 
+             <input (click)="getRatingValues()" [ngClass]="submitDisable ? 'btn-no-active' : 'btn-active'" type="button" name="button" value="SUBMIT RATINGS">
+            </li> 
+
+            <!-- 
+                <li class="submit" >
+                <input class="submit_disable" type="button" name="button" value="SUBMIT RATINGS" disabled>
+            </li> -->
+
+        </ul>
+    </div>
+</div>

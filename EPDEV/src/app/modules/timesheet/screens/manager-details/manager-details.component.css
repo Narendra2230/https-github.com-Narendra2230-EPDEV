@@ -1,0 +1,17 @@
+.reject_popup{
+    width: 500px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+.reject_btn{
+    border-radius: 26px;
+    background-color: #e7e7e7;
+    font-size: 14px;
+    color: #626466;
+    border: none;
+    outline: none;
+    padding: 16px;
+    font-family: 'poppins_semiboldregular';
+    cursor: pointer;
+    min-width: 101px;
+}

@@ -1,0 +1,70 @@
+<style>
+  table td {
+      font-size: 12px;
+      line-height: 1.0;
+  }
+</style>
+
+<div class="profileSheet">
+  <div class="profileMain">
+      <div class="apply_leave_page">
+          <section class="leave_history">
+              <div class="leave_history_table">
+                  <div class="mat-elevation-z8  personalContForm">
+                    <button (click)="closePopup()" class="close_btn1"><i class="fa fa-times" aria-hidden="true"></i></button>
+                    <h2 class="inactive_head">Inactive Employment</h2>
+                    <ul class="d-flex justify-content-between flex-wrap">
+                        <li>
+                          <label>Reasons</label>
+                          <select [(ngModel)]="activeDetails.terminationreason">
+                            <option value="">Select</option>
+                            <option
+                              *ngFor="let dropdown of getMetaValues('TerminationReasons')"
+                              value="{{ dropdown.id }}"        >
+                              {{ dropdown.name }}
+                            </option>
+                          </select>
+                        </li>
+                    
+                        <li>
+                          <label>Last Working Day</label>
+                          <input
+                            [(ngModel)]="activeDetails.lastworkingDay"
+                            type="date"
+                            class="dateInput"
+                            name="text"
+                            placeholder="DD/MM/YY"
+                          />
+                        </li>
+                        <li>
+                          <label>Remarks</label>
+                          <input
+                            [(ngModel)]="activeDetails.reason"
+                            type="text"
+                            name="text"
+                            placeholder=""
+                          />
+                        </li>
+                        <li>
+                          <label>IsRetire</label>
+                          <select>
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                          </select>
+                        </li>
+                        <li></li>
+                        <li></li>
+                        <li>
+                          <button (click)="saveDetails()" class="btn-save">Save</button>
+                          <button (click)="closePopup()" class="btn-close">Close</button>
+                        </li>
+                     </ul>
+                  </div>
+              </div>
+
+              <div class="fotterbtn"></div>
+          </section>
+          <!-- Leave Applied History end -->
+      </div>
+  </div>
+</div>

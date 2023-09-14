@@ -1,0 +1,25 @@
+.container{
+    padding-left: 80px;
+    padding-right: 40px;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+.title{
+    padding-bottom: 20px;
+    font-weight: bolder;
+}
+
+.filter{
+    text-align: right;
+}
+
+.error{
+    text-align: center;
+    padding-top: 20px;
+}
+
+td{
+    line-height: 1.3;
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+<!---->
+<div class="performance_eval_rating">
+    <app-performan-evalution-header [needKeyInfo]="needKeyInfo"></app-performan-evalution-header>
+    <div *ngIf="isLoading">
+        <app-preloader class="go-center"></app-preloader>
+    </div>
+   <!-- <div class="no-kpi-message" *ngIf="isNoKPIS && !isLoading">
+        <p>
+            <span *ngIf="!isPersonal">No Goals Assigned! Please assign Goals Now.</span>
+            <span *ngIf="isPersonal">Your Goals not yet set by your Reporting Manager. Send Request Now!</span>
+            <small class="mail_txt" *ngIf="!showSendNowCTA && isCurrentQuarter && isPersonal"> (Mail sent to your Manager)</small>
+        </p>
+        <button *ngIf="isPersonal && isCurrentQuarter && showSendNowCTA" [disabled]="!isCurrentQuarter"
+            (click)="sendKPIRequest()">Send Now</button>
+        <button *ngIf="!isPersonal" (click)="assignGoalsP()" class="assing-goals">Assign goals</button>
+    </div>
+    <div class="eval_rating_in row" *ngIf="!isLoading && !isNoKPIS">
+        <div class="col-md-2" *ngIf="isSystemKPIs">
+            <app-performan-evalution-left [associateID]="associateID" [isPersonal]="isPersonal" [KPIData]="KPIData"></app-performan-evalution-left>
+        </div>
+        <div [ngClass]="{'col-md-12':isSystemKPIs===false,'col-md-10':isSystemKPIs===true}" class="">
+            <app-performan-evalution-right [associateID]="associateID" [isPersonal]="isPersonal" [KPIData]="KPIData">
+            </app-performan-evalution-right>
+        </div>
+    </div> -->
+</div>

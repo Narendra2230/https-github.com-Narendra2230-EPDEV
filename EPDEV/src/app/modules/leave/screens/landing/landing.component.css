@@ -1,0 +1,149 @@
+
+.history_filter{
+    position: relative;
+    z-index: 1;
+}
+.history_filter:hover .filter_block{
+	/* display: block; */
+}
+.leave_history .btn_1{
+	position: relative;
+	z-index: 11;
+}
+.filter_block{
+	display: none;
+	position: absolute;
+    right: -10px;
+    top: -9px;
+    width: 330px;
+    border: 1px solid #ccc;
+    padding: 50px 15px 15px 15px;
+    border-radius: 24px;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.14);
+  border: solid 1px var(--salmon);
+  background-color: #ffffff;
+  border: 1px solid #fb8181;
+}
+.history_filter:hover .filter_block{
+    /* display: block; */
+}
+.filter_block .close_btn{
+	position: absolute;
+	left: 15px;
+	top: 12px;
+	z-index: 22;
+	width: 26px;
+	height: 26px;
+	text-align: center;
+	background: #e06969;
+	border-radius: 24px;
+}
+.filter_block .close_btn img{
+	display: block;
+	margin: 9px auto 0 auto;
+}
+.history_filter:hover .btn_1,
+.leave_history .btn_1.open-filters.active{
+	/* border-color: #fff;
+	background: none; */
+}
+
+.leave_history .display_inline{
+    display: block;
+    padding: 0;
+}
+
+.leave_history .col-12{
+  width: 100%;
+  float: left;
+	padding: 8px 0 0 0;
+}
+.leave_history label{
+    color: #909398;
+}
+table {
+    width: 100%;
+  }
+  
+  .example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-rate-limit-reached {
+    color: #980000;
+    max-width: 360px;
+    text-align: center;
+  }
+  
+  /* Column Widths */
+  .mat-column-number,
+  .mat-column-state {
+    max-width: 64px;
+  }
+  
+  .mat-column-created {
+    max-width: 124px;
+  }
+  .p-l-10{
+    padding-left: 5px;
+  }
+  .m-b-5{
+    margin-bottom: 5px;
+  }
+ .statusListcont{
+    overflow: auto;
+    padding: 5px 0px;
+  }
+  ::ng-deep  .statusListcont .ui-chkbox-box {
+    width: 15px !important;
+    height: 15px !important;
+}
+
+::ng-deep .ui-chkbox-icon {
+  font-size: 14px !important;
+}
+.leave_history {
+  min-height: 700px;
+}
+
+.filter_heading{
+  font-size: 12px;
+  font-weight: Bold;
+  color: #4a4a4a;
+}
+.go-center-body{
+  position: absolute;
+  left:50%;
+  top:25%;
+}
+
+.filter_selectboxs {
+  float: left;
+  width: 100%;
+}
+.filter_selectboxs  .checkbox_1{
+    float: left;
+}
+.filter_selectboxs  label{
+    float: left;
+    white-space: nowrap;
+}
+.filter_selectboxs  .p-field-checkbox {
+  float: left;
+  margin-right: 2px;
+  margin-bottom: 5px;
+  width: 48%;
+}
+.statusListcont {
+  max-height: 200px;
+  overflow: visible;
+}

@@ -1,0 +1,193 @@
+<div class="learning-training">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-4 col-md-4">
+        <div class="calendar-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="month">
+                <ul>
+                  <li class="prev" (click)="prev()">
+                    <button class="btn btn-primary">&#10094;</button>
+                  </li>
+                  <li class="next" (click)="next()">
+                    <button class="btn btn-primary">&#10095;</button>
+                  </li>
+                  <li>
+                    <span>{{ ListDate[0].date | date: "MMMM yyyy" }}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <ul class="weekdays">
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+                <li>Sun</li>
+              </ul>
+
+              <ul class="days">
+                <li *ngFor="let item of emptyDays"></li>
+                <li
+                  *ngFor="let item of ListDate"
+                  (click)="SortbyDate(item.date)"
+                  [ngClass]="
+                    item.date == todate
+                      ? 'active'
+                      : item.active
+                      ? 'courseActive'
+                      : ''
+                  "
+                  title="{{ item.courseName }}"
+                >
+                  {{ item.date | date: "dd" }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8 col-md-8">
+        <div class="row m-0 p-0 p-b-3">
+          <div class="col-8 pageTitle">
+            <h4>Enroll Trainings</h4>
+          </div>
+          <div class="col-4 text-right">
+            <a routerLink="/associate-learning" class="bak_dashboard"
+              >Back to Dashboard</a
+            >
+          </div>
+        </div>
+
+        <div class="card p-2">
+          <div class="card-body cource_select">
+            <form class="row">
+              <div class="col-4">
+                <label for="selectCourse" class="form-label"
+                  >Select Course</label
+                ><br />
+                <select
+                  class="sow_list mt-1"
+                  id="selectCourse"
+                  name="type"
+                  [(ngModel)]="type"
+                  (change)="ChangeType()"
+                >
+                  <option value="">--Select--</option>
+                  <option *ngFor="let item of ListType" value="{{ item }}">
+                    {{ item }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="col-4">
+                <label for="selectTrainer" class="form-label"
+                  >Mode of training</label
+                ><br />
+                <select
+                  class="sow_list mt-1"
+                  id="selectTrainer"
+                  name="trainigType"
+                  [(ngModel)]="trainigType"
+                  (change)="ChangeType()"
+                >
+                  <option value="">--Select--</option>
+                  <option *ngFor="let item of ListMode" value="{{ item }}">
+                    {{ item }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-4">
+                <label for="selectTrainer" class="form-label">Trainer</label
+                ><br />
+                <select
+                  class="sow_list mt-1"
+                  id="selectTrainer"
+                  name="trainigType"
+                  [(ngModel)]="trainer"
+                  (change)="ChangeType()"
+                >
+                  <option value="">--Select--</option>
+                  <option *ngFor="let item of TrainerList" value="{{ item }}">
+                    {{ item }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-2">
+                <button
+                  class="btn btn-warning clear_btn"
+                  *ngIf="filtered"
+                  (click)="clearFilter()"
+                >
+                  Clear
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="enroll-courses">
+          <div class="row">
+            <div
+              class="col-md-12 col-lg-12"
+              *ngFor="let item of ListOfCourse; let i = index"
+            >
+              <div class="card">
+                <div class="cardContent row">
+                  <div class="col-md-4">
+                    <figure>
+                      <img
+                      src="./assets/images/learning/course-logo2.png"
+                        alt=""
+                      />
+                    </figure>
+                  </div>
+
+                  <div class="courseInfo col-md-8">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <h3>{{ item.title }}</h3>
+                      </div>
+                    </div>
+                    <p>
+                      <strong>Trainer : </strong
+                      ><span class="text-danger">{{ item.trainer }} </span>
+                    </p>
+                    <p>
+                      <strong>Duration : </strong
+                      ><span class="text-danger">{{ item.duration }} Hour</span>
+                    </p>
+                    <p>
+                      <strong>Date & Time : </strong
+                      ><span
+                        >{{ item.date | date: "dd MMM yyyy" }} |
+                        {{ item.startTime | time24to12 }} -
+                        {{ item.endTime | time24to12 }}</span
+                      >
+                    </p>
+                    <p>
+                      <strong>Course Type : </strong
+                      ><span class="text-success">{{ item.courseType }}</span>
+                    </p>
+                    <div>
+                      <a
+                        *ngIf="item.status"
+                        (click)="EnrollClick(item.courseId, i)"
+                        class="btn btn-success"
+                      >
+                        Enroll Training
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+.go-center{
+    display: block;
+    margin: 0px auto;
+    width: 100px;
+    text-align: center;
+}
+.no-kpi-message{
+    background: #f1f1f1;
+    height: 50px;
+    border-radius: 100px;
+    padding-left:20px;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}
+.no-kpi-message p{
+    height: 50px;
+    line-height: 50px;
+    color: #888;
+    margin: 0px;
+}
+.no-kpi-message button{
+    height: 30px;
+    width: 100px;
+    border-radius: 100px;
+    line-height: 30px;
+    color: #ffffff;
+    margin: 0px;
+    background: #e6b617;
+    text-align:  center;
+    border: 0px;
+    position: absolute;
+    right: 20px;
+     font-size: 12px;
+    top: 10px;
+    letter-spacing: 0.03em;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    cursor: pointer;
+}
+.no-kpi-message button.assing-goals{
+    right: 25px;
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #71c285;
+    color: #ffffff;
+}
+.mail_txt{
+    color: #fb8181;
+    font-size: 12px;
+}

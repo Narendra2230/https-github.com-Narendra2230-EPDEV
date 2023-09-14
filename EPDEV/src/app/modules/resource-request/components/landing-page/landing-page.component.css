@@ -1,0 +1,19 @@
+.allRequest{
+    background: #f1f4fb;
+}
+
+.btn-newRequest{
+    color: #FFFFFF;
+    background: #E06969 !important;
+}
+
+.btn-newRequest:hover{
+    color: #EEEADE !important;
+    background: #E06969 !important;
+}
+
+@media screen and ( min-width:767px ) {
+    .allRequest{
+        padding-left: 52px;
+    }
+}

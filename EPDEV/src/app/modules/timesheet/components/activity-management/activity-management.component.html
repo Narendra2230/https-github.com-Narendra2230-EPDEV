@@ -1,0 +1,70 @@
+<div class="container ml-5 mt-4" style="width: 96%">
+  <div class="profileMain">
+    <div class="card bg-white">
+      <div class="card-body">
+        <div class="row m-0 p-0">
+          <div class="col-10">
+            <h4>Activity Management</h4>
+          </div>
+          <div class="col-2">
+            <button class="btn btn-success" (click)="popup='create'">
+              Add <i class="fa fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade createnrollCourse"
+  id="createnrollCourse"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  [ngClass]="popup == 'create' ? 'show d-block' : ''"
+>
+  <div class="modal-dialog modal-lg mt-5 pt-5">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Create New Activity</h3>
+        <i class="fa fa-times pointer" (click)="popup = ''"></i>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="courseFormGroup" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label for=""><span>Name</span></label>
+              <input
+                type="text"
+                formControlName="Name"
+                class="form-control"
+                placeholder="Activity Name"
+              />
+              <span
+                class="text-danger"
+                [ngClass]="
+                  !Name?.Name && (Name.touched || userSubmitted) ? 'd-block' : 'd-none'
+                "
+                *ngIf="Name.hasError('required')"
+              >
+                Please provide Name
+              </span>
+            </div>
+          </div>
+          <div class="row m-0 p-0">
+            <div class="text-right col-12">
+              <button type="button" class="btn btn-secondary btn-sm mr-2" (click)="popup = ''">
+                Close
+              </button>
+              <button type="submit" class="btn btn-danger btn-sm">
+                Save Activity
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

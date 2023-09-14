@@ -1,0 +1,360 @@
+{
+  "personalInfo": [
+    {
+      "key": "firstName",
+      "validations": ["required"]
+    },
+    {
+      "key": "lastName",
+      "validations": ["required"]
+    },
+    {
+      "key": "emailAddress",
+      "validations": ["required"]
+    },
+    {
+      "key": "phoneNumber",
+      "validations": ["required"]
+    },
+    {
+      "key": "dateofBirth",
+      "validations": ["required"]
+    },
+    {
+      "key": "gender",
+      "validations": ["required"]
+    },
+    {
+      "key": "martialStatus",
+      "validations": ["required"]
+    },
+    {
+      "key": "bloodGroup",
+      "validations": ["required"]
+    },
+    {
+      "key": "nationality",
+      "validations": ["required"]
+    },
+    {
+      "key": "primarySkillSet",
+      "validations": ["required"]
+    },
+    {
+      "key": "secondarySkillSet",
+      "validations": ["required"]
+    },
+    {
+      "key": "personalEmail",
+      "validations": ["required"]
+    },
+    {
+      "key": "profile_Picture",
+      "validations": ["required"]
+    },
+    {
+      "key": "resumePath",
+      "validations": ["required"]
+    }
+  ],
+
+  "government": [
+   
+  ],
+  "dependent": [
+    {
+      "key": "fatherName",
+      "validations": ["required"]
+    },
+    {
+      "key": "motherName",
+      "validations": ["required"]
+    }
+  ],
+
+  "onboarding": [
+    {
+      "key": "gender",
+      "validations": ["required"]
+    },
+    {
+      "key": "ssn",
+      "validations": ["required"]
+    },
+    {
+      "key": "designationId",
+      "validations": ["required"]
+    },
+    {
+      "key": "Company",
+      "validations": ["required"]
+    },
+    {
+      "key": "associateId",
+      "validations": ["required"]
+    },
+    {
+      "key": "location",
+      "validations": ["required"]
+    },
+
+    {
+      "key": "EmploymentType",
+      "validations": ["required"]
+    },
+    {
+      "key": "firstName",
+      "validations": ["required"]
+    },
+    
+    {
+      "key": "lastName",
+      "validations": ["required"]
+    },
+    {
+      "key": "experience",
+      "validations": ["required"]
+    },
+    {
+      "key": "email",
+      "validations": ["required"]
+    },
+    {
+      "key": "subLocation",
+      "validations": ["required"]
+    },
+    {
+      "key": "dateOfJoining",
+      "validations": ["required"]
+    },
+    {
+      "key": "btuId",
+      "validations": ["required"]
+    },
+    {
+      "key": "probitionStatus",
+      "validations": ["required"]
+    },
+    {
+      "key": "designation",
+      "validations": ["required"]
+    },
+    {
+      "key": "EPAccessRole",
+      "validations": ["required"]
+    },
+    {
+      "key": "reportingMgrId",
+      "validations": ["required"]
+    },
+    {
+      "key": "buddy",
+      "validations": ["required"]
+    },
+    
+    {
+      "key": "primarySkill",
+      "validations": ["required"]
+    },
+    {
+      "key": "payType",
+      "validations": ["required"]
+    },
+    
+    {
+      "key": "Currencies",
+      "validations": ["required"]
+    },
+    {
+      "key": "annualBasePay",
+      "validations": ["required"]
+    },
+    {
+      "key": "effectiveFrom",
+      "validations": ["required"]
+    }
+  ],
+
+  "compensation": [
+    {
+      "key": "payType",
+      "validations": ["required"]
+    },
+    {
+      "key": "currency",
+      "validations": ["required"]
+    },
+    {
+      "key": "salary",
+      "validations": ["required"]
+    },
+       {
+      "key": "effectiveFrom",
+      "validations": ["required"]
+    },
+    {
+      "key": "annualBasePay",
+      "validations": ["required"]
+    }
+  ],
+  "Emergency": [
+    {
+      "key": "emContactPerson",
+      "validations": ["required"]
+    },
+    {
+      "key": "emContactNumber1",
+      "validations": ["required"]
+    },
+    {
+      "key": "emContactNumber2",
+      "validations": ["required"]
+    },
+    {
+      "key": "emContactRelation",
+      "validations": ["required"]
+    }
+  ],
+  "Presentaddress": [
+    {
+      "key": "pres_AddressLine1",
+      "validations": ["required"]
+    },
+      {
+      "key": "pres_City",
+      "validations": ["required"]
+    },
+    {
+      "key": "pres_State",
+      "validations": ["required"]
+    },
+    {
+      "key": "pres_ZIPCode",
+      "validations": ["required"]
+    }
+  ],
+  "Permanentaddress": [
+    {
+      "key": "perm_AddressLine1",
+      "validations": ["required"]
+    },
+    {
+      "key": "perm_City",
+      "validations": ["required"]
+    },
+    {
+      "key": "perm_State",
+      "validations": ["required"]
+    },
+    {
+      "key": "perm_ZIPCode",
+      "validations": ["required"]
+    }
+  ],
+  "qualification": [
+    {
+      "key": "highQualification",
+      "validations": ["required"]
+    },
+    {
+      "key": "qualificationYear",
+      "validations": ["required"]
+    },
+    {
+      "key": "institute",
+      "validations": ["required"]
+    },
+    {
+      "key": "university",
+      "validations": ["required"]
+    }
+  ],
+  "academic": [
+    {
+      "key": "percentage_10th",
+      "validations": ["required"]
+    },
+    {
+      "key": "percentage_12th",
+      "validations": ["required"]
+    },
+    {
+      "key": "percentage_Degree",
+      "validations": ["required"]
+    }   
+  ],
+  "Certificate": [
+    {
+      "key": "certificateName",
+      "validations": ["required"]
+    },
+    {
+      "key": "institutionName",
+      "validations": ["required"]
+    },
+    {
+      "key": "grade",
+      "validations": ["required"]
+    },
+    {
+      "key": "certifiedOn",
+      "validations": ["required"]
+    },
+    {
+      "key": "valid_Upto",
+      "validations": ["required"]
+    }
+  ],
+  "Employeement": [
+    {
+      "key": "organization_Name",
+      "validations": ["required"]
+    },
+    {
+      "key": "designation",
+      "validations": ["required"]
+    },
+    {
+      "key": "from_Date",
+      "validations": ["required"]
+    },
+    {
+      "key": "to_Date",
+      "validations": ["required"]
+    },
+    {
+      "key": "reference_Name",
+      "validations": ["required"]
+    },
+    {
+      "key": "reference_Contact",
+      "validations": ["required"]
+    }
+  ],
+  "visa": [
+    {
+      "key": "permittedCountries",
+      "validations": ["required"]
+    },
+    {
+      "key": "visaType",
+      "validations": ["required"]
+    },
+    {
+      "key": "validFrom",
+      "validations": ["required"]
+    },
+    {
+      "key": "validTo",
+      "validations": ["required"]
+    },
+    {
+      "key": "sponsoredBy",
+      "validations": ["required"]
+    },
+    {
+      "key": "num_Of_Entries",
+      "validations": ["required"]
+    }
+  ]
+}

@@ -1,0 +1,2432 @@
+[
+  {
+    "field": "firstName",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "middleName",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "lastName",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "emailAddress",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "dateofWedding",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "dateofJoining",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "phoneNumber",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "dateofBirth",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "gender",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "martialStatus",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "BLOODGROUP",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "nationality",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "primarySkillSet",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT","VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "secondarySkillSet",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "personalEmail",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "homePhoneNumber",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "extNumber",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "resumePath",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "profile_Picture",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "voterId",
+    "showTo": ["INDIA"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "aadharNo",
+    "showTo": ["INDIA"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "nameAsPerAadhar",
+    "showTo": ["INDIA"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "aadharFilePath",
+    "showTo": ["INDIA"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "passportExpiryDate",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "passportNumber",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "uanNumber",
+    "showTo": ["US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "panCardNo",
+    "showTo": ["INDIA"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "fatherName",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "motherName",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "fatherDOB",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "motherDOB",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "spouceName",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "spouceDOB",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "child1Name",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "child1DOB",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "child2Name",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "child2DOB",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "empAssociateInfo",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "associateId",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "buname",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "sbuname",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "trackname",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "designatioN_NAME",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "employmenT_TYPE",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "rolE_NAME",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "reporT_MANAGER_NAME",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "firstName",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "band",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "banD_NAME",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "next_Appraisal_Date",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "companY_NAME",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "experience",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "companY_NAME",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "emP_GROUP_NAME",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "emContactPerson",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "emContactNumber1",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "emContactNumber2",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "linkdlnId",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "emContactRelation",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "pres_AddressLine1",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "pres_AddressLine2",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "pres_City",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "pres_State",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "pres_ZIPCode",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "perm_AddressLine1",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "perm_AddressLine2",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "perm_City",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "perm_State",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "perm_ZIPCode",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "highQualification",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "percentage_Masters",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "qualificationYear",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "institute",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "university",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "percentage_10th",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "percentage_12th",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "percentage_Degree",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "certificateName",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "institutionName",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "grade",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "certifiedOn",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "valid_Upto",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "organization_Name",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "designation",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "from_Date",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "to_Date",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "reference_Name",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "reference_Contact",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "associateId",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "track",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "designation_Id",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "employmentTypeID",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "location",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "subLocations",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "Company",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "employeeGroup",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "report_Manager_Id",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "fManager",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "band",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "buddyId",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "companY_NAME",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "experience",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "btuId",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "probitionStatus",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "practiceLeadId",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "SSN",
+    "showTo": ["US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT","VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  
+  {
+    "field": "lcaAssociateId",
+    "showTo": ["US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "payType",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "currency",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "salary",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "ogpb",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "annualBasePay",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "monthlyBasePay",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "monthlyOGPB",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "hourlyRate",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "joiningBonus",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+  {
+    "field": "effectiveFrom",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "effectiveFrom",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "ifscCode",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "accountType",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "permittedCountries",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "visaType",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "validFrom",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+
+  {
+    "field": "validTo",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "sponsoredBy",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "num_Of_Entries",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "licence_Num",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "valid_Countries",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "validFrom",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  },
+
+  {
+    "field": "validThrough",
+    "showTo": ["INDIA", "US"],
+    "pemissions": [
+      {
+        "role": "MANAGER",
+        "actions": ["VIEW"]
+      },
+      {
+        "role": "USER",
+        "actions": ["EDIT", "VIEW"]
+      },
+      {
+        "role": "HR",
+        "actions": ["EDIT", "VIEW"]
+      }
+    ]
+  }
+]

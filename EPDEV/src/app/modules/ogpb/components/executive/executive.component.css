@@ -1,0 +1,42 @@
+
+.card-header{
+    background: #878787 0% 0% no-repeat padding-box;border: 1px solid #7E7E7E;
+    opacity: 1;color: #FFFFFF !important;padding: 1.8%;cursor: pointer;border-radius: 0px !important;
+} 
+.executive_table_in ul{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;padding:5px 15px;cursor:pointer;border-bottom:1px solid #f1ebeb}
+.executive_table_in ul.heading{margin-bottom:10px}
+.executive_table_in ul.heading li{color:#707070;font-family:'latobold'}
+.executive_table_in ul li{font-size:12px;line-height:20px;letter-spacing:normal;color:#4a4a4a;font-family:'latoregular';text-align:left;width:15%}
+.executive_table_in ul li:nth-child(7){width:30%}
+.executive_table_in ul li:last-child .fa{font-size:20px;margin-right:20px}
+.executive_table_in ul.goals_body_content:hover{box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);background-color: #404e67b8;}
+.executive_table_in ul.goals_body_content:hover li{color:#fff}
+.goals_body{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;height:700px}
+.goals_body .fixed_body_scroll{width:100%}
+.executive_table_in ul.drag_info li:nth-child(1){width:69%}
+.executive_table_in ul.drag_info li{font-size:16px;color:#71c285;line-height:20px;width:7%;font-family:'latobold'}
+.executive_table_in ul.drag_info li{font-size:16px;color:#71c285;line-height:20px;width:7%;font-family:'latobold'} ul.drag_info li:first-child{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#000}
+.drag_info li span{color:#fff;background:#71c285;height:22px;width:22px;display:inline-block;text-align:center;line-height:22px;border-radius:3px;font-size:14px;margin-right:10px;vertical-align:middle}
+.executive_table_in ul.drag_info{background-color:#f9f9f9}
+.review{ font-size: 13px; margin-left: 15px;}
+.buName{float: left;}
+.sub_btn {
+    border: 2px solid #71c285;
+    border-radius: 21px;
+    letter-spacing: 0.5px;
+    color: #71c285;
+    text-transform: uppercase;
+    opacity: 1;
+    padding: 2px 10px;
+    font-size: 12px;
+    display: table;
+}
+.sub_btn:hover{
+    background: #71c285;
+    color: #fff;
+}
+    .mat-expansion-panel-header:not([aria-disabled=true]) {
+    cursor: pointer;
+    background: #757575;    margin-bottom: 2px;
+}
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused, .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused, .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover{background: #757575;}

@@ -1,0 +1,34 @@
+<div class="rating_comment_popup leaveBalance_popup">
+    <div class="submit_pop_dtl p-0">
+        <div class="d-flex popup-heading w-100 item-jc">
+            <h5 class="w-color"> Leave Balance</h5>
+
+            <span (click)="closePopup()" class="c-btn"> <img src="assets/images/leave/icon-close.png" alt=""> </span>
+        </div>
+        <div class="leave_history_table">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col" style="text-align: center;">Leave Balance</th>
+                        <th scope="col">From Date (mm-dd-yy)</th>
+                        <th scope="col">To Date (mm-dd-yy) </th>
+                        <th scope="col" style="text-align: center;">No.of Days Availed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let s of list; let i=index;">
+                        <td style="text-align: center;">{{s.leaveBalance}}</td>
+                        <td>{{formatDate(s.fromDate)}}</td>
+                        <td>{{formatDate(s.toDate)}}</td>
+                        <td style="text-align: center;">{{s.noOfDaysAvailed}}</td>
+                    </tr>
+                </tbody>
+            </table>
+           <!-- <div class="leavebalance_note"><b>Note:</b> In publishing and graphic design, Lorem ipsum is a placeholder text commonly</div>-->
+        </div>
+         <div class="leave_note"><span class="Leave_bal_note">Note :</span><span class="Leave_bal_note_cont"> The leave balance & credit information  will be displayed from the next date of releasing leave balance.</span></div> 
+        <!-- <button (click)="closePopup()"  class="cancel_btn" data-dismiss="modal" type="button">CANCEL</button> -->
+        <!-- <button (click)="yesRaise()"  type="button">YES</button> -->
+        <!-- data-dismiss="modal" data-target="#submitted_popup" data-toggle="modal" -->
+    </div>
+</div>

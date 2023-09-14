@@ -1,0 +1,64 @@
+#calander_c .ui-state-default {
+    font-size: 14px;
+    color: #333333;
+    background: red !important;
+    padding: 0.429em;
+    border: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 300px !important;
+    display: table;
+}
+.w-100{width:100%;display: table;}
+#calander_c .ui-state-default input{width: 300px !important; display: table;}
+span.ui-calendar{width: 300px !important;}
+.ui-inputtext{width: 300px !important;}
+.apply-btn{
+    width: 25px;
+    height: 35px;
+    line-height: 58px;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #009688;
+    border: none;
+    background: #fff;
+    font-size: 14px;
+}
+.cancel-btn{
+    height: 35px;
+    line-height: 58px;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #009688;
+    border: none;
+    background: #fff;
+    font-size: 14px;
+}
+
+.globe_date{
+    font-size: 12px !important;
+    background: #fafafa !important;
+    padding: 0px !important;
+    border: none !important;
+}
+.timeshet-date{
+    display: inline-block;
+    position: relative;
+    top: -5px;
+}
+.timeshet-date-refresh{
+    color: #71c285;
+}
+
+.tive.ui-state-active {
+    color: #ffffff;
+    background-color: #71c285 !important;
+    border-radius: 25px;
+    height: 30px;
+}

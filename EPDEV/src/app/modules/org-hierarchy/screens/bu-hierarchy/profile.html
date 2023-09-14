@@ -1,0 +1,44 @@
+<div id="{{modelId}}" class="modal fade" role="dialog" *ngIf="profileData && profileData.length != 0 ">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content {{modelBorderData}}">
+      <button type="button" class="close close_model" data-dismiss="modal">&times;</button>
+      <div class="modal-body">
+        <div class="col-12">
+          <div *ngIf="profileData.designation" class="designation">{{profileData.designation}}</div>
+        </div>
+        <div class="model-profile-data">
+          <div class="image-div">
+            <img *ngIf="profileData.imageUrl" src="{{profileData.imageUrl}}" align="profile pic"
+              class="ticket_image model_image">
+            <img *ngIf="!profileData.imageUrl" src="assets/images/org/emp-logo.png" align="profile pic"
+              class="ticket_image model_image">
+          </div>
+          <div class="content-div">
+            <div class="detail-each">
+              <span *ngIf="profileData.firstName">{{profileData.firstName}}</span>&nbsp;
+              <span *ngIf="profileData.lastName">{{profileData.lastName}}</span>
+            </div>
+            <div class="detail-each">
+              Phone : <span *ngIf="profileData.phoneNumber">{{profileData.phoneNumber}}</span>
+            </div>
+            <div class="detail-each">
+              Email : <span *ngIf="profileData.emailAddress" class="email">{{profileData.emailAddress}}</span>
+            </div>
+            <div class="detail-each">
+              Business Unit : <span *ngIf="profileData.businessUnit">{{profileData.businessUnit}}</span>
+            </div>
+            <div class="detail-each">
+              Sub-BU : <span *ngIf="profileData.subBusinessUnit">{{profileData.subBusinessUnit}}</span>
+            </div>
+            <div class="detail-each">
+              Track : <span *ngIf="profileData.track">{{profileData.track}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

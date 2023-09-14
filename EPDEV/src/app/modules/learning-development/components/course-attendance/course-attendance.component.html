@@ -1,0 +1,51 @@
+<div class="learning-training">
+  <div class="container">
+    <div class="row m-0 p-0 p-b-3">
+      <div class="col-8 pageTitle">
+        <h4>Attendance</h4>
+      </div>
+      <div class="col-4 text-right">
+        <a routerLink="/admin-learning" class="bak_dashboard"
+          >Back to Dashboard</a
+        >
+      </div>
+    </div>
+
+    <div class="">
+      <div class="card p-2">
+        <div class="card-body" *ngIf="EnrolledEmployees.length > 0">
+          <div class="row m-0 p-0">
+            <div class="col-9">
+              <h2>{{ EnrolledEmployees[0]?.courseName }}</h2>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-success" (click)="markedAttendance()">
+                Update
+              </button>
+              <button class="btn_1 excel_export" (click)="exportDataAsExcel()">
+                Excel Format
+              </button>
+            </div>
+          </div>
+          <mat-progress-bar
+            *ngIf="loading"
+            mode="indeterminate"
+          ></mat-progress-bar>
+          <ag-grid-angular
+            style="width: 100%; height: 500px"
+            class="ag-theme-material"
+            [rowData]="displayedRowData"
+            [columnDefs]="displayedColumnDefs"
+            [frameworkComponents]="frameworkComponents"
+            pagination="true"
+            (gridReady)="onGridReady($event)"
+          >
+          </ag-grid-angular>
+        </div>
+        <div class="card-body" *ngIf="EnrolledEmployees.length == 0">
+          <div class="p-5 text-center">Data is not available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

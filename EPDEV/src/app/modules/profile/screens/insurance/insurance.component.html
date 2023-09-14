@@ -1,0 +1,337 @@
+<div *ngIf="!isUSEmp" class="time_sheet profileSheet">
+  <!-- breadcrumb_list -->
+  <div class="breadcrumb_list">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+      <li class="breadcrumb-item"><a href="/modules/#/profile-landing">Profile</a></li>
+      <li class="breadcrumb-item"><a href="javascript:void(0)">Insurance</a></li>
+    </ol>
+  </div>
+  <!-- breadcrumb_list-End-->
+
+  <!-- time_sheet_heading -->
+  <div class="time_sheet_heading row pad-3">
+    <div class="profileInnerHead d-flex justify-content-center align-items-center">
+      <div class="profileImage">
+        <img src="assets/images/insurance/medical-insurance.svg" alt="insurance" />
+      </div>
+      <h4>Insurance</h4>
+      <div class="backProfile">
+        <a [routerLink]="getRout()">
+          Back to list
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- time_sheet_heading-End-->
+
+  <div class="profileFullInfo">
+    <div class="profileFullInfoIn">
+      <div class="profileHeadNav">
+        <ul class="d-flex justify-content-start">
+          <li class="active"><a href="javascript:void(0)">Insurance</a></li>
+        </ul>
+      </div>
+      <div>
+        <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+      </div>
+      <div class="profileNavCont" *ngFor="let insurance of eMPInsuranceInfo">
+        <div class="peronalCont">
+          <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+            <h4>{{ insurance.membersName }} Insurance Details</h4>
+          </div>
+          <div class="personalContForm">
+            <ul class="d-flex justify-content-between flex-wrap">
+              <li>
+                <label>TPA ID</label>
+                <input [(ngModel)]="insurance.tpaMediAssId" type="text" name="text" readonly />
+              </li>
+              <li>
+                <label>Member Name</label>
+                <input [(ngModel)]="insurance.membersName" type="text" name="text" readonly />
+              </li>
+              <li>
+                <label>Insurance Company</label>
+                <input [(ngModel)]="insurance.insuranceCompany" type="text" name="text" readonly />
+              </li>
+              <li>
+                <label>Relationship</label>
+                <input [(ngModel)]="insurance.relationship" type="text" name="text" readonly />
+              </li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isUSEmp" class="time_sheet profileSheet">
+  <!-- breadcrumb_list -->
+  <div class="breadcrumb_list">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+      <li class="breadcrumb-item"><a href="/modules/#/profile-landing">Profile</a></li>
+      <li class="breadcrumb-item"><a href="javascript:void(0)">Insurance</a></li>
+    </ol>
+  </div>
+  <!-- breadcrumb_list-End-->
+
+  <!-- time_sheet_heading -->
+  <div class="time_sheet_heading row pad-3">
+    <div class="profileInnerHead d-flex justify-content-center align-items-center">
+      <div class="profileImage">
+        <img src="assets/images/insurance/medical-insurance.svg" alt="insurance" />
+      </div>
+      <h4>Insurance</h4>
+      <div class="backProfile">
+        <a [routerLink]="getRout()">
+          Back to list
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- time_sheet_heading-End-->
+
+  <div class="profileFullInfo">
+    <div class="profileFullInfoIn">
+      <div class="profileHeadNav">
+        <ul class="d-flex justify-content-start">
+          <li class="active"><a href="javascript:void(0)">Insurance Information</a></li>
+        </ul>
+      </div>
+      <div class="profileNavCont">
+        <div class="peronalCont">
+          <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+            <h4>Insurance</h4>
+          </div>
+          <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+          <div class="personalContForm">
+            <div class="insblock">
+              <div class="insblock-top">
+                <ul class="Enrollment insurance_grid">
+                  <li>
+                    <label class="label">Enroll For Insurance</label>
+                    <div class="yesno">
+                      <label>yes</label>
+                      <label class="switch">
+                        <input [attr.checked]="contentEditable" (change)="enrollment1($event)" type="checkbox" />
+                        <span class="slider round"></span>
+                      </label>
+                      <label>no</label>
+                    </div>
+                  </li>
+                  <li></li>
+                </ul>
+                <div *ngIf="contentEditable" style="display: block" class="medical-waiver-form">
+                  <div class="title">Medical Waiver Form</div>
+                  <div class="mwf-body">
+                    <div class="note">
+                      I would like to decline coverage for: Employee, Spouse,
+                      Dependent children, Spouse and children Reason for
+                      declining coverage:
+                    </div>
+                    <ul class="mwform-fields d-flex justify-content-between flex-wrap">
+                      <li>
+                        <label>Reason for declining</label>
+                        <input [(ngModel)]="empInsuWaiverDtls.decliningReason" type="text" name="text" placeholder="" />
+                      </li>
+                      <li>
+                        <label>Covered by spouse’s group coverage:</label>
+                        <input [(ngModel)]="empInsuWaiverDtls.groupCarrierName" type="text" name="text"
+                          placeholder="" />
+                      </li>
+                      <li>
+                        <label>I.D. number:</label>
+                        <input [(ngModel)]="empInsuWaiverDtls.groupIDNumber" type="text" name="text" placeholder="" />
+                      </li>
+                      <li>
+                        <label>Enrolled in any other insurance carrier plan:</label>
+                        <input [(ngModel)]="empInsuWaiverDtls.otherCarrierName" type="text" name="text"
+                          placeholder="" />
+                      </li>
+                      <li>
+                        <label>Military, Medicare, Other (Explain):</label>
+                        <input [(ngModel)]="empInsuWaiverDtls.explanation" type="text" name="text" placeholder="" />
+                      </li>
+                      <li></li>
+                    </ul>
+                    <div class="content">
+                      <p>
+                        I acknowledge that the available coverage has been
+                        explained to me by my employer and I understand that I
+                        have every right to apply for coverage. I have been
+                        provided the opportunity to apply for this coverage and
+                        I have declined to enroll myself and/or my dependent(s),
+                        if any. I have made this decision voluntarily.
+                      </p>
+                      <p>
+                        <strong>BY DECLINING THIS GROUP HEALTH COVERAGE (UNLESS
+                          EMPLOYEE AND/OR DEPENDENTS HAVE GROUP HEALTH COVERAGE
+                          ELSEWHERE), I ACKNOWLEDGE IF WE APPLY FOR COVERAGE
+                          AFTER OUR ORGINAL ELIGIBLITY DATE FOR THIS INSURANCE,
+                          MY DEPENDENT(S) AND I MAY BE CONSIDERED LATE
+                          ENTRANT(S) AND THEREFORE NOT ELIGIBLE UNTIL THE NEXT
+                          OPEN ENROLLMENT.</strong>
+                      </p>
+                      <label class="sm-title">You will not be considered a late enrollee if:</label>
+                      <ul>
+                        <li>
+                          1. You or your waiving Dependents were covered under
+                          another health plan at the time of this waiver; and
+                          you execute this form at the time of waiving coverage;
+                          <ul>
+                            <li>
+                              a. You have lost coverage under another health
+                              plan as a result of: I) termination of employment;
+                              II) change in employment status; III) termination
+                              of the other plan's coverage; IV) cessation of an
+                              employer's premium contribution toward an
+                              employee's or dependent’s coverage; or death of
+                              the individual through which the waiving
+                              individual
+                            </li>
+                            <li>
+                              b. You request enrollment within 30 days after
+                              termination of coverage or Employer
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          2. A court orders coverage be provided for a spouse or
+                          child of an insured Employee and request for
+                          enrollment under this plan is made within 30 days of
+                          the issuance of the court order; or,
+                        </li>
+                        <li>
+                          3. He or she is employed by an Employer that offers
+                          multiple health plans and the Employee elects a
+                          different plan during an open enrollment period.
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="mwf-bottom">
+                      <div class="check-field">
+                        <input type="checkbox" name="checkbox" [(ngModel)]="empInsuWaiverDtls.termsAccepted" />
+                        <label>I am here with declining to subscribe to the health
+                          insurance provided by Sunera Technologies Inc.</label>
+                      </div>
+                      <!-- <button (click)="PostEmpInsuWaiverDtls()">Save</button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!contentEditable" class="insurence_inner edit_plan_grid">
+                <div class="insblock" *ngFor="let c of eMPInsuranceInfo; let mainIndex = index">
+                  <div class="insblock-top">
+                    <div class="insblock">
+                      <div class="insblock-top" >
+                        <ul class="Enrollment">
+                          <li>
+                            <label class="label">Enroll in {{c.insuranceType}} Insurance</label>
+                            <div class="yesno">
+                              <label>yes</label>
+                              <label class="switch">
+                                <input [checked]="c.enabled" (change)="enrollment($event,mainIndex)" type="checkbox" />
+                                <span class="slider round"></span>
+                              </label>
+                              <label>no</label>
+                            </div>
+                          </li>
+                          <li></li>
+                        </ul>
+                      </div>
+                      <ul *ngIf="!c.enabled" class="choose">
+                        <li class="">
+                          <label>Choose an Option</label>
+                          <div class="clear">
+                            <div class="checkboxs" *ngFor="
+                            let cc of c.insurancePlans;
+                            let secondIndex = index
+                          ">
+                              <div class="plan-checkbox" (click)="
+                              selectPlan(cc.planName, mainIndex, secondIndex)
+                            " [ngClass]="
+                              cc.selectedPlan == true ? 'plan-active' : 'fff'
+                            ">
+                                <label for="fir_plan">Plan : {{ cc.planName }}</label>
+                              </div>
+                            </div>
+                            <!-- <div class="plan-checkbox margin-less">
+                          <label for="fir_plan2">Plan : HSA - option - 8</label>
+                        </div> -->
+                          </div>
+                        </li>
+                        <li></li>
+                      </ul>
+                    </div>
+
+                    <div *ngIf="!c.enabled" style="margin-top: 20px" class="insblock-bottom">
+                      <div class="top-tite">
+                        Plan Details
+                       <!-- <a href="javascript:void(0)"> Benefit Summary :
+                          <img src="assets/images/onboarding/download.svg" /></a> -->
+                      </div>
+                      <div class="insblockb-sec">
+                        <ul>
+                          <li>
+                            <img src="assets/images/insurance/medical-insurance.svg" alt="insurance" />
+                            <strong>{{ c.insuranceType }}</strong>
+                          </li>
+                          <li *ngFor="
+                            let emp of getInsurenceempBenDtls(mainIndex);
+                            let ii = index
+                          ">
+                            <div class="box" (click)="selectOption(mainIndex, ii)" [ngClass]="
+                              emp.selectedOption == true ? 'plan-active' : 'fff'
+                            ">
+                              <!-- <input
+                            type="radio"
+                            id="fir_planopton"
+                            name="fir_planopton"
+                          /> -->
+                              <label for="fir_planopton">{{ emp.benificiary }} : $
+                                {{ emp.premium }}</label>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+
+              <div class="container policy_form" >
+                <div class="row">
+                  <div class="col-sm-4 row policy">
+                    <div class="col-sm-6"> <a href="https://ep.suneratech.com/Content/Insurance/BenfitSummary-opt6.pdf" target="_blank">Medical Opt-6</a> </div>
+                    <div class="col-sm-6"> <a href="https://ep.suneratech.com/Content/Insurance/BenfitSummaryOpt-8.pdf" target="_blank">Medical Opt-8</a> </div>
+                  </div>
+                  <div class="col-sm-4 row policy">
+                    <div class="col-sm-5">  <a href="https://ep.suneratech.com/Content/Insurance/DentalOrtho.pdf" target="_blank">Dental Ortho</a> </div>
+                    <div class="col-sm-5">  <a href="https://ep.suneratech.com/Content/Insurance/DentalPPO.pdf" target="_blank">Dental PPO</a></div>
+                  </div>
+                  <div class="col-sm-3 row policy">
+                   <div class="col-xs-6">  <a href="https://ep.suneratech.com/Content/Insurance/Vision.pdf" target="_blank">Vision Benefit Summary</a> </div>
+                </div>
+                </div>
+              </div>
+
+              <h4>Enrollment & Waiver form's</h4>
+              
+              <div class="enrollment_form" style="margin-top: 25px;">
+                
+                <a href="https://ep.suneratech.com/Content/Insurance/BCBS_Employee_EnrollmentForm_Template.pdf" target="_blank">InsuranceEnrollmentForm</a>
+                <a href="https://ep.suneratech.com/Content/Insurance/UHC_Employee_P_062110.pdf" target="_blank">InsuranceEnrollmentFormUHC</a>
+                <a href="https://ep.suneratech.com/Content/Insurance/BCBS_Employee_WaiverForm_Template.pdf" target="_blank">InsuranceWaiverForm</a>
+                <a href="https://ep.suneratech.com/Content/Insurance/LifeCoverage.pdf" target="_blank">Life Coverage</a>
+               </div>
+              <button (click)="save()" class="insurance_btn" style="margin-top: 50px;margin-bottom: 40px;">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

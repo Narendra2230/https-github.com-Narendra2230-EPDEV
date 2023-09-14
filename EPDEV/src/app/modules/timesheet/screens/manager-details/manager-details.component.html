@@ -1,0 +1,52 @@
+<div class="time_sheet performance_evaluation manager_evaluation" [ngClass]="isHideEle ? 'view-only-emp-details' : ''">
+    <div class="fixed_header">
+        <!-- breadcrumb_list-End-->
+        <div class="breadcrumb_list">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="http://epstaging.suneratech.com/Home/Dashboard">Home</a></li>
+                <li class="breadcrumb-item"><a href="http://epstaging.suneratech.com/modules/ogpb/#/timesheet">Timesheet</a></li>
+                <li class="breadcrumb-item"><a href="http://epstaging.suneratech.com/modules/ogpb/#/timesheet-team">Associate Details</a></li>
+            </ol>
+        </div>
+        <!-- breadcrumb_list-End-->
+    </div>
+    <div class="employee_profile mngr_profile row">
+       <app-manager-profile [managerData]="managerData"></app-manager-profile>
+        <div class="mngr_date_select">
+            <div class="mngr_dt_selected" *ngIf="!isHideEle">
+                <!-- Select Date :<p>26/02/19</p> 
+            <app-global-date (reset)="resetDates($event)" *ngIf="!isLoading"   [globalDateRange]="globalDateRange" (onGlobalDateChange)="onGlobalDateChange($event)"></app-global-date>
+                -->
+            </div>
+        </div>
+        <div class="profile_back">
+            <a href="javascript:void()" (click)="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+        </div>
+    </div>
+    <div class="mng_details_timesheet">                                
+        <app-mng-details-timesheet [isHideEle]="isHideEle" #timesheetAssociateDataCmpt [timesheetAssociateData]="timesheetAssociateData"></app-mng-details-timesheet>
+    </div>
+   
+    <div class="timesheet_option manger_option">
+        <div class="row">
+            <!-- <app-timesheet-option></app-timesheet-option> -->
+            <div class="col text-right">
+                <div class="time_btns" *ngIf="!isHideEle">
+                    <ul>
+                        <li><input (click)="goBack()" type="button" name="button" value="CANCEL"></li>
+                        <li><input (click)="reject()" type="button" name="button" value="REJECT"></li>
+                        <li class="submit" (click)="onSubmit()" ><input type="button" name="button" value="APPROVE"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p-confirmDialog  header="Confirmation" appendTo="body"></p-confirmDialog>
+
+<p-toast></p-toast>
+<p-dialog appendTo="body" header="REJECT COMMENTS" modal="true" [(visible)]="display" position="center">
+    <p style="color: red;" *ngIf="isRCmtError">Reject comments are mandatory</p>
+    <textarea [(ngModel)]="rejectComments" class="reject_popup"></textarea><br/>
+    <button (click)="rejectsubmit()" class="reject_btn">Submit</button>
+ </p-dialog>

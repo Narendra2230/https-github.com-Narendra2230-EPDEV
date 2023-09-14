@@ -1,0 +1,33 @@
+<div class="time_sheet_heading row pofileHeading">
+    <div class="toogle_slide col-4">
+        <ul>
+            <!-- <li>
+                <span>ME</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <span class="unchecked">Associates</span>
+            </li> -->
+            <li *ngIf="isManager && !userType">
+                <span [ngClass]="!checked ?'active':'unchecked'">ME</span>
+                <mat-slide-toggle  [disabled]="!isManager"  [checked]="checked" (change)="onChageTeam($event)" ></mat-slide-toggle>
+                <span  [ngClass]="checked?'active':'unchecked'">TEAM</span>
+            </li>
+            <li>&nbsp;</li>
+        </ul>
+    </div>
+    <div class="col-4 text-center">
+        <h4>{{headingText}}</h4>
+    </div>
+    <div class="col-4 "  *ngIf="userType">
+        <div class="backProfile">
+            <a routerLink="{{backurl}}">
+                Back to list
+            </a>
+        </div>
+    </div>
+
+
+   
+</div>

@@ -1,0 +1,53 @@
+<div class="card-header">
+  <h4>{{CourseName}}</h4>
+</div>
+<div class="card-body">
+  <div *ngFor="let item of QuestionList; let i = index">
+    <h4>
+      {{ i + 1 }} - {{ item.question }}
+      <span *ngIf="item.question.includes('Overall')">{{ Trainer }}</span>
+    </h4>
+    <div *ngIf="!isSubmitted">
+      <div class="d-flex m-3" *ngIf="item.type == 'Rating'">
+        <i
+        class="fa fa-star"
+        *ngFor="let num of [1, 2, 3, 4, 5]"
+        [ngClass]="item.answer >= num ? 'active' : ''"
+        (click)="item.answer = num"
+        ></i>
+      </div>
+      <div class="m-3" *ngIf="item.type != 'Rating'">
+        <textarea class="form-control" [(ngModel)]="item.comment" [ngClass]="isSubmitted?'disabled':''"></textarea>
+      </div>
+    </div>
+    <div *ngIf="isSubmitted">
+      <div class="d-flex m-3" *ngIf="item.type == 'Rating'">
+        <i
+        class="fa fa-star"
+        *ngFor="let num of [1, 2, 3, 4, 5]"
+        [ngClass]="item.answer >= num ? 'active' : ''"
+        ></i>
+      </div>
+      <div class="m-3" *ngIf="item.type != 'Rating'">
+        <textarea class="form-control" [(ngModel)]="item.comment" disabled readonly></textarea>
+      </div>
+    </div>
+
+    <label class="text-danger mb-3" *ngIf="!item.valid && userSubmitted"
+      >Please provide the answer</label
+    >
+  </div>
+</div>
+<div class="card-footer">
+  <div class="text-right">
+    <button class="btn btn-default mr-2" (click)="CloseModal.emit()">Close</button>
+    <button
+    *ngIf="!isSubmitted"
+      class="btn btn-success"
+      (click)="submitReview()"
+      [ngClass]="userSubmittedBtn ? 'disabled' : ''"
+    >
+      Submit
+    </button>
+  </div>
+</div>

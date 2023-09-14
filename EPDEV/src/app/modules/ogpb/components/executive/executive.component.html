@@ -1,0 +1,76 @@
+    
+ <!-- <h4 *ngIf="GetExecutiveDetails [] " class="noKPI_txt">KPIs not available for this level & Group, Please share KPIs to EP team ASAP.</h4> -->
+    <div class="team_evaluation_details" >
+        <div class="team_emp_details" style="width: 100%;">
+           <div class="container">
+               <div class="row">
+                 <div class="col-md-12">
+                  <div *ngIf="isLoading" class="text-center">
+                    <app-preloader></app-preloader>
+                  </div> 
+                  <mat-accordion>
+                    <!-- <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Personal data
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                    </mat-expansion-panel> -->
+                    <mat-expansion-panel *ngFor="let ex_details of GetExecutiveDetails; let i = index"
+                     (opened)="panelOpenState = true"   (closed)="panelOpenState = false">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          <span class="col-md-11 buName" >
+                           <strong> {{ex_details['buName']}} </strong>  | <span class="review">Reviewed {{ex_details['buCount']}} </span>
+                           </span>
+                           <span > <span (click)="allSubmit(i)" class="sub_btn"> SUBMIT </span> </span>
+                        </mat-panel-title>
+                        <!-- <mat-panel-description>
+                          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                        </mat-panel-description> -->
+                      </mat-expansion-panel-header>
+                      <div class="goals_table_main">
+                        <div class="executive_table_in">
+                            <ul class="heading">
+                                <li>SI.No.</li>
+                                <li>Emp.id</li>
+                                <li>Emp.Name</li>
+                                <li>Associate Ratings</li>
+                                <li>Manager Ratings</li>
+                                <li>Your Ratings</li>
+                                <li>Comments</li>
+                                <li>Actions</li>
+                            </ul>
+                            
+                             <ul  *ngFor="let fed of ex_details['pMS_FInalEvaluationDetails']; let ii = index" class="goals_body_content">
+                               
+                              <li>{{fed['sNo']}}</li>
+                                <li>{{fed['emp_Id']}}</li>
+                                <li>{{fed['name']}} </li>
+                                <li>{{fed['associateWeightageRating']}}</li>
+                                <li>{{fed['managerWeightageRating']}}</li> 
+                                <li>
+                                  <label *ngIf="fed['isEdit']!==true">{{fed['approverWeightageRating']}}</label>
+                                  <input *ngIf="fed['isEdit']===true" [(ngModel)]="fed['approverWeightageRating']"/>
+                                  
+
+                                </li>
+                                <li>
+                                  <label *ngIf="fed['isEdit']!==true">{{fed['comment']}}</label>
+                                  <input *ngIf="fed['isEdit']===true" [(ngModel)]="fed['comment']"/>
+                                </li>
+                                <li>
+                                  <i (click)="edit(i,ii)" class="fa fa-pencil" aria-hidden="true"></i>
+                                </li>
+                            </ul>
+                         </div>
+                    </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                  
+                 </div>
+                   
+               </div>
+           </div>
+        </div>
+    </div>

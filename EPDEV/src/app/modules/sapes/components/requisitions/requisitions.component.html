@@ -1,0 +1,123 @@
+<div class="my_requstition">
+    <h5>Associate Assessment Form</h5>
+    <!-- isAPILoad -->
+
+    <div class="requstition_header">
+        <h5>Fill in your response below</h5> <img *ngIf="isAPILoad" class="width-50" src="assets/images/loading.gif" alt="loading">
+        <!-- <app-preloader   loderType="roller" ></app-preloader> -->
+    </div>
+    <app-preloader *ngIf="isLoade" class="go-center"></app-preloader>
+
+    <div class="rqstn_attr" *ngIf="!isLoade">
+        <div class="rqstn_attr_single" *ngFor="let req of pMS_EmpSelf_RequisitionKpiDetails; let i = index;">
+            <h6>{{req['kpiName']}}</h6>
+            <p></p>
+            <div class="rqstn_txtfield">
+                <textarea ngForm name="requisitions{{i}}" [disabled]="(!isCurrentQuarter || req.ass_cmt_disable || !isPersonal)"
+                    (keyup)="handleInputChange($event,'ASSOCIATE',i)" placeholder="Associate inputs"
+                    value="{{req.ass_cmt}}"> </textarea>
+            </div>
+            <h3>Manager Comments</h3>
+            <div class="yr_rqstn_txtfield">
+                <textarea ngForm name="manager{{i}}" (keyup)="handleInputChange($event,'MANAGER', i)"
+                    placeholder="Manager inputs" value="{{req.mngr_cmt}}"
+                    [disabled]="(req.mngr_cmt_disable || isPersonal || req.ass_cmt==='' || req.ass_cmt===null)"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="rqstn_btns" *ngIf="!isLoade">
+        <ul>
+            <li>
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+                <input type="reset" name="reset" value="Reset all fields" (click)="resetAllFields()"
+                    class="default_btn">
+            </li>
+        </ul>
+    </div>
+   
+    <!--Your RM Inputs-->
+    <div class="requstition_header mar-top-3">
+        <h5>Manager Feedback </h5> 
+        <img *ngIf="isAPILoad" class="width-50" src="assets/images/loading.gif" alt="loading">
+    </div>
+   
+      <div class="rqstn_rm_ratings" *ngIf="!isLoade">
+        <div class="rqstn_attr_single" *ngFor="let req of pMS_Mgr_RequisitionKpiDetails; let i = index;" style="margin-right: 30px;">
+            <h6>{{req['kpiName']}}</h6>
+            <div class="yr_rqstn_txtfield">
+                <textarea ngForm name="manager{{i}}" (keyup)="handleInputChange($event,'MANAGER', i+4)"
+                    placeholder="Manager feedback" value="{{req.mngr_cmt}}" [disabled]="isPersonal"></textarea>
+            </div>
+        </div>
+    </div>
+      <!--Your RM Inputs - end-->
+     
+      <div *ngIf="!isPersonal  && isUserManager" class="ass_discussion">
+        <label class="ass_label">Date of discussion with Associate *</label>
+        <input type="date" class="dateInput"  [min]="minDate"
+            placeholder="MM/DD/YY"  [(ngModel)]="discussedDate" autocomplete="doNotAutoComplete" (change)= "recommendChange($event)"/>
+      </div>
+    
+      <!--Promotio grid-->
+    <div *ngIf="!isPersonal  && isUserManager">
+      <div class="requstition_header">
+        <h5>Recommendation for Promotion & Overall Rating</h5> <img *ngIf="isAPILoad" class="width-50" src="assets/images/loading.gif" alt="loading">
+    </div>
+      <div class="row">
+        <div class="col-md-6">
+           <div class="col-md-12 rm_inputs_grid">
+             <h5 class="rate_heading">Recommendation For Promotion *</h5>
+             <form class="promotion">
+                <label class="radio-inline">
+                  <input type="radio" name="isPromotionRecommendation" [(ngModel)]="isPromotionRecommendation" [checked]="isPromotionRecommendation == true" (change)= "recommendChange($event)" [value]="true">Yes
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="isPromotionRecommendation" [value]="false" [(ngModel)]="isPromotionRecommendation" [checked]="isPromotionRecommendation == false" (change)= "recommendChange($event)">No
+                </label>
+              </form>
+              <div class="yr_rqstn_txtfield" *ngIf="isPromotionRecommendation == true">
+                <textarea ngForm [(ngModel)]="ratingJustification" (keyup)= "recommendChange($event)"  name="managerjustification" placeholder="Manager Justification" value="" style="height: 80px !important;"></textarea>
+            </div>
+           </div>
+        </div>
+        
+        <div class="col-md-6">
+           <div class="col-md-12 rm_inputs_grid">
+            <h5 class="rate_heading">Overall Rating *</h5>
+            <form  #rateYourAssociate="ngForm" (ngSubmit)="submit()" class="rating_form">
+                <div class="form-group"  *ngFor="let req of pMS_Usr_Rating; let i = index;">
+                    <div class="display-left">
+                      <input id="{{req.ratingId}}" type="radio" value="{{req.ratingId}}" [checked]="req.checked" name="rateYourAssociate" (change)="changeRating($event);recommendChange($event)" (keyup)= "recommendChange($event)">
+                      <label for="{{req.ratingId}}">{{req.rName}}</label>
+                   </div>
+                </div>
+                <!-- <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button> -->
+            </form> 
+           </div> 
+        </div>
+      </div>
+      <div class="disclamer"><b>Disclaimer :</b> Manager should not disclose the ratings as it would be normalized and then final ratings shall be shared to the employee</div>
+    </div>
+
+
+          <!--Promotio grid-->
+          <div>
+            <div class="requstition_header">
+              <h5>Final Rating </h5> <img *ngIf="isAPILoad" class="width-50" src="assets/images/loading.gif" alt="loading">
+          </div>
+            <div class="row">
+              <!--<div class="col-md-6">
+                 <div class="col-md-12 rm_inputs_grid">
+                   <h5 class="rate_heading">Recommendation For Promotion : <u class="promotion_grid">{{isHRPromoted}}</u> </h5> 
+                 </div>
+              </div> -->
+              
+              <div class="col-md-12">
+                 <div class="col-md-12 rm_inputs_grid">
+                  <h5 class="rate_heading">Final Rating: <u class="promotion_grid">{{hrRating}} </u></h5>
+                 </div> 
+              </div>
+            </div>
+          </div>
+  </div>

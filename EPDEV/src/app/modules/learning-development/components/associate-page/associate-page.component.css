@@ -1,0 +1,58 @@
+@import "../../../../../assets/css/bootstrap.min.css";
+@import "../../../../../assets/css/font-awesome.min.css";
+@import "../../../../../assets/css/learning.css";
+.pointer {
+  cursor: pointer;
+}
+.learning-training {
+  background: #f1f4fb;
+}
+.review-popup {
+  position: absolute;
+  top: 1%;
+  width: 70%;
+  left: 15%;
+  z-index: 1000;
+}
+.completion-status {
+  height: 210px !important;
+  overflow: auto !important;
+}
+
+.review-popup {
+  position: absolute;
+  top: 1%;
+  width: 70%;
+  left: 15%;
+  z-index: 1000;
+}
+.completion-status {
+  height: 210px !important;
+  overflow: auto !important;
+  padding-right: 20px;
+}
+
+.table {
+  font-size: 14px;
+  font-family: "Open Sans";
+}
+
+.sow_list {
+  border: 1px solid #e06969;
+  border-radius: 24px;
+  background: #fff;
+  padding: 6px 20px;
+  font-size: 14px;
+  color: #333;
+  font-family: "lato_lightregular";
+  margin-right: 15px;
+  width: 200px;
+  height: 34px;
+}
+
+.width-70 {
+  width: 72% !important;
+}
+.width-30 {
+  width: 28% !important;
+}

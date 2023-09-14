@@ -1,0 +1,81 @@
+<div class="view_timesheet_head  row">
+
+    <div class="col-4 monthly_sheet">
+        <ul *ngIf="from!=='MNGR'">
+            <li (click)="onViewTypeChange('DAY')" [ngClass]="viewType=='DAY' ? 'active' : ''">
+                <img src="assets/images/day-calendar.svg" alt="day-calendar">
+                <img class="selected" src="assets/images/day-calendar-selected.svg"
+                    alt="day-calendar">
+            </li>
+            <li (click)="onViewTypeChange('WEEK')" [ngClass]="viewType=='WEEK' ? 'active' : ''">
+                <img src="assets/images/week-calendar.svg" alt="week-calendar">
+                <img class="selected" src="assets/images/week-calendar-selected.svg"
+                    alt="week-calendar">
+            </li>
+            <li (click)="onViewTypeChange('MONTH')" [ngClass]="viewType=='MONTH' ? 'active' : ''">
+                <img src="assets/images/month-calendar.svg" alt="logo">
+                <img class="selected" src="assets/images/month-calendar-selected.svg" alt="logo">
+            </li>
+        </ul>
+        <h5  *ngIf="from!=='MNGR'">
+            <span *ngIf="viewType=='DAY'">Day View</span>
+            <span *ngIf="viewType=='WEEK'">Week View</span>
+            <span *ngIf="viewType=='MONTH'">Month View</span>
+        </h5>
+    </div>
+
+
+    <div class="col-4    text-left">
+        <app-preloader class="go-center" *ngIf="isLoading"></app-preloader>
+        <div class="select_calender"  *ngIf="!isLoading">
+                <ul>
+                    <!-- *ngIf="from!=='MNGR'" -->
+                    <li class="arrowbtn">
+                        <button type="button" (click)="prev(viewType)" class="">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                    </li>
+                    <li>
+                        <div class="start_calender">
+                            <div class="cal_day">
+                                <span>{{showingDateObject.start?.date}}</span>
+                            </div>
+                            <div class="cal_month text-left">
+                                <h6>{{showingDateObject.start?.day}}</h6>
+                                <small>{{showingDateObject.start?.month}}</small>
+                            </div>
+                        </div>
+                        <strong>TO</strong>
+                        <div class="start_calender">
+                            <div class="cal_day">
+                                <span>{{showingDateObject.end?.date}}</span>
+                            </div>
+                            <div class="cal_month text-left">
+                                <h6>{{showingDateObject.end?.day}}</h6>
+                                <small>{{showingDateObject.end?.month}}</small>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- *ngIf="from!=='MNGR'" -->
+                    <li class="arrowbtn">
+                        <button type="button" (click)="next(viewType)" class=""><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                    </li>
+                </ul>
+
+        </div>
+    </div>
+    
+   
+    <div class="col-4 full_hours">
+        <ul *ngIf="from!=='MNGR'">
+            <li (click)="clone('Week')" *ngIf="viewType=='WEEK' && showClone == true && !isNotFTA">
+                <span class="clone-hrs">Copy Previous Week Timesheet</span>
+            </li>
+            <li (click)="clone('Month')"  *ngIf="viewType=='MONTH'  && showClone == true && !isNotFTA">
+                <span class="clone-hrs">Copy Previous Month Timesheet</span>
+            </li>
+            <!-- <li (click)="reset()" >
+                <i class="fa fa-refresh"></i>
+            </li> -->
+        </ul>
+    </div>
+</div>

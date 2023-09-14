@@ -1,0 +1,45 @@
+.emp_status{
+    cursor: pointer;
+    color: #1887dd;
+}
+.emp_status:hover{
+    color: #fb8181;
+}
+
+.profileMain{
+    margin-top: 50px;
+}
+
+.export{
+    float: right;
+    margin-right: 1%;
+}
+
+.breadcrumb{
+    margin-left: 12px;
+}
+
+.excel_export{
+    float:none;
+    margin-right: 10px;
+}
+.OnBoarding{
+    float: none;
+}
+
+.associate_list{
+    border: 1px solid #e06969;
+    border-radius: 24px;
+    background: #fff;
+    padding: 6px 20px;
+    font-size: 14px;
+    color: #e06969;
+    font-family: 'lato_lightregular';
+    margin-right: 15px;
+    width: 120px;
+    height: 34px;
+}
+
+.associate_list:focus-visible{
+    outline: none;
+}

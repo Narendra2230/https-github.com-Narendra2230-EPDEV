@@ -1,0 +1,244 @@
+    .rating_comment_popup button {
+    border-radius: 26px;
+    background-color: #e7e7e7;
+    font-size: 16px;
+    color: #626466;
+    font-family: 'poppins_mediumregular';
+    border: none;
+    outline: none;
+    padding: 14px 20px;
+    min-width: 101px;
+    text-align: center;
+    cursor: pointer;
+}
+.rating_comment_popup button:last-child {
+    background: #71c285;
+    color: #fff;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.rating_comment_popup {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.3), 0 0 24px 0 rgba(0, 0, 0, 0.22);
+    width: 700px;
+}
+.rating_comment_popup_in{    
+  overflow-x: scroll;
+  padding: 45px 50px;
+  height: 415px;
+}
+.comment_heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.comment_heading h4 {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: 'latomedium';
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 40px;
+}
+.comment_heading a {
+    font-size: 13px;
+    line-height: 17px;
+    font-family: 'latomedium';
+    color: #00b44b;
+    opacity: 0.6;
+}
+.comment_form li label{
+  font-family: 'latoregular';
+  font-size: 13px;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #9b9b9b;
+  margin-bottom: 32px;
+}
+.comment_form li input{
+  font-family: 'lato_lightitalic';
+  border: none;
+  outline: none;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #9b9b9b;
+  border-bottom: solid 3px #71c285;
+  width: 100%;
+}
+.comment_form li input::-webkit-input-placeholder {
+    font-family: 'lato_lightitalic';
+  font-size: 16px;
+  color: #9b9b9b;
+}
+.comment_form li input:-ms-input-placeholder {
+    font-family: 'lato_lightitalic';
+  font-size: 16px;
+  color: #9b9b9b;
+}
+.comment_form li input::placeholder {
+    font-family: 'lato_lightitalic';
+  font-size: 16px;
+  color: #9b9b9b;
+}
+.comment_form li{
+    margin-bottom: 48px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.comments-table{
+  width: 100%;
+  margin-top: 15px;
+}
+.comments-table thead tr th{
+  border: 1px solid #f1f1ff;
+  padding: 5px;
+  font-size: 12px;
+}
+.comments-table tbody tr td{
+  border: 1px solid #f1f1f1;
+  padding: 5px;
+  font-size: 12px;
+  background: #ddd;
+}
+.close-btn{
+  font-size: 14px;
+  color: #626466;
+  font-family: 'poppins_mediumregular';
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.go-btn{
+  padding: 10px 10px;
+  color: #71c285;
+  opacity: 1.5;
+  font-family: 'latoregular';
+  font-size: 14px;
+  cursor: pointer;
+}
+.m-r-10{
+  margin-right: 15px;
+}
+
+.show_comments{
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.mar-bot-20{
+  margin-bottom: 20px;
+}
+
+.comment_form input[type="text"]:disabled{opacity: 0.5;}
+
+.width-50{
+  max-width: 20px;
+  max-height: 20px;
+  display: table;
+  float: left;
+  margin-top:10px;
+}
+
+.kpi_des{
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.mar_bot_25{
+  margin-bottom: 25px;
+}
+
+.kpi{
+  font-size: 13px;
+}
+
+.kpi_dec{
+  height: 75px;
+  overflow-y: auto;
+  margin-bottom: 25px;
+}
+
+.inputs_textarea{
+  width: 100%;
+  border: 1px solid #e9e5e5;
+  background: #fff;
+  height: 100px;
+  text-align: left;
+  font-size: 12px;
+  padding: 2%;
+  font-family: 'lato_lightregular';
+  overflow-y: auto;
+  line-height: 1.8;
+}
+
+.inputs_textarea:focus-visible{
+  outline: 1.5px solid #71c285;
+}
+
+.score_card{
+  font-family: 'poppins_lightregular';
+  font-size: 12px;
+}
+
+.mesure-select{
+font-size: 12px;
+margin-bottom: 10px;
+width: 100%;
+border: 1px solid #e9ebfa!important;
+font-family: 'latoregular';
+}
+
+.green_border{
+  border-bottom: 2px solid #71c285;
+}
+
+.mar-top-20{
+  margin-top: 20px;
+}
+
+.mesure_rate{
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  padding-right: 2%;
+  color: #ff7058;
+  cursor: default;
+}
+
+.m-t-10{margin-top: 10%;}
+.kra_card{
+  height: 100px;
+  font-family: 'latomedium';
+  font-size: 13px;
+  line-height: 18px;
+  overflow: auto;
+  margin-bottom: 25px;
+}
+
+.opgb_sytm_rtng label{
+  line-height: 24px;
+  font-family: 'latosemibold';
+  color: #2a2b2b;
+  font-weight: bold;
+  font-size: 13px;
+  border-bottom: 1px solid #71c285;
+}
+
+.opgb_sytm_rtng:nth-child(2) {
+  margin-bottom: 0px !important;
+}
+
+.obj-KPI-note{
+  font-size: 10px;
+  font-family: 'latoregular';    
+}
+
+.opgb_rating_body{
+  border-left: 0.5px dotted #e9ebfa;
+}

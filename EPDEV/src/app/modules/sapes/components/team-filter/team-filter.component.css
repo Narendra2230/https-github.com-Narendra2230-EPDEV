@@ -1,0 +1,8 @@
+:host{display:block;width:90%}
+.select-items li span{display:block;font-size:12px;font-weight:400;color:#666}
+.select-items li select{display:block;font-size:12px;border:0;border-radius:5px;padding:5px;margin-top:-15%;width:120px;border-bottom:1px solid #ccc;border-radius:0}
+.select-items{border:0;padding:10px;border-radius:5px}
+.team_filter ul.select-items li .fa{display:inline}
+.team_filter ul.select-items li button{padding:5px;font-size:13px;width:100px;color:#f44336;margin-left:0;border-radius:5px;font-weight:600}
+.optionOne{background:#f1f1f1;color:#fb8181}
+.fa-refresh{color:#71c285}

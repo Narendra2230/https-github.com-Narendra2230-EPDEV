@@ -1,0 +1,19 @@
+.bg-white {
+  background-color: #ffffff !important;
+  box-shadow: 0px 8px 9px #eeeeee;
+  border: none;
+}
+
+.fade.show {
+  background: #000000ad !important;
+}
+.modal-header {
+  padding: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+.modal-header>h3{
+  font-weight: 700;
+}
+.modal-body{
+  padding: 10px;
+}

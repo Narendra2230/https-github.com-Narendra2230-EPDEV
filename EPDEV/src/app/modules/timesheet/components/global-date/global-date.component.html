@@ -1,0 +1,10 @@
+<div class="ui-g-12 ui-md-4 w-100">
+        <p-calendar [maxDate]="maxDate" [minDate]="minDate" #calendar id="calander_c" [showWeek]="true" (onSelect)="onSelect()" (onClose)="onClose()"   [(ngModel)]="globalDateRange" class="timeshet-date" selectionMode="range" [readonlyInput]="true" [inputStyle]="{'border':'none','background':'#fafafa','font-size':'13px','padding':'0px'}">
+            <p-footer>
+                <button href="#" (click)="resetDates()" class="cancel-btn">CANCEL</button>
+                <button href="#" (click)="calendar.hideOverlay()" class="apply-btn">OK</button>
+            </p-footer>
+        </p-calendar>
+        <a href="javascript::void()" *ngIf="showarefresh!=false" (click)="resetDates()" class="timeshet-date-refresh"><i _ngcontent-mlx-c17="" aria-hidden="true" class="fa fa-refresh"></i> </a>
+        
+    </div>

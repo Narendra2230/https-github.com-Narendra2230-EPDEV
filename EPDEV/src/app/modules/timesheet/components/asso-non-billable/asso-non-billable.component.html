@@ -1,0 +1,23 @@
+<div class="other_unbbill billable">
+    <div class="row">
+        
+        <div class="col">
+            <div class="timesheet"style="float: right;width: 75%;padding-top:15px;">
+                <h4>Timesheet Status</h4>
+                <ul>
+                    <li>
+                        <h5>Pending Approvals</h5>
+                        <ul class="fix_height">
+                            <li *ngFor="let c of timesheetManagerAssociatePendingData">{{c.sowName}} (<span>{{c.count}}</span>)</li>
+                        
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            
+            <app-pie-chart  [mngrChartData]="chartData" type="MNGR"></app-pie-chart>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="hirarchy child-hirarchy" id="{{childlevel}}" [ngClass]="{'one-child':childTickets.length==1,'two-child':childTickets.length==2}">
+    <div class="divider"></div>
+    <div class="tickets-wrapper hide-greater-three" >
+      <div *ngFor="let t of childTickets; let ind=index;" class="ticket {{t.hierarchyColor}}" id="L{{childlevel}}P{{parentLevel}}T{{ind}}" [ngClass]="{'view-more':ind==3,'active':selectedItem=='L'+childlevel+'P'+parentLevel+'T'+ind, 'defaultBorder':t.hierarchyColor==undefined}">
+              <div class="container" >
+                  <div class="row pad-top-10">
+                      <div class="col-12">
+                         <img *ngIf="t.imageUrl" src= "{{t.imageUrl}}" align="profile pic" class="ticket_image">
+                         <img *ngIf="!t.imageUrl" src="assets/images/org/emp-logo.png" align="profile pic" class="ticket_image">
+                      </div>
+                      <div class="col-12">
+                       <div class="org_emp_txt">{{t.firstName}} {{t.lastName}}</div> 
+                       <div class="org_emp_txt">{{t.designation|uppercase}}</div>
+                       <div class="org_emp_txt">Reporties {{t.num_Reportees}}</div> 
+                      </div>
+                      
+                        <button class="viewButton" (click)="updateModel($event,t)">VIEW</button>
+                        <div class="view-more-content" *ngIf="enableViewMore(ind,childTickets.length)" (click)="viewMore($event)">{{childTickets.length-4}}+  MORE</div>
+                      <!-- <span (click)="nextClick(ind,t)" class="plus_circle"><i class="fa fa-plus-circle"></i></span> -->
+                      <div class="plus_circle expand" *ngIf="t.num_Reportees>0">
+                        <i (click)="viewNext($event,ind,t)" class="fa fa-plus" [ngClass]="{'fa-minus': selectedItem=='L'+childlevel+'P'+parentLevel+'T'+ind}"></i></div>
+                      <div class="after-grid" *ngIf="selectedItem=='L'+childlevel+'P'+parentLevel+'T'+ind"></div>
+                       <!-- child -->
+                        <app-emp-list *ngIf="selectedItem=='L'+childlevel+'P'+parentLevel+'T'+ind" [newtickets]="{childTicketsInp:t.lstChildren,level:childlevel+1,parent:parentLevel+1}" [ngClass]="{'one-child':t.num_Reportees==1,'two-child':t.num_Reportees==2}"></app-emp-list>
+                        <!-- child -->
+                  </div>
+              </div>
+              
+           </div> 
+    </div>
+  </div>
+  <button type="button" id="{{modelId}}CTA" data-toggle="modal" [attr.data-target]="'#'+modelId" style="display:none"></button>
+  <app-emp-profile [profile]="{modelData:modelData,modelBorder:modelBorder,modelId:modelId}"></app-emp-profile>

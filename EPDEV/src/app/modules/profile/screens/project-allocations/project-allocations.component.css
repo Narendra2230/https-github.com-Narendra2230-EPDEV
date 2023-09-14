@@ -1,0 +1,19 @@
+app-preloader.ng-star-inserted::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    background-color: rgba(0,0, 0, 0.1);
+ }
+
+ .no-message{
+    margin-top: 20px;
+    font-family: 'latoregular';
+ }
+
+ .select_txt{
+    padding: 0px;
+    font-family: 'latoregular';
+ }

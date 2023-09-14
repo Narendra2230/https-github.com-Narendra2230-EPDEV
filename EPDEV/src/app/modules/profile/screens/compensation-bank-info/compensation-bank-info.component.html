@@ -1,0 +1,215 @@
+<div class="time_sheet profileSheet">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/#/profile-landing">Profile</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Compensation & Bank Info</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <div class="time_sheet_heading row pad-3">
+        <div class="profileInnerHead d-flex justify-content-center align-items-center">
+            <div class="profileImage">
+                <!-- <img src="assets/images/profile/profile.png" alt="Compensation Bank Info"> -->
+            </div>
+            <h4>Compensation & Bank Info</h4>
+            <div class="backProfile">
+                <a [routerLink]="getRout()">
+                    Back to list
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- time_sheet_heading-End-->
+
+    <div class="profileFullInfo">
+        <div class="profileFullInfoIn">
+            <div class="profileHeadNav">
+                <ul class="d-flex justify-content-start">
+                    <li [ngClass]="currentTab == 'CMP' ? 'active' : ''">
+                        <a (click)="tabClick('CMP',$event)">Compensation</a>
+                    </li>
+                    <li *ngIf="userType != 'manager'" [ngClass]="currentTab == 'BANK' ? 'active' : ''">
+                        <a (click)="tabClick('BANK',$event)">Bank Info</a>
+                    </li>
+                    <li class="hike_letter">
+                       <!-- <a>Download hike letter</a> -->
+                    </li>
+                </ul>
+               
+            </div>
+
+            <div class="tabscontent">
+                <div *ngIf="currentTab == 'CMP'" [ngClass]="currentTab == 'CMP' ? 'active' : ''" class="active">
+                    <br/>
+                    <div>
+                        <mat-progress-bar *ngIf="isLoading1" mode="indeterminate"></mat-progress-bar>
+                    </div>
+                    <div class="profileNavCont" *ngFor="let c of empCompensationDtls">
+                        <!-- <app-preloader *ngIf="isLoading1" loderType="square" ></app-preloader> -->
+                        <div class="peronalCont">
+                            <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+                                <h4>Compensation</h4>
+                                <ul style="color:#fff">
+                                    <li class="eye-icon"><i (click)="showCompans=!showCompans" [ngClass]="showCompans ? 'fa fa-eye' : 'fa fa-eye-slash'"><span class="revel_sal"> Reveal Compensation</span></i> </li>
+                                </ul>
+                               <!-- <a (click)="openHistory($event)"><img src="assets/images/compensation-bank/visibility.svg" alt="Compensation">
+                                    <label>Compensation History</label></a> -->
+                            </div>
+
+                            <div class="personalContForm">
+                                <ul class="d-flex justify-content-between flex-wrap">
+                                    <li>
+                                        <label [ngClass]="hasError('payType') ? 'validation-error' : ''">Type of Compensation*</label>
+                                        <input *ngIf="!showCompans" type="text" name="text" placeholder="****" readonly>
+                                        <select *ngIf="showCompans" [(ngModel)]="c.payType" [ngClass]="!checkPreviligies('payType') ? 'select-disabled' : ''" [attr.readonly]="!checkPreviligies('payType')">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let dropdown of getMetaValues('SalaryType')" value="{{ dropdown.name }}">
+                                          {{ dropdown.name }}
+                                        </option>
+                                      </select>
+                                    </li>
+
+                                    <li>
+                                        <label [ngClass]="hasError('currency') ? 'validation-error' : ''">Currency Type*</label>
+                                        <input *ngIf="!showCompans" type="text" name="text" placeholder="****" readonly>
+                                        <select *ngIf="showCompans" [(ngModel)]="c.currency" [ngClass]="!checkPreviligies('currency') ? 'select-disabled' : ''" [attr.readonly]="!checkPreviligies('currency')">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let dropdown of getMetaValues('Currencies')" value="{{ dropdown.name }}">
+                                          {{ dropdown.name }}
+                                        </option>
+                                      </select>
+                                    </li>
+
+                                    <li>
+                                        <label [ngClass]="hasError('annualBasePay') ? 'validation-error' : ''">Annual BasePay<small class="field_required">*</small></label>
+                                         <input *ngIf="!showCompans" type="number" name="text" placeholder="****" readonly>
+                                         <input *ngIf="showCompans" [ngClass]="!checkPreviligies('  ') ? 'select-disabled' : ''" [readonly]="!checkPreviligies('annualBasePay')" [(ngModel)]="c.annualBasePay" type="number" name="text" placeholder="">
+                                    </li>
+
+                                    <li>
+                                        <label>Annual Performance Pay</label>
+                                        <input *ngIf="!showCompans" type="number" name="text" placeholder="****" readonly>
+                                        <input *ngIf="showCompans" [ngClass]="!checkPreviligies('ogpb') ? 'select-disabled' : ''" [readonly]="!checkPreviligies('ogpb')" [(ngModel)]="c.ogpb" type="number" name="text" placeholder="0">
+                                    </li>
+
+                                    <li>
+                                        <label [ngClass]="hasError('salary') ? 'validation-error' : ''">Annual CTC<small class="field_required">*</small></label>
+                                         <input *ngIf="!showCompans" type="number" name="text" placeholder="****" readonly>
+                                         <input *ngIf="showCompans" [ngClass]="!checkPreviligies('salary') ? 'select-disabled' : ''" [readonly]="!checkPreviligies('salary')" [(ngModel)]="c.salary" type="number" name="text" placeholder="">
+                                    </li>
+                                    
+                                    <li>
+                                        <label>Monthly BasePay</label>
+                                        <input *ngIf="!showCompans" type="number" name="text" placeholder="****" readonly>
+                                        <input *ngIf="showCompans" [(ngModel)]="c.monthlyBasePay" 
+                                        [ngClass]="!checkPreviligies('monthlyBasePay') ? 'select-disabled' : ''" [readonly]="!checkPreviligies('monthlyBasePay')"
+                                        type="number" name="text" placeholder="">
+                                    </li>
+
+                                    <li>
+                                        <label>Quarterly Performance Pay</label>
+                                        <input *ngIf="!showCompans" type="number" name="text" placeholder="****" readonly>
+                                        <input *ngIf="showCompans" [(ngModel)]="c.monthlyOGPB" 
+                                        [ngClass]="!checkPreviligies('monthlyOGPB') ? 'select-disabled' : ''" [readonly]="!checkPreviligies('monthlyOGPB')"
+                                        type="number" name="text" placeholder="">
+                                    </li>
+
+                                    <li>
+                                        <label [ngClass]="hasError('hourlyRate') ? 'validation-error' : ''">Hourly Rate</label>
+                                        <input *ngIf="!showCompans" type="number" name="text" placeholder="****" readonly>
+                                        <input *ngIf="showCompans"  [ngClass]="!checkPreviligies('hourlyRate') ? 'select-disabled' : ''" [readonly]="!checkPreviligies('hourlyRate')" [(ngModel)]="c.hourlyRate" type="number" name="text" placeholder="0">
+                                    </li>
+
+                                    <li>
+                                        <label [ngClass]="hasError('joiningBonus') ? 'validation-error' : ''">Joining Bonus</label>
+                                        <input *ngIf="!showCompans" type="number" name="text" placeholder="****" readonly>
+                                        <input *ngIf="showCompans"  [ngClass]="!checkPreviligies('joiningBonus') ? 'select-disabled' : ''" [readonly]="!checkPreviligies('joiningBonus')" [(ngModel)]="c.joiningBonus" type="number" name="text" placeholder="0">
+                                    </li>
+
+                                    <li>
+                                        <label [ngClass]="hasError('effectiveFrom') ? 'validation-error' : ''">Effective From <small class="field_required">*</small></label>
+                                        <input *ngIf="!showCompans" type="number" name="text" placeholder="****" readonly>
+                                        <input *ngIf="showCompans"  [ngClass]="!checkPreviligies('effectiveFrom') ? 'select-disabled' : ''" [readonly]="!checkPreviligies('effectiveFrom')" [(ngModel)]="c.effectiveFrom" type="date" class="dateInput" name="text" placeholder="dd/mm/yyyy">
+                                    </li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li *ngIf="userType == 'hr'">
+                                        <button class="reset btn-reset" (click)="GetEmpCompensationDtls()"> </button>
+                                        <button (click)="PostEmpCompensationDtls()" class="btn-save">Save</button>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="currentTab == 'BANK'" [ngClass]="currentTab == 'BANK' ? 'active' : ''">
+                    <br/>
+                    <mat-progress-bar *ngIf="isLoading2" mode="indeterminate"></mat-progress-bar>
+                    <div class="profileNavCont">
+                        <!-- <app-preloader *ngIf="isLoading2" loderType="square" ></app-preloader> -->
+                        <div class="peronalCont">
+                            <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+                                <h4>Bank Info</h4>
+                                <ul style="color:#fff">
+                                    <li class="eye-icon"><i (click)="showBank=!showBank" [ngClass]="showBank ? 'fa fa-eye' : 'fa fa-eye-slash'"><span class="revel_sal"> Reveal Bankinfo</span></i> </li>
+                                </ul>
+                            </div>
+
+                            <div class="personalContForm">
+                                <ul class="d-flex justify-content-between flex-wrap">
+                                    <li>
+                                        <label [ngClass]="hasError('bankName') ? 'validation-error' : ''">Bank Name</label>
+                                        <input *ngIf="!showBank" type="number" name="text" placeholder="****">
+                                        <input *ngIf="showBank" [(ngModel)]="empBankDtls.bankName" type="text" name="text" placeholder="">
+                                    </li>
+
+                                    <li *ngIf="!isUSEmployee">
+                                        <label [ngClass]="hasError('ifscCode') ? 'validation-error' : ''">IFSC Code</label>
+                                        <input *ngIf="!showBank" type="number" name="text" placeholder="****">
+                                        <input *ngIf="showBank" [(ngModel)]="empBankDtls.ifscCode" type="text" name="text" placeholder="">
+                                    </li>
+
+                                    <li *ngIf="isUSEmployee">
+                                        <label [ngClass]="hasError('ifscCode') ? 'validation-error' : ''">Routing Number</label>
+                                        <input *ngIf="!showBank" type="number" name="text" placeholder="****">
+                                        <input *ngIf="showBank" [(ngModel)]="empBankDtls.ifscCode" type="text" name="text" placeholder="">
+                                    </li>
+
+                                    <li>
+                                        <label [ngClass]="hasError('accountNumber') ? 'validation-error' : ''">Account Num</label>
+                                        <input *ngIf="!showBank" type="number" name="text" placeholder="****">
+                                        <input *ngIf="showBank" [(ngModel)]="empBankDtls.accountNumber" type="text" name="number" placeholder="">
+                                    </li>
+
+                                    <li>
+                                        <label [ngClass]="hasError('accountType') ? 'validation-error' : ''">Account Type</label>
+                                        <input *ngIf="!showBank" type="text" name="text" placeholder="****">
+                                        <select *ngIf="showBank"  [(ngModel)]="empBankDtls.accountType" [ngClass]="!checkPreviligies('accountType') ? 'select-disabled' : ''" [attr.readonly]="!checkPreviligies('accountType')">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let dropdown of getMetaValues('AccountType')" value="{{ dropdown.id }}">
+                                          {{ dropdown.id }}
+                                        </option>
+                                      </select>
+                                    </li>
+
+                                    <li>
+                                        <button class="reset btn-reset" (click)="GetEmpBankDtls()"> </button>
+                                        <button (click)="postEmpBankDtls()" class="btn-save">Save</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

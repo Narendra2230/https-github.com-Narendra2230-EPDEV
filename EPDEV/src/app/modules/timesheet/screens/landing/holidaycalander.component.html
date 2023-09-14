@@ -1,0 +1,34 @@
+<div class="rating_comment_popup leaveBalance_popup z-index">
+    <div class="submit_pop_dtl p-0">
+        <div class="d-flex popup-heading w-100 item-jc">
+            <h5 class="w-color"> Holiday Calendar</h5>
+
+            <span (click)="closePopup()" class="c-btn"> <img src="assets/images/leave/icon-close.png" alt=""> </span>
+        </div>
+        <div class="leave_history_table">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Occasion</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let s of list; let i=index;">
+                        <td>{{s.occasion}}</td>
+                        <td>{{ formatDate(s.holidayDate)}}</td>
+                        <td>{{s.fixedHoliday ? 'General' : 'Optional'}}</td>
+                        <td> {{s.occasion}} </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+          
+        <!-- <button (click)="closePopup()"  class="cancel_btn" data-dismiss="modal" type="button">CANCEL</button> -->
+        <!-- <button (click)="yesRaise()"  type="button">YES</button> -->
+        <!-- data-dismiss="modal" data-target="#submitted_popup" data-toggle="modal" -->
+    </div>
+</div>

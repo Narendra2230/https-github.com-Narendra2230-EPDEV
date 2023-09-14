@@ -1,0 +1,115 @@
+<div class="time_sheet">
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Associate Resignation </a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <div class="time_sheet_heading row">
+        <div class="toogle_slide col-4">
+        </div> 
+        <div class="col-4 text-center">
+            <h4>Submit Notification</h4>
+        </div>
+        <div class="col-4 text-right cal_select policy_popup pa_rocess" data-toggle="modal" data-target="#exampleModalCenter2">
+            <p>View History<span class="ogpb_policy"></span></p>
+        </div> 
+    </div>
+
+    <div class="resginationProcess row mar-1">
+        <div class="rgn_prcs_lft">
+            <ul class="d-flex align-items-center justify-content-start flex-wrap">
+                <li *ngFor="let item of resignationData">
+                    <small>{{item.managerType}}</small>
+                    <span>{{item.managerEmailID}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class=" row mar-1">
+        <div class="fixed_body_scroll">
+            <div class="resignationBody">
+                <div class="rgnDraftBox">
+                    <div class="rgnDraftBoxHead">
+                        <h3>Resignation Form</h3>
+                        <div class="rgnPolicyH" data-toggle="modal">
+                            <span>
+                                <a href="assets/doc/exit_policy.pdf" target="_self"  download="separation.pdf">Separation Policy</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="rgnDraftBoxBody">
+                        <p>I am submitting my resignation for the below mentioned reasons. Thank you for the opportunity to serve with Sunera Technologies.</p>
+                        <div class="rgnDraftBoxCont">
+                            <ul>
+                                <li><span class="ass_inf">Name: </span>{{employeeName}}</li>
+                                <li><span class="ass_inf">EMP ID: </span>{{employeeID}}</li>
+                                <li><span class="ass_inf">Designation: </span>{{designationname}}</li>
+                                <li><span class="ass_inf">BTU: </span>{{businessunit}}</li>
+                                <li><span class="ass_inf">Location: </span>{{location}}</li>
+                                <li><span class="ass_inf">Reason for Resignation <small class="field_required">*</small>: </span>
+                                    <select class="form-control reasonSelect" value="select" name="reason" id="sel1" [disabled]="exitId" [(ngModel)]="exitReasonSelect">
+                                        <option *ngFor="let item of exitReasons" [selected]="item === exitReasonSelect" value="{{item.reasonId}}">{{item.reasonName}}</option>
+                                      </select>
+                                </li>
+                            </ul>
+                        </div>
+                        <textarea [disabled]="exitId" [(ngModel)]="resignationDetails" placeholder="Elaborate the reasons for the resignation."></textarea>
+                      
+                        <div class="form-group">
+                            <input type="checkbox" [(ngModel)]="policyChk" [disabled]="exitId" /> 
+                            <label class="policy_read">I have read the <a href="assets/doc/exit_policy.pdf" target="_blank">separation policy</a> and agree</label>
+                        </div>
+
+                        <div class="rgnDraftBoxBtn">
+                            <button>CANCEL</button>
+                            <button  [ngClass]="((!exitReasonSelect || !resignationDetails || !policyChk)) ? 'btn-inactive' : ''" (click)="PostExitAssociateDetails()" [disabled]="(!exitReasonSelect || !resignationDetails) && exitId">SUBMIT</button>
+                        </div>
+                    </div>
+                </div>
+           
+
+            <div class="rgnStatusBox" *ngIf="exitId">
+                <div class="rgnDraftBoxHead rgnStatusBoxHead">
+                    <h3>Resignation Status</h3>
+                </div>
+                <div class="rgnDraftBoxBody rgnStatusBoxBody">
+                    <div class="checkingList">
+                        <h3>Your resignation has been submitted successfully.</h3>
+                    </div>
+                    <ul>
+                        <li><span class="ass_inf">Resignation Date: </span>{{resignationDate | date}}</li>
+                   </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>   
+</div>
+
+    <div class="papPopup rgnHistoryPopup">
+        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">My Resignation History</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="rgnHistoryCont">
+                    <ul>
+                        <li>
+                            No History
+                        </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>

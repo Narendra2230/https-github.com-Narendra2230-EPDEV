@@ -1,0 +1,81 @@
+<div class="time_sheet ">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="http://epstaging.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/#/timesheet">Timesheet</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <div class="time_sheet_heading row pad-3">
+        <div class="toogle_slide col-4">
+            <app-toggle-cmpt [checked]="false"></app-toggle-cmpt>
+        </div>
+        <div class="col-4 text-center">
+            <h4>Timesheet Submition</h4>
+        </div>
+        <div class="col-4 cal_select apply_leave" >
+            <app-preloader class="go-center" *ngIf="isLoading"></app-preloader>
+         <app-global-date (reset)="resetDates($event)" *ngIf="!isLoading" [globalDateRange]="globalDateRange" (onGlobalDateChange)="onGlobalDateChange($event)"></app-global-date>
+        </div>
+    </div>
+    <!-- time_sheet_heading-End-->
+
+    <!-- project_billing -->
+   <!-- <div class="project_billing">
+        <div class="row">
+            <div class="col-7">
+               <div class="tab-list">
+                   <ul>
+                       <li (click)="toogleTab('bpojects')" [ngClass]="{'active':currentTab==='bpojects'}">Billable</li>
+                       <li (click)="toogleTab('spojects')" [ngClass]="{'active':currentTab==='spojects'}">Support Services</li>
+                       <li (click)="toogleTab('poc')" [ngClass]="{'active':currentTab==='poc'}">IP/POC</li>
+                       <li (click)="toogleTab('npojects')" [ngClass]="{'active':currentTab==='npojects'}">Non-Billable</li>
+                   </ul>
+               </div>
+               <app-preloader class="go-center"  *ngIf="isLoadingForDashboard"></app-preloader>
+               <app-project-billing [projects]="currentTabSource" *ngIf="!isLoadingForDashboard"></app-project-billing>
+            </div>
+            <div class="col-5">
+               <app-project-un-billing (pendingDateCB)="pendingDate($event)" [isLoadingForDates]="isLoadingForDates" [chartData]="chartData" [pendingTimeSheet]="pendingTimeSheet"></app-project-un-billing>
+            </div>
+        </div>
+    </div> -->
+    <!-- project_billing-End-->
+
+    <!-- view_timesheet_head -->
+   
+    <app-view-timesheet-head [showClone]="showCloneCTA" #timeSheetHeader [isLoading] = "isLoading" (resetSheet)="resetSheet($event)" (cloneTimeSheet)="cloneTimeSheet($event)" (onDateViewChanges)="onDateViewChanges($event)" [datesObject]="datesObject"></app-view-timesheet-head>
+    <!-- view_timesheet_head-End-->
+
+    <!-- view_timesheet -->
+
+   <app-view-timesheet (reefrshCurrentSheet)="reefrshCurrentSheet($event)" [timeSheetHeader]="timeSheetHeader" [isLoading] = "isLoadingForSheet" [datesObject]="datesObject" [timeSheetList]="timeSheetData"></app-view-timesheet>
+    <!-- view_timesheet-End-->
+
+    <!-- toatl_billing_hours -->
+     <app-toatl-billing-hours [datesObject]="globalDates"  [TotalBillingsSummary]="TotalBillingsSummary"></app-toatl-billing-hours>
+    <!-- toatl_billing_hours-End-->
+
+    
+
+    <div class="timesheet_option">
+        <div class="row">
+            <div class="col">
+                <!-- <app-timesheet-option></app-timesheet-option> -->
+            </div>
+            <div class="col text-right">
+                <div class="time_btns">
+                    <ul>
+                        <li><input type="button" (click)="goToHome()" name="button" value="CANCEL"></li>
+                        <li><input type="button" (click)="resetSheet()" name="button" value="REFRESH"></li>
+                        <li><input (click)="onSubmit()" type="button" name="button" value="SUBMIT"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <p-confirmDialog header="Confirmation" appendTo="body"></p-confirmDialog> -->

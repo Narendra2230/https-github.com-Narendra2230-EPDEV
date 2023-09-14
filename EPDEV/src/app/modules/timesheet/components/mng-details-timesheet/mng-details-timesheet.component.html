@@ -1,0 +1,46 @@
+<div class="mng_timesheet_table heading" [ngClass]="isHideEle ? 'emp-details-indetail' : ''">
+    <ul>
+        <li  *ngIf="!isHideEle">
+          <label class="check_mng">
+                  <input (change)="check('all',$event)" type="checkbox" >
+                  <span class="checkmark"></span>
+           </label>
+        </li>
+
+        <li>Date</li>
+        <li>Shift</li>
+        <li>Customer Name</li>
+        <li>Project/SOW Name</li>
+        <li>Comment</li>
+        <li>Duration</li>
+        <li>Status</li>
+        <li>Attachments</li>
+    </ul>
+</div>
+<div class="fixed_body">
+    <div class="fixed_body_scroll">
+       <!-- <app-mng-timesheet-table></app-mng-timesheet-table> -->
+        <div *ngFor="let sheet of timesheetAssociateData; let i = index;" class="mng_timesheet_table"  [ngClass]="isHideEle ? 'emp-details-indetail' : ''">
+            <ul>
+                <li *ngIf="!isHideEle"> 
+                  <label class="check_mng"  *ngIf="sheet.tStatus!=='Approved'">
+                     <input (click)="check(i,$event)" [checked]="sheet.checked" type="checkbox" >
+                  <span class="checkmark"></span>
+           </label> 
+                </li>
+                <li>{{sheet.dateStr}}</li>
+                <li>{{sheet.shiftName}}</li>
+                <li>{{sheet.clientName}}</li>
+                <li>{{sheet.sowName}}</li>
+                <li>{{sheet.activity}}</li>
+                <li>{{sheet.duration}}</li>
+                <li>{{sheet.tStatus}}</li>
+                <li><div class="files_open_popup">
+                    <small *ngIf="(sheet.attachDocument !==undefined && sheet.attachDocument !==null && sheet.attachDocument !=='')" style="font-size: 14px;"><a target="_blank" href="{{sheet.attachDocument}}"><i class="fa fa-download" aria-hidden="true"></i></a></small>
+                </div></li>
+            </ul>
+        </div>
+      
+       
+    </div>
+</div>

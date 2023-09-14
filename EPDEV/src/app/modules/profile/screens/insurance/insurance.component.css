@@ -1,0 +1,39 @@
+.plan-active{
+    background: #4077a7c7 !important;
+    color: #fff !important;
+    border-radius: 50px;
+}
+
+.plan-active label{
+    color: #fff !important;
+}
+
+.insblock .insblock-top ul.choose li .checkboxs{
+    margin-left: -20px;
+}
+
+.ins_save{
+    float: right;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.enrollment_form a{
+    margin-right: 5%;
+    font-size: 16px;
+    color: #000;
+    font-family: lato_lightregular;
+    padding: 10px;
+}
+
+.policy_form{
+    font-size: 14px;
+    font-family: 'latoregular';
+    margin-bottom: 30px;
+}
+
+.policy{   
+border: 1px solid #ccc;
+padding: 10px;
+margin: 5px;
+}

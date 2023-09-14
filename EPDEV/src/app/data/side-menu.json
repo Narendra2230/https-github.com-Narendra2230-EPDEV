@@ -1,0 +1,393 @@
+{
+    "constadminNav": [
+        {
+            "id": "1",
+            "title": "Profile",
+            "type": "group",
+            "icon": "icon-user icon-large profile_icon",
+            "children": [
+                {
+                    "id": "1",
+                    "title": "View Profile",
+                    "type": "submenu",
+                    "url": "/MyAccount/Profile",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Time Management",
+            "type": "group",
+            "icon": "icon-signout icon-large time_mgmt_icon",
+            "children": [
+                {
+                    "id": "2",
+                    "title": "Manage",
+                    "type": "submenu",
+                    "url": "/Leave/LeaveManage",
+                    "subchildren": [
+                        {
+                            "id": "74",
+                            "title": "Leave",
+                            "type": "item",
+                            "url": null
+                        },
+                        {
+                            "id": "75",
+                            "title": "Time Sheet",
+                            "type": "item",
+                            "url": "/timesheet"
+                        }
+                    ]
+                },
+                {
+                    "id": "3",
+                    "title": "Attendance",
+                    "type": "submenu",
+                    "url": "/Attendance/ViewAttendance",
+                    "subchildren": []
+                },
+                {
+                    "id": "4",
+                    "title": "Holiday List",
+                    "type": "submenu",
+                    "url": "/HolidayList/ViewHolidayList",
+                    "subchildren": []
+                },
+                {
+                    "id": "5",
+                    "title": "Pending Approvals",
+                    "type": "submenu",
+                    "url": "/Leave/PendingApprovals",
+                    "subchildren": []
+                },
+                {
+                    "id": "6",
+                    "title": "Associates on Leave",
+                    "type": "submenu",
+                    "url": "/Leave/AssociatesOnLeave",
+                    "subchildren": []
+                },
+                {
+                    "id": "8",
+                    "title": "Attendance Report",
+                    "type": "submenu",
+                    "url": "/Leave/AttendanceReport",
+                    "subchildren": []
+                },
+                {
+                    "id": "9",
+                    "title": "Leave Report",
+                    "type": "submenu",
+                    "url": "/Leave/LeaveReport",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "title": "Policies",
+            "type": "group",
+            "icon": "icon-paste icon-large policies_icon",
+            "children": [
+                {
+                    "id": "13",
+                    "title": "HR",
+                    "type": "submenu",
+                    "url": "/Policies/HRPolicies",
+                    "subchildren": []
+                },
+                {
+                    "id": "14",
+                    "title": "IT Policies",
+                    "type": "submenu",
+                    "url": "/Policies/ITPolicies",
+                    "subchildren": [
+                        {
+                            "id": "85",
+                            "title": "OGPB",
+                            "type": "item",
+                            "url": null
+                        },
+                        {
+                            "id": "92",
+                            "title": "SAPES",
+                            "type": "item",
+                            "url": null
+                        },
+                        {
+                            "id": "118",
+                            "title": "Probation Review",
+                            "type": "item",
+                            "url": "/Associate/Probationassociate"
+                        }
+                    ]
+                },
+                {
+                    "id": "15",
+                    "title": "Finance Policies",
+                    "type": "submenu",
+                    "url": "/Policies/FinancePolicies",
+                    "subchildren": [
+                        {
+                            "id": "96",
+                            "title": "Policy Doc",
+                            "type": "item",
+                            "url": "/Rewards/PolicyDocuments"
+                        },
+                        {
+                            "id": "97",
+                            "title": "Nomination Forms",
+                            "type": "item",
+                            "url": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "title": "Helpdesk",
+            "type": "group",
+            "icon": "icon-wrench icon-large helpdesk_icon",
+            "children": [
+                {
+                    "id": "21",
+                    "title": "View Tickets",
+                    "type": "submenu",
+                    "url": "/Ticket/TicketList",
+                    "subchildren": []
+                },
+                {
+                    "id": "22",
+                    "title": "Create Ticket",
+                    "type": "submenu",
+                    "url": "/Ticket/Create",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "title": "Associate",
+            "type": "group",
+            "icon": "icon-user icon-large",
+            "children": [
+                {
+                    "id": "23",
+                    "title": "Associate List",
+                    "type": "submenu",
+                    "url": "/Associate/AssociateList",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "14",
+            "title": "Performance Mgmt",
+            "type": "group",
+            "icon": "icon-check icon-large perform_mgmt_icon",
+            "children": [
+                {
+                    "id": "86",
+                    "title": "OGPB",
+                    "type": "submenu",
+                    "url": "",
+                    "subchildren": [
+                        {
+                            "id": "963",
+                            "title": "Assign 123",
+                            "type": "submenu",
+                            "url": "#",
+                            "subchildren": []
+                        }
+                    ]
+                },
+                {
+                    "id": "87",
+                    "title": "My Team OGPB",
+                    "type": "submenu",
+                    "url": "/OGPB/MyTeamOGPB",
+                    "subchildren": []
+                },
+                {
+                    "id": "88",
+                    "title": "Assign Measures",
+                    "type": "submenu",
+                    "url": "/OGPB/OGPBOverRide",
+                    "subchildren": []
+                },
+                {
+                    "id": "93",
+                    "title": "SAPES",
+                    "type": "submenu",
+                    "url": "/SAPES/SAPESInformation",
+                    "subchildren": []
+                },
+                {
+                    "id": "94",
+                    "title": "My Team SAPES",
+                    "type": "submenu",
+                    "url": "/SAPES/MyTeamSAPES",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "18",
+            "title": "Readers Hub",
+            "type": "group",
+            "icon": "icon-book readers_hub_icon",
+            "children": [
+                {
+                    "id": "116",
+                    "title": "Readers Hub",
+                    "type": "submenu",
+                    "url": "/Books/BooksDetails",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "title": "Organization",
+            "type": "group",
+            "icon": "icon-phone organization_icon",
+            "children": [
+                {
+                    "id": "66",
+                    "title": "Extensions",
+                    "type": "submenu",
+                    "url": "/Contacts/Extensions",
+                    "subchildren": []
+                },
+                {
+                    "id": "82",
+                    "title": "Chart",
+                    "type": "submenu",
+                    "url": "/Contacts/OrgChart",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "11",
+            "title": "Talent Search",
+            "type": "group",
+            "icon": "icon-search icon-large",
+            "children": [
+                {
+                    "id": "67",
+                    "title": "Search",
+                    "type": "submenu",
+                    "url": "/TalentSearch/search",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "title": "Resource Allocation",
+            "type": "group",
+            "icon": "icon-sitemap icon-large",
+            "children": [
+                {
+                    "id": "79",
+                    "title": "SOW Approval",
+                    "type": "submenu",
+                    "url": "/ResourceAllocation/SOWApproval",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "12",
+            "title": "News and Events",
+            "type": "group",
+            "icon": "icon-bell icon-large news_events_icon",
+            "children": [
+                {
+                    "id": "68",
+                    "title": "View News and Events",
+                    "type": "submenu",
+                    "url": "/Administration/ViewNotification",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "16",
+            "title": "Activity Tracker",
+            "type": "group",
+            "icon": "icon-check icon-large activity_tracker_icon",
+            "children": [
+                {
+                    "id": "102",
+                    "title": "Activity Tracker",
+                    "type": "submenu",
+                    "url": "/TaskTracker/TaskTracker",
+                    "subchildren": []
+                },
+                {
+                    "id": "103",
+                    "title": " Activity TrackerList",
+                    "type": "submenu",
+                    "url": "/TaskTracker/TaskTrackerList",
+                    "subchildren": []
+                },
+                {
+                    "id": "104",
+                    "title": "Add Activity",
+                    "type": "submenu",
+                    "url": "/TaskTracker/AddTaskTracker",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "17",
+            "title": "Task Tracker",
+            "type": "group",
+            "icon": "icon-wrench icon-large",
+            "children": [
+                {
+                    "id": "107",
+                    "title": "My Task List",
+                    "type": "submenu",
+                    "url": "/ProjectTracker/MyTaskList",
+                    "subchildren": []
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "title": "R & R",
+            "type": "group",
+            "icon": "icon-large icon-cup rr_icon",
+            "children": [
+                {
+                    "id": "98",
+                    "title": "Monthly",
+                    "type": "submenu",
+                    "url": "/Rewards/Monthly",
+                    "subchildren": []
+                },
+                {
+                    "id": "99",
+                    "title": "Quarterly",
+                    "type": "submenu",
+                    "url": "/Rewards/Quarterly",
+                    "subchildren": []
+                },
+                {
+                    "id": "100",
+                    "title": "Annual",
+                    "type": "submenu",
+                    "url": "/Rewards/Annually",
+                    "subchildren": []
+                }
+            ]
+        }
+    ]
+}

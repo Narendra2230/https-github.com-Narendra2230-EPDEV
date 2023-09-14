@@ -1,0 +1,30 @@
+export class SowallocationVm{
+  allocationtypeofSOW:string='';
+  billingRate:number=0;
+  empCount:number=0;
+  billingUnit:string='';
+  btuName:string='';
+  competency:string='';
+  customerName:string='';
+  deliveryHead:string='';
+  deliveryLead:string='';
+  financeBP:string='';
+  hrbp:string='';
+  msaName:string='';
+  msaid:string='';
+  practiceLead:string='';
+  projectManager:string='';
+  projectOwner:string='';
+  projectType:string='';
+  serviceType:string='';
+  sowDescription:string='';
+  sowEndDate:string='';
+  sowFullName:string='';
+  sowManager:string='';
+  sowMargin:string='';
+  sowName:string='';
+  sowStartDate:string='';
+  sowType:string='';
+  sowValue:number=0;
+  sowid:number=0;
+}

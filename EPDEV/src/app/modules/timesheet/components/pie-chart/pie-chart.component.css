@@ -1,0 +1,30 @@
+.pie_value{margin-top: -34%;margin-left: 45%;}
+.chart-cont{    margin-top: 0;margin-left: 5%;}
+
+.billable{margin-right: 3%;padding-left: 5%;background: #71c285;}
+.nonbillable{margin-right: 3%;padding-left: 5%;background: #4bbbdd;}
+.support{margin-right: 3%;padding-left: 5%;background:   #556080;}
+.ippoc{margin-right: 3%;padding-left: 5%;background: #bf8654;}
+
+.billable[_ngcontent-icl-c16]{
+    float: left;
+}
+.pie_value ol{
+    width: 135px;
+    float: right;
+}
+.pie_value ol li{
+    margin-bottom: 5px;;
+}
+.pie_value ol li span:first-child{
+    float: left;
+    width: 15px;
+    height: 15px;
+}
+
+.pie_value {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0 !important;
+}

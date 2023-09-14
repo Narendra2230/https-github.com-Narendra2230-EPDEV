@@ -1,0 +1,48 @@
+<div class="time_sheet performance_evaluation team_evaluation">
+    <div class="fixed_header">
+        <!-- breadcrumb_list-End-->
+      <div class="breadcrumb_list">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="default_cursor">Performance Mgmt</a></li>
+                <li class="breadcrumb-item"><a href="#">Annual Appraisal</a></li>
+                 <li class="breadcrumb-item"><a href="#">Evaluation</a></li>
+            </ol>
+        </div> 
+        <!-- breadcrumb_list-End-->
+        <!-- time_sheet_heading -->
+        <div class="time_sheet_heading row">
+            <div class="toogle_slide col-4">
+            </div>
+            <div class="col-4 text-center">
+                <h4>Executive Evaluation</h4>
+            </div>
+        </div>
+        <!-- time_sheet_heading-End-->
+        <div class="evaluation_process row">
+            <div class="col-md-8 evl_prcs_lft team_evl_prs">
+                <!-- <app-associates-ogpb></app-associates-ogpb> -->
+                <app-get-executive-dashboard></app-get-executive-dashboard>
+            </div>
+            <div class="col-md-3">
+                <app-emplyee-snapshot-calender  page="MYTEAM"></app-emplyee-snapshot-calender>
+            </div>
+        </div>
+    </div>
+    <app-executive></app-executive>
+</div>
+<div class="submitted_popup_badges">
+    <div class="modal fade" id="submitted_popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="submitted_badges">
+                        <h4>You Received Manager Rating Today!</h4>
+                        <span data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+:host{display:block;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.empl_logo img{display: table;width: 100%;height: 130px;width: 130px !important;}
+.team_checkbox{position:absolute;top:1px;right:5px}
+.team_input{height:16px;width:16px}
+.checkbox{width:100%;margin:15px auto;display:block}
+.checkbox input[type="checkbox"]{width:auto;opacity:1.0E-8;position:absolute;left:0}
+.checkbox label{position:relative}
+.checkbox label:before{content:'';position:absolute;left:0;top:0;margin:4px;width:18px;height:18px;transition:transform .28s ease;border-radius:3px;border:2px solid #7bbe72;background:#fff}
+.checkbox label:after{content:'';display:block;width:10px;height:5px;border-bottom:2px solid #7bbe72;border-left:2px solid #7bbe72;-webkit-transform:rotate(-45deg) scale(0);-moz-transform:rotate(-45deg) scale(0);-ms-transform:rotate(-45deg) scale(0);transform:rotate(-45deg) scale(0);position:absolute;top: 9px;
+    left: 9px;}
+.checkbox input[type="checkbox"]:checked ~ label::before{color:#7bbe72}
+.checkbox input[type="checkbox"]:checked ~ label::after{-webkit-transform:rotate(-45deg) scale(1);-moz-transform:rotate(-45deg) scale(1);-ms-transform:rotate(-45deg) scale(1);transform:rotate(-45deg) scale(1)}
+.checkbox label{display:none;padding-left:20%;margin-bottom:0;font-weight:400;cursor:pointer;float:right;margin-top:-13%}
+.checkbox label span{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}
+.checkbox input[type="checkbox"]:focus + label::before{outline:0}
+.kpi_note{color: #ff7058;font-size: 10px;position: absolute;margin-top: -10px;}

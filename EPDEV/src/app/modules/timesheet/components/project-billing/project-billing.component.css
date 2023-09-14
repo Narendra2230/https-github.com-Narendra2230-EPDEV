@@ -1,0 +1,22 @@
+.status{
+    text-align: center;
+    padding: 20px;;
+}
+.project_name{
+    height: 45px;
+}
+
+.no-flex{
+    overflow: auto;
+    flex-wrap: inherit;
+}
+.billable{overflow: hidden;}
+.col.ng-star-inserted {
+    min-width: 150px;
+}
+
+.project_dl{
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

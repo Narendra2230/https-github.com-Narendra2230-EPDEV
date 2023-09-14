@@ -1,0 +1,18 @@
+.no-flex{
+    overflow: auto;
+    flex-wrap: inherit;
+}
+.billable{overflow: hidden;}
+.col.ng-star-inserted {
+    min-width: 150px;
+    overflow: hidden;
+}
+
+.project_name{
+    height: 40px;
+}
+
+::-webkit-scrollbar{width:3px;height:3px}
+::-webkit-scrollbar-track{background:#f1f1f1}
+::-webkit-scrollbar-thumb{background:#888;}
+::-webkit-scrollbar-thumb:hover{background:#fb8181}
