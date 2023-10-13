@@ -1,0 +1,37 @@
+<style>
+.onboard-body{
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.8;
+    font-family: arial;
+    margin-left: 15px;
+}
+ul li{
+    list-style: disc;
+}
+.close-btn{
+    margin-top: 10%;
+    float: right;
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+}
+</style>
+
+<div class="onbaord-container">
+<h2>What’s New?</h2>
+<ul class="onboard-body">
+  <li>Timesheet approval is now two-level. Approval is done by your Delivery Manager & Administration Manager</li>
+  <li>A new feature, “Same as previous week/ month” for timesheets is added</li>
+  <li>New options, “Leave & Holiday” and “Non-Billable” are added to the dropdown under projects & SOW</li>
+  <li>Attachments can view & Delete easily</li>
+  <li>Total submitted hours and approved hours display in the respective project</li>
+  <li>Default hours are self-loaded if you are assigned with a single SOW/Project.  Just verify before you apply.</li>
+  <li>Managers can download “Timesheet Report”</li>
+  <li>Manager can switch to previous and next week/month timesheets of associates</li>
+  <li>Manager can view individual associate details </li>
+  <li>Enhanced user interface and improved performance</li>
+</ul>
+<button (click)="close()" class="btn-primary close-btn">Got It</button>
+</div>

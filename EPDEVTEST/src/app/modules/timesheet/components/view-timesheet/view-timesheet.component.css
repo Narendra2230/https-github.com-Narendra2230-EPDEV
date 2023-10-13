@@ -1,0 +1,81 @@
+.row-overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(1, 1, 1, 0.3);
+}
+.relative{
+    position: relative;
+}
+input:disabled {
+    background-color: transparent;
+}
+
+.upload{
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #999999;
+}
+.deactive .sheet_date{
+    color: #cb9090;
+}
+.deactive .sheet_date select{
+    color: #cb9090;
+}
+.deactive .sheet_date input{
+    color: #cb9090;
+}
+.deactive .sheet_date .upload{
+    color: #cb9090;
+}
+.deactive .sheet_date input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #cb9090;
+  }
+
+ .timesheet-status select{
+     background: none !important;
+ }
+ 
+ .timesheet-status{
+     width:7%;
+     color: #999;
+ }
+ .timesheet-allocation{
+    width:8%;
+    color: #999;
+ }
+ .attachments{
+     width: 12%;
+ }
+
+ .deleteAttachement{
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #cccccc;
+ }
+ .deleteAttachement :hover{
+     color: #fb8181;
+ }
+ .attachdoc{
+    font-size: 16px;
+    margin-left: 10px;
+ }
+ .attachdoc a{
+     color: #cccccc;
+ }
+ .attachdoc a :hover{
+     color: #007ad9;
+ }
+ .ttxt{
+    /* white-space: pre; */
+    white-space: pre-line !important;
+}
+::ng-deep .mat-tooltip {
+    white-space: pre-line;
+    font-size: 14px;
+    line-height: 26px;
+  }

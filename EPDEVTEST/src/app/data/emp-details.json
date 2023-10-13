@@ -1,0 +1,11 @@
+{
+    "ogpn_process": {
+        "eligile_for_OGPB": "5",
+        "submission_pending": "6",
+        "self_ating": "3",
+        "OGPB_review_completed": "2",
+        "one_on_one": "1",
+        "pending_for_my_review": "5",
+        "final_approver_pending":"0"
+    }
+}

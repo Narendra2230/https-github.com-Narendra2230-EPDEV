@@ -1,0 +1,48 @@
+<div class="assigned_goals">
+  <div class="system_defined">
+      <h5>Assigned Goals (System Defined)</h5>
+  </div>
+  <div class="goals_table_main">
+      <div class="goals_table_in">
+          <ul class="heading">
+              <li>KPI</li>
+              <li>KRAs</li>
+              <li>Weightage</li>
+              <li>Units</li>
+             <!-- <li>Target</li> -->
+              <li>Actions</li>
+          </ul>
+          <h4 *ngIf="goals.length===0" class="noKPI_txt">KPIs not available for this level, Please share KPIs to HR team ASAP.</h4>
+          <ul class="goals_body_content" *ngFor="let goal of goals; let i = index">
+             
+            <!-- <li> <input *ngIf="goal.isEdit===true" type="text"  [(ngModel)]="goal.goal">
+                <span  *ngIf="goal.isEdit!=true" class="w-100"> {{goal.goal}} </span> 
+             </li> -->
+
+             <li><span class="w-100"> {{goal.goal}} </span> </li>
+
+              <li>
+                <input *ngIf="goal.isEdit===true" type="text"  [(ngModel)]="goal.description"> 
+                <span *ngIf="!goal.isEdit" class="w-100"> {{goal.description}} </span> </li>
+
+              <li> <input OnlyNumber="true"  [attr.maxlength]="(goal.units==='Percentage' ? 4:4)" *ngIf="goal.isEdit===true;" type="text" (keyup)="checkValue_Weitage($event)"   [(ngModel)]="goal.weightage"> 
+                <span *ngIf="!goal.isEdit" class="w-100"> {{goal.weightage}}% </span>
+              </li>
+              <li>
+                    <!-- <input type="text" disabled value="{{goal.units}}"> -->
+                    <span class="w-100"> {{goal.units}} </span>    
+              </li>
+           <!--   <li>
+                <input OnlyNumber="true"  [attr.maxlength]="(goal.units==='Percentage' ? 4:3)" (keyup)="checkValue($event, goal.units,i,goal.target)" *ngIf="goal.isEdit===true" type="text" name="target_field"  [(ngModel)]="goal.target ">
+                <span *ngIf="!goal.isEdit" class="w-100"> {{goal.target}} </span>
+              </li> -->
+              <li><i  *ngIf="!goal.isEdit" (click)="doEdit(i,false)" class="fa fa-pencil" aria-hidden="true"></i>
+                <i *ngIf="goal.isEdit===true" (click)="doEdit(i,true)" class="fa fa-file" aria-hidden="true"></i>
+                <i (click)="deleteRow($event,i)" class="fa fa-trash"></i>
+              </li>
+          </ul>
+          
+      </div>
+
+  </div>
+</div>

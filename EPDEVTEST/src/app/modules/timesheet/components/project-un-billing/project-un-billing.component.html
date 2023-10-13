@@ -1,0 +1,29 @@
+<div class="other_unbbill billable">
+    <div class="row">
+        <div class="col">
+            <div class="timesheet timesheet_calender">
+            <h4>Timesheet</h4>
+            <ul>
+                <li>
+                    <h5>Entry Pendings</h5>
+                    <span>{{pendingTimeSheet?.monthYear}}</span>
+                </li>
+                <li>
+                   
+                        <p>
+                            <span *ngFor="let d of pendingTimeSheet?.pendingDates">
+                                <small style="padding: 3px;cursor: pointer;" (click)="pendingDate(d)" *ngIf="d?.ispending">{{d?.timesheetDate}}, </small>
+                                <label style="padding: 3px;" [ngStyle]="d?.isWeekOff ? {color:'#ddd'} : {}" *ngIf="!d?.ispending">{{d?.timesheetDate}}, </label>
+                                
+                            </span>
+                        </p>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <div class="col">
+            <app-preloader class="go-center"  *ngIf="isLoadingForDates"></app-preloader>
+            <app-pie-chart  *ngIf="!isLoadingForDates" [chartData]="chartData"></app-pie-chart>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+{
+    "id": "12345",
+    "name": "Chandra sekhar K",
+    "date_ranges": [
+        "12-06-2019",
+        "03-06-2019"
+    ],
+    "year": "2019",
+    "employe_details": {
+        "fname": "",
+        "lname": "",
+        "middlename": "",
+        "dob": "",
+        "gender": "",
+        "current_state":"Non Billable",
+         "hoem_manger":"Ravi Reddy"
+    },
+    "rating": {
+        "self": {
+            "periode": "JFM - 2019",
+            "status": "Yet to submit",
+            "closing_date": "26-03-2019"          
+        },
+        "manager": {
+            "periode": "JFM - 2019",
+            "status": "Yet to submit",
+            "closing_date": "26-03-2019",
+            "by":"Srikanth Pakala"
+        },
+        "approver": {
+            "periode": "JFM - 2019",
+            "name": "Ravi Reddy",
+            "designation": "President & CEO"
+        }
+    },
+    "projects": [
+        {
+            "name": "CloudTestR Design Support",
+            "id": "",
+            "pm": "Srikanth Pakala",
+            "prcnt":"10"
+        },
+        {
+            "name": "Enterprise Portal",
+            "id": "",
+            "pm": "Srikanth Pakala",
+            "prcnt":"33"
+        }
+    ]
+}

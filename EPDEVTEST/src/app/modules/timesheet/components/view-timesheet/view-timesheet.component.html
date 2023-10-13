@@ -1,0 +1,199 @@
+<app-preloader class="go-center" *ngIf="isLoading"></app-preloader>
+<div class="view_timesheet" *ngIf="!isLoading">
+  <input
+    #fileUpload
+    id="fileUpload"
+    style="display: none"
+    type="file"
+    name="file"
+  />
+  <div class="row timesheet_row_one relative rowHead">
+    <div class="sheet_date col-1 col-first"><label>Date</label></div>
+    <div class="sheet_date proj_name col-2"><label>Project/SOW</label></div>
+    <div class="sheet_date serch_work col-2"><label>My Activity</label></div>
+    <div class="sheet_date proj_name col-2"><label>Shift</label></div>
+    <div class="sheet_date timesheet-hours col-1"><label>Duration</label></div>
+    <div class="sheet_date timesheet-status col-2"><label>Status</label></div>
+    <div class="sheet_date add_more col-1"><label>Attachment</label></div>
+    <div class="sheet_date add_more col-1 col-last">&nbsp;</div>
+  </div>
+  <div class="sheet_tableWrap">
+    <div
+      *ngFor="let sheet of timeSheetList; let i = index"
+      class="row timesheet_row_one relative"
+      [ngClass]="sheet?.non_Working ? 'deactive' : ''"
+    >
+      <!-- <div class="row-overlay" ></div> -->
+      <div class="sheet_date col-1 col-first">
+        <p>{{ sheet?.dateStr }}</p>
+      </div>
+
+      <div class="sheet_date proj_name col-2">
+        <select class="form-control"
+          (change)="projectChange($event,i); doCheck(sheet)"
+          [(ngModel)]="sheet.projectId"
+          [disabled]="sheet.editable == false">
+          <option value="0">Select Project/SOW</option>
+          <option *ngFor="let p of clientNames" value="{{ p.projectId }}">
+            {{ p.projectName }}
+          </option>
+        </select>
+      </div>
+
+      <div class="sheet_date serch_work col-2">
+        <!-- <input
+          autocomplete="off"
+          [(ngModel)]="sheet.activity"
+          [disabled]="sheet.editable == false"
+          type="test"
+          name="text"
+          placeholder="Activity Details"
+          class="form-control"
+        /> -->
+        <select class="form-control"
+        [(ngModel)]="sheet.activity"
+        name="activity{{i}}"
+        [disabled]="sheet.editable == false">
+          <option value="0">Select Activity</option>
+          <option value="1">Development</option>
+          <option value="2">Testing</option>
+          <option value="3">Support</option>
+          <option value="4">Training</option>
+          <option value="4">Meetings</option>
+          <option value="4">Client Meetings</option>
+          <option value="4">Team Meetings</option>
+          <option value="5">Other</option>
+        </select>
+
+      </div>
+
+      <div class="sheet_date proj_name col-2">
+        <select class="form-control"
+        [(ngModel)]="sheet.shiftID"
+        [disabled]="sheet.editable == false" >
+        <option value="0">Select Shift</option>
+        <option *ngIf="!sheet.shiftToggle" [disabled]="true" value="{{ sheet?.shiftID }}">
+          {{ sheet?.shiftName}}
+        </option>
+          <option *ngFor="let s of sheet.shiftNames" value="{{ s.shiftID }}">
+            {{ s.shiftName}}
+          </option>
+        </select>
+      </div>
+
+      <div class="sheet_date timesheet-hours col-1">
+        <strong
+          ><input
+            autocomplete="off"
+            (updateModel)="onkeyup(i, $event)"
+            [sheetData]="timeSheetList"
+            [sheet]="sheet"
+            [(ngModel)]="sheet.duration"
+            [disabled]="sheet.editable == false"
+            appTimeframe="true"
+            minlength="5"
+            maxlength="5"
+            type="text"
+            name="text"
+            placeholder="00:00"
+            class="form-control"
+        /></strong>
+      </div>
+
+      <div class="sheet_date timesheet-status col-2">
+        <span
+          ><input
+            [(ngModel)]="sheet.approvalSts"
+            [disabled]="true"
+            type="text"
+            name="text"
+            placeholder="Status"
+            readonly
+            [ngClass]="{
+              'btn-outline-secondary': sheet.approvalSts == null,
+              'btn-outline-primary': sheet.approvalSts == 'Yet to Approve',
+              'btn-outline-success': sheet.approvalSts == 'Approved',
+              'btn-outline-danger': sheet.approvalSts == 'Rejected'
+            }"
+            class="btn"
+        /></span>
+
+        <span
+          class="info-icons"
+          *ngIf="sheet.approvalSts != 'null' && sheet.approvalSts != null"
+          matTooltip="{{ getToolTipTaxt(sheet) }}"
+          tooltipClass="ttxt"
+          ><i class="fa fa-info-circle"></i
+        ></span>
+      </div>
+
+      <div class="sheet_date attachments col-1">
+        <div>
+          <button
+            (click)="sheet.editable === true && onClick(sheet)"
+            class="upload"
+          >
+            <img src="assets/images/add-attachments.svg" />
+          </button>
+          <small
+            *ngIf="
+              sheet.attachDocument !== undefined &&
+              sheet.attachDocument !== null &&
+              sheet.attachDocument !== ''
+            "
+            class="attachdoc"
+            ><a target="_blank" href="{{ sheet.attachDocument }}"
+              ><i class="fa fa-download" aria-hidden="true"></i></a
+          ></small>
+          <small
+            *ngIf="
+              sheet.attachDocument !== undefined &&
+              sheet.attachDocument !== null &&
+              sheet.attachDocument !== ''
+            "
+            class="deleteAttachement"
+            (click)="deleteAttachement(i, $event)"
+            ><i class="fa fa-trash" aria-hidden="true"></i
+          ></small>
+        </div>
+      </div>
+      <div class="sheet_date add_more col-1 col-last">
+        <button
+          *ngIf="sheet.master_Flag === false"
+          (click)="sheet.editable === true && deleteRow(i, $event, sheet)"
+        >
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+        <button
+          *ngIf="sheet.master_Flag === true"
+          (click)="sheet.editable === true && addSheet(i)"
+        >
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog
+  header="Timesheet is incomplete in below dates."
+  modal="true"
+  [(visible)]="display"
+>
+  <ul class="error-list">
+    <li *ngFor="let e of validationErrors; let i = index">
+      <p>{{ e.date }}</p>
+      <div>{{ e.message }}</div>
+    </li>
+  </ul>
+</p-dialog>
+<p-confirmDialog header="Confirmation" appendTo="body"></p-confirmDialog>
+
+<p-toast></p-toast>
+
+<div
+  class="gloabal-loader"
+  *ngIf="isUpdateLoading === true || isSubmitLoading === true"
+>
+  <app-preloader loderType="hourglass" class="go-center"></app-preloader>
+</div>

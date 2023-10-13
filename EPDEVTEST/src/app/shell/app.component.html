@@ -1,0 +1,21 @@
+<div id="wrapper">
+    <!-- main-header -->
+    <app-header></app-header>
+    <!-- main-header-End -->
+    <section class="mpe_evaluation">
+        <div class="container">
+            <div class="row">
+                <div class="main_time_sheet_in255">
+                    <app-side-menu *ngIf="GOTOKEN"></app-side-menu>
+                    <div *ngIf="!GOTOKEN" class="lod-loader">
+                        <app-preloader loderType="hourglass" ></app-preloader>
+                    </div>
+                    <div *ngIf="GOTOKEN">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<p-confirmDialog key="confirmDialog_1" header="Profile incomplete.!" ></p-confirmDialog>

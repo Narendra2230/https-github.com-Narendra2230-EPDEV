@@ -1,0 +1,43 @@
+<div class="time_sheet">
+  <app-org-hierarchy-header></app-org-hierarchy-header>
+  <div class="inner_page">
+    <div class="simplebar" #simplebar id='simplebar'[scrollTop]="simplebar.scrollHeight" [scrollLeft]="scrollLeftValue">
+      <div class="hirarchy-outer">
+        <div class="company-logo">
+          <label class="logo_heading">
+            <figcaption>
+              <img src="assets/images/org/logo-icon.png" alt="Suneratech">
+            </figcaption>
+          </label>
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+          <div class="hirarchy level-1" [ngClass]="{'one-client':projects.length==1,'two-client':projects.length==2}">
+            
+            <div class="tickets-wrapper">
+                
+              <div class="divider"></div>
+              <div class="ticket_emp" id="L0T{{ind}}" *ngFor="let proj of projects; let ind=index;">
+                <div class="ticket_emp_inner">
+                  <div class="client_name">
+                    <!-- <span>{{proj.msowName}}</span> -->
+                    {{proj.msowName}}
+                  </div>
+                  
+                </div>
+                <div class="plus_circle expand">
+                  <i (click)="nextClick($event,ind,proj)" class="fa fa-plus" [ngClass]='{"fa-minus":selectedItem=="L0T"+ind}'></i>
+              </div>
+              <app-emp-leads-list *ngIf="selectedItem=='L0T'+ind" [newtickets]="{childTicketsInp:nextChildTickets,level:'1',parent:'1',clientId:clientId,moswId:moswId}"></app-emp-leads-list>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reset">
+    <span class="reset_to_defualt" (click)='resetHirarchy()'>
+      <i class="fa fa-refresh" aria-hidden="true"></i>
+      Reset to default
+    </span>
+  </div>
+</div>

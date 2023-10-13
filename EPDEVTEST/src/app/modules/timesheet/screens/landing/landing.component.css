@@ -1,0 +1,49 @@
+.tab-list ul{
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+}
+.tab-list ul li{
+   list-style: none;
+   display: inline-block;
+   padding: 10px;;
+   padding-left: 0px;
+   margin-right: 12%;
+   letter-spacing: 0.03em;
+   cursor: pointer;
+   font-size: 14px;;
+}
+.tab-list ul li.active{
+ border-bottom: 4px solid #71c285;
+    color: #71c285;
+    margin-bottom: -3px; 
+}.tab-list{
+    width: 70%;
+  }
+  .tab-list li:last-child{
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .tab-list{
+    width: 590px !important;
+    }
+  
+    .tab-list ul li{
+      margin-right: 80px !important;
+    }
+    .tab-list ul li:last-child{
+      padding-right: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .time_sheet_heading{
+      padding: 10px;
+    }
+
+    .apply_leave{
+      text-align:right !important;
+      font-size: 12px;
+    }

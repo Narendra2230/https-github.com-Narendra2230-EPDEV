@@ -1,0 +1,55 @@
+<div class="time_sheet performance_evaluation goal_evaluation_main">
+    <div class="fixed_header">
+        <!-- breadcrumb_list-End-->
+        <div class="breadcrumb_list">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="default_cursor">Performance Mgmt</a></li>
+                <li class="breadcrumb-item"><a href="#">Performance Assessment</a></li>
+            </ol>
+        </div>
+        <!-- breadcrumb_list-End-->
+    </div>
+    <div class="assigning_goal row">
+        <div class="assigning_goal_main">
+            <div>&nbsp;</div>
+            <h4>Assigning Goals for Band - {{band}}</h4>
+            <div class="profile_back">
+                <a href="javascript:void()" (click)="goBack()"><i class="fa fa-arrow-left"
+                        aria-hidden="true"></i>Back</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="fixed_body_scroll">
+            <app-system-defined-goals (checkEnablButtn)="checkEnablButtn($event)" [KPIData]="KPIData"></app-system-defined-goals>
+            <app-pre-defined-measures [KPIData]="KPIData"></app-pre-defined-measures>
+        </div>
+    </div>
+    <div class="submit_rating">
+        <ul>
+            <li class="cancel">
+                <input type="button" name="button" value="CANCEL" (click)="goBack()">
+            </li>
+            <li class="submit" (click)="rating_popup()">
+             <!--   <input [ngClass]="CTADisable  ? 'btn-no-active' : 'btn-active'" [disabled]="CTADisable" type="button" name="button" value="ASSIGN GOALS"> -->
+            </li>
+        </ul>
+        
+    </div>
+</div>
+<!-- <div class="submitted_popup_badges">
+    <div class="modal fade" id="submitted_popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="submitted_badges">
+                        <h4>Goals Assigned successfully!</h4>
+                        <span data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

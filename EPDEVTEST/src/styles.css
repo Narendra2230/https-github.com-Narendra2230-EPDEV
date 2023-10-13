@@ -1,0 +1,363 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-material.css";
+
+.ogp_year li {
+  cursor: pointer;
+}
+
+body a:hover {
+  color: #fb8181 !important;
+}
+.btn-no-active {
+  opacity: 0.5 !important;
+  cursor: no-drop !important;
+}
+.btn-active {
+  opacity: 1;
+  cursor: pointer;
+}
+.highcharts-credits {
+  display: none;
+}
+body .ui-datepicker table td > a.ui-state-active,
+body .ui-datepicker table td > span.ui-state-active {
+  color: #ffffff;
+  background-color: #71c285 !important;
+}
+.error-list li {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+}
+.error-list li p {
+  color: #777;
+  letter-spacing: 0.03em;
+  font-size: 13px;
+}
+.error-list li div {
+  color: #fb8181;
+  padding: 10px 0px 10px 10px;
+  letter-spacing: 0.03em;
+  font-size: 12px;
+}
+.ui-dialog-wrapper {
+  background: #0000002b !important;
+  z-index: 99999 !important;
+}
+
+.mat-slide-toggle-bar {
+  background-color: #fb8181 !important;
+}
+
+.mat-slide-toggle-thumb {
+  height: 13px !important;
+  width: 13px !important;
+  left: 5px !important;
+  margin-top: 6px !important;
+  margin-left: 5px !important;
+  box-shadow: none !important;
+}
+
+.mat-slide-toggle-bar {
+  position: relative !important;
+  width: 50px !important;
+  height: 20px !important;
+  flex-shrink: 0;
+  border-radius: 10px !important;
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #fff !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  position: absolute !important;
+  content: "" !important;
+  transition: 0.8s !important;
+  box-shadow: none !important;
+}
+.gloabal-loader {
+  position: fixed;
+  top: 0;
+  z-index: 9999999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.01);
+  left: 0;
+}
+.gloabal-loader .go-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.onbaord-container {
+  background-color: #fff;
+  height: 430px;
+  width: 600px;
+  padding: 20px;
+}
+.ttxt {
+  /* white-space: pre; */
+  white-space: pre-line !important;
+}
+::ng-deep .mat-tooltip {
+  white-space: pre-line;
+}
+
+body .ui-multiselect {
+  border: none !important;
+  border-bottom: 1px solid #969a9f !important;
+  border-radius: 1px !important;
+  background: #f5f6f8 !important;
+}
+
+body .ui-inputtext {
+  border: none !important;
+  border-radius: 1px !important;
+  background: transparent !important;
+}
+body .ui-multiselect .ui-multiselect-trigger {
+  background: none !important;
+  font-size: 11px;
+  color: #2f2f2f !important;
+}
+.mat-dialog-container .rating_comment_popup .leave_history_table {
+  height: 400px;
+  overflow: auto;
+  font-size: 14px;
+  color: #606060;
+  font-family: "latoregular";
+  width: 800px;
+}
+
+.ui-multiselect .ui-multiselect-label {
+  height: 28px;
+  color: rgb(202 198 198);
+  font-size: 14px !important;
+  padding: 0.6em !important;
+  font-family: "latosemibold";
+  line-height: 5px;
+  color: rgb(0 0 0) !important;
+  margin: 0px;
+  padding-bottom: 3px;
+}
+.form-control:disabled,
+.form-control {
+  background: none !important;
+  border-radius: 0 !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+  transform: translate3d(22px, 0, 0) !important;
+}
+
+body .ui-button,
+body .ui-button :hover {
+  background-color: #e06969 !important;
+  border: 1px solid #e06969 !important;
+  font-weight: bold;
+}
+body .ui-button:nth-child(2),
+body .ui-button:nth-child(2) :hover {
+  background-color: #e7e7e7 !important;
+  border: 1px solid #e7e7e7 !important;
+  color: #575757 !important;
+  font-weight: bold;
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active {
+  border-color: #e06969 !important;
+  background-color: #e06969 !important;
+}
+body .ui-datepicker table td.ui-datepicker-today > a,
+body .ui-datepicker table td > a.ui-state-active,
+body .ui-datepicker table td > span.ui-state-active {
+  background-color: #71c285 !important;
+  color: #fff !important;
+}
+.mat-simple-snackbar span {
+  display: block !important;
+}
+.mat-snack-bar-container {
+  margin-top: 0 !important;
+}
+.addBtn {
+  outline: none;
+  border-radius: 50px;
+  font-size: 13px;
+  font-family: "latosemibold";
+  padding: 8px 20px;
+  height: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 10px;
+  border: 1px solid #e06969;
+  color: #e06969;
+  background: #ffffff;
+}
+
+.addBtn:hover {
+  color: #ffffff;
+  background: #e06969;
+}
+
+div.profileNavCont {
+  position: relative;
+}
+:host ::ng-deep .custom-spinner .p-progress-spinner-circle {
+  animation: custom-progress-spinner-dash 1.5s ease-in-out infinite,
+    custom-progress-spinner-color 6s ease-in-out infinite;
+}
+
+@keyframes custom-progress-spinner-color {
+  100%,
+  0% {
+    stroke: #16697a;
+  }
+  40% {
+    stroke: #489fb5;
+  }
+  66% {
+    stroke: #82c0cc;
+  }
+  80%,
+  90% {
+    stroke: #ffa62b;
+  }
+}
+
+@keyframes custom-progress-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+.btn-reset {
+  position: relative;
+}
+.select-disabled {
+  pointer-events: none !important;
+  background: #f7f6fb !important;
+}
+.validation-error {
+  color: red !important;
+  font-weight: bold !important;
+}
+input.dateInput[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  /* background-color: red; */
+  left: -30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.dateInput::after {
+  background-image: url(./assets/images/month-calendar.svg);
+  content: "";
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.dateInput:hover:after {
+  background-image: url(./assets/images/month-calendar-selected.svg);
+}
+body div.sub_practice_class.ui-multiselect {
+  display: inline-block;
+  width: 100%;
+  height: 32px;
+  padding: 4px 11px;
+  color: rgb(89 89 89) !important;
+  font-size: 12px;
+  line-height: 1.5;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9 !important;
+  border-left-color: #fb8181 !important;
+  border-left-width: 0.15rem !important;
+  border-radius: 5px !important;
+  background: #fff !important;
+}
+
+body div.sub_practice_class.ui-multiselect li > span {
+  background: inherit;
+  border: none !important;
+  font-size: 13px;
+  text-align: center;
+  position: initial !important;
+  line-height: 27px;
+  font-family: "lato_lightregular";
+  width: auto !important;
+  height: auto !important;
+}
+body div.sub_practice_class.ui-multiselect li:last-child {
+  text-align: left;
+}
+.showmore {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.showmore span {
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.showmore .seealllist {
+  display: none;
+  position: absolute;
+  min-height: 100px;
+  background: #fff;
+  padding: 5px;
+  top: -100px;
+  font-size: 12px;
+  line-height: 25px;
+  border: 1px solid #ddd;
+  /* background: #f1f1f1; */
+  min-width: 250px;
+  z-index: 999999999999;
+}
+.showmore .seealllist ul li {
+  width: 100%;
+  list-style-type: disc;
+  text-align: left !important;
+}
+
+.showmore:hover .seealllist {
+  display: block;
+}
+
+/*AG Grid styles*/
+
+.ag-theme-material{
+  box-shadow: 0px 5px 5px 3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);
+}
+.ag-header-cell {
+  background-color: #fafafa !important;
+}
+.ag-theme-material .ag-cell {
+   font-size: 12px;
+  color: #4a4a4a;
+}
+
+.ag-root.ag-layout-normal {
+  height: 100%;
+  border: 1px solid #cccccc;
+}

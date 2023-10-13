@@ -1,0 +1,11 @@
+<div *ngIf="isLoading">
+    <app-preloader class="go-center"></app-preloader>
+</div>
+<ul *ngIf="!isLoading" class="exe_head">
+<li *ngFor="let e of EvaluationDetails;let i=index" (click)="pmsClick(i,e)"  [ngClass]="{'active' : e.isCurrentStatus===true}">
+    <h5>{{e.evaluationDescription}}</h5>
+    <h3>{{e.associateCount}}</h3>
+</li>          
+</ul>
+
+

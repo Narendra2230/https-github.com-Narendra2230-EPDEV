@@ -1,0 +1,53 @@
+<section class="main_header">
+    <div class="container">
+        <div class="main_header_in row">
+            <div class="logo col-sm-6 col-xs-6">
+                <a href="https://epstaging.suneratech.com/Home/Dashboard">
+                    <img src="assets/images/logo.png" alt="logo">
+                </a>
+                <span class="hidden-sm-down">Product <small>Development</small></span>
+            </div>
+            <div class="user_info col-sm-6 col-xs-6 text-right">
+                <ul>
+                    <li class="user_icon">
+
+                        <label class="hidden-sm-down">Welcome <span>{{user_name}}</span></label>
+                        <img class="user-img" src="{{user_image}}" align="user">
+                        <img class="shape_click" src="assets/images/shape.svg" align="shape">
+
+                        <div class="user_info_box">
+                            <ul>
+                                <li><a href="https://epstaging.suneratech.com/modules/ogpb/#/profile-landing"><i class="fa fa-user"
+                                            aria-hidden="true"></i> View Profile</a></li>
+                                <li><a href="javascript:void(0);" (click)="logout()"><i class="fa fa-power-off"
+                                            aria-hidden="true"></i> Log out</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="notification_icon">
+                        <img src="assets/images/notification.svg" alt="notification">
+                        <small class="count">0</small>
+                        <div class="notification_box">
+                        </div>
+                    </li>
+                    
+                    <li class="mobile-menu">
+                        <h3>enterprise <span>portal</span></h3>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div class="mobile-menu-nav">
+            <span>{{labelName}}</span>
+            <nav class="navbar navbar-dark large-hide">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <img alt="menu" (click)="changeLabel()" src="/assets/images/menu-btn.svg">
+                  <img alt="menu" (click)="changeLabel()" class="active-nav" src="/assets/images/cancel.png">
+                </button>
+              </nav>
+              <br clear="all">
+        </div>
+</section>

@@ -1,0 +1,148 @@
+<div class="time_sheet ">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/#/timesheet">Team's Timesheet</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <div class="time_sheet_heading row pad-3">
+        <div class="toogle_slide col-4">
+            <app-toggle-cmpt [checked]="true"></app-toggle-cmpt>
+        </div>
+        <div class="col-4 text-center">
+            <h4>My Team's Timesheet</h4>
+        </div>
+        <div class="col-4 right-txt cal_select">
+            <app-preloader class="go-center" *ngIf="isLoading"></app-preloader>
+            <app-global-date *ngIf="!isLoading" (reset)="resetDates($event)" [globalDateRange]="globalDateRange"
+                (onGlobalDateChange)="onGlobalDateChange($event)"></app-global-date>
+        </div>
+    </div>
+    <!-- time_sheet_heading-End-->
+
+      <!-- view_timesheet_head -->
+    <app-view-timesheet-head from="MNGR" #timeSheetHeader (onDateViewChanges)="onDateViewChanges($event)"
+      [datesObject]="datesObject"></app-view-timesheet-head>
+
+
+    <!-- team_filter_main -->
+
+    <app-team-filter #timeSheetFilter (reset)="filterReset($event)" (onSearch)="onSearch($event)" [filterMetaData]="filterMetaData">
+    </app-team-filter>
+    <!-- jasnBDhcjasmnbxzcn -->
+
+    <!-- view_timesheet -->
+    <div class="view_timesheet manger_timesheet">
+        <div class="mng_timesheet_table heading">
+            <ul>
+                <li>
+                    <label class="check_mng">
+                        <input (change)="check('all',$event)" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+                <li>BTU</li>
+                <li>Reporting Manager</li>
+                <li>Associate Name</li>
+                <li>Customer Name</li>
+                <li>SOW Name</li>
+                <li>Days</li>
+                <li>Hours</li>
+                <li>Shift</li>
+                <li>Status</li>
+                <li>Actions</li>
+            </ul>
+        </div>
+
+        <div *ngIf="isSheetLoading" class="mng_timesheet_table">
+            <app-preloader class="go-center"></app-preloader>
+        </div>
+        <div *ngIf="managerMetaData.length === 0 && isSheetLoading==false" class="mng_timesheet_table">
+            <h2 class="nodata">No data available on selected dates & Action </h2>
+        </div>
+
+        <div *ngIf="!isSheetLoading">
+            <div *ngFor="let emp of managerMetaData; let i = index;" class="mng_timesheet_table">
+                <ul>
+                    <li>
+                        <label class="check_mng" *ngIf="emp.timesheetStatus!=='Approved' && emp.timesheetStatus!=='Rejected'">
+                            <input (click)="check(i,$event)" [checked]="emp.checked" type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li>{{emp.buName}}</li>
+                    <li>{{emp.reportingManagerName}}</li>
+                    <li> <a href="#" (click)="goToDetails(emp,$event)"> {{emp.associateName}}</a></li>
+                    <li> {{emp.clientName}} </li>
+                    <li>{{emp.sowName}}</li>
+                    <li>{{emp.daysCount}}</li>
+                    <li>{{emp.totalHours}}</li>
+                    <li>{{emp.shiftName}}
+                    <li>{{emp.timesheetStatus}}
+                    </li>
+                    <li><a (click)="approve(emp)" class="txt_clr">APPROVE/REJECT</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="timesheet_option manger_option">
+        <div class="row">
+            <div class="col">
+                <app-timesheet-option (donwloadSheet)="donwloadSheet($event)"></app-timesheet-option>
+            </div>
+            <div class="col text-right">
+                <div class="time_btns">
+                    <ul>
+                       <!-- <li class="submit"><input type="button" (click)="onSubmit(3,'')" name="button" value="UNLOCK"> -->
+                        <li><input type="button" name="button" (click)="reject()" value="REJECT"></li>
+                        <li class="submit"><input type="button" (click)="onSubmit(1,'')" name="button" value="APPROVE">
+                        </li>
+                    </ul>
+                    <div class="modal fade" id="select_time_popup" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="submit_pop_dtl">
+                                        <h3>Do you want to approve selected associates timesheets?</h3>
+                                        <button class="cancel_btn" type="button" data-dismiss="modal">CANCEL</button>
+                                        <button data-dismiss="modal" type="button" data-toggle="modal"
+                                            data-target="#submitted_popup">YES</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="submitted_popup_badges">
+        <div class="modal fade" id="submitted_popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="submitted_badges">
+                            <h4>Selected Timesheet Approved Successfully!</h4>
+                            <span data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p-confirmDialog header="Confirmation" appendTo="body"></p-confirmDialog>
+
+<p-toast></p-toast>
+<p-dialog appendTo="body" header="REJECT COMMENTS" modal="true" [(visible)]="display" position="center">
+    <p style="color: red;" *ngIf="isRCmtError">Reject comments are mandatory</p>
+    <textarea [(ngModel)]="rejectComments" class="reject_popup"></textarea><br />
+    <button (click)="rejectsubmit()" class="reject_btn">Submit</button>
+</p-dialog>

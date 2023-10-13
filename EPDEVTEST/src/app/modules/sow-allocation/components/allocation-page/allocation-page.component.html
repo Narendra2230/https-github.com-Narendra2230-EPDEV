@@ -1,0 +1,88 @@
+<div class="container ml-5 mt-4" style="width: 96%">
+  <div class="profileMain">
+    <div class="row m-0 p-0 p-b-10">
+      <div class="col-8 sow_management">
+        <h4>SOW Management</h4>
+      </div>
+      <div class="col-4 text-right">
+        <select class="sow_list" (change)="ChangeFilter()" [(ngModel)]="Status">
+          <option value="">All SOWs</option>
+          <option value="Billable">Billable</option>
+          <option value="Non-Billable">Non Billable</option>
+          <option value="EndPassed">SOW EndDate Passed</option>
+          <option value="ZeroEmpCount">No Resources Allocated</option>
+          <option value="ZeroSOWCount">Zero Revenue SOWs</option>
+          <option value="EAM">EAM</option>
+          <option value="ICT">ICT</option>
+          <option value="DIA">DIA</option>
+          <option value="DAM">DAM</option>
+          <option value="DTI">DTI</option>
+          <option value="SSU">SSU</option>
+        </select>
+        <button class="btn_1 excel_export" (click)="exportDataAsExcel()">
+          Excel Format
+        </button>
+      </div>
+    </div>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <ag-grid-angular
+      style="width: 100%; height: 500px"
+      class="ag-theme-material"
+      [rowData]="displayedRowData"
+      [columnDefs]="displayedColumnDefs"
+      [frameworkComponents]="frameworkComponents"
+      pagination="true"
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+
+    <div class="sow_detailed">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Total SOWs</th>
+            <th scope="col">Billable SOWs</th>
+            <th scope="col">SOW EndDate Passed</th>
+            <th scope="col">Zero Revenue SOWs</th>
+            <th scope="col">Allocation Headcount</th>
+            <th scope="col">Total SOW Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ totalSows }}</td>
+            <td>{{ totalBillable }}</td>
+            <td>{{ totalEndDate }}</td>
+            <td>{{ totalZeroRevenew }}</td>
+            <td>{{ totalHeadcount }}</td>
+            <td>{{ totalSOWValuesStr }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade createnrollCourse"
+  id="createnrollCourse"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  [ngClass]="isModal ? 'show d-block' : ''"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="card">
+        <div class="card-body allocation_popup">
+          <div class="col-12 pointer text-right">
+            <i class="fa fa-times" (click)="isModal = false"></i>
+          </div>
+          <app-associate-count-table
+            [sowid]="selectedSowId"
+          ></app-associate-count-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

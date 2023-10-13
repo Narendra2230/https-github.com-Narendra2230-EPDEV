@@ -1,0 +1,158 @@
+p-calendar > input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px dashed #f1f1f1;
+}
+p-calendar {
+  width: 100%;
+  display: table;
+}
+::ng-deep p-calendar > span {
+  width: 100% !important;
+}
+
+::ng-deep p-calendar input {
+  font-size: 14px !important;
+  line-height: 22px !important;
+  color: #949090 !important;
+  border: 0 !important;
+  border-bottom: 1px dotted #333333 !important;
+  padding-bottom: 3px !important;
+  width: 100% !important;
+}
+app-preloader.ng-star-inserted::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.validation-error {
+  color: red !important;
+  font-weight: bold !important;
+}
+.resetPreloader {
+  position: absolute;
+  left: 15%;
+  top: 0%;
+  padding: 7px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+.frow {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.f-left {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.mat-menu-item {
+  height: 33px !important;
+}
+
+.download_icn {
+  padding-top: 14px;
+  display: block;
+}
+
+.mat-menu-item,
+.mat-menu-item:hover {
+  padding: 0px;
+  background: none;
+}
+
+.revel_sal {
+  font-family: "poppins_mediumregular";
+  font-size: 14px;
+  cursor: pointer;
+}
+.dob_show {
+  margin-left: 10px;
+  font-size: 14px;
+}
+.form-control-skill-file {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer;
+  background-color: #fff !important;
+}
+.btnsave-skill{
+  border: none;
+  outline: none;
+  background: #71C285;
+  font-size: 13px;
+  color: #fff;
+  font-family: 'latosemibold';
+  padding: 0 17px;
+  height: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-left: 10px;
+  float: right;
+}
+.form-control-skill {
+  display: inline-block;
+  width: 100%;
+  height: 32px;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 12px;
+  line-height: 1.5;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-left-color: #fb8181;
+  border-left-width: 0.15rem;
+  border-radius: 5px;
+}
+
+.self_resume{
+  width: 96%;
+  padding: 4px;
+}
+
+.m-b-12{
+  margin-bottom:15px;
+}
+
+.m-t-10{
+  margin-top: 10px;
+}
+
+.f-right{
+  float: right;
+}
+
+.personalContForm td input, .personalContForm td select {
+  display: inline-block;
+  width: 100%;
+  height: 32px;
+  padding: 4px 11px;
+  color: rgba(0,0,0,.65);
+  font-size: 12px;
+  line-height: 1.5;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-left-color: #fb8181;
+  border-left-width: 0.15rem;
+  border-radius: 5px !important;
+}
+
+.personalContForm td select:focus-visible,
+.personalContForm td input:focus-visible {
+    outline: none;
+    border-left-color: #2196f3;
+    border-left-width: 0.15rem !important;
+}

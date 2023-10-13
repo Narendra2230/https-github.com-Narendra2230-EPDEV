@@ -1,0 +1,68 @@
+@import '../../../../../assets/css/bootstrap.min.css';
+@import '../../../../../assets/css/font-awesome.min.css';
+@import '../../../../../assets/css/learning.css';
+
+.clear_btn{
+  margin-top:15% !important;
+  font-size: 14px;
+}
+
+.status-wrap{
+  position: relative;
+  right: 25px;
+}
+.pointer{
+  cursor: pointer;
+}
+
+.learning-training{
+  background: #f1f4fb;
+}
+.calendar-card{
+  position: fixed !important;
+  top: 14% !important;
+  width: 28% !important;
+}
+.courseActive{
+background-color:#71c285 !important;
+color: #fff !important;
+margin: 5px !important;
+}
+.container{
+  max-width: 90% !important;
+}
+
+.cource_select{
+  font-size: 14px !important;
+  font-family: sans-serif;
+}
+
+.cource_select select{
+  font-size: 12px;
+  border: 1px solid #e2e6ee;
+}
+
+.bak_dashboard{
+  color: #fb8484;
+  font-size: 14px;
+  font-family: 'Open Sans';
+}
+
+.btn-success {
+  color: #fff !important;
+  background-color: #71c285 !important;
+  border-color: #71c285 !important;
+}
+
+.sow_list{
+  border: 1px solid #e06969;
+  border-radius: 24px;
+  background: #fff;
+  padding: 6px 20px;
+  font-size: 14px;
+  color: #333;
+  font-family: 'lato_lightregular';
+  margin-right: 15px;
+  width: 200px;
+  height: 34px;
+}

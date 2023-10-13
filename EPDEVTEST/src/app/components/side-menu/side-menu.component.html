@@ -1,0 +1,25 @@
+<div class="main_menu"  >
+    <ul class="parent_sub_menu" *ngFor=" let data of navData;let i = index;"    >
+        <li  [ngClass]="{'menu-item':true, 'active':data.isOpen===true}"   >
+            <div class="side_menu_icon menu_open" (click)="menucta(data,i )">
+              <img [src]="data.menupic" alt="menu-btn">
+              <img class="hover" [src]="data.menuhpic" alt="menu-btn">
+              <span routerLinkActive="active"  >{{data['title']}} </span>
+            </div>
+            
+            <div *ngFor=" let sub_mnu of data.children;let ii = index;" class="main_sub_menu ">
+              <ul>
+                  <li>
+                      <a class="full-width" (click)="submenucta(sub_mnu,ii,i )" >{{sub_mnu['title']}}</a>
+                      <span class="main_sub_menu_arrow"  *ngIf=sub_mnu.subchildren.length> </span>
+                      <div *ngFor="let child_menu of sub_mnu.subchildren;let n=index;" class="child_sub_menu" [ngStyle]="{'display':sub_mnu.isOpen === true ? 'block' : 'none' }" >
+                          <ul>
+                              <li (click)="resetMenu(child_menu,n,true)"><a class="full-width" > {{child_menu['title']}} </a></li>
+                          </ul>
+                        </div>
+                  </li> 
+              </ul>
+            </div>
+        </li>
+    </ul>
+  </div>

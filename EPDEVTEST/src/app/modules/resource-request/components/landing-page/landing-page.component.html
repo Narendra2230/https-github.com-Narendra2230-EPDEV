@@ -1,0 +1,83 @@
+<div class="allRequest">
+    <!--Hiring Process - start-->
+    <div class="container-fluid hiring-process">
+        <div class="row">
+           <div class="page-header">
+              <div class="float-left">
+                <h4 class="page-title" style="margin-right: 23px;">Resource<span class="font-weight-normal text-muted ml-2">Request</span></h4>          
+              </div>
+              <div class="page-rightheader float-right">
+                 <a class="btn btn-newRequest" routerLink="/newRequest">Creat New Request</a>
+              </div>
+           </div>
+        </div>
+        
+        <!--- Resource Table  - Start -->
+        <div class="resources-block card" style="margin-top: 25px;">
+           <div class="page-header">
+              <div class="page-leftheader float-left">
+                 <div class="dataTables_length" id="Tbl_length">
+                    <label>
+                       Show 
+                       <select name="Tbl_length" aria-controls="Tbl" class="" id="pageSize" (change)="changePageSize()">
+                          <option value="10">10</option><option value="25">25</option>
+                          <option value="50">50</option><option value="100">100</option>
+                          <option [value]="dataLength">All</option>
+                       </select>
+                       Entries
+                    </label>
+                 </div>
+              </div>
+              <div class="page-rightheader float-right">
+                 <button type="button" class="btn btn-secondary" (click)="exportDataAsExcel()">Export Request</button>
+              </div>
+           </div>
+    
+           <!--Table Start-->
+           <div class="tableData">
+    
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <ag-grid-angular
+          style="width: 100%; height: 500px"
+          class="ag-theme-material"
+          [rowData]="displayedRowData"
+          [columnDefs]="displayedColumnDefs"
+          [frameworkComponents]="frameworkComponents"
+          pagination="true"
+          [paginationPageSize]="10"
+          (gridReady)="onGridReady($event)"
+          (cellClicked)="onCellClicked($event)"
+        >
+        </ag-grid-angular>
+           </div>
+           <!--Table End-->
+        </div>
+        <!--- Resource Table  - Start -->
+
+        <div class="resources-block card" style="margin-top: 25px;">
+         <div class="page-header">
+            <div class="page-leftheader float-left">
+               Total RRIDs : {{dataLength}}
+            </div>
+         </div>
+  
+         <!--Table Start-->
+         <div class="tableData">
+  
+            <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+            <ag-grid-angular
+              style="width: 100%; height: 400px"
+              class="ag-theme-material"
+              [rowData]="dashboardRowData"
+              [columnDefs]="dashboardColumnDefs"
+              pagination="true"
+              [paginationPageSize]="10"
+            >
+            </ag-grid-angular>
+         </div>
+         <!--Table End-->
+      </div>
+    
+     </div>
+     <!--Hiring Process - End-->
+    </div>

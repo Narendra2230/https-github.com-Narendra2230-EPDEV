@@ -1,0 +1,14 @@
+.clone-hrs{
+  font-size: 12px;
+  cursor: pointer;
+}
+.full_hours :hover{
+    color: #fb8181; 
+    cursor: pointer;
+  }
+
+  .view_timesheet_head{
+    margin: 0px auto;
+    background: #fffdfd;
+    padding: 10px;
+  }

@@ -1,0 +1,162 @@
+<form [formGroup]="courseFormGroup" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="form-group col-md-4">
+      <label for=""><span>Select Date</span></label>
+      <input
+        type="date"
+        formControlName="date"
+        [min]="minDate"
+        class="form-control"
+      />
+      <span
+        class="text-danger"
+        [ngClass]="
+          !date?.valid && (date.touched || userSubmitted) ? 'd-block' : 'd-none'
+        "
+        *ngIf="date.hasError('required')"
+      >
+        Please select date
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Start Time</label>
+      <input
+        type="time"
+        formControlName="startTime"
+        class="form-control"
+        placeholder="10 AM"
+        (change)="changeTime()"
+      />
+      <span
+        class="text-danger"
+        [ngClass]="
+          !startTime?.valid && (startTime.touched || userSubmitted)
+            ? 'd-block'
+            : 'd-none'
+        "
+        *ngIf="startTime.hasError('required')"
+      >
+        Please select start time
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <label>End Time</label>
+      <input
+        type="time"
+        formControlName="endTime"
+        class="form-control"
+        placeholder="12 PM"
+        (change)="changeTime()"
+      />
+      <span
+        class="text-danger"
+        [ngClass]="
+          !endTime?.valid && (endTime.touched || userSubmitted)
+            ? 'd-block'
+            : 'd-none'
+        "
+        *ngIf="endTime.hasError('required')"
+      >
+        Please select end time
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Course Title</label>
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="Enter course title"
+        class="form-control"
+      />
+      <span
+        class="text-danger"
+        [ngClass]="
+          !title?.valid && (title.touched || userSubmitted)
+            ? 'd-block'
+            : 'd-none'
+        "
+        *ngIf="title.hasError('required')"
+      >
+        Please provide course title
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Training type</label>
+      <select class="form-control" formControlName="courseType">
+        <option value="Technical">Technical</option>
+        <option value="Behavioural">Behavioural</option>
+        <option value="Leadership">Leadership</option>
+        <option value="Domain">Domain</option>
+        <option value="OrgLevel">Org Level</option>
+     </select>
+      <span
+        class="text-danger"
+        [ngClass]="
+          !courseType?.valid && (courseType.touched || userSubmitted)
+            ? 'd-block'
+            : 'd-none'
+        "
+        *ngIf="courseType.hasError('required')"
+      >
+        Please provide course type
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="selectTrainer" class="form-label">Mode of training</label>
+      <select
+        class="form-select form-control"
+        formControlName="trainingType"
+        id="selectTrainer"
+      >
+        <option>Online</option>
+        <option>Classroom</option>
+      </select>
+      <span
+        class="text-danger"
+        [ngClass]="
+          !trainingType?.valid && (trainingType.touched || userSubmitted)
+            ? 'd-block'
+            : 'd-none'
+        "
+        *ngIf="trainingType.hasError('required')"
+      >
+        Please select Mode of training
+      </span>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Trainer</label>
+      <input type="text" formControlName="trainer" class="form-control" />
+    </div>
+
+    <div class="form-group col-md-4">
+      <label>Enter Duration</label>
+      <input
+        type="text"
+        formControlName="duration"
+        disabled
+        readonly
+        class="form-control"
+      />
+    </div>
+    <div class="form-group col-md-4">
+      <label>Enter Cource URL</label>
+      <input type="text" formControlName="courseURL" class="form-control" />
+      <span
+        class="text-danger"
+        [ngClass]="
+          !courseURL?.valid && (courseURL.touched || userSubmitted)
+            ? 'd-block'
+            : 'd-none'
+        "
+        *ngIf="courseURL.hasError('required')"
+      >
+        Please provide course URL
+      </span>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label>Upload Course Avatar</label>
+      <input type="file" (change)="onSelectFile($event)" class="form-control" />
+    </div>
+  </div>
+</form>

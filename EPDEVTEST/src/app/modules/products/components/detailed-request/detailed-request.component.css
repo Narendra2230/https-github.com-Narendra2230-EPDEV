@@ -1,0 +1,69 @@
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.btn-link {
+  font-size: 13px !important;
+  color: #333;
+}
+
+.pageTitle {
+  font-family: "Open Sans", sans-serif;
+  padding: 0px;
+}
+
+.card-body {
+  font-size: 14px !important;
+  font-family: "Open Sans";
+  color: #333;
+  line-height: 30px;
+}
+
+.requster_info {
+  font-size: 14px;
+  margin-left: 5px;
+  line-height: 40px;
+}
+
+.product_owner {
+  font-size: 14px;
+  margin-left: 5px;
+  line-height: 40px;
+  margin-top: 25px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.request_save {
+  width: 110px;
+  float: right;
+  margin-top: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+.modal-header {
+  padding: 15px 15px 10px 15px;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+}
+.modal {
+  display: block !important;
+  background-color: #000000d9;
+}
+.modal-title {
+  font-weight: bold !important;
+}
+.modal-body {
+  padding: 15px;
+  min-height: 300px;
+  max-height: 300px;
+  overflow: auto;
+}
+.line-h-word-s {
+  line-height: 1.4;
+  word-spacing: 3px;
+}

@@ -1,0 +1,14 @@
+.userProfile{
+    background: #f1f4fb;
+}
+
+.body2{
+    position: relative;
+    bottom: 13px;
+}
+
+@media screen and ( min-width:767px ) {
+    .userProfile{
+        padding-left: 52px;
+    }
+}

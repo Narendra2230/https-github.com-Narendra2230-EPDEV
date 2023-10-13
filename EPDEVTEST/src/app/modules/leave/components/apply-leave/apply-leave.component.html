@@ -1,0 +1,222 @@
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="apply_leave_block">
+        <div class="row apply_leave_select">
+            <div class="toogle_slide col-6">
+                <ul *ngIf="showTypes">
+                    <li>
+                        Apply:&nbsp;<span [ngClass]="!forLeave ?'active':'unchecked'"> &nbsp;Leave</span>
+                        <label class="switch">
+                          <input [(ngModel)]="forLeave"  (change)="changeType($event)"  type="checkbox">
+                          <span class="slider round"></span>
+                        </label>
+                        <span [ngClass]="forLeave ?'active':'unchecked'" >Remote Working</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-1">
+                <app-preloader class="go-center" *ngIf="loading" ></app-preloader>
+            </div>
+            <div class="col-12 text-right">
+            
+                <div class="float-right">
+               <!-- <button (click)="openleaveblanceDialog()" class="btn_1 f-l btn-leave-balance "> -->
+                    <button class="btn_1 f-l btn-leave-balance" style="cursor: auto;">
+                        Casual Leaves : {{associateLeaveBalance.leaveBalance}} 
+                    </button>
+
+                    <button class="btn_1 f-l btn-leave-balance" style="cursor: auto;">
+                        Earned Leaves : {{associateLeaveBalance.earnedLeave}} 
+                    </button>
+
+                <button (click)="openHolidayCalanderDialog()" class="btn_1 f-l btn-holiday-calendar ">
+                    Holiday Calendar<span></span>
+                </button>&nbsp;&nbsp;
+                <button class="btn_1 btn-holiday-calendar" data-toggle="modal" data-target="#enCashModal">
+                    Encash Leaves
+                </button>
+            </div>
+    
+            </div>
+        </div>
+        
+        <div class="apply_leave_form row">
+            <div class="col-sm-2">
+                <div class="form_element"  *ngIf="!forLeave">
+                    <label>Leave Type<span class="leave_required">*</span></label>
+                    <select [(ngModel)]="leaveRequest.leaveTypeId" (change)="leaveTypeChange()">
+                        <option value="null">Select</option>
+                        <option *ngFor="let type of leaveTypes;" value="{{type.leaveTypeId}}">{{type.leave_Type}}</option>
+                    </select>
+                </div>
+                
+                <div class="form_element" *ngIf="forLeave">
+                    <label>Remote Type<span class="leave_required">*</span></label>
+                    <select [(ngModel)]="leaveRequest.leaveTypeId" (change)="leaveTypeChange()" >
+                        <option value="null">Select</option>
+                        <option *ngFor="let type of remoteTyps;" value="{{type.leaveTypeId}}">{{type.leave_Type}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2" *ngIf="checkHideAndShow('date')">
+                <div class="form_element">
+                    <label>Date<span class="leave_required">*</span></label>
+                    <!-- [maxDate]="getStartDateAndEndDate('maxDate','S')"  [minDate]="getStartDateAndEndDate('minDate','S')" -->
+                    <p-calendar appendTo="body"  dateFormat="mm/dd/yy" [readonlyInput]="true"     placeholder="MM/DD/YY"   [(ngModel)]="leaveRequest.fromDate"></p-calendar>
+                </div>
+            </div>
+            <div class="col-sm-2" *ngIf="checkHideAndShow('optionalholidays')">
+                <div class="form_element form_element_optional">
+                    <label>Optional Holidays<span class="leave_required">*</span></label>
+                    <input class="form-control" readonly="true" [value]="getLeaveStr(leaveRequest.optionalholidays)" (click)="showDropDown=!showDropDown"  />                    
+                    <div id="filtersWrap" class="filter_block" style="z-index: 9999999;"  [ngStyle]="showDropDown  ? { 'display' : 'block' }    : ''  ">
+                        <a  style="cursor:pointer" (click)="showDropDown=!showDropDown;resetOptionalHolidays()" class="close_btn hide-filters"><img src="assets/images/leave/icon-close.png" alt=""></a>
+                        <div class="p-field-checkbox m-b-5">
+                            <table>
+                                <thead class="table-head">
+                                    <tr>
+                                    <th class="first-item">&nbsp;</th>
+                                    <th>Occasion</th>
+                                    <th>Date</th>
+                                </tr>
+                                </thead>
+                                <thead>
+                                <tr *ngFor="let l of oHolidays; let i=index;" >
+                                    <th class="first-item">
+                                        <p-checkbox   binary="true" [disabled]="l.disabled  ||  canApplyOptionHoliday==2"   name="inprogress" value={{l.value}} [(ngModel)]="l.selected" (onChange)="changed($event,i)" inputId='{{l.value}}leaveType'></p-checkbox>
+                                    </th>
+                                    <th><label style="display: inline-block;" class="p-l-10" for='{{l.value}}leaveType'> {{l.label}} </label></th>
+                                    <th><label style="display: inline-block;" class="" for='{{l.value}}leaveType'> {{formatDate(l.date)}} </label></th>
+                                </tr>
+                                </thead>
+                            </table>
+                            <small *ngIf="canApplyOptionHoliday==2" class="optional_holiday_note"><strong>Note:</strong>: Already you have opted two Optional Holidays</small>
+                        </div>
+                        <div class="col-12 display_inline">
+                            <div class="filter_btns">
+                                <button class="btn btn-sm" (click)="showDropDown=!showDropDown;">Apply</button>
+                                <button class="btn btn-sm reset_btn" (click)="resetOptionalHolidays()"></button>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- <p-multiSelect [options]="oHolidays" maxSelectedLabels="1"  placeholder ="Select" width="100px" selectionLimit="2" [(ngModel)]="leaveRequest.optionalholidays"></p-multiSelect> -->
+                </div>
+            </div>
+            <div class="col-sm-2" *ngIf="checkHideAndShow('hourse')">
+                <div class="form_element">
+                    <label>Hour's<span class="leave_required">*</span></label>
+                    <select [(ngModel)]="leaveRequest.OODuration" >
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        
+                    </select>
+                    <!-- <input [(ngModel)]="leaveRequest.hourse"  type="text" name="" placeholder="Hourse"> -->
+                </div>
+            </div>
+            <div class="col-sm-2" *ngIf="checkHideAndShow('fromDate')">
+                <div class="form_element">
+                    <label>From Date<span class="leave_required">*</span></label>
+                    <p-calendar appendTo="body"  dateFormat="mm/dd/yy" [readonlyInput]="true"   placeholder="MM/DD/YY"    [(ngModel)]="leaveRequest.fromDate"></p-calendar>
+                    <!-- <input [(ngModel)]="leaveRequest.fromDate"  type="text" name="" placeholder="mm/dd/yyyy"> [maxDate]="getStartDateAndEndDate('maxDate','S')"  [minDate]="getStartDateAndEndDate('minDate','S')" -->
+                </div>
+            </div>
+            <div class="col-sm-2"  *ngIf="checkHideAndShow('toDate')">
+                <div class="form_element">
+                    <label>To Date<span class="leave_required">*</span></label>
+                    <p-calendar appendTo="body"  dateFormat="mm/dd/yy" [readonlyInput]="true"   placeholder="MM/DD/YY"    [(ngModel)]="leaveRequest.toDate"></p-calendar>
+                    <!-- <input [(ngModel)]="leaveRequest.toDate"  type="text" name="" placeholder="mm/dd/yyyy"> [maxDate]="getStartDateAndEndDate('maxDate','E')"  [minDate]="getStartDateAndEndDate('minDate','E')"-->
+                </div>
+            </div>
+             <!--<div class="col-sm-2" *ngIf="checkHideAndShow('source')">
+                <div class="form_element">
+                    <label>Source<span class="leave_required">*</span></label>
+                    <input [(ngModel)]="leaveRequest.source"  type="text" name="" placeholder="Input">
+                </div>
+            </div>
+            <div class="col-sm-2"  *ngIf="checkHideAndShow('destination')">
+                <div class="form_element">
+                    <label>Destination<span class="leave_required">*</span></label>
+                    <input [(ngModel)]="leaveRequest.destination"  type="text" name="" placeholder="Input">
+                </div>
+            </div> -->
+          
+            <!-- <div class="col-sm-2">
+                <div class="form_element">
+                    <label>Emergency Contact Number<span class="leave_required">*</span></label>
+                    <input [(ngModel)]="leaveRequest.leaveTypeId"  type="text" name="" placeholder="Number only Input">
+                </div>
+            </div> -->
+            <div class="col-sm-2" *ngIf="checkHideAndShow('note')">
+                <div class="form_element">
+                    <label>Note<span class="leave_required">*</span></label>
+                    <input [(ngModel)]="leaveRequest.notes"  type="text" name="" placeholder="Please write your comments">
+                </div>
+            </div>
+            <div class="col-sm-2" *ngIf="checkHideAndShow('reasonId')">
+                <div class="form_element">
+                    <label>Reason<span class="leave_required">*</span></label>
+                    <select [(ngModel)]="leaveRequest.reasonId">                    
+                        <option value="null">Select</option>
+                        <option *ngFor="let type of getReasonsBasedOnType();" value="{{type.reasonId}}">{{type.reasonName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6"  *ngIf="leaveRequest.reasonId  == 7">
+                <div class="form_element">
+                    <label>Comments<span class="leave_required">*</span></label>
+                    <input [(ngModel)]="leaveRequest.comments"  type="text" name="" placeholder="Please write your comments">
+                </div>
+            </div>
+            <div class="col-sm-12" *ngIf="leaveRequest.leaveTypeId!='null'" >
+                <div class="time_btns">
+                    <ul>
+                        <li>
+                            <input name="button" type="button" value="CANCEL" (click)="reset()">
+                        </li>
+                        <li>
+                            <input name="button"[disabled]="loading" type="button" value="SUBMIT" (click)="postAssociateLeaveDtls()">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="enCashModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="card">
+            <div class="card-header">
+                <span class="header-text">Earned Leaves Encashment</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="encashEligible" class="card-body">
+              <form [formGroup]="encashLeaveForm" (ngSubmit) = "submit()">
+                <label for="noOfLeaves" class="formLabel">No. of leaves to Encash :</label>
+                <select class="custom-select encashSelect" id="noOfLeaves" (change)="remainingLeaves($event.target.value)" formControlName="CashEncashmentLeaves">
+                    <option value=" " selected disabled></option>
+                    <option *ngFor="let value of leaveDropDown" [value]="value">{{value}}</option>
+                </select>
+                <div class="leaveBalance">Number of leaves left : {{remainingLeave || associateLeaveBalance.earnedLeave}}</div>
+                <div class="warningMessage text-warning">Users can encash leaves only one time in a year upto 8 leaves only!</div>
+                <div>
+                <button type="submit" id="leaveEncashSubmit" class="btn btn_submit" [disabled]="encashLeaveForm.invalid">Submit</button>
+                <div *ngIf="loader" class="loader loader1"></div>
+                </div>
+              </form>
+              <div *ngIf="successMessage" class="text-success message">{{successMessage}}</div>
+              <div *ngIf="errorMessage" class="text-danger message">{{errorMessage}}</div>
+            </div>
+            <div *ngIf="!encashEligible">
+                <div class="text-danger message1">{{errorMessage}}</div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

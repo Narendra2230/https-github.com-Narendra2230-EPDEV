@@ -1,0 +1,100 @@
+<div class="learning-training">
+  <div class="container">
+    <div class="row m-0 p-0 p-b-3">
+      <div class="col-8 pageTitle">
+        <h4>Course Reviews</h4>
+      </div>
+      <div class="col-4 text-right">
+        <a routerLink="/admin-learning" class="bak_dashboard"
+        >Back to Dashboard</a>
+      </div>
+    </div>
+
+    <div class="enroll-courses">
+      <div class="row">
+        <div class="card">
+          <div class="card-body" *ngIf="reviewList.length > 0">
+            <div class="row m-0 p-0 mb-2">
+              <div class="col-6">
+                <h4>{{ reviewObj.courseName }}</h4>
+              </div>
+              <div class="col-3">
+                <h4>Average Rating : {{ reviewObj.averageRating | number : '1.2-2'}}</h4>
+              </div>
+              <div class="col-3">
+                <input
+                  type="search"
+                  [(ngModel)]="searchKeyWord"
+                  class="form-control"
+                  placeholder="Search"
+                  (keyup)="search()"
+                />
+              </div>
+            </div>
+
+            <div class="accordion" id="accordionExample">
+              <div class="card" *ngFor="let item of reviewList; let i = index">
+                <div class="card-header" id="{{ item.answerId }}">
+                  <h2 class="mb-0">
+                    <button
+                      class="btn btn-link btn-block text-left"
+                      type="button"
+                      data-toggle="collapse"
+                      [attr.data-target]="i"
+                      [attr.aria-controls]="i"
+                      aria-expanded="true"
+                    >
+                      {{ item.employeeName }}
+                    </button>
+                  </h2>
+                </div>
+
+                <div
+                  id="{{ i }}"
+                  class="collapse"
+                  [ngClass]="i == 0 ? 'show' : ''"
+                  [attr.aria-labelledby]="item.answerId"
+                  data-parent="#accordionExample"
+                >
+                  <div class="card-body">
+                    <div *ngFor="let rev of item.courseReview; let i = index">
+                      <h4>
+                        {{ i + 1 }} - {{ rev.question }}
+                        <span *ngIf="rev.question.includes('Overall')">{{
+                          reviewObj.trainer
+                        }}</span>
+                      </h4>
+                      <div class="d-flex m-3" *ngIf="rev.type == 'Rating'">
+                        <i
+                          class="fa fa-star"
+                          *ngFor="let num of [1, 2, 3, 4, 5]"
+                          [ngClass]="rev.answer >= num ? 'active' : ''"
+                        ></i>
+                      </div>
+                      <div class="m-3" *ngIf="rev.type != 'Rating'">
+                        <textarea
+                          class="form-control"
+                          disabled
+                          readonly
+                          [(ngModel)]="rev.comment"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body" *ngIf="reviewList.length == 0">
+            <div class="text-center">
+              <h4>Review not available</h4>
+              <button class="btn btn-default" routerLink="/admin-learning">
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.w-color{
+    color: #fff;
+    cursor: pointer;
+}
+.policy_popup_in{
+    right: 0px;
+    position: absolute;
+    width: 60%;
+    top:15%;
+}
+
+.policy-info{
+    margin-left: 30px;
+    margin-top: 15px;
+}

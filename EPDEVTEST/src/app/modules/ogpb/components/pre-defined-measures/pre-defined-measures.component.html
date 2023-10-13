@@ -1,0 +1,28 @@
+<div class="assigned_goals pre_defined_goals">
+    <div class="system_defined">
+        <h5>List of Pre-Defined Measures to add</h5>
+    </div>
+    
+    <div class="goals_table_main">
+        <div class="goals_table_in">
+            <ul class="heading">
+                <li>KPI</li>
+                <li>KRAs</li>
+                <li>Weightage</li>
+                <li>Units</li>
+                <!--<li>Target</li> -->
+                <li>Actions</li>
+            </ul>
+            <ul class="goals_body_content"   *ngFor="let goal of goals; let i = index">
+                <li>{{goal.goal}}</li>
+                <li>{{goal.description}}</li>
+                <li>{{goal.weightage}} %</li>
+                <li>{{goal.units}}</li> 
+                <!--<li>{{goal.target}}</li> -->
+                <li >
+                   <i  (click)="getrowData($event, goal)" class="fa fa-plus-circle" aria-hidden="true"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

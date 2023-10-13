@@ -1,0 +1,55 @@
+{
+    "emp_datainfo": [{
+        "id": "12345",
+        "name": "AKSHAY GUPTHA1",
+        "designation":"Sr. Sales Manager",
+        "level":"Team Member",
+        "band" : "L1",
+        "group":"Innovation",
+        "bu":"QE",
+        "subbu":"CloudTestR",
+        "track":"Cloud Aps",
+        "OGPBEligibility":"80% Billing + Delivery Goals123",
+        "pic":"1.jpg"
+    },
+    {
+        "id": "12346",
+        "name": "AKSHAY GUPTHA2",
+        "designation":"Ju. Sales Manager",
+        "level":"Team Member",
+        "band" : "L5",
+        "group":"Innovation",
+        "bu":"QE",
+        "subbu":"CloudTestR",
+        "track":"Cloud Aps",
+        "OGPBEligibility":"80% Billing + Delivery Goals123",
+        "pic":"2.jpg"
+    },
+    {
+        "id": "12347",
+        "name": "AKSHAY GUPTHA3",
+        "designation":"Ju. Sales Manager",
+        "level":"Team Member",
+        "band" : "L1",
+        "group":"Innovation",
+        "bu":"QE",
+        "subbu":"CloudTestR",
+        "track":"Cloud Aps",
+        "OGPBEligibility":"80% Billing + Delivery Goals123",
+        "pic":"3.jpg"
+    },
+    {
+        "id": "12348",
+        "name": "AKSHAY GUPTHA4",
+        "designation":"Sr. Sales Manager",
+        "level":"Team Member",
+        "band" : "L1",
+        "group":"Innovation",
+        "bu":"QE",
+        "subbu":"CloudTestR",
+        "track":"Cloud Aps",
+        "OGPBEligibility":"100% Billing + Delivery Goals123",
+        "pic":"4.png"
+    }
+    ]
+}

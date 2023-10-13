@@ -1,0 +1,64 @@
+<div class="container ml-5 mt-4" style="width: 96%">
+  <div class="profileMain">
+    <div class="row m-0 p-0 p-b-10">
+      <div class="col-3 sow_management">
+        <h4>SOW Wise Contractor Associates TS</h4>
+      </div>
+      <label>Start Date </label>
+      <div class="col-2">
+         <input type="date" class="form-control" (change)="changeDate()" [(ngModel)]="startDate" />
+      </div>
+      <label>End Date </label>
+      <div class="col-2">
+        <input type="date" class="form-control" (change)="changeDate()" [(ngModel)]="endDate" />
+      </div>
+      <div class="col-3 text-right">
+        <button class="btn_1 excel_export" routerLink="/fta-sow-duration">
+          FTA Hours
+        </button>
+        <button class="btn_1 excel_export mr-2" (click)="exportDataAsExcel()">
+          Excel Format
+        </button>
+      </div>
+    </div>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <ag-grid-angular
+      style="width: 100%; height: 500px"
+      class="ag-theme-material"
+      [rowData]="displayedRowData"
+      [columnDefs]="displayedColumnDefs"
+      [frameworkComponents]="frameworkComponents"
+      pagination="true"
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+
+    <div class="card" *ngIf="totalhoursStr!=''">
+      <div class="card-body">
+        <table class="table">
+          <tr>
+            <th class="highlighted">Total Entered FTE Hours</th>
+            <th class="highlighted">Total Entered FTE Hours India</th>
+            <th class="highlighted">Total Entered FTE Hours USA</th>
+          </tr>
+          <tr>
+            <td>{{ totalenteredhoursStr }}</td>
+            <td>{{ totalenteredhoursIndianStr }}</td>
+            <td>{{ totalenteredhoursUSAStr }}</td>
+          </tr>
+          <tr>
+            <th class="highlighted">Total Approved FTE Hours</th>
+            <th class="highlighted">Total Approved FTE Hours India</th>
+            <th class="highlighted">Total Approved FTE Hours USA</th>
+          </tr>
+          <tr>
+            <td>{{ totalhoursStr }}</td>
+            <td>{{ totalhoursIndianStr }}</td>
+            <td>{{ totalhoursUSAStr }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    </div>
+    </div>

@@ -1,0 +1,509 @@
+<div class="time_sheet profileSheet">
+<!-- breadcrumb_list -->
+<div class="breadcrumb_list">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+<li class="breadcrumb-item"><a href="/modules/ogpb/#/hr-associates">Associates List</a></li>
+<li class="breadcrumb-item"><a href="javascript:void(0)">New Associate</a></li>
+</ol>
+</div>
+<!-- breadcrumb_list-End-->
+
+<!-- time_sheet_heading -->
+<div class="time_sheet_heading row pad-3">
+<div class="profileInnerHead d-flex justify-content-center align-items-center">
+<h4 style="padding: 5px">
+{{ personalInfo.firstName }} {{ personalInfo.lastName }}
+</h4>
+<div class="backProfile">
+<a routerLink="/hr-associates"> Back to list </a>
+</div>
+</div>
+</div>
+<!-- time_sheet_heading-End-->
+
+<div class="profileFullInfo">
+<div class="profileFullInfoIn">
+<div class="tabscontent">
+<div class="active">
+<div class="profileNavCont">
+<div class="peronalCont">
+    <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+        <h4>Onboarding Information</h4>
+        <!--<a href="javascript:void(0)"><img src="assets/images/profile/edit.svg" alt="edit"></a> -->
+    </div>
+    <div class="personalContForm">
+        <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+        <br />
+        <ul class="d-flex justify-content-between flex-wrap">
+            <li>
+                <label [ngClass]="hasError('Company') ? 'validation-error' : ''">Company<small
+                        class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.Company">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Company')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+            <li>
+                <label [ngClass]="
+hasError('EmploymentType') ? 'validation-error' : ''
+">Employment Type<small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.EmploymentType">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('EmploymentType')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('location') ? 'validation-error' : ''">Location<small
+                        class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.location"
+                    (change)="dropDownChange('Location', $event)">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Location')"
+                        value="{{ dropdown.name }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <button (click)="getParams()" class="generate_btn">
+                    Generate EID
+                </button>
+            </li>
+
+            <li class="mar_top_50">
+                <label [ngClass]="
+hasError('associateId') ? 'validation-error' : ''
+">Associate ID<small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.associateId" type="text" name="text"
+                    placeholder="" readonly />
+            </li>
+
+            <li class="mar_top_50">
+                <label [ngClass]="
+hasError('firstName') ? 'validation-error' : ''
+">First Name <small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.firstName" type="text" name="text"
+                    placeholder="" />
+            </li>
+            <li class="mar_top_50">
+                <label>Middle Name </label>
+                <input [(ngModel)]="personalInfo.middleName" type="text" name="text"
+                    autocomplete="doNotAutoComplete" placeholder="" />
+            </li>
+            <li class="mar_top_50">
+                <label [ngClass]="hasError('lastName') ? 'validation-error' : ''">Last Name
+                    <small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.lastName" type="text" name="text"
+                    placeholder="" />
+            </li>
+            <li>
+                <label [ngClass]="
+hasError('experience') ? 'validation-error' : ''
+">Experience <small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.experience" type="text" name="text"
+                    autocomplete="doNotAutoComplete" placeholder="" />
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('email') ? 'validation-error' : ''">Personal Email
+                    <small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.email" type="text" name="text"
+                    autocomplete="doNotAutoComplete" placeholder="" />
+            </li>
+
+            <li>
+                <label [ngClass]="
+hasError('subLocation') ? 'validation-error' : ''
+">Sub Location
+                </label>
+                <select [(ngModel)]="personalInfo.subLocation">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of subLocations" value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label [ngClass]="
+hasError('dateOfJoining') ? 'validation-error' : ''
+">Date Of joining
+                    <small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.dateOfJoining" type="date" name="text"
+                    class="dateInput" placeholder="DD/MM/YY" />
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('btuId') ? 'validation-error' : ''">BTU <small
+                        class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.btuId"
+                    (change)="mulitselectChange('BTU',$event);">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('BTU')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label>Governing Unit<small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.btuId"
+                    (change)="mulitselectChange('BTU',$event);">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('BTU')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <!-- Practice -->
+            <li>
+                <label>Practice <small class="field_required">*</small></label>
+                <p-multiSelect styleClass="sub_practice_class"
+                    (onChange)="mulitselectChange('PracticeList',$event);"
+                    [options]="PracticeList" [(ngModel)]="selectedPracticeList"
+                    optionLabel="text" optionValue="id"></p-multiSelect>
+            </li>
+
+            <!-- zSub Practice -->
+            <li>
+                <label>Sub Practice <small class="field_required">*</small></label>
+                <p-multiSelect styleClass="sub_practice_class"
+                    (onChange)="mulitselectChange('SubPracticeList',$event);"
+                    [options]="SubPracticeList" [(ngModel)]="selectedSubPracticeList"
+                    optionLabel="text" optionValue="id"></p-multiSelect>
+            </li>
+
+            <!-- Competency -->
+            <li>
+                <label>Competency <small class="field_required">*</small></label>
+                <p-multiSelect styleClass="sub_practice_class"
+                    (onChange)="mulitselectChange('CompetencyList',$event);"
+                    [options]="CompetencyList" [(ngModel)]="selectedCompetencyList"
+                    optionLabel="text" optionValue="id"></p-multiSelect>
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('Track') ? 'validation-error' : ''">Track<small
+                        class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.track">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Track')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label
+                    [ngClass]="hasError('probitionStatus') ? 'validation-error' : ''">Probation
+                    Status <small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.probitionStatus">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('ProbitionStatus')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.id }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label [ngClass]="
+hasError('designationId') ? 'validation-error' : ''
+">Designation<small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.designationId">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Designations')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label>Title<small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.designationId">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Designations')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label [ngClass]="
+hasError('EPAccessRole') ? 'validation-error' : ''
+">EP Access Role
+                    <small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.EPAccessRole">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('EPAccessRole')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+            <li>
+                <label
+                    [ngClass]="hasError('reportingMgrId') ? 'validation-error' : ''">Reporting
+                    Manager
+                    <small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.reportingMgrId">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Manager')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label>Band <small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.band">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Band')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+            <li>
+                <label [ngClass]="hasError('buddy') ? 'validation-error' : ''">HRBP<small
+                        class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.buddy">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Buddy')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+            <li>
+                <label>Next Evaluation Date</label>
+                <input [(ngModel)]="personalInfo.next_Appraisal_Date" type="date" name="text"
+                    class="dateInput" placeholder="DD/MM/YY" />
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('gender') ? 'validation-error' : ''">Gender <small
+                        class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.gender">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Gender')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('primarySkill') ? 'validation-error' : '' ">Primary
+                    Skills
+                    <small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.primarySkill" type="text" name="text"
+                    autocomplete="doNotAutoComplete" placeholder="" />
+            </li>
+            <li>
+                <label>Secondary Skills</label>
+                <input [(ngModel)]="personalInfo.secondarySkills" type="text" name="text"
+                    autocomplete="doNotAutoComplete" placeholder="" />
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('mobileNumber') ? 'validation-error' : ''
+">Phone<small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.mobileNumber" type="number" name="text"
+                    autocomplete="doNotAutoComplete"
+                    onKeyPress="if(this.value.length==12) return false;" placeholder="" />
+            </li>
+
+            <li>
+                <label>Billable hours(%)<small class="field_required"></small></label>
+                <input [(ngModel)]="personalInfo.billablehours" type="number" name="text"
+                    autocomplete="doNotAutoComplete"
+                    onKeyPress="if(this.value.length==3) return false;" placeholder="" />
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('PAPersonaId') ? 'validation-error' : ''">Performance
+                    Assessment Persona<small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.PAPersonaId">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('PAPersona')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label>Enabling Team<small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.PAPersonaId">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('PAPersona')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+            
+
+            <!--Only US Associates-->
+            <li *ngIf="personalInfo.location == 'US'">
+                <label [ngClass]="hasError('ssn') ? 'validation-error' : ''">SSN Number<small
+                        class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.ssn" type="text" name="text"
+                    autocomplete="doNotAutoComplete" placeholder="" />
+            </li>
+
+            <li *ngIf="personalInfo.location == 'US'">
+                <label>H1B
+                    LInk<small class="field_required"></small></label>
+                <select [(ngModel)]="personalInfo.lcaAssociateId">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('H1B')"
+                        value="{{ dropdown.id }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            
+            <!--Only US Associates-->
+
+
+            <div style="width:1000px;margin-bottom: 20px;">
+                <h1 class="associate_head">Contract Details</h1>
+            </div>
+
+            <li>
+                <label>Vendor Name</label>
+                <select [(ngModel)]="personalInfo.vendors">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of vendorsList" value="{{ dropdown.id }}"> {{
+                        dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label>Contact EndDate
+                <small class="field_required">*</small></label>
+                <input type="date" name="text" class="dateInput" placeholder="DD/MM/YY" />
+            </li>
+            <li></li>
+            <li></li>
+
+            <div style="width:1000px;margin-bottom: 20px;">
+                <h1 class="associate_head">Compensation Details</h1>
+            </div>
+
+            <li>
+                <label [ngClass]="hasError('payType') ? 'validation-error' : ''">Type of
+                    Compensation <small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.payType">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('SalaryType')"
+                        value="{{ dropdown.name }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('Currencies') ? 'validation-error' : ''">Currency
+                    Type<small class="field_required">*</small></label>
+                <select [(ngModel)]="personalInfo.Currencies">
+                    <option value="">Select</option>
+                    <option *ngFor="let dropdown of getMetaValues('Currencies')"
+                        value="{{ dropdown.name }}">
+                        {{ dropdown.name }}
+                    </option>
+                </select>
+            </li>
+
+            <li>
+                <label [ngClass]="hasError('annualBasePay') ? 'validation-error' : '' ">Annual
+                    BasePay<small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.annualBasePay" type="number" name="text"
+                    placeholder="">
+            </li>
+
+            <li>
+                <label>Annual Performance Pay</label>
+                <input [(ngModel)]="personalInfo.ogpb" type="number" name="text"
+                    placeholder="0">
+            </li>
+
+            <li>
+                <label>Annual CTC</label>
+                <input [(ngModel)]="personalInfo.salary" type="number" name="text"
+                    placeholder="0">
+            </li>
+
+            <li>
+                <label>Monthly BasePay</label>
+                <input [(ngModel)]="personalInfo.MonthlyBasePay" type="number" name="text"
+                    placeholder="">
+            </li>
+
+            <li>
+                <label>Quarterly Performance Pay</label>
+                <input [(ngModel)]="personalInfo.monthlyOGPB" type="number" name="text"
+                    placeholder="">
+            </li>
+
+            <li>
+                <label>Hourly Rate</label>
+                <input [(ngModel)]="personalInfo.hourlyRate" type="number" name="text"
+                    placeholder="0">
+            </li>
+
+            <li>
+                <label>Joining Bonus</label>
+                <input [(ngModel)]="personalInfo.joiningBonus" type="number" name="text"
+                    placeholder="0">
+            </li>
+
+            <li>
+                <label
+                    [ngClass]="hasError('effectiveFrom') ? 'validation-error' : '' ">Effective
+                    From <small class="field_required">*</small></label>
+                <input [(ngModel)]="personalInfo.effectiveFrom" type="date" class="dateInput"
+                    name="text" placeholder="dd/mm/yyyy">
+            </li>
+
+            <li></li>
+            <li></li>
+            <li></li>
+            <li>
+                <button class="reset btn-reset">
+                </button>
+                <button (click)="profileSubmit()" class="btn-save">
+                    Save
+                </button>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

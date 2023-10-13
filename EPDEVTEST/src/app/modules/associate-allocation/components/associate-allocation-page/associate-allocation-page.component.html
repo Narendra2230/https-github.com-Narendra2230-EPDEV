@@ -1,0 +1,355 @@
+<div class="container ml-5 mt-4" style="width: 96%">
+  <div class="profileMain">
+    <div class="row m-0 p-0 p-b-10">
+      <div class="col-6 sow_management">
+        <h4>Associate Utilization</h4>
+      </div>
+      <div class="col-2">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="enterNumber"
+          [(ngModel)]="dividnumber"
+          (keyup)="GetSwoAllocation()"
+        />
+      </div>
+      <div class="col-4 text-right">
+        <select class="sow_list" (change)="ChangeFilter()" [(ngModel)]="Status">
+          <option value="">All Allocation</option>
+          <option *ngFor="let item of governingList2" value="{{ item.text }}">
+            {{ item.text }}
+          </option>
+        </select>
+        <button class="btn_1 excel_export" (click)="exportDataAsExcel()">
+          Excel Format
+        </button>
+      </div>
+    </div>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <ag-grid-angular
+      style="width: 100%; height: 500px"
+      class="ag-theme-material"
+      [rowData]="displayedRowData"
+      [columnDefs]="displayedColumnDefs"
+      [frameworkComponents]="frameworkComponents"
+      pagination="true"
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+    <div class="sow_detailed">
+      <div class="row m-0 p-0">
+        <div class="col-mg-8">
+          <div
+            class="sow_list pointer pt-0"
+            (click)="isGoverningItems = !isGoverningItems"
+          >
+            All Allocation
+          </div>
+          <ul
+            class="list-group list-governing-items bg-white"
+            *ngIf="isGoverningItems"
+          >
+            <li class="list-item-close">
+              <i
+                class="fa fa-times pointer"
+                (click)="isGoverningItems = !isGoverningItems"
+              ></i>
+            </li>
+            <li
+              class="list-group-item"
+              *ngFor="let item of governingList2; let i = index"
+            >
+              <input
+                type="checkbox"
+                [(ngModel)]="item.status"
+                (change)="changeGovSelection()"
+                id="status{{ i }}"
+              />
+              <label for="status{{ i }}" class="ml-2 pointer">{{
+                item.text
+              }}</label>
+            </li>
+          </ul>
+        </div>
+        <div class="col-mg-4">
+          <button (click)="exportToExcel()" class="btn_1 excel_export">
+            Export The Report
+          </button>
+        </div>
+      </div>
+
+      <div class="row m-0 p-0" style="width: 100%; overflow-x: auto">
+        <div class="col-3 p-0 f-14">
+          <div class="border p-2 highlighted">
+            <b>Governing Unit</b>
+          </div>
+          <div class="border p-2 highlighted">
+            <span class="ml-5">Allocated</span>
+          </div>
+          <div class="border p-2 highlighted">
+            <span class="ml-5">Billing (FTAs)</span>
+          </div>
+
+          <div class="border p-2 highlighted">
+            <b>Not-Billable Total (FTAs)</b>
+          </div>
+          <div class="border p-2 highlighted">
+            <span class="ml-5">(a) Full Bench (FTAs)</span>
+          </div>
+          <div class="border p-2 highlighted">
+            <span class="ml-5">(b) Part Bench (FTAs)</span>
+          </div>
+          <div class="border p-2 highlighted">
+            <span class="ml-5">(c) Enabling Team (FTAs)</span>
+          </div>
+
+          <div class="border p-2 highlighted">
+            <span class="ml-5">(d) Prod Engg (FTAs)</span>
+          </div>
+          <div class="border p-2 highlighted">
+            <span class="ml-5">(e) ELAs (FTAs)</span>
+          </div>
+          <div class="border p-2 highlighted">
+            <span class="ml-5">(f) ML (FTAs)</span>
+          </div>
+
+          <div class="border p-2 highlighted">
+            <b>GU FTA Utilization</b>
+          </div>
+
+          <div class="border p-2 highlighted">
+            <b>Contractors</b>
+          </div>
+
+          <div class="border p-2 highlighted">
+            <span class="ml-5">Billing Contractors (FTAs)</span>
+          </div>
+          <div class="border p-2 highlighted">
+            <span class="ml-5">Non-billable Contractors (FTAs)</span>
+          </div>
+          <div class="border p-2 highlighted">
+            <span class="ml-5">Contactor No Allocation</span>
+          </div>
+        </div>
+        <div class="col-9 p-0 m-0">
+          <div class="d-flex" style="width: 100%; overflow-x: auto">
+            <div class="col-2 p-0" *ngFor="let item of governingList">
+              <div class="border p-2 highlighted p-10">
+                <b *ngIf="item.unitName != null"> {{ item.unitName }} </b>
+                <b *ngIf="item.unitName == null"> Empty</b>
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5">{{ item.allocated }}</span>
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5"
+                  >{{ item.billingFTEs | number: "1.2-2" }} (
+                  {{ item.billingFTAs }} )</span
+                >
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5">
+                  {{ item.nonbillingFTEs | number: "1.2-2" }} (
+                  {{ item.notBillable }} )</span
+                >
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5">
+                  {{ item.fullBenchFTEs | number: "1.2-2" }} (
+                  {{ item.fullBenchHC }} )</span
+                >
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5">
+                  {{ item.partBenchFTE | number: "1.2-2" }} (
+                  {{ item.partBenchHeadcount }} )</span
+                >
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5">
+                  {{ item.enablingTeamFTE | number: "1.2-2" }} (
+                  {{ item.enablingTeamHC }} )</span
+                >
+              </div>
+
+              <div class="border p-2 p-10">
+                <span class="ml-5"
+                  >{{ item.ippocFTEs | number: "1.2-2" }} (
+                  {{ item.ippocFTAs }} )</span
+                >
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5"
+                  >{{ item.elaFTE | number: "1.2-2" }} (
+                  {{ item.elaHC }} )</span
+                >
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5"
+                  >{{ item.ml | number: "1.2-2" }}( {{ item.mlHC }} )</span
+                >
+              </div>
+              <div class="border p-2 p-10">
+                <b class="ml-5">{{
+                  item.btuFTAUtilization | number: "1.2-2"
+                }}</b>
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5">{{ item.contractor }}</span>
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5"
+                  >{{ item.billingContractorsFTE | number: "1.2-2" }}(
+                  {{ item.billingContractorsHC }} )</span
+                >
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5"
+                  >{{ item.nonBillingContractorsFTE | number: "1.2-2" }} (
+                  {{ item.nonBillingContractorsHC }})</span
+                >
+              </div>
+              <div class="border p-2 p-10">
+                <span class="ml-5">{{ item.contractorNA }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="width-100-auto">
+        <table id="export-table" class="d-none">
+          <thead>
+            <tr>
+              <th>Unit Name</th>
+              <th style="width: 100px">Allocated</th>
+              <th style="width: 120px">Billing (FTAs)</th>
+              <th style="width: 120px">Not-Billable Total (FTAs)</th>
+              <th style="width: 120px">(a) Full Bench (FTAs)</th>
+              <th style="width: 120px">(b) Part Bench (FTAs)</th>
+              <th style="width: 120px">(c) Enabling Team (FTAs)</th>
+              <th style="width: 120px">(d) ELAs (FTAs)</th>
+              <th style="width: 120px">(e) ML (FTAs)</th>
+              <th style="width: 120px">GU FTA Utilization</th>
+              <th style="width: 120px">Contractors</th>
+              <th style="width: 120px">Billing Contractors (FTAs)</th>
+              <th style="width: 120px">Non-billable Contractors (FTAs)</th>
+              <th style="width: 120px">Contactor No Allocation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of governingList">
+              <td> <b *ngIf="item.unitName != null"> {{ item.unitName }} </b>
+                <b *ngIf="item.unitName == null"> Empty</b></td>
+              <td>{{ item.allocated }}</td>
+              <td>
+                {{ item.billingFTEs | number: "1.2-2" }} [{{ item.billingFTAs }}]
+              </td>
+              <td>
+                {{ item.nonbillingFTEs | number: "1.2-2" }} [{{ item.notBillable }}]
+              </td>
+              <td>
+                {{ item.fullBenchFTEs | number: "1.2-2" }} [{{ item.fullBenchHC }}]
+              </td>
+              <td>
+                {{ item.partBenchFTE | number: "1.2-2" }} [{{ item.partBenchHeadcount }}]
+              </td>
+              <td>
+                {{ item.enablingTeamFTE | number: "1.2-2" }} [{{ item.enablingTeamHC }}]
+              </td>
+              <td>{{ item.elaFTE | number: "1.2-2" }} [{{ item.elaHC }}]</td>
+              <td>{{ item.ml | number: "1.2-2" }} [{{ item.mlHC }}]</td>
+              <td>{{ item.btuFTAUtilization | number: "1.2-2" }}</td>
+              <td>{{ item.contractor }}</td>
+              <td>
+                {{ item.billingContractorsFTE | number: "1.2-2" }} [{{
+                  item.billingContractorsHC
+                }}]
+              </td>
+              <td>
+                {{ item.nonBillingContractorsFTE | number: "1.2-2" }} [{{
+                  item.nonBillingContractorsHC
+                }}]
+              </td>
+              <td>{{ item.contractorNA | number: "1.2-2" }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sow_detailed">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Full Allocation</th>
+              <th scope="col">Partial Allocation</th>
+              <th scope="col">No Allocation</th>
+              <th scope="col">Total Allocation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ totalFullAllocation }}</td>
+              <td>{{ totalPartialAllocation }}</td>
+              <td>{{ totalZeroAllocation }}</td>
+              <td>{{ totalAllocation }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="row m-0 p-0">
+          <div class="col-3 p-0 f-14">
+            <div class="border p-2 highlighted">BTU</div>
+            <div class="border p-2 highlighted">
+              Total Resources (Allocated/Partial)
+            </div>
+            <div class="border p-2 highlighted">FTA's (Allocated/Partial)</div>
+            <div class="border p-2 highlighted">
+              Contractors (Allocated/Partial)
+            </div>
+            <!-- <div class="border p-2 highlighted">BTU Utilization</div> -->
+          </div>
+          <div class="col p-0 allocation_data" *ngFor="let item of btuList">
+            <div class="border p-2 highlighted">
+              {{ item.name }}
+            </div>
+            <div class="border p-2">
+              {{ item.totalResource }} ({{ item.totalAllocated }}/{{
+                item.totalNoAllocated
+              }})
+            </div>
+            <div class="border p-2">
+              {{ item.fta }} ({{ item.ftaAllocated }}/{{ item.ftaNoAllocated }})
+            </div>
+            <div class="border p-2">
+              {{ item.contract }} ({{ item.contractAllocated }}/{{
+                item.contractNoAllocated
+              }})
+            </div>
+            <!-- <div class="border p-2">{{ item.allocatedPercent }} %</div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade createnrollCourse"
+    id="createnrollCourse"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+    [ngClass]="isModal ? 'show d-block' : ''"
+  >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="card">
+          <div class="card-body allocation_popup">
+            <div class="col-12 pointer text-right">
+              <i class="fa fa-times" (click)="isModal = false"></i>
+            </div>
+            <app-associate-employee-allocation></app-associate-employee-allocation>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

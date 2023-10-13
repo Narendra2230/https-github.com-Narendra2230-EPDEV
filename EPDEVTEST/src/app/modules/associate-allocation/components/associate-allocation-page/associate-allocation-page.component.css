@@ -1,0 +1,114 @@
+.modal-dialog {
+  max-width: 90%;
+}
+.fade.show {
+  background: #000000ba;
+}
+.overflowauto {
+  height: 500px;
+  overflow-y: auto;
+}
+.p-b-10 {
+  padding-bottom: 10px !important;
+}
+
+.sow_management {
+  padding-left: 0px;
+  font-family: "Open Sans", sans-serif;
+}
+.emp_count {
+  cursor: pointer;
+  color: #1887dd;
+  font-weight: bold;
+}
+
+.emp_count:hover {
+  color: #fb8181;
+}
+
+.allocation_popup {
+  font-size: 12px !important;
+}
+
+.allocation_head {
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.allocation_per {
+  color: #1887dd;
+  font-weight: bold;
+}
+table thead {
+  background: #828282 !important;
+  color: #fff;
+}
+
+table tr td {
+  border: 1px solid #82828217 !important;
+}
+
+.sow_list {
+  border: 1px solid #e06969;
+  border-radius: 24px;
+  background: #fff;
+  padding: 6px 20px;
+  font-size: 14px;
+  color: #e06969;
+  font-family: "lato_lightregular";
+  margin-right: 15px;
+  width: 200px;
+  height: 34px;
+}
+.text-right {
+  text-align: right;
+}
+
+.sow_detailed {
+  padding-top: 4%;
+  line-height: 2;
+  font-size: 12px;
+  font-family: "Open Sans";
+  margin-bottom: 5%;
+}
+
+.sow_detailed table td {
+  font-weight: bold;
+}
+.pointer {
+  cursor: pointer;
+}
+.highlighted {
+  background: #828282 !important;
+  color: #fff;
+}
+
+.allocation_data {
+  font-size: 14px;
+  color: #000;
+}
+
+.f-14 {
+  font-size: 14px;
+}
+
+.p-10 {
+  padding: 10px 0px !important;
+}
+
+.list-governing-items {
+  position: absolute;
+  z-index: 1;
+  width: 200px;
+  max-height: 200px;
+  overflow: auto;
+}
+.list-item-close {
+  text-align: right;
+  margin-right: 10px;
+}
+.width-100-auto{
+  width: 100%;
+  overflow: auto;
+}

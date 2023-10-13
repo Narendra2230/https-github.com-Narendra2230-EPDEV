@@ -1,0 +1,303 @@
+<div class="time_sheet p-r-0">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/#/leave">Leave</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <app-page-header from="ASSO"  headingText="{{headerText}}"></app-page-header>
+    
+    <!-- time_sheet_heading-End-->
+
+    <!-- Apply Leave page -->
+    <div class="apply_leave_page">
+        <!-- Apply Leave form page -->
+        <app-apply-leave (setTypes)="setTypes($event)" (refreshSheet)="getAssociateLeaveDetails($event)">
+        </app-apply-leave>
+        <!-- Apply Leave form -->
+        <!-- Leave Applied History (click)="op.show($event, actualTarget)" -->
+        <app-preloader class="go-center go-center-body" *ngIf="isLoading"></app-preloader>
+        <section class="leave_history">
+            <div class="table_header row">
+                <div class="col-3">
+                    <span class="title_tabe">Applied History</span>
+                </div>
+                <div class="col-3">
+                   
+                </div>
+                <div class="col-6">
+                    <div class="history_filter">
+                        <button class="btn_1 float-right open-filters btn_history_filter" (click)="showDropDown=!showDropDown">
+                            History Filter<span></span>
+                        </button>
+                        
+                        <div id="filtersWrap" class="filter_block"  [ngStyle]="showDropDown  ? { 'display' : 'block' }    : ''  ">
+                            <a  style="cursor:pointer" (click)="showDropDown=!showDropDown" class="close_btn hide-filters"><img src="assets/images/leave/icon-close.png" alt=""></a>
+                            <hr>
+                            <div class="col-12 display_inline ">
+                                <span class="filter_heading">Status</span>
+                                <!-- <p-checkbox name="statusList" value="val1" [(ngModel)]="selectedValues"></p-checkbox>
+                                <p-checkbox name="statusList" value="val2" [(ngModel)]="selectedValues"></p-checkbox> -->
+                                <div class="element_input statusListcont filter_selectboxs">
+                                    <div *ngFor="let s of statusList; let i=index;" class="p-field-checkbox m-b-5">
+                                        <p-checkbox class="checkbox_1"  name="inprogress" value={{s.value}} [(ngModel)]="filter.status" inputId={{s.value}}status></p-checkbox>
+                                        <label class="p-l-10" for='{{s.value}}status'> {{s.label}} </label>
+                                    </div>
+                                    <!-- <p-multiSelect selectionLimit="1" [options]="statusList" maxSelectedLabels="1"
+                                        placeholder="Select  Status" width="100px" selectionLimit="100"
+                                        [(ngModel)]="filter.status"></p-multiSelect> -->
+                                        
+                                </div>
+                            </div>
+                            <div class="col-12 display_inline">
+                                <span class="filter_heading">Leave Types</span>
+                                <div class="element_input statusListcont filter_selectboxs">
+                                    <!-- <p-multiSelect selectionLimit="1" [options]="leaveTyps" maxSelectedLabels="1"
+                                        placeholder="Select  Status" width="100px" selectionLimit="100"
+                                        [(ngModel)]="filter.type"></p-multiSelect> -->
+
+                                        <div *ngFor="let l of leaveTyps; let i=index;" class="p-field-checkbox m-b-5">
+                                            <p-checkbox class="checkbox_1"  name="inprogress" value={{l.value}} [(ngModel)]="filter.type" inputId='{{l.value}}leaveType'></p-checkbox>
+                                            <label class="p-l-10" for='{{l.value}}leaveType'> {{l.label}} </label>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-12 display_inline">
+                                <span class="filter_heading">Start Date</span>
+                                <div class="element_input">
+                                    <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true"  placeholder="MM/DD/YY"
+                                        [(ngModel)]="filter.fromDate"></p-calendar>
+    
+                                </div>
+                            </div>
+                            <div class="col-12 display_inline" style="margin: 5px 0 10px 0;">
+                                <span class="filter_heading">End Date</span>
+                                <div class="element_input">
+                                    <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true" [minDate]="filter.fromDate" placeholder="MM/DD/YY"
+                                        [(ngModel)]="filter.toDate"></p-calendar>
+                                </div>
+                            </div>
+                            <div class="col-12 display_inline">
+                                <div class="filter_btns">
+                                    <button class="btn btn-sm" (click)="showDropDown=!showDropDown;onFilter()">Apply</button>
+                                    <button class="btn btn-sm reset_btn" (click)="reset()"></button>
+                                    </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--
+                    <div class="row filter_style leave_filter">
+                        
+                        <div class="col-2 display_inline">
+                            <label>Status</label>
+                            <div class="element_input">
+                                <p-multiSelect selectionLimit="1" [options]="statusList" maxSelectedLabels="1"
+                                    placeholder="Select  Status" width="100px" selectionLimit="100"
+                                    [(ngModel)]="filter.status"></p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="col-2 display_inline">
+                            <label>Leave Types</label>
+                            <div class="element_input">
+                                <p-multiSelect selectionLimit="1" [options]="leaveTyps" maxSelectedLabels="1"
+                                    placeholder="Select  Status" width="100px" selectionLimit="100"
+                                    [(ngModel)]="filter.type"></p-multiSelect>
+                            </div>
+                        </div>
+                        <div class="col-3 display_inline">
+                            <label>Start Date</label>
+                            <div class="element_input">
+                                <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true" placeholder="mm/dd/yy"
+                                    [(ngModel)]="filter.fromDate"></p-calendar>
+
+                            </div>
+                        </div>
+                        <div class="col-3 display_inline">
+                            <label>End Date</label>
+                            <div class="element_input">
+                                <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true" placeholder="mm/dd/yy"
+                                    [(ngModel)]="filter.toDate"></p-calendar>
+                            </div>
+                        </div>
+                        <div class="col-2 display_inline">
+                                <div class="filter_btns">
+                            <button class="btn btn-sm" (click)="onFilter()">Apply</button>
+                            <button class="btn btn-sm"
+                                (click)="reset()"><img src="assets/images/leave/icon-reset.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                -->
+                </div>
+            </div>
+            <div class="leave_history_table">
+
+                <!-- <app-generic-table [tableDate]=leaves></app-generic-table> -->
+
+                <div class="example-container mat-elevation-z8">
+
+                    <div class="example-table-container">
+                  
+                      <table mat-table [dataSource]="data" class="table table-bordered"
+                             matSort matSortActive="fromDate" matSortDisableClear matSortDirection="desc">
+                        <!-- Number Column -->
+                        <ng-container matColumnDef="avathar">
+                          <th mat-header-cell *matHeaderCellDef>Avatar</th>
+                          <td mat-cell *matCellDef="let s" width="100x">
+                            <!-- <img *ngIf="s.leaveTypeId == 4" src="assets/images/leave/leave-avatar.jpg" alt="">
+                            <img *ngIf="s.leaveTypeId ==  7" src="assets/images/leave/leave-avatar2.jpg" alt="">
+                            <img *ngIf="s.leaveTypeId != 4 && s.leaveTypeId != 7"
+                                src="assets/images/leave/leave-avatar3.jpg" alt=""> -->
+                                <img *ngIf="s.leaveTypeId == 1" src="assets/images/leave/casualleave.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 2" src="assets/images/leave/casualleave.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 13" src="assets/images/leave/casualleave.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 3" src="assets/images/leave/lop.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 4" src="assets/images/leave/workfromhome.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 5" src="assets/images/leave/optionalholiday.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 6" src="assets/images/leave/halfdayleavewithoutpay.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 7" src="assets/images/leave/loginfromhome.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 8" src="assets/images/leave/ontravell.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 9" src="assets/images/leave/maternityleave.svg" alt="">
+                                <img *ngIf="s.leaveTypeId == 10" src="assets/images/leave/halfpaidleave.svg" alt="">
+                          </td>
+                        </ng-container>
+                  
+                        <!-- Title Column -->
+                        <ng-container matColumnDef="leaveType">
+                          <th mat-header-cell *matHeaderCellDef>Leave Type</th>
+                          <td mat-cell *matCellDef="let s" class="wdth-200">{{s.leaveType}}</td>
+                        </ng-container>
+                  
+                        <!-- State Column -->
+                        <ng-container matColumnDef="fromDate">
+                          <th mat-header-cell *matHeaderCellDef>From Date <span> ( MM / DD / YY )</span></th>
+                          <td mat-cell *matCellDef="let s" class="wdth-200">{{formatDate(s.fromDate)}}</td>
+                        </ng-container>
+                
+                        <!-- toDate Column -->
+                        <ng-container matColumnDef="toDate">
+                          <th mat-header-cell *matHeaderCellDef>To Date<span> ( MM / DD / YY )</span></th>
+                          <td mat-cell *matCellDef="let s" class="wdth-200">{{formatDate(s.toDate)}}</td>
+                        </ng-container>
+                
+                         <!-- strNumber_of_Days Column -->
+                         <ng-container matColumnDef="strNumber_of_Days">
+                          <th mat-header-cell *matHeaderCellDef>No.of Days</th>
+                          <td mat-cell *matCellDef="let s" class="wdth-200">{{s.strNumber_of_Days}}</td>
+                        </ng-container>
+                
+                         <!-- strNumber_of_Days Column -->
+                         <ng-container matColumnDef="leaveStatusDesc">
+                          <th mat-header-cell *matHeaderCellDef>Status</th>
+                          <td mat-cell *matCellDef="let s" class="wdth-200">{{s.leaveStatusDesc}}</td>
+                        </ng-container>
+                
+                         <!-- strNumber_of_Days Column -->
+                         <ng-container matColumnDef="action">
+                          <th class="td-action" mat-header-cell *matHeaderCellDef>Action</th>
+                          <td mat-cell *matCellDef="let s" class="td-action">
+                            <button  *ngIf="s.leaveStatus==4" class="btn btn-light">Reversed&nbsp;</button>
+                            <button [disabled]="isLoading" (click)="withDraw(s)" *ngIf="s.withDraw" class="btn btn-success">Withdraw</button>
+                          </td>
+                        </ng-container>
+                
+                  
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+                      <p style="text-align:center;margin-top: 5%;"  *ngIf="leaves.length===0  && !isLoading">No Data Found</p>
+                    </div>
+                  
+                    <mat-paginator [pageIndex]="0"
+                    [pageSize]="10"  [length]="resultsLength" ></mat-paginator>
+                  </div>
+
+             
+               
+                <br/><br/><br/><br/><br/><br/>
+            </div>
+        </section>
+        <!-- Leave Applied History end -->
+    </div>
+    <!-- Leave page end -->
+
+    
+</div>
+<p-confirmDialog header="Confirmation" appendTo="body"></p-confirmDialog>
+<p-toast></p-toast>
+<p-overlayPanel #op [dismissable]="false" [showCloseIcon]="true" [showTransitionOptions]="'0ms'"
+    [hideTransitionOptions]="'0ms'">
+    <div class="row" style="width: 200px;min-height: 200px;padding: 20px;">
+        <ul>
+            <li>
+                <label class="check_mng">
+                    <input [(ngModel)]="filter.all" (change)="check('all',$event)" type="checkbox">
+                    <span class="checkmark"></span> <span style="margin-left: 24px;font-size:17px;"> All</span>
+                </label>
+            </li>
+            <li>
+                <label class="check_mng">
+                    <input [(ngModel)]="filter.withdraw" (change)="check('withdraw',$event)" type="checkbox">
+                    <span class="checkmark"></span> <span style="margin-left: 24px;font-size:17px;"> Cancelled</span>
+                </label>
+            </li>
+            <li>
+                <label class="check_mng">
+                    <input [(ngModel)]="filter.inprogress" (change)="check('inprogress',$event)" type="checkbox">
+                    <span class="checkmark"></span> <span style="margin-left: 24px;font-size:17px;">Pending</span>
+                </label>
+            </li>
+            <!-- <li>
+                <label class="check_mng">
+                    <input [(ngModel)]="filter.scheduled" (change)="check('scheduled',$event)" type="checkbox">
+                    <span class="checkmark"></span> Scheduled
+                </label>
+            </li> -->
+            <li>
+                <label class="check_mng">
+                    <input [(ngModel)]="filter.approved" (change)="check('approved',$event)" type="checkbox">
+                    <span class="checkmark"></span>
+                    <span style="margin-left: 24px;font-size:17px;">Taken</span>
+                </label>
+            </li>
+            <li>
+                <label class="check_mng">
+                    <input [(ngModel)]="filter.rejected" (change)="check('rejected',$event)" type="checkbox">
+                    <span class="checkmark"></span> <span style="margin-left: 24px;font-size:17px;">Rejected</span>
+                </label>
+            </li>
+            <li>
+                <div class="col-sm-12">
+                    <div class="form_element">
+                        <label>To Date</label>
+                        <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true" placeholder="MM/DD/YY"
+                            [(ngModel)]="filter.toDate"></p-calendar>
+
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="col-sm-12">
+                    <div class="form_element">
+                        <label>From Date</label>
+                        <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true" placeholder="MM/DD/YY"
+                            [(ngModel)]="filter.fromDate"></p-calendar>
+
+                    </div>
+                </div>
+
+            </li>
+            <li>
+                <button class="btn btn-success btn-sm" (click)="onFilter()">Filter</button>
+                <button class="btn btn-primary btn-sm" (click)="reset()">Reset</button>
+            </li>
+
+        </ul>
+    </div>
+
+</p-overlayPanel>

@@ -1,0 +1,362 @@
+
+.main_menu {
+    background: #fff;
+    box-shadow: 0 0 6px 5px rgb(236 236 236 / 50%);
+    padding: 13px 9px;
+}
+.mpe_evaluation {
+    padding-top: 55px;
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.rgn_prcs_lft > h2 {
+    font-size: 16px;
+    color: #3e2e0e;
+    line-height: 20px;
+    font-family: 'latoregular';
+}
+.resginationProcess {
+    padding: 26px 0 0;
+}
+.rgn_prcs_lft li small {
+    font-size: 10px;
+    line-height: 14px;
+    color: #626466;
+    font-family: 'latoregular';
+    display: block;
+}
+.rgn_prcs_lft li span {
+    font-size: 12px;
+    line-height: 16px;
+    color: #626466;
+    font-family: 'latobold';
+    display: block;
+}
+.rgn_prcs_lft ul li {
+    border-radius: 29px;
+    border: solid 1px #dfdfdf;
+    background-color: #fff;
+    margin-right: 10px;
+    padding: 3px 12px;
+    margin-top: 15px;
+}
+.rgn_prcs_lft ul li:last-child{
+    margin-right: 0;
+}
+.rgnDraftBox {
+    background: #fff;
+    width: 60%;
+}
+.rgnDraftBoxBody{
+    padding: 20px;
+}
+.rgnDraftBoxHead {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background: #2d3546;
+    padding: 5px 20px;    
+    min-height: 37px;
+}
+.rgnDraftBoxHead h3 {
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+    font-family: 'latobold';
+}
+.rgnPolicyH span a {
+    font-size: 14px;
+    line-height: 18px;
+    color: #12e3e9;
+    font-family: 'latoregular';
+    margin-right: 5px;
+}
+.rgnPolicyH {
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.rgnDraftBoxCont p {
+    font-size: 16px;
+    line-height: 26px;
+    color: #3e2e0e;
+    font-family: 'latoregular';
+    margin-bottom: 20px;
+}
+.rgnDraftBoxCont p span{
+    font-family: 'latobold';
+    color: #000;
+}
+.rgnDraftBoxBody textarea {
+    width: 100%;
+    resize: none;
+    height: 180px;
+    padding: 15px 10px;
+    border: solid 1px #e4e4e4;
+    font-size: 13px;
+    line-height: 18px;
+    color: #626466;
+    font-family: 'latobold';
+    box-shadow: none;
+    outline: none;
+}
+.rgnDraftBoxBtn {
+    margin-top: 30px;
+    float: right;
+    margin-bottom: 30px;
+}
+.rgnDraftBoxBtn button {
+    border-radius: 26px;
+    background-color: #e7e7e7;
+    border: none;
+    color: #626466;
+    font-size: 13px;
+    font-family: 'poppins_semiboldregular';
+    outline: none;
+    padding: 10px 25px;
+    margin-right: 15px;
+}
+.rgnDraftBoxBtn button:last-child {
+    background: #71c285;
+    color: #fff;
+    cursor: pointer;
+}
+.rgnDraftBoxCont p small {
+    color: #fb8181;
+    font-family: 'latobold';
+    font-size: 14px;
+    margin-left: 5px;
+}
+.resignationBody {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 20px 0;
+}
+.rgnStatusBox{
+    margin-left: 10px;
+    width: 27%;
+    background: #fff;
+    position: relative;
+}
+.rgsnStatusBtn button {
+    background: #fb8181;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 13px;
+    font-family: 'poppins_semiboldregular';
+    height: 24px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+.checkingList h3 {
+    font-size: 14px;
+    line-height: 18px;
+    color: #fb8181;
+    font-family: 'latobold';
+    margin-bottom: 10px;
+}
+.checkingList ul li {
+    font-size: 14px;
+    line-height: 22px;
+    color: #3e2e0e;
+    font-family: 'poppins_lightregular';
+    list-style-type: decimal;
+/*    list-style-position: inside;
+    text-indent: -10px;*/
+}
+
+.ass_inf{
+    font-weight: bold;
+    float: left;
+    width: 180px;
+  
+}
+
+.reasonSelect{
+    width: 200px;
+    height: 30px !important;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.checkingList ul{
+    margin-left: 12px;
+}
+.rsgnWtdBlkBtn {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.rsgnWtdBlkBtn p {
+    font-size: 14px;
+    line-height: 20px;
+    color: #549971;
+    margin-bottom: 25px;
+    font-family: 'latoregular';
+}
+
+.rsgnWtdBlkBtn button {
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: #549971;
+    font-size: 14px;
+    line-height: 34px;
+    height: 34px;
+    font-family: 'poppins_semiboldregular';
+    color: #fff;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+
+
+
+.rgnHistoryPopup.papPopup .modal {
+    top: 58px;
+    right: 0;
+    padding-right: 0 !important;
+    bottom: auto; 
+    left: auto; 
+    max-height: calc(100vh - 60px);
+    box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.09), 0 0 8px 0 rgba(0, 0, 0, 0);
+}
+.rgnHistoryPopup.papPopup .modal {
+    min-height: 100vh;
+}
+.rgnHistoryPopup.papPopup .modal .modal-dialog {
+    margin: 0;
+    min-height: 100vh;
+    align-items: inherit;
+}
+
+.rgnHistoryPopup.papPopup .modal-content {
+    border: none;
+    padding: 0 0 20px;
+    border-radius: 0;
+}
+.rgnHistoryPopup.papPopup .modal-body {
+    padding: 0 20px;
+}
+.rgnHistoryPopup.papPopup .modal-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid #bdbdbd;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.rgnHistoryPopup.papPopup .modal-header button.close span {
+    height: 100%;
+    font-size: 20px;
+    line-height: 25px;
+}
+.rgnHistoryPopup.papPopup .modal-header button.close {
+    padding: 0;
+    border: none;
+    outline: none;
+    margin: 0;
+    border: 2px solid #9b9b9b;
+    height: 28px;
+    width: 28px;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+.rgnHistoryCont ul li span {
+    display: block;
+}
+.rgnHistoryCont ul li {
+    background: #f5f6f8;
+    padding: 12px 10px;
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'latoregular';
+    color: #4a4a4a;
+}
+.exitPolicyCont ul li,
+.exitPolicyCont h4 {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: 'latoregular';
+    color: #4a4a4a;
+}
+.exitPolicyCont ul li {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.mar-1{
+    margin: 1%;
+}
+
+.time_sheet{
+    background-color: #f5f7fb;
+}
+
+.leaving_reason{
+    margin-top: 20px;
+}
+
+.leaving_reason label{
+    font-size: 16px;
+    font-family: 'latoregular';
+}
+
+.rgnDraftBoxCont ul li {
+    line-height: 30px;
+    font-size: 14px;
+    font-family: 'latoregular';
+    display: flex;
+}
+
+.rgnStatusBoxBody ul li {
+    font-size:12px;
+}
+
+.rgnDraftBoxBody p {
+    font-size: 14px;
+    font-family: 'latoregular';
+    margin-bottom: 12px;
+    line-height: 25px;
+}
+
+.time_sheet_heading{
+    background-color: #ffff;
+}
+.btn-inactive {
+    opacity: 0.5;
+}
+
+.policy_read{
+    margin-left: 10px;
+    font-size: 12px;
+    margin-top: 20px;
+}    

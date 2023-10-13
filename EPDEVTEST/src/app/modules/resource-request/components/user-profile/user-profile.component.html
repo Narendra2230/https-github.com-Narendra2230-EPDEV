@@ -1,0 +1,677 @@
+    <!--New Request - start-->
+    <div class="userProfile">
+      <div class="page-header1">
+         <div class="page-leftheader float-left">
+             <h4 class="page-title">Application<span class="font-weight-normal text-muted ml-2">Request : {{userData?.rrId || '-' }}</span></h4>
+         </div>
+         <div class="page-rightheader float-right">
+             <a class="btn btn-danger" routerLink="/landingPage"><i class="fa fa-angle-left" aria-hidden="true"></i> &nbsp; Back to Home</a>
+         </div>
+     </div>
+  
+       <div class="newRequest_page userProfile_page">
+          <div class="row">
+             <div class="col-md-2 leftNav2" style="height: 850px;">
+                <div class="card">
+                   <!-- New Request Tabs Nav - Start -->
+                   <nav>
+                      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                         <a class="nav-item nav-link active" id="nav-one-tab" data-toggle="tab" href="#nav-job" role="tab" aria-controls="nav-job" aria-selected="true">Job Description</a>
+                         <a *ngIf="userData?.approvalStatus != null" class="nav-item nav-link" id="nav-rmg-tab" data-toggle="tab" href="#nav-rmg" role="tab" aria-controls="nav-rmg" aria-selected="false">RMG Status</a>
+                         <a *ngIf="userData?.tagHeadId != null" class="nav-item nav-link" id="nav-tag-tab" data-toggle="tab" href="#nav-tag" role="tab" aria-controls="nav-tag" aria-selected="false">TAG Status</a>
+                         <!-- <a class="nav-item nav-link" id="nav-interview-tab" data-toggle="tab" href="#nav-interview" role="tab" aria-controls="nav-interview" aria-selected="false">Interview Panel</a> -->
+                         <a class="nav-item nav-link" id="nav-history-tab" data-toggle="tab" href="#nav-history" role="tab" aria-controls="nav-history" aria-selected="false">History</a>
+                         <!-- <a class="nav-item nav-link" id="nav-summary-tab" data-toggle="tab" href="#nav-summary" role="tab" aria-controls="nav-summary" aria-selected="false">Summary</a> -->
+                      </div>
+                   </nav>
+                </div>
+                <!-- New Request Tabs Nav - End -->
+             </div>
+             <div class="col-md-10" style="height: 850px;">
+                <!-- New Request Form - Start -->
+                <div class="newRequest_Form newRequest_Form2">
+                   <div class="tab-content" id="nav-tabContent">
+                      <!-- First Tab Content - Start -->
+                      <div class="tab-pane fade show active" id="nav-job" role="tabpanel" aria-labelledby="nav-job-tab">
+                         <div class="card">
+                            <div class="card-header">
+                               <h4 class="card-title float-left">RRID Details</h4>
+                               <a class="btn btn-primary float-right">Autherise to Hire</a>
+                            </div>
+                            <div class="card-body">
+                               <h5 class="mb-4 font-weight-semibold"></h5>
+                               <div class="table-responsive">
+                                  <table class="table row table-borderless m-0 text-nowrap descriptionTable">
+                                     <tbody class="col-lg-12 col-xl-6 p-0 body1">
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Requester Name:</span> 
+                                              <p>{{userData?.requestedBy || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Authorized By:</span> 
+                                              <p>{{userData?.authorizedBy || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Role:</span> 
+                                              <p>{{userData?.role || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Emp Type:</span> 
+                                              <p>{{userData?.empType || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">NumberofOpenings:</span> 
+                                              <p>{{userData?.numberOfOpenings || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Utilization:</span> 
+                                              <p>{{userData?.utilization || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">BTU:</span> 
+                                              <p>{{userData?.btu || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Sub Practice:</span> 
+                                              <p>{{userData?.subPractice || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">CSU:</span> 
+                                              <p>{{userData?.csu || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">SOW:</span> 
+                                              <p>{{userData?.sow || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Zoho id:</span> 
+                                              <p>{{userData?.zohoId || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">L1panelinterviewer1:</span> 
+                                              <p>{{userData?.l1PanelInterviewer1 || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">L2panelinterviewer1:</span> 
+                                              <p>{{userData?.l2PanelInterviewer1 || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">L3panelinterviewer1:</span> 
+                                              <p>{{userData?.l3PanelInterviewer1 || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">CTC type:</span> 
+                                              <p>{{userData?.ctcType || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Budjeted CTC:</span> 
+                                              <p>{{userData?.budgetedCTC || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Incentive:</span> 
+                                              <p>{{userData?.incentive || '-' }} </p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Sub Location:</span> 
+                                              <p>{{userData?.subLocation || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Secondary skill:</span> 
+                                              <p>{{userData?.secondarySkill || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Priority:</span> 
+                                              <p>{{userData?.resourcePriority || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                     </tbody>
+                                     <tbody class="col-lg-12 col-xl-6 p-0 body2">
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Verified By :</span> 
+                                              <p>{{userData?.verifiedBy || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Entity:</span>  
+                                              <p>{{userData?.entitty || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Designation:</span> 
+                                              <p>{{userData?.designation || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Reason:</span> 
+                                              <p>{{userData?.reason || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Years of Exp:</span> 
+                                              <p>{{userData?.yearsOfExp || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Position name:</span> 
+                                              <p>{{userData?.positionName || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Practice:</span> 
+                                              <p>{{userData?.practice || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Competency:</span> 
+                                              <p>{{userData?.competency || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Customer:</span> 
+                                              <p>{{userData?.customer || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Reporting manager:</span> 
+                                              <p>{{userData?.reportingManager || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">ZohoStageReason:</span> 
+                                              <p>{{userData?.sowStage || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">L1panelinterviewer2:</span> 
+                                              <p>{{userData?.l1PanelInterviewer2 || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">L2panelinterviewer2:</span> 
+                                              <p>{{userData?.l2PanelInterviewer2 || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">L3panelinterviewer2:</span> 
+                                              <p>{{userData?.l3PanelInterviewer2 || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Currency:</span> 
+                                              <p>{{userData?.currencyType || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Budjet Variable % :</span> 
+                                              <p>{{userData?.budgetVariable || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Location:</span> 
+                                              <p>{{userData?.location || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Primary skills :</span> 
+                                              <p>{{userData?.primarySkill || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Expected DOJ :</span> 
+                                              <p>{{userData?.expectedDOJ | date : 'mediumDate' || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                     </tbody>
+                                     <tbody class="p-0 keyskills">
+                                        <tr>
+                                           <td>
+                                              <span class="font-weight-semibold">Job description :</span> 
+                                              <p>{{userData?.jobDescription || '-' }}</p>
+                                           </td>
+                                        </tr>
+                                     </tbody>
+                                  </table>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <!-- First Tab Content - End -->
+                      <!-- RMG Tab Content - Start -->
+                      <div class="tab-pane fade" id="nav-rmg" role="tabpanel" aria-labelledby="nav-rmg-tab">
+                         <div class="card">
+                            <div class="card-header">
+                               <h4 class="card-title">RMG Status</h4>
+                            </div>
+                            <div class="card-body">
+                               <form>
+                                  <div class="form-row">
+                                     <div class="form-group   col-md-6">
+                                        <span>Resource Manager : </span>
+                                        <span>{{userData?.resourceManager || '-' }}</span>
+                                     </div>
+                                     <div class="form-group   col-md-6">
+                                        <span>RRID Status : </span>
+                                        <span>{{userData?.approvalStatus || '-' }}</span>
+                                     </div>
+                                  </div>
+                               </form>
+                            </div>
+                         </div>
+                      </div>
+                      <!-- RMG Tab Content - End -->
+                      <!-- TAG Tab Content - Start -->
+                      <div class="tab-pane fade" id="nav-tag" role="tabpanel" aria-labelledby="nav-tag-tab">
+                         <div class="card">
+                            <div class="card-header">
+                               <h4 class="card-title">TAG Status</h4>
+                            </div>
+                            <div class="card-body">
+                               <form>
+                                  <div class="form-row">
+                                     <div class="form-group col-md-4">
+                                        <span>TAG Head : </span>
+                                        <span>{{userData?.tagHead || '-' }}</span>
+                                     </div>
+                                     <div class="form-group col-md-4">
+                                        <span>TAG Recruiter : </span>
+                                        <span>{{userData?.tagRecruiter || '-' }}</span>
+                                     </div>
+                                     <div class="form-group  col-md-4">
+                                        <span>RRID Status : </span>
+                                        <span>{{userData?.tagStatus || '-' }}</span>
+                                     </div>
+                                  </div>
+                               </form>
+                            </div>
+                         </div>
+                      </div>
+                      <!-- TAG Tab Content - End -->
+                      <!-- Interview Tab Content - Start -->
+                      <div class="tab-pane fade" id="nav-interview" role="tabpanel" aria-labelledby="nav-interview-tab">
+                         <div class="card">
+                            <div class="card-header">
+                               <h4 class="card-title">Interview Panel</h4>
+                            </div>
+                            <div class="card-body">
+                             <form>
+                                 <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                         <label for="">Candidate Name</label>
+                                         <input type="text" name="" placeholder="candidatename" class="form-control">
+                                     </div>
+                                     
+                                      <div class="form-group col-md-3">
+                                         <label for="">Experince</label>
+                                         <input type="text" name="" placeholder="experince" class="form-control">
+                                     </div>
+                                     
+                                      <div class="form-group col-md-3">
+                                         <label for="">Current Location</label>
+                                         <input type="text" name="" placeholder="experince" class="form-control">
+                                     </div>
+                                     
+                                      <div class="form-group col-md-3">
+                                         <label for="">Prefered Location</label>
+                                         <input type="text" name="" placeholder="experince" class="form-control">
+                                     </div>
+                                     
+                                     <div class="form-group col-md-3">
+                                         <label for="">Phone Number</label>
+                                         <input type="text" name="" placeholder="experince" class="form-control">
+                                     </div>
+  
+                                     <div class="form-group col-md-3">
+                                         <label for=""><span>L1 Interviwer</span></label>
+                                         <select class="custome-select select2">
+                                             <option value="178">Select</option>
+                                             <option value="258">Bhaskar</option>
+                                             <option value="265">Neal</option>
+                                         </select>
+                                     </div>
+                                     
+                                     <div class="form-group col-md-3">
+                                         <label for=""><span>L2 Interviwer</span></label>
+                                         <select class="custome-select select2">
+                                             <option value="178">Select</option>
+                                             <option value="258">Swapna</option>
+                                             <option value="265">Satish</option>
+                                         </select>
+                                     </div>
+                                     
+                                     <div class="form-group col-md-3">
+                                         <label for=""><span>Profile Source</span></label>
+                                         <select class="custome-select select2">
+                                             <option value="178">Nakuri</option>
+                                             <option value="258">Reference</option>
+                                             <option value="265">Vendor</option>
+                                             <option value="265">Other</option>
+                                         </select>
+                                     </div>
+                                     
+                                     <div class="form-group col-md-3">
+                                     <label for=""><span>Interview Date</span></label>
+                                     <input type="date" name="" placeholder="interview" class="form-control">
+                                     </div>
+                                     
+                                     <div class="form-group col-md-3">
+                                         <label for=""><span>Status</span></label>
+                                         <select class="custome-select select2">
+                                             <option value="178">Select</option>
+                                             <option value="265">Schduled</option>
+                                         </select>
+                                     </div>
+                                     
+                                      <div class="form-group col-md-12">
+                                        <div class="formButtons">
+                                           <button type="button" class="btn btn-sunera">Save</button>
+                                           <button type="button" class="btn btn-secondary">Cancel</button>
+                                        </div>
+                                     </div>
+                                 </div>
+                             </form>
+                         </div>
+                      </div>
+                      
+                        <div class="card">
+                            <div class="card-header">
+                               <h4 class="card-title">Interview Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                  <div class="tableData">
+                                    <table class="table table-bordered table-hover">
+                                       <thead>
+                                          <tr>
+                                             <th scope="col">R.No</th>
+                                             <th scope="col">CandidateName</th>
+                                             <th scope="col">Experince</th>
+                                             <th scope="col">Location</th>
+                                             <th scope="col">PhoneNo</th>
+                                             <th scope="col">InterviewDate</th>
+                                             <th scope="col">SchduledBy</th>
+                                             <th scope="col">L1Interviwer</th>
+                                             <th scope="col">L2Interviwer</th>
+                                             <th scope="col">InterviewStatus</th>
+                                             <th scope="col">Action</th>
+                                             <th scope="col">Comments</th>
+                                             <th scope="col">EPStatus</th>
+                                             
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td class="alignCenter">1</td>
+                                             <td>Bhaskar</td>
+                                             <td>5</td>
+                                             <td>Hyderabad</td>
+                                             <td>9886469360</td>
+                                             <td>10/06/2022</td>
+                                             <td>Swapna</td>
+                                             <td>Vamshi Chinthapatla</td>
+                                             <td>Srikanth</td>
+                                             <td style="color: #00800085;font-weight: bold;"><span class="badge bg-success-transparent">Shortlisted</span></td>
+                                             <td class="text-center">
+                                                 <button type="button" class="action-btns1" data-toggle="modal" data-target="#userProfileEdit">
+                                                    <i class="fa fa-pencil text-primary" aria-hidden="true"></i>
+                                                 </button>                      
+                                             </td>
+                                             <td></td>
+                                             <td style="color: #00800085;font-weight: bold;"><span class="badge bg-success-transparent">Offered</span></td>
+                                          </tr>
+                                          
+                                           <tr>
+                                             <td class="alignCenter">1</td>
+                                             <td>Bhaskar</td>
+                                             <td>5</td>
+                                             <td>Hyderabad</td>
+                                             <td>9886469360</td>
+                                             <td>10/06/2022</td>
+                                             <td>Swapna</td>
+                                             <td>Vamshi Chinthapatla</td>
+                                             <td>Srikanth</td>
+                                             <td style="color: #00800085;font-weight: bold;"><span class="badge bg-success-transparent">Shortlisted</span></td>
+                                             <td class="text-center">
+                                                 <button type="button" class="action-btns1" data-toggle="modal" data-target="#userProfileEdit">
+                                                    <i class="fa fa-pencil text-primary" aria-hidden="true"></i>
+                                                 </button>                      
+                                             </td>
+                                             <td></td>
+                                             <td style="color: #00800085;font-weight: bold;"><span class="badge bg-success-transparent">OnBorded</span></td>
+                                          </tr>
+                                          
+                                           <tr>
+                                             <td class="alignCenter">1</td>
+                                             <td>Bhaskar</td>
+                                             <td>5</td>
+                                             <td>Hyderabad</td>
+                                             <td>9886469360</td>
+                                             <td>10/06/2022</td>
+                                             <td>Swapna</td>
+                                             <td>Vamshi Chinthapatla</td>
+                                             <td>Srikanth</td>
+                                              <td style="color: #00800085;font-weight: bold;"><span class="badge bg-warning-transparent">Hold</span></td>
+                                              <td class="text-center">
+                                                 <button type="button" class="action-btns1" data-toggle="modal" data-target="#userProfileEdit">
+                                                    <i class="fa fa-pencil text-primary" aria-hidden="true"></i>
+                                                 </button>                      
+                                              </td>
+                                             <td></td>
+                                             <td></td>
+                                          </tr>
+                                          
+                                           <tr>
+                                             <td class="alignCenter">1</td>
+                                             <td>Bhaskar</td>
+                                             <td>5</td>
+                                             <td>Hyderabad</td>
+                                             <td>9886469360</td>
+                                             <td>10/06/2022</td>
+                                             <td>Swapna</td>
+                                             <td>Vamshi Chinthapatla</td>
+                                             <td>Srikanth</td>
+                                             <td style="color: #00800085;font-weight: bold;"><span class="badge bg-primary-transparent">InProgres</span></td>
+                                              <td class="text-center">
+                                                 <button type="button" class="action-btns1" data-toggle="modal" data-target="#userProfileEdit">
+                                                    <i class="fa fa-pencil text-primary" aria-hidden="true"></i>
+                                                 </button>                      
+                                              </td>
+                                             <td></td>
+                                             <td></td>
+                                          </tr>
+                                          
+                                           <tr>
+                                             <td class="alignCenter">1</td>
+                                             <td>Bhaskar</td>
+                                             <td>5</td>
+                                             <td>Hyderabad</td>
+                                             <td>9886469360</td>
+                                             <td>10/06/2022</td>
+                                             <td>Swapna</td>
+                                             <td>Vamshi Chinthapatla</td>
+                                             <td>Srikanth</td>
+                                             <td style="color: #00800085;font-weight: bold;"><span class="badge bg-danger-transparent">Declined</span></td>
+                                              <td class="text-center">
+                                                 <button type="button" class="action-btns1" data-toggle="modal" data-target="#userProfileEdit">
+                                                    <i class="fa fa-pencil text-primary" aria-hidden="true"></i>
+                                                 </button>                      
+                                              </td>
+                                             <td></td>
+                                             <td></td>
+                                          </tr>
+                                          
+                                       </tbody>
+                                    </table>
+                                 </div>
+                             </div>
+                         </div>	
+                 </div>	
+                             
+                      <!-- Interview Tab Content - End -->
+                      
+                      <!-- History Tab Content - Start -->
+                      <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
+                       <div class="card">
+                          <div class="card-header">
+                             <h4 class="card-title">History</h4>
+                          </div>
+                          <div class="card-body">
+                             <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+                             <ag-grid-angular
+                               style="width: 100%; height: 300px"
+                               class="ag-theme-material"
+                               [rowData]="displayedRowData"
+                               [columnDefs]="displayedColumnDefs"
+                               [frameworkComponents]="frameworkComponents"
+                               pagination="true"
+                               [paginationPageSize]="10"
+                               (gridReady)="onGridReady($event)"
+                             >
+                             </ag-grid-angular>
+                          </div>
+                       </div>
+                    </div>
+                    <!-- History Tab Content - End -->
+                      
+                      
+                      <!-- Summary Tab Content - Start -->
+                      <div class="tab-pane fade" id="nav-summary" role="tabpanel" aria-labelledby="nav-summary-tab">
+                         <div class="card">
+                            <div class="card-header">
+                               <h4 class="card-title">RRID 546 Summary</h4>
+                            </div>
+                            <div class="card-body">
+                               <!-- <p> -->
+                                 <table class="table table-bordered table-hover">
+                                       <thead>
+                                          <tr>
+                                             <th scope="col">No. Of Positions</th>
+                                             <th scope="col">Total Interviews</th>
+                                             <th scope="col">Selected</th>
+                                             <th scope="col">Hold</th>
+                                             <th scope="col">InProgress</th>
+                                             <th scope="col">Offered</th>
+                                             <th scope="col">Onborderd</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td class="alignCenter">20</td>
+                                             <td>30</td>
+                                             <td>10</td>
+                                             <td>5</td>
+                                             <td>10</td>
+                                             <td>20</td>
+                                             <td>10</td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                               <!-- </p> -->
+                            </div>
+                         </div>
+                      </div>
+                      <!-- Summary Tab Content - End -->
+                   </div>
+                </div>
+                <!-- New Request Form - End -->
+             </div>
+          </div>
+       </div>
+       <!--New Request - End-->
+  
+       <!-- User Profile Edit -->
+       <div class="modal fade" id="userProfileEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Interview Status</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+                <form>
+                 <div class="form-group">
+                   <label for="recipient-name" class="col-form-label">Status:</label>
+                   <select class="custome-select select2">
+                      <option value="265">InProgress</option>
+                      <option value="258">Reschduled</option>
+                      <option value="258">Candidate Not Joined</option>
+                      <option value="265">Rejected</option>
+                      <option value="265">Hold</option>
+                      <option value="258">Shortlisted</option>
+                   </select>
+                 </div>
+                 <div class="form-group">
+                   <label for="message-text" class="col-form-label">Message:</label>
+                   <textarea class="form-control" id="message-text"></textarea>
+                 </div>
+               </form>
+  
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+               <button type="button" class="btn btn-success">Update</button>
+             </div>
+           </div>
+         </div>
+       </div>
+       <!-- User Profile Edit End -->
+  
+  </div>

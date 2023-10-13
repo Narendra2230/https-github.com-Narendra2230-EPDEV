@@ -1,0 +1,117 @@
+<div class="container ml-5 mt-4" style="width: 96%">
+  <div class="profileMain card">
+    <div class="row m-0 p-0 p-b-10">
+      <div class="col-8 sow_management">
+        <h4>Resource Allocation</h4>
+      </div>
+      <div class="col-4 text-right">
+        <select class="sow_list" (change)="ChangeFilter()" [(ngModel)]="Status">
+          <option value="">All Resource</option>
+          <option value="FTA-Bench">FTA Bench</option>
+          <option value="FTA-Partial-Bench">FTA Partial Bench</option>
+          <option value="FTA-No-Allocation-Bench">
+            FTA No Allocation Bench
+          </option>
+          <option value="Contract-Bench">Contract Bench</option>
+          <option value="Contract-Partial-Bench">Contract Partial Bench</option>
+          <option value="Contract-No-Allocation-Bench">
+            Contract No Allocation Bench
+          </option>
+        </select>
+        <button class="btn_1 excel_export" (click)="exportDataAsExcel()">
+          Excel Format
+        </button>
+      </div>
+    </div>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <ag-grid-angular
+      style="width: 100%; height: 500px"
+      class="ag-theme-material"
+      [rowData]="displayedRowData"
+      [columnDefs]="displayedColumnDefs"
+      pagination="true"
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+    <!-- [frameworkComponents]="frameworkComponents" -->
+
+    <div class="my-2">
+      <div class="row m-0 p-0">
+        <div class="col-3 p-0">
+          <div class="border p-2 highlighted">FTA BTU</div>
+        </div>
+        <div class="col p-0" *ngFor="let item of btus">
+          <div class="border p-2 highlighted">
+            {{ item }}
+          </div>
+        </div>
+      </div>
+      <div class="row m-0 p-0" *ngFor="let item of utilizationList1">
+        <div class="col-3 p-0">
+          <div class="border p-2 highlighted" *ngIf="item.ftastatus != null">
+            {{ item.ftastatus }}
+          </div>
+          <div class="border p-2 highlighted" *ngIf="item.ftastatus == null">
+            NULL
+          </div>
+        </div>
+        <div class="col p-0" *ngFor="let btus of item.items">
+          <div class="border p-2">
+            {{ btus.values }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-2">
+      <div class="row m-0 p-0">
+        <div class="col-3 p-0">
+          <div class="border p-2 highlighted">Contractor BTU</div>
+        </div>
+        <div class="col p-0" *ngFor="let item of btus">
+          <div class="border p-2 highlighted">
+            {{ item }}
+          </div>
+        </div>
+      </div>
+      <div class="row m-0 p-0" *ngFor="let item of utilizationList2">
+        <div class="col-3 p-0">
+          <div class="border p-2 highlighted" *ngIf="item.ftastatus != null">
+            {{ item.ftastatus }}
+          </div>
+          <div class="border p-2 highlighted" *ngIf="item.ftastatus == null">
+            NULL
+          </div>
+        </div>
+        <div class="col p-0" *ngFor="let btus of item.items">
+          <div class="border p-2">
+            {{ btus.values }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div
+  class="modal fade createnrollCourse"
+  id="createnrollCourse"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  [ngClass]="isModal ? 'show d-block' : ''"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="card">
+        <div class="card-body allocation_popup">
+          <div class="col-12 pointer text-right">
+            <i class="fa fa-times" (click)="isModal = false"></i>
+          </div>
+          <app-associate-count-table
+            [sowid]="selectedSowId"
+          ></app-associate-count-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

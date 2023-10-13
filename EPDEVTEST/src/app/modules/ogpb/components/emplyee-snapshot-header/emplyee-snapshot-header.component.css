@@ -1,0 +1,9 @@
+
+.policy_popup button {
+  color: #e6b617;
+  border: none;
+  background: #fafafa;
+  font-size: 14px;
+  font-family: 'poppins_lightregular';
+  cursor: pointer;
+}

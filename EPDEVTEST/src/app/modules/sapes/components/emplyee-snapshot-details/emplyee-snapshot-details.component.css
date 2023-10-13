@@ -1,0 +1,39 @@
+.m-t-30{
+    margin-top: 25px;
+}
+.evl_prcs_lft.full_project_all {
+    display: flex;
+}
+.full_project_wrap {
+    width: 58%;
+    overflow-x: scroll;
+    margin-right: 30px;
+    padding: 26px 0 20px;
+}
+.evl_prcs_lft.full_project_all > .full_project_wrap ul{
+    width: 1500px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+}
+.evl_prcs_lft.full_project_all > .full_project_wrap ul li{
+    width: 14%;
+}
+.evl_prcs_lft ul li {
+    width: 27% !important;
+    position: relative;
+    cursor: default;
+    margin-right: 10px;
+}
+.evl_prcs_lft ul{
+    padding: 26px 0 20px;
+}
+.evaluation_process{
+    padding: 0;
+}
+
+@media (max-width: 1399px){
+.evl_prcs_lft li h5 {
+    min-height: 30px;
+}
+}

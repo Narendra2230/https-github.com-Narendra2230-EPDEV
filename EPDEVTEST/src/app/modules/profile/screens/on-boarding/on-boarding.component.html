@@ -1,0 +1,160 @@
+<div class="time_sheet profileSheet">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/#/profile-landing">Profile</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">On Boarding</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <div class="time_sheet_heading row pad-3">
+        <div class="profileInnerHead d-flex justify-content-center align-items-center">
+            <div class="profileImage">
+                <img src="assets/images/onboarding/on-boarding.svg" alt="On Boarding" />
+            </div>
+            <h4>On Boarding</h4>
+            <div class="backProfile">
+                <a [routerLink]="getRout()">
+          Back to list
+        </a>
+            </div>
+        </div>
+    </div>
+    <!-- time_sheet_heading-End-->
+
+    <div class="profileFullInfo">
+        <div class="profileFullInfo_wrap">
+            <div class="profileFullInfo_block1">
+                <div class="profileFullInfoIn">
+                    <div class="profileHeadNav">
+                        <ul class="d-flex justify-content-start">
+                            <li class="active"><a href="#tab1">Upload Documents</a></li>
+                        </ul>
+                        <div class="buttons">
+                            <!--  <a href="#"
+              >Instructions <img src="assets/images/onboarding/download.svg"
+            /></a> -->
+                        </div>
+                    </div>
+                    <div class="profileNavCont">
+                        <div class="peronalCont">
+                            <!-- <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+                          <h4>Employer -1</h4>
+                      </div> -->
+
+
+                            <div class="personalContForm onboarding">
+                                <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+                                <table class="ob-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Document Name</th>
+                                            <th>Download Document</th>
+                                            <th>Upload Documents</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let insurance of boardingDocs">
+                                            <td>
+                                                <a href="javascript:void(0)" class="download">
+                                                    <span>{{ insurance.fileName }}</span>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a target="_blank" href="{{ insurance.filePath }}" class="file-download"><img src="assets/images/onboarding/download.svg" /></a>
+                                            </td>
+                                            <td>
+                                                <div class="upload-doc">
+                                                    <div class="file-upload">
+                                                        <div class="file-select">
+                                                            <div class="file-select-button fileName" id="fileName">
+                                                                Choose File
+                                                            </div>
+                                                            <input type="file" name="chooseFile" class="chooseFile" id="chooseFile" (change)="uploadDocs(insurance,$event)" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- <button class="download-all">
+                Download all <img src="assets/images/onboarding/download.svg" />
+              </button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profileFullInfo_block1">
+                <div class="profileFullInfo">
+                    <div class="profileFullInfoIn">
+                        <div class="profileHeadNav">
+                            <ul class="d-flex justify-content-start">
+                                <li class="active"><a href="#tab1">Acknowledged </a></li>
+                            </ul>
+                            <div class="buttons">
+                                <!-- <a href="#"
+                  >Instructions <img src="assets/images/onboarding/download.svg"
+                /></a> -->
+                            </div>
+                        </div>
+                        <div class="profileNavCont">
+                            <div class="peronalCont">
+                                <!-- <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+                              <h4>Employer -1</h4>
+                          </div> -->
+                                <div class="personalContForm onboarding">
+                                    <mat-progress-bar *ngIf="isLoading1" mode="indeterminate"></mat-progress-bar>
+                                    <table class="ob-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Document Name</th>
+                                                <th>Acknowledged Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let insurance of uploadeDocs">
+                                                <td>
+                                                    <a href="javascript:void(0)" class="download" style="padding: 12px;">
+                                                        <span>{{ insurance.documentName }}</span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <div class="upload-doc">
+                                                        {{insurance.documentStatus ? 'Updated ' : 'Not updated'}}
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="upload-doc">
+                                                        <a *ngIf="insurance.documentStatus" href="{{ insurance.filePath }}"><img src="assets/images/onboarding/download.svg" /></a>
+                                                        <a *ngIf="insurance.documentStatus" href="javascript:void(0)" class="file-download"><img (click)="confirm(insurance)" src="assets/images/profile/delete2.svg" /></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- <button class="download-all">
+                    Download all <img src="assets/images/onboarding/download.svg" />
+                  </button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+
+
+</div>
+
+<p-confirmDialog header="Confirmation Alert!" icon="pi pi-exclamation-triangle"></p-confirmDialog>

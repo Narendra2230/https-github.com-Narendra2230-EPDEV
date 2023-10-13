@@ -1,0 +1,30 @@
+@import '../../../../../assets/css/bootstrap.min.css';
+@import '../../../../../assets/css/font-awesome.min.css';
+@import '../../../../../assets/css/learning.css';
+.status-wrap{
+  position: relative;
+  right: 25px;
+}
+.pointer{
+  cursor: pointer;
+}
+
+.btn-success {
+  color: #fff !important;
+  background-color: #71c285 !important;
+  border-color: #71c285 !important;
+}
+
+table{
+  font-size: 14px;
+  font-family: 'Open Sans';
+}
+
+.font_style{
+  text-align: center;
+  font-weight: bold;
+}
+
+h3{font-size: 18px}
+
+.m_b_3{margin-bottom: 3%;}

@@ -1,0 +1,15 @@
+@import '../../../../../assets/css/bootstrap.min.css';
+@import '../../../../../assets/css/font-awesome.min.css';
+@import '../../../../../assets/css/learning.css';
+.status-wrap{
+  position: relative;
+  right: 25px;
+}
+.pointer{
+  cursor: pointer;
+}
+
+.table{
+  font-size: 14px;
+  font-family: 'Open Sans';
+}

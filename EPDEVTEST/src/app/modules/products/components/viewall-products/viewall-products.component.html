@@ -1,0 +1,175 @@
+<div class="container ml-5 mt-4" style="width: 96%">
+  <div class="productMain">
+    <div class="row m-0 p-0 p-b-3">
+      <div class="col-8 pageTitle">
+        <h4>All Products</h4>
+      </div>
+      <div class="col-4 text-right">
+        <a routerLink="/requester-landing" class="btn btn-link">Back to list</a>
+      </div>
+    </div>
+
+    <div class="row m-0 p-t-20">
+      <div class="col-6 text-right">
+        <select class="custom-select" required [(ngModel)]="ProductId" (change)="UpdateTicketList()">
+          <option value="">Open this select menu</option>
+          <option *ngFor="let item of productsList" value="{{ item.id }}">
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-6 text-right">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox1"
+            [(ngModel)]="New"
+            (change)="UpdateTicketList()"
+          />
+          <label class="form-check-label" for="inlineCheckbox1">New</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox2"
+            [(ngModel)]="Live"
+            (change)="UpdateTicketList()"
+          />
+          <label class="form-check-label" for="inlineCheckbox2">Live</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox3"
+            [(ngModel)]="InProgress"
+            (change)="UpdateTicketList()"
+          />
+          <label class="form-check-label" for="inlineCheckbox3"
+            >InProgress</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox4"
+            [(ngModel)]="Reject"
+            (change)="UpdateTicketList()"
+          />
+          <label class="form-check-label" for="inlineCheckbox4">Reject</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--sample table-->
+  <div class="overflowauto">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <ag-grid-angular
+      style="width: 100%; height: 500px"
+      class="ag-theme-material"
+      [rowData]="displayedRowData"
+      [columnDefs]="displayedColumnDefs"
+      [frameworkComponents]="frameworkComponents"
+      pagination="true"
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+  </div>
+
+  <!--Model popup - create ticket-->
+  <div
+    class="modal fade"
+    id="requestModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="requestModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="requestModalLabel">Create Issue</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <p class="required">
+          All fields marked with an asterisk (*) are required
+        </p>
+        <div class="modal-body">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Project *</label>
+                <select class="custom-select" required>
+                  <option value="">Open this select menu</option>
+                  <option value="1">EBS Upgrade Assistance</option>
+                  <option value="2">DAT</option>
+                  <option value="3">AutoMas – Santosh</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Issue Type *</label>
+                <select class="custom-select" required>
+                  <option value="">Open this select menu</option>
+                  <option value="1">Task</option>
+                  <option value="2">Client feedbacks</option>
+                  <option value="3">Suggestions based on market</option>
+                  <option value="4">Management reviews</option>
+                  <option value="5">Others</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-6 mb-3">
+                <label>Reporter</label>
+                <input type="text" class="form-control" />
+              </div>
+
+              <div class="form-group col-md-6 mb-3">
+                <label>Priority</label>
+                <select class="custom-select" required>
+                  <option value="">Open this select menu</option>
+                  <option value="1">Low</option>
+                  <option value="2">Medium</option>
+                  <option value="3">High</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-12 mb-3">
+                <label>Summary *</label>
+                <input type="text" class="form-control" />
+              </div>
+
+              <div class="form-group col-md-12 mb-3">
+                <label>Description *</label>
+                <textarea
+                  placeholder=""
+                  type="text"
+                  class="form-control"
+                  maxlength="500"
+                >
+                </textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

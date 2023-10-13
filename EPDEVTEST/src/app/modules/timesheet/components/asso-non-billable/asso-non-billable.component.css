@@ -1,0 +1,13 @@
+.col.timesheet {
+    max-height: 194px;
+    overflow: auto;
+}
+
+.fix_height{
+    overflow-y: auto;
+    max-height: 150px;
+}
+::-webkit-scrollbar{width:4px;height:3px}
+::-webkit-scrollbar-track{background:#f1f1f1}
+::-webkit-scrollbar-thumb{background:#888;}
+::-webkit-scrollbar-thumb:hover{background:#fb8181}

@@ -1,0 +1,15 @@
+.form-group label{
+    margin-bottom: 2%;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-success {
+    color: #fff !important;
+    background-color: #71c285 !important;
+    border-color: #71c285 !important;
+}
+
+.btn-success :hover {
+    color: #fff !important;
+}

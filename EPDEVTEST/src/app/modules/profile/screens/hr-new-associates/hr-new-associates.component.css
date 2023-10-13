@@ -1,0 +1,14 @@
+.note_info{
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-style: normal;
+    margin-top: 25px;
+}
+
+.associate_head{
+    font-family: lato_lightregular;
+    margin-top: 15px;
+    color: #fb8a8a;
+    text-decoration: underline;
+}

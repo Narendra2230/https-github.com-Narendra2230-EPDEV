@@ -1,0 +1,525 @@
+<div class="time_sheet ">
+
+    <!-- time_sheet_heading -->
+    <div class="time_sheet_heading row pad-4 ">
+        <!-- <div class="toogle_slide col-4">
+            <app-toggle-cmpt [checked]="false"></app-toggle-cmpt>
+        </div> -->
+        <div class="col-6 text-start">
+            <h4 class="text-left">Time Management</h4>
+        </div>
+        <div class="col-6 cal_select right-txt">
+            <app-preloader class="go-center" *ngIf="isLoading"></app-preloader>
+            <app-global-date (reset)="resetDates($event)" *ngIf="!isLoading" [globalDateRange]="globalDateRange"
+                (onGlobalDateChange)="onGlobalDateChange($event)"></app-global-date>
+        </div>
+    </div>
+    <!-- time_sheet_heading-End-->
+
+    <!-- time_sheet_Filters -->
+    <div class="time_sheet_heading_toggle row pad-4">
+        <div class="toogle_slide col-4">
+            <ul>
+                <li>
+                    <span>ME</span>
+                    <mat-slide-toggle [checked]="checked" [disabled]="!isManager" (change)="onChageTeam($event)">
+                    </mat-slide-toggle>
+                    <span class="unchecked">TEAM</span>
+                </li>
+                <li>
+                </li>
+            </ul>
+        </div>
+        <div class="col-6 text-left">
+            <ul>
+                <li>
+                    <span class="mr-2 mb-2 font-12">Apply/View</span>
+                    <mat-radio-group aria-label="Apply/View">
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            [(ngModel)]="SelectTimeSheetType">
+                            <mat-radio-button class="example-radio-button" *ngFor="let timesheet of TimeSheetType"
+                                [value]="timesheet" (click)="onTimesheetSelect(timesheet)"> {{timesheet}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </mat-radio-group>
+                </li>
+                <li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- time_sheet_Filters-End-->
+
+
+
+    <div *ngIf="SelectTimeSheetType == 'Timesheet'">
+        <div class="view_timesheet_head row">
+            <div class="col-4 monthly_sheet">
+
+            </div>
+            <div class="col-3 text-center">
+                <h1 class="text-center">Timesheet</h1>
+            </div>
+            <div class="col-5  apply_leave_select_timesheet  text-right ">
+
+
+            </div>
+        </div>
+        <app-team-filter #timeSheetFilter (reset)="filterReset($event)" (onSearch)="onSearch($event)"
+            [filterMetaData]="filterMetaData">
+        </app-team-filter>
+       
+            <div class="view_timesheet manger_timesheet">
+                <div class="mng_timesheet_table heading">
+                    <ul>
+                        <li>
+                            <label class="check_mng">
+                                <input (change)="check('all',$event)" type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li>BU</li>
+                        <li>Reporting Manager</li>
+                        <li>Associate Name</li>
+                        <li>Customer Name</li>
+                        <li>SOW Name</li>
+                        <li>Days</li>
+                        <li>Hours</li>
+                        <li>Status</li>
+                        <li>Actions</li>
+                    </ul>
+                </div>
+
+                <div *ngIf="isSheetLoading" class="mng_timesheet_table">
+                    <app-preloader class="go-center"></app-preloader>
+                </div>
+                <div *ngIf="managerMetaData.length === 0 && isSheetLoading==false" class="mng_timesheet_table">
+                    <h2 class="nodata">No data available on selected dates & Action </h2>
+                </div>
+
+                <div *ngIf="!isSheetLoading">
+                    <div *ngFor="let emp of managerMetaData; let i = index;" class="mng_timesheet_table">
+                        <ul>
+                            <li>
+                                <label class="check_mng"
+                                    *ngIf="emp.timesheetStatus!=='Approved' && emp.timesheetStatus!=='Rejected'">
+                                    <input (click)="check(i,$event)" [checked]="emp.checked" type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li>{{emp.buName}}</li>
+                            <li>{{emp.reportingManagerName}}</li>
+                            <li> <a href="#" (click)="goToDetails(emp,$event)"> {{emp.associateName}}</a></li>
+                            <li> {{emp.clientName}} </li>
+                            <li>{{emp.sowName}}</li>
+                            <li>{{emp.daysCount}}</li>
+                            <li>{{emp.totalHours}}</li>
+                            <li>{{emp.timesheetStatus}}
+                            </li>
+                            <li><a (click)="approve(emp)" class="txt_clr">APPROVE/REJECT</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timesheet_option manger_option">
+                <div class="row">
+                    <div class="col">
+                        <app-timesheet-option (donwloadSheet)="donwloadSheet($event)"></app-timesheet-option>
+                    </div>
+                    <div class="col text-right">
+                        <div class="time_btns">
+                            <ul>
+                                <li><input type="button" name="button" (click)="reject()" value="REJECT"></li>
+                                <li class="submit"><input type="button" (click)="onSubmit(3,'')" name="button"
+                                        value="UNLOCK">
+                                <li class="submit"><input type="button" (click)="onSubmit(1,'')" name="button"
+                                        value="APPROVE">
+                                </li>
+                            </ul>
+                            <div class="modal fade" id="select_time_popup" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="submit_pop_dtl">
+                                                <h3>Do you want to approve selected associates timesheets?</h3>
+                                                <button class="cancel_btn" type="button"
+                                                    data-dismiss="modal">CANCEL</button>
+                                                <button data-dismiss="modal" type="button" data-toggle="modal"
+                                                    data-target="#submitted_popup">YES</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submitted_popup_badges">
+                <div class="modal fade" id="submitted_popup" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="submitted_badges">
+                                    <h4>Selected Timesheet Approved Successfully!</h4>
+                                    <span data-dismiss="modal"><i class="fa fa-times-circle"
+                                            aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        <p-confirmDialog header="Confirmation" appendTo="body"></p-confirmDialog>
+
+        <p-toast></p-toast>
+        <p-dialog appendTo="body" header="REJECT COMMENTS" modal="true" [(visible)]="display" position="center">
+            <p style="color: red;" *ngIf="isRCmtError">Reject comments are mandatory</p>
+            <textarea [(ngModel)]="rejectComments" class="reject_popup"></textarea><br />
+            <button (click)="rejectsubmit()" class="reject_btn">Submit</button>
+        </p-dialog>
+    </div>
+
+    <div *ngIf="SelectTimeSheetType == 'Leave'">
+        <!---Start of Timesheet Table -->
+        <section class="leave_history">
+            <div class="view_timesheet_head row">
+                <div class="col-4 monthly_sheet">
+
+                </div>
+                <div class="col-3 text-center">
+                    <h1 class="text-center">Leave</h1>
+                </div>
+                <div class="col-5  apply_leave_select_timesheet  text-right ">
+
+
+                </div>
+            </div>
+            <div class="table_header row">
+                <div class="col-3">
+                    <span class="title_tabe">Request History</span>
+                </div>
+                <div class="col-9">
+
+                    <div class="history_filter">
+                        <button class="btn_1 btn_history_filter float-right open-filters"
+                            (click)="showDropDown=!showDropDown">
+                            History Filter<span></span>
+                        </button>
+                        <div id="filtersWrap" class="filter_block"
+                            [ngStyle]="showDropDown  ? { 'display' : 'block' }    : ''  ">
+                            <a style="cursor:pointer" (click)="showDropDown=!showDropDown"
+                                class="close_btn hide-filters"><img src="assets/images/leave/icon-close.png" alt=""></a>
+                            <hr>
+    
+                            <div class="col-12 display_inline ">
+                                <span class="filter_heading">Status</span>
+    
+                                <div class="element_input statusListcont filter_selectboxs">
+                                    <div *ngFor="let s of statusList; let i=index;" class="p-field-checkbox m-b-5">
+                                        <p-checkbox class="checkbox_1" name="inprogress" value={{s.value}}
+                                            [(ngModel)]="filter.status" inputId={{s.value}}status></p-checkbox>
+                                        <label class="p-l-10" for='{{s.value}}status'> {{s.label}} </label>
+                                    </div>
+                                    <!-- <p-multiSelect selectionLimit="1" [options]="statusList" maxSelectedLabels="1"
+                                        placeholder="Select  Status" width="100px" selectionLimit="100"
+                                        [(ngModel)]="filter.status"></p-multiSelect> -->
+    
+                                </div>
+                            </div>
+                            <div class="col-12 display_inline">
+                                <span class="filter_heading">Leave Types</span>
+                                <div class="element_input statusListcont filter_selectboxs">
+                                    <!-- <p-multiSelect selectionLimit="1" [options]="leaveTyps" maxSelectedLabels="1"
+                                        placeholder="Select  Status" width="100px" selectionLimit="100"
+                                        [(ngModel)]="filter.type"></p-multiSelect> -->
+    
+                                    <div *ngFor="let l of leaveTyps; let i=index;" class="p-field-checkbox m-b-5">
+                                        <p-checkbox class="checkbox_1" name="inprogress" value={{l.value}}
+                                            [(ngModel)]="filter.type" inputId='{{l.value}}leaveType'></p-checkbox>
+                                        <label class="p-l-10" for='{{l.value}}leaveType'> {{l.label}} </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 display_inline">
+                                <span class="filter_heading">Start Date</span>
+                                <div class="element_input">
+                                    <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true" placeholder="MM/DD/YY"
+                                        [(ngModel)]="filter.fromDate"></p-calendar>
+                                </div>
+                            </div>
+                            <div class="col-12 display_inline" style="margin: 5px 0 10px 0;">
+                                <span class="filter_heading">End Date</span>
+                                <div class="element_input">
+                                    <p-calendar dateFormat="mm/dd/yy" [readonlyInput]="true" [minDate]="filter.fromDate"
+                                        placeholder="MM/DD/YY" [(ngModel)]="filter.toDate"></p-calendar>
+                                </div>
+                            </div>
+                            <div class="col-12 display_inline">
+                                <div class="filter_btns">
+                                    <button class="btn btn-sm"
+                                        (click)="showDropDown=!showDropDown;onLeaveFilter()">Apply</button>
+                                    <button class="btn btn-sm reset_btn" (click)="reset()"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="leave_history_table">
+
+                <!-- <app-generic-table [tableDate]=leaves></app-generic-table> -->
+
+                <div class="example-container mat-elevation-z8">
+
+                    <div class="example-table-container">
+                        <div class="mat-elevation-z8">
+                            <table mat-table [dataSource]="tableData" class="table table-bordered" matSort matSortActive="fromDate"
+                                matSortDisableClear matSortDirection="desc">
+                                <!-- Number Column -->
+        
+                                <ng-container matColumnDef="action">
+                                    <th mat-header-cell *matHeaderCellDef class="checkbox_style2 checkmark_td">
+                                        <label class="check_mng">
+                                            <input (change)="checkAll($event)" type="checkbox" class="" />
+                                            <span class="checkmark"></span>
+                                        </label>
+        
+                                    </th>
+                                    <td mat-cell *matCellDef="let s; let i = index;" class="checkbox_style2 checkmark_td">
+                                        <label class="check_mng"
+                                            *ngIf="s.leaveStatus!=2 && s.leaveStatus!=3 && s.leaveStatus!=4">
+                                            <input (change)="checkCount(s,i)" [checked]="s['isChecked']" class=""
+                                                type="checkbox" />
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="avathar">
+                                    <th mat-header-cell *matHeaderCellDef>Avatar</th>
+                                    <td mat-cell *matCellDef="let s">
+                                        <img src="{{checkImage(s.avatar)}}" alt="associate avatar" class="leave_avatar">
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="empName">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">Employee Name</th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{s.empName}}</td>
+                                </ng-container>
+        
+                                <!-- Title Column -->
+                                <ng-container matColumnDef="leaveType">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">Request Type</th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{s.leaveType}}</td>
+                                </ng-container>
+        
+                                <!-- State Column -->
+                                <ng-container matColumnDef="fromDate">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">From Date
+                                    </th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{formatDate(s.fromDate)}}</td>
+                                </ng-container>
+        
+                                <!-- toDate Column -->
+                                <ng-container matColumnDef="toDate">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">To Date
+                                    </th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{formatDate(s.toDate)}}</td>
+                                </ng-container>
+        
+                                <!-- strNumber_of_Days Column -->
+                                <ng-container matColumnDef="strNumber_of_Days">
+                                    <th mat-header-cell *matHeaderCellDef>No.of Days</th>
+                                    <td mat-cell *matCellDef="let s">{{s.strNumber_of_Days}}</td>
+                                </ng-container>
+        
+                                <!-- strNumber_of_Days Column -->
+                                <ng-container matColumnDef="leaveStatusDesc">
+                                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                                    <td mat-cell *matCellDef="let s">{{s.leaveStatusDesc}}</td>
+                                </ng-container>
+        
+                                <!-- strNumber_of_Days Column -->
+        
+        
+                                <tr mat-header-row *matHeaderRowDef="leaveDisplayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: leaveDisplayedColumns;"></tr>
+                            </table>
+        
+                            <!-- <p style="text-align:center;margin-top: 5%;" *ngIf="list.length===0  && !isLoading">No Data Found
+                            </p> -->
+                            <mat-paginator [pageIndex]="0" [pageSize]="10" [length]="resultsLength"></mat-paginator>
+        
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="fotterbtn">
+                    <div class="pull-right">
+                        <button (click)="    leaveApprove(3)" [disabled]="isLoading"
+                            class="btn btn-danger btn-sm m-w-100 btn-style mr-10">REJECT</button>
+                        <button (click)="leaveApprove(2)" [disabled]="isLoading"
+                            class="btn btn-success mr-3 btn-sm  m-w-100 btn-style">APPROVE</button>
+    
+                    </div>
+                </div>
+
+                <br /><br /><br /><br /><br /><br />
+            </div>
+        </section>
+        <!-- ENd of Timesheet Table-->
+    </div>
+
+    <div *ngIf="SelectTimeSheetType == 'Shift'">
+        <section class="leave_history">
+            <div class="view_timesheet_head row">
+                <div class="col-4 monthly_sheet">
+
+                </div>
+                <div class="col-3 text-center">
+                    <h1 class="text-center">Shift</h1>
+                </div>
+                <div class="col-5  apply_leave_select_timesheet  text-right ">
+
+
+                </div>
+            </div>
+            <div class="table_header row">
+                <div class="col-3">
+                    <span class="title_tabe">Request History</span>
+                </div>
+                <div class="col-3">
+
+                </div>
+              
+            </div>
+            <div class="leave_history_table">
+
+                <!-- <app-generic-table [tableDate]=leaves></app-generic-table> -->
+
+                <div class="example-container mat-elevation-z8">
+
+                    <div class="example-table-container">
+                        <div class="mat-elevation-z8">
+                            <table mat-table [dataSource]="tableData" class="table table-bordered" matSort matSortActive="fromDate"
+                                matSortDisableClear matSortDirection="desc">
+                                <!-- Number Column -->
+        
+                                <ng-container matColumnDef="action">
+                                    <th mat-header-cell *matHeaderCellDef class="checkbox_style2 checkmark_td">
+                                        <label class="check_mng">
+                                            <input (change)="checkAll($event)" type="checkbox" class="" />
+                                            <span class="checkmark"></span>
+                                        </label>
+        
+                                    </th>
+                                    <td mat-cell *matCellDef="let s; let i = index;" class="checkbox_style2 checkmark_td">
+                                        <label class="check_mng"
+                                            *ngIf="s.associateApprovalStatusId!=2 && s.associateApprovalStatusId!=3 && s.associateApprovalStatusId!=4">
+                                            <input (change)="checkCount(s,i)" [checked]="s['isChecked']" class=""
+                                                type="checkbox" />
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="avathar">
+                                    <th mat-header-cell *matHeaderCellDef>Avatar</th>
+                                    <td mat-cell *matCellDef="let s">
+                                        <img src="{{checkImage(s.imagePath)}}" alt="associate avatar" class="leave_avatar">
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="empName">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">Emp Name</th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{s.name}}</td>
+                                </ng-container>
+        
+                                <!-- Title Column -->
+                                <ng-container matColumnDef="cShift">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">Current Shift</th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{s.currentShift}}</td>
+                                </ng-container>
+        
+                                  <!-- Title Column -->
+                                  <ng-container matColumnDef="rShift">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">Requested Shift</th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{s.shiftName}}</td>
+                                </ng-container>
+
+                                
+                                <!-- Title Column -->
+                                <ng-container matColumnDef="time_In">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">TimeIn</th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{s.time_In}}</td>
+                                </ng-container>
+        
+                                  <!-- Title Column -->
+                                  <ng-container matColumnDef="time_Out">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">TimeOut</th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{s.time_Out}}</td>
+                                </ng-container>
+        
+
+                                <!-- State Column -->
+                                <ng-container matColumnDef="fromDate">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">From Date
+                                    </th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{formatDate(s.fromDate)}}</td>
+                                </ng-container>
+        
+                                <!-- toDate Column -->
+                                <ng-container matColumnDef="toDate">
+                                    <th mat-header-cell *matHeaderCellDef class="td-one">To Date
+                                    </th>
+                                    <td mat-cell *matCellDef="let s" class="td-one">{{formatDate(s.todate)}}</td>
+                                </ng-container>
+        
+                                <!-- strNumber_of_Days Column -->
+                                <ng-container matColumnDef="strNumber_of_Days">
+                                    <th mat-header-cell *matHeaderCellDef>No.of Days</th>
+                                    <td mat-cell *matCellDef="let s">{{s.nooOfDays}}</td>
+                                </ng-container>
+        
+                                <!-- strNumber_of_Days Column -->
+                                <ng-container matColumnDef="leaveStatusDesc">
+                                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                                    <td mat-cell *matCellDef="let s">{{s.approvalStatus}}</td>
+                                </ng-container>
+        
+                                <!-- strNumber_of_Days Column -->
+        
+        
+                                <tr mat-header-row *matHeaderRowDef="shiftDisplayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: shiftDisplayedColumns;"></tr>
+                            </table>
+        
+                            <!-- <p style="text-align:center;margin-top: 5%;" *ngIf="list.length===0  && !isLoading">No Data Found
+                            </p> -->
+                            <mat-paginator [pageIndex]="0" [pageSize]="10" [length]="resultsLength"></mat-paginator>
+        
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="fotterbtn">
+                    <div class="pull-right">
+                        <button (click)="shiftApprove(3)" [disabled]="isLoading"
+                            class="btn btn-danger btn-sm m-w-100 btn-style mr-10">REJECT</button>
+                        <button (click)="shiftApprove(2)" [disabled]="isLoading"
+                            class="btn btn-success mr-3 btn-sm  m-w-100 btn-style">APPROVE</button>
+    
+                    </div>
+                </div>
+
+
+                <br /><br /><br /><br /><br /><br />
+            </div>
+        </section>
+    </div>
+
+</div>
+<p-confirmDialog  header="Confirmation" appendTo="body"></p-confirmDialog>

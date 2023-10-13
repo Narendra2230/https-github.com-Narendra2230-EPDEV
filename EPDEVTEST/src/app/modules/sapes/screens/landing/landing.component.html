@@ -1,0 +1,37 @@
+<div class="text-center p-4 mart-50" *ngIf="ogpbEligibility == 'false'">
+    <h4>Sorry, You are not eligible for SAPES 2022 Appraisal Process</h4>
+    <label class="eligible-text">Please reachout HRBP for any clarifications on SAPES Appraisal Process </label>
+    <label class="eligible">(Eligibility is DOJ on or before 30th Sep 2021)</label>
+</div>
+
+<div class="time_sheet performance_evaluation" *ngIf="ogpbEligibility == 'true'">
+    <div class="fixed_header">
+       <!-- <app-bread-crumb></app-bread-crumb> -->
+       <div class="breadcrumb_list">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="http://epstaging.suneratech.com/Home/Dashboard">Home</a></li>
+              <li class="breadcrumb-item"><a href="/modules/#/" class="default_cursor">Performance Mgmt</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">SAPES</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">Annual Appraisal</a></li>
+          </ol>
+        </div>
+        <!-- time_sheet_heading -->
+       <app-emplyee-snapshot-header></app-emplyee-snapshot-header>
+        <!-- time_sheet_heading-End-->
+      <app-emplyee-snapshot-details></app-emplyee-snapshot-details>
+    </div>
+    <div class="fixed_body">
+       <app-performan-evalution [isPersonal]="true" [KPIData]="KPIData"></app-performan-evalution>
+        <app-requisitions [isPersonal]="true" [KPIData]="KPIData"></app-requisitions>
+    </div>                           
+    <div class="submit_rating">
+        <ul>
+            <li class="cancel">
+                <input type="button" name="button" (click)="goToHome()" value="CANCEL">
+            </li>
+             <li class="submit" >         
+                 <input (click)="getRatingValues()" [ngClass]="(!isCurrentQuarter||!checkisTrue) || submitDisable ? 'btn-no-active' : 'btn-active'"  [disabled]="(!isCurrentQuarter|| !checkisTrue) || submitDisable" type="button" name="button" value="SUBMIT" disabled>
+            </li> 
+        </ul>
+    </div>
+</div>
