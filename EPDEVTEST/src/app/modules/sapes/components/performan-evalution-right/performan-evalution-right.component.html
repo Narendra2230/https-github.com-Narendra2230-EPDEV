@@ -1,0 +1,72 @@
+<div class="opgp_wetg_val_hdr padd_l_r_21">
+    <img *ngIf="isAPILoad" class="width-50" src="assets/images/loading.gif" alt="loading">
+    <ul>
+       <!-- <li>Delivery KPI ( {{pMSFInalRating['nonFixedTotal']}}%)</li>
+        <li>OGPB Weightage ( {{pMSFInalRating['associateTotal']}}%)</li> -->
+         <li>Performance Assessment Weightage ( 100 %)</li>
+        <li><span>Overall Self Rating ( {{selfRating}}% )</span> <span style="margin:0px 5px;"> || </span> <span>Overall Manager Rating ( {{managerRating}}% )</span></li>
+        </ul>
+</div>
+<div class="opgp_wetg_val_scr padd_l_r_21">
+    <p>Organisational Standard KPIs & KRAs.</p>    
+</div>
+<div class="opgb_self_rating">
+    <div class="opgb_self_rating_single" [ngStyle]="getContainerWidth()" *ngFor="let kpid of pMSKpiLists;let i=index;">
+        <div class="opgp_rate_wtg padd_l_r_21">
+            <ul>
+                <li><span>{{kpid['category']}}</span></li>
+                <!--<li>{{kpid['kpiNumber']}}</li> -->
+            </ul>
+            
+        </div>
+        <div class="opgb_rating_body padd_l_r_21">
+            <div class="mar_bot_25 kpi_dec">
+                <p><span class="kpi"><b>KPI</b></span><br/><span class="kpi_des">{{kpid['kpiName']}}.</span></p>
+            </div>
+
+            <div class="rating_body_hdr mar_bot_25">
+                <p><span><b>KRAs</b></span><br/>{{kpid['kpiDescription']}}.</p>
+            </div>
+
+            <div class="self_rating_input self_rating_color">
+                
+                <div class="opgb_sytm_rtng">
+                    <label>Weightage</label>
+                    <input  value="{{kpid.weightage}}" type="text" name="weightage" minlength="1" placeholder="TBD" readonly>
+                    <small *ngIf="kpid.units==='Percentage'" >%</small>
+                </div>
+                 
+                <div class="opgb_sytm_rtng">
+                    <label>Self Rating</label>
+                    <input (keyup)="handleInputChange($event,'SELF','self_rate',i)"  value="{{kpid.self_rate}}"
+                        [disabled]="!isCurrentQuarter || !isPersonal || kpid.self_rate_disable" type="text"
+                        name="self_rate" required OnlyNumber="true"  [attr.maxlength]="(kpid.units==='Percentage' ? 4:3)"  minlength="1" placeholder="TBD">
+                    <small *ngIf="kpid.units==='Percentage'" >%</small>
+                </div>
+
+                <div class="opgb_sytm_rtng">
+                    <label>Manager Rating</label>
+                    <input (keyup)="handleInputChange($event,'MANAGER','mng_rate',i)" value="{{kpid.mng_rate}}"
+                        type="text" placeholder="TBD"  [attr.maxlength]="(kpid.units==='Percentage' ? 4:3)" name="mng_rate" required OnlyNumber="true"
+                        [disabled]="(isPersonal || kpid.mng_rate_disable || kpid.self_rate==='' || kpid.self_rate===null) && kpid.raiseDiscussionStaus!=='In Progress'">
+                        <small *ngIf="kpid.units==='Percentage'" >%</small>
+                </div>
+            </div>
+            <div class="opgb_eliglbe_val">
+                <div>
+                    <span class="raise_discsn" *ngIf="isPersonal">
+                        <input type="button" [disabled]="!isCurrentQuarter" (click)="riceDiscussition(kpid)"
+                            name="buton" value="RAISE DISCUSSION">
+                    </span>
+                    <span class="raise_cmnt">
+                        <h6 (click)="isCurrentQuarter && commentPopup(kpid)">Comments
+                            (<span>{{(kpid['pMSComments'] && kpid['pMSComments']!==null) ? kpid['pMSComments'].length : 0}}</span>)
+                        </h6>
+                        <!-- <button (click)="commentPopup(kpid)" [disabled]="!isCurrentQuarter" >Comments (<span>{{(kpid['pMSComments'] && kpid['pMSComments']!==null) ? kpid['pMSComments'].length : 0}}</span>)</button> -->
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div>  <button (click)="savekpiData()">SAVE</button> </div> -->

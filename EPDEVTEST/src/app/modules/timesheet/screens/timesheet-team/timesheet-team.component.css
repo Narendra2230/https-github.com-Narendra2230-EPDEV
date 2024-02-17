@@ -1,0 +1,125 @@
+.tab-list ul{
+   padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+}
+.tab-list ul li{
+   list-style: none;
+   display: inline-block;
+   padding: 10px 0 0;
+   padding-left: 0px;
+   margin-right: 0;
+   letter-spacing: 0.03em;
+   cursor: pointer;
+   font-size: 14px;
+   width: 25%;
+}
+.tab-list ul li:last-child span{
+    float: right;
+    text-align: right;
+}
+.tab-list ul li.active span{
+    border-bottom: 4px solid #71c285;
+    color: #71c285;
+}
+.tab-list ul li span{
+    float: left;
+    padding-bottom: 10px;
+    margin-bottom: -5px; 
+}
+.txt_clr:hover{
+ color: #ffff !important;
+}
+.ttxt{
+    /* white-space: pre; */
+    white-space: pre-line !important;
+}
+::ng-deep .mat-tooltip {
+    white-space: pre-line;
+    font-size: 14px;
+    line-height: 26px;
+  }
+.reject_popup{
+    width: 500px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+.reject_btn{
+    border-radius: 26px;
+    background-color: #e7e7e7;
+    font-size: 14px;
+    color: #626466;
+    border: none;
+    outline: none;
+    padding: 16px;
+    font-family: 'poppins_semiboldregular';
+    cursor: pointer;
+    min-width: 101px;
+}
+
+.mng_timesheet_table ul li:first-child {
+    width: 1%;    
+    margin-left: 15px;
+}
+.mng_timesheet_table ul li:nth-child(2) {
+    width: 2%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mng_timesheet_table ul li:nth-child(3) {
+    width: 9%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mng_timesheet_table ul li:nth-child(4) {
+    width: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mng_timesheet_table ul li:nth-child(5) {
+    width: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mng_timesheet_table ul li:nth-child(6) {
+    width: 10% !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mng_timesheet_table ul li:nth-child(7) {
+    width: 3% !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+}
+.mng_timesheet_table ul li:nth-child(8) {
+    width: 3%;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mng_timesheet_table ul li:nth-child(9) {
+    width: 7%;
+}
+.mng_timesheet_table ul li:nth-child(10) {
+    width: 8%;
+}
+
+.nodata{
+    text-align: center;
+    padding: 60px;
+    color: #71c285;
+}
+
+.manger_timesheet{
+    background: #ffff;
+}

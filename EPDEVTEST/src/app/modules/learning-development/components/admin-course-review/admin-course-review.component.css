@@ -1,0 +1,19 @@
+@import '../../../../../assets/css/bootstrap.min.css';
+@import '../../../../../assets/css/font-awesome.min.css';
+@import '../../../../../assets/css/learning.css';
+.status-wrap{
+  position: relative;
+  right: 25px;
+}
+.pointer{
+  cursor: pointer;
+}
+
+.fa-star{
+  font-size: 24px;
+  margin: 0px 10px;
+  color: #c8c8c8;
+}
+.fa-star.active{
+  color: #ffca2c;
+}

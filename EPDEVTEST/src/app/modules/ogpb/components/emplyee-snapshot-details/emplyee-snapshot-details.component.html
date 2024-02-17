@@ -1,0 +1,37 @@
+<div class="evaluation_process row no-margin">
+    <div class="col-md-8 evl_prcs_lft full_project_all">
+        <div class="full_project_wrap" [ngStyle]="{'overflow-x':projectsItems.length < 2 ? 'hidden' : 'scroll' }">
+            <div *ngIf="isLoading2">
+                    <app-preloader loderType="ripple" class=""></app-preloader>
+            </div>
+            <ul *ngIf="!isLoading2">
+                <li *ngFor="let pr of projectsItems;let i=index;">
+                    <h5>{{pr.name}} {{pr.prcnt}}%</h5>
+                    <h4>{{pr.current_state}}</h4>
+                    <h6>PM: <span>{{pr.pm}}</span></h6>
+                </li>
+            </ul>
+        </div>
+
+        <div style="width: 415px;">
+            <div *ngIf="isLoading2" class="m-t-30">
+                    <app-preloader loderType="ripple" ></app-preloader>
+            </div>
+            <ul *ngIf="EvaluationDetails.rating && !isLoading2">
+                <li class="self_rating">
+                    <h5>Self Rating</h5>
+                    <p>{{EvaluationDetails.rating.self.periode}}</p>
+                    <h6>Closing on <small>{{EvaluationDetails.rating.self.closing_date}}</small></h6>
+                </li>
+                <li class="self_rating">
+                    <h5>Manager Rating</h5>
+                    <p>{{EvaluationDetails.rating.manager.periode}}</p>
+                    <h6><span>{{EvaluationDetails.rating.manager.by}}</span></h6>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <app-emplyee-snapshot-calender (quarterChanged)='quarterChanged($event)'></app-emplyee-snapshot-calender>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+
+<!--<div class="evl_prcs_rgt">
+    <div class="ogp_month">
+        <div *ngIf="isLoading">
+            <app-preloader></app-preloader>
+        </div>
+        <div *ngIf="quaters=='' && !isLoading">No Data Found</div>
+        <ul *ngIf="!isLoading">
+            <li *ngFor="let q of quaters; let i = index" [ngClass]="q.active===true ? 'active' : 'bo-active'"
+                (click)="onItemClick(q,i)">{{q.displayName}}</li>
+        </ul>
+    </div>
+    <div class="ogp_year" *ngIf="!isLoading">
+        <ul>
+            <li class="active_prev_old" (click)="yearClick(curentSelectedYears[0],0)">{{curentSelectedYears[0]}}</li>
+            <li class="active_prev" (click)="yearClick(curentSelectedYears[1],1)">{{curentSelectedYears[1]}}</li>
+            <li class="active" (click)="yearClick(curentSelectedYears[2],2)">{{curentSelectedYears[2]}}</li>
+            <li class="active_prev" (click)="yearClick(curentSelectedYears[3],3)">{{curentSelectedYears[3]}}</li>
+            <li class="active_prev_old" (click)="yearClick(curentSelectedYears[4],4)">{{curentSelectedYears[4]}}</li>
+        </ul>
+    </div>
+</div> -->
+
+<div class="evl_prcs_rgt">
+    <div class="ogp_month">
+        <ul>
+            <li>Apr - Mar  - SAPES 2020</li>
+            <li>Apr - Mar  - SAPES 2021</li>
+            <li class="active">Apr - Mar  - SAPES 2022</li>
+            <li>Apr - Mar  - SAPES 2023</li>
+        </ul>
+    </div>
+    <div class="ogp_year">
+        <ul>
+            <li class="active_prev_old">2020</li>
+            <li class="active_prev">2021</li>
+            <li class="active">2022</li>
+            <li class="active_prev">2022</li>
+            <li class="active_prev_old">2024</li>
+        </ul>
+    </div>
+</div>

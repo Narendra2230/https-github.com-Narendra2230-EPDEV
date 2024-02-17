@@ -1,0 +1,885 @@
+.tab-list ul {
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+  width: 100%;
+}
+
+.tab-list ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 0 0;
+  padding-left: 0px;
+  margin-right: 0;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  font-size: 14px;
+  width: 25%;
+}
+
+.tab-list ul li:last-child span {
+  float: right;
+  text-align: right;
+}
+
+.tab-list ul li.active span {
+  border-bottom: 4px solid #71c285;
+  color: #71c285;
+}
+
+.tab-list ul li span {
+  float: left;
+  padding-bottom: 10px;
+  margin-bottom: -5px;
+}
+
+.txt_clr:hover {
+  color: #ffff !important;
+}
+
+.ttxt {
+  /* white-space: pre; */
+  white-space: pre-line !important;
+}
+
+::ng-deep .mat-tooltip {
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+.reject_popup {
+  width: 500px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.reject_btn {
+  border-radius: 26px;
+  background-color: #e7e7e7;
+  font-size: 14px;
+  color: #626466;
+  border: none;
+  outline: none;
+  padding: 16px;
+  font-family: 'poppins_semiboldregular';
+  cursor: pointer;
+  min-width: 101px;
+}
+
+.mng_timesheet_table ul li:first-child {
+  width: 1%;
+}
+
+.mng_timesheet_table ul li:nth-child(2) {
+  width: 5%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mng_timesheet_table ul li:nth-child(3) {
+  width: 3%;
+}
+
+.mng_timesheet_table ul li:nth-child(4) {
+  width: 10%;
+}
+
+.mng_timesheet_table ul li:nth-child(5) {
+  width: 10%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mng_timesheet_table ul li:nth-child(6) {
+  width: 10% !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mng_timesheet_table ul li:nth-child(7) {
+  width: 8% !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mng_timesheet_table ul li:nth-child(8) {
+  width: 3%;
+}
+
+.mng_timesheet_table ul li:nth-child(9) {
+  width: 3%;
+}
+
+.mng_timesheet_table ul li:nth-child(10) {
+  width: 8%;
+}
+
+.nodata {
+  text-align: center;
+  padding: 60px;
+  color: #71c285;
+}
+.mat-radio-button~.mat-radio-button {
+  margin-left: 16px;
+}
+
+.tab-list ul {
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+  width: 100%;
+}
+
+.tab-list ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+  ;
+  padding-left: 0px;
+  margin-right: 12%;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  font-size: 14px;
+  ;
+}
+
+.tab-list ul li.active {
+  border-bottom: 4px solid #71c285;
+  color: #71c285;
+  margin-bottom: -3px;
+}
+
+.tab-list {
+  width: 70%;
+}
+
+.tab-list li:last-child {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.tab-list {
+  width: 590px !important;
+}
+
+.tab-list ul li {
+  margin-right: 80px !important;
+}
+
+.tab-list ul li:last-child {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+.mat-radio-button~.mat-radio-button {
+  margin-left: 16px;
+}
+
+
+.history_filter {
+  position: relative;
+  z-index: 1;
+}
+
+.history_filter:hover .filter_block {
+  /* display: block; */
+}
+
+.leave_history .btn_1 {
+  position: relative;
+  z-index: 11;
+}
+
+.filter_block {
+  display: none;
+  position: absolute;
+  right: -10px;
+  top: -9px;
+  width: 330px;
+  border: 1px solid #ccc;
+  padding: 50px 15px 15px 15px;
+  border-radius: 24px;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.14);
+  border: solid 1px var(--salmon);
+  background-color: #ffffff;
+  border: 1px solid #fb8181;
+}
+
+.history_filter:hover .filter_block {
+  /* display: block; */
+}
+
+.filter_block .close_btn {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  z-index: 22;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  background: #e06969;
+  border-radius: 24px;
+}
+
+.filter_block .close_btn img {
+  display: block;
+  margin: 9px auto 0 auto;
+}
+
+.history_filter:hover .btn_1,
+.leave_history .btn_1.open-filters.active {
+  /* border-color: #fff;
+	background: none; */
+}
+
+.leave_history .display_inline {
+  display: block;
+  padding: 0;
+}
+
+.leave_history .col-12 {
+  width: 100%;
+  float: left;
+  padding: 8px 0 0 0;
+}
+
+.leave_history label {
+  color: #909398;
+}
+
+table {
+  width: 100%;
+}
+
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-rate-limit-reached {
+  color: #980000;
+  max-width: 360px;
+  text-align: center;
+}
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+}
+
+.mat-column-created {
+  max-width: 124px;
+}
+
+.p-l-10 {
+  padding-left: 5px;
+}
+
+.m-b-5 {
+  margin-bottom: 5px;
+}
+
+.statusListcont {
+  overflow: auto;
+  padding: 5px 0px;
+}
+
+::ng-deep .statusListcont .ui-chkbox-box {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+::ng-deep .ui-chkbox-icon {
+  font-size: 14px !important;
+}
+
+.leave_history {
+  min-height: 700px;
+}
+
+.filter_heading {
+  font-size: 12px;
+  font-weight: Bold;
+  color: #4a4a4a;
+}
+
+.go-center-body {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+}
+
+.filter_selectboxs {
+  float: left;
+  width: 100%;
+}
+
+.filter_selectboxs .checkbox_1 {
+  float: left;
+}
+
+.filter_selectboxs label {
+  float: left;
+  white-space: nowrap;
+}
+
+.filter_selectboxs .p-field-checkbox {
+  float: left;
+  margin-right: 2px;
+  margin-bottom: 5px;
+  width: 48%;
+}
+
+.statusListcont {
+  max-height: 200px;
+  overflow: visible;
+}
+
+
+/* //Leave filter */
+
+.btn-leave-balance {
+  background: #e06969;
+  color: #fff;
+
+  margin-right: 15px;
+  /* font-weight: 600; */
+}
+
+.f-l {
+  float: left;
+}
+
+table {
+  width: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.item-jc {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p-0 {
+  padding: 0px !important;
+}
+
+.popup-heading {
+  padding: 10px;
+  background: #334c6a;
+}
+
+.w-color {
+  color: #fff;
+}
+
+.c-btn {
+  padding: 5px;
+  background: #fff;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  color: #000;
+  cursor: pointer;
+}
+
+.apply_leave_select .btn_1 span {
+  margin-top: 5px;
+}
+
+.history_filter {
+  position: relative;
+}
+
+.leave_history .btn_1 {
+  position: relative;
+  z-index: 11;
+}
+
+.filter_block {
+  display: none;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 270px;
+  border: 1px solid #ccc;
+  padding: 70px 15px 20px 15px;
+  border-radius: 24px;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.14);
+  border: solid 1px var(--salmon);
+  background-color: #ffffff;
+  border: 1px solid #fb8181;
+}
+
+.filter_block .close_btn {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  z-index: 22;
+  width: 26px;
+  height: 18px;
+  text-align: center;
+  background: #e06969;
+  border-radius: 24px;
+}
+
+.filter_block .close_btn img {
+  display: block;
+  margin: 5px auto 0 auto;
+}
+
+.leave_history .btn_1.open-filters.active {
+  border-color: #fff;
+  background: none;
+}
+
+
+.history_filter:hover .filter_block {
+  /* display: block; */
+}
+
+.history_filter {
+  position: relative;
+  z-index: 1;
+}
+
+.history_filter:hover .filter_block {
+  /* display: block; */
+}
+
+.leave_history .btn_1 {
+  position: relative;
+  z-index: 11;
+}
+
+.filter_block {
+  display: none;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  width: 305px;
+  border: 1px solid #ccc;
+  padding: 20px 0 10px 0;
+  border-radius: 24px;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.14);
+  border: solid 1px var(--salmon);
+  background-color: #ffffff;
+  border: 1px solid #fb8181;
+}
+
+.history_filter:hover .filter_block {
+  /* display: block; */
+}
+
+.filter_block .close_btn {
+  position: absolute;
+  left: inherit;
+  right: 15px;
+  top: 10px;
+  z-index: 22;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  background: #e06969;
+  border-radius: 24px;
+}
+
+.filter_block .close_btn img {
+  display: block;
+  margin: 9px auto 0 auto;
+}
+
+.history_filter:hover .btn_1,
+.leave_history .btn_1.open-filters.active {
+  /* border-color: #fff;
+	background: none; */
+}
+
+.leave_history .display_inline {
+  display: block;
+  padding: 0;
+}
+
+.leave_history .col-12 {
+  width: 100%;
+  padding: 12px 0 0 0;
+}
+
+.leave_history label {
+  color: #909398;
+}
+
+.p-l-10 {
+  padding-left: 5px;
+}
+
+.m-b-5 {
+  margin-bottom: 5px;
+}
+
+.statusListcont {
+  height: 75px;
+  overflow: visible;
+  padding: 5px 0px;
+}
+
+::ng-deep .statusListcont .ui-chkbox-box {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+::ng-deep .ui-chkbox-icon {
+  font-size: 14px !important;
+}
+
+.leave_history {
+  min-height: 700px;
+}
+
+hr {
+  border-top: none !important;
+}
+
+.optional_holiday_note {
+  color: #e06969;
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+.active {
+  color: #3e3e3e !important;
+}
+
+.leaveBalance_popup .submit_pop_dtl {
+  border-radius: 8px;
+  border: 0;
+}
+
+.leaveBalance_popup .popup-heading {
+  border-radius: 8px 8px 0 0;
+  background: #E06969;
+  padding: 13px 8px 13px 22px;
+}
+
+.leaveBalance_popup .table thead th {
+  background: #FFF3F3;
+}
+
+.leaveBalance_popup .table thead th,
+.leaveBalance_popup .table tr td {
+  padding: 15px 22px;
+}
+
+.leaveBalance_popup h5 {
+  font-weight: normal;
+  font-family: 'latobold';
+  font-size: 18px;
+  margin: 0;
+  line-height: 20px;
+}
+
+.leaveBalance_popup .c-btn {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  background: none;
+}
+
+.leaveBalance_popup .c-btn:hover {
+  background: #BB5959;
+}
+
+.leaveBalance_popup .c-btn img {
+  display: block;
+  margin: 10px auto 0 auto;
+}
+
+.leaveBalance_popup .table td,
+.leaveBalance_popup .table th {
+  border-top: 1px solid #EFEFEF;
+}
+
+.leaveBalance_popup .table-bordered td {
+  border: 0;
+  border-top: 1px solid #EFEFEF;
+}
+
+.leaveBalance_popup .table-bordered {
+  border: 1px solid #EFEFEF;
+}
+
+.leaveBalance_popup .leave_history_table .table thead th {
+  border: 0;
+  color: #5B5B5B;
+  border-bottom: 1px solid #EFEFEF;
+  background-color: #FFF3F3;
+}
+
+.form_element_optional table {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 25px 0 0 0;
+}
+
+.form_element_optional table .table-head th {
+  border-bottom: 1px solid #ccc;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.form_element_optional .filter_btns {
+  padding: 5px 0 0 6px;
+}
+
+.date_item {
+  width: 100px;
+}
+
+.leavebalance_note {
+  margin-top: 10%;
+  text-align: left;
+  margin-left: 40px;
+}
+
+.leave_note {
+  padding-bottom: 30px;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.Leave_bal_note {
+  font-size: 12px;
+  color: #e06969;
+}
+
+.Leave_bal_note_cont {
+  font-size: 12px;
+  color: #626466;
+}
+
+.font-12{
+  font-size: 12px;
+}
+
+.leave_avatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.fotterbtn{
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 99;
+  padding: 15px 20px;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0px 0px 3px #999;
+}
+.fotterbtn .btn{
+font-size: 16px !important;
+  font-family: 'poppins_semiboldregular';
+  padding: 5px 16px !important;
+  width: auto !important;
+
+}
+
+.leave_history_table{
+  padding-bottom: 90px;
+}
+.m-w-100{
+  width: 90px;
+  line-height: 22px;
+}
+
+.filter_style{
+  border-radius: 24px;
+  background-color: #f5f6f8;
+  margin-top: 30px;
+}
+
+.mr-10{
+  margin-right: 10px;
+}
+.btn-style{
+  border-radius: 26px;
+}
+
+.btn-danger{
+  background-color: #fb8181 !important;
+  border-color: #fb8181 !important;
+}
+
+.history_filter:hover .filter_block{
+/* display: block; */
+}
+
+.history_filter{
+  position: relative;
+  z-index: 1;
+}
+.history_filter:hover .filter_block{
+/* display: block; */
+}
+.history_filter .btn_1{
+position: relative;
+z-index: 11;
+}
+.filter_block{
+display: none;
+position: absolute;
+  right: -15px;
+  top: -9px;
+  width: 330px;
+  border: 1px solid #ccc;
+  padding: 50px 15px 15px 15px;
+  border-radius: 24px;
+box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.14);
+border: solid 1px var(--salmon);
+background-color: #ffffff;
+border: 1px solid #fb8181;
+}
+.history_filter:hover .filter_block{
+  /* display: block; */
+}
+.filter_block .close_btn{
+position: absolute;
+left: 15px;
+top: 12px;
+z-index: 22;
+width: 26px;
+height: 26px;
+text-align: center;
+background: #e06969;
+border-radius: 24px;
+}
+.filter_block .close_btn img{
+display: block;
+margin: 9px auto 0 auto;
+}
+.history_filter:hover .btn_1,
+.leave_history .btn_1.open-filters.active{
+/* border-color: #fff;
+background: none;*/
+} 
+
+.history_filter .display_inline{
+  display: block;
+  padding: 0;
+}
+
+.history_filter .col-12{
+  width: 100%;
+  float: left;
+padding: 8px 0 0 0;
+}
+.history_filter label{
+  color: #909398;
+}
+.p-l-10{
+  padding-left: 5px;
+}
+.m-b-5{
+  margin-bottom: 5px;
+}
+.statusListcont{
+  overflow: visible;
+  padding: 5px 0px;
+}
+::ng-deep  .statusListcont .ui-chkbox-box {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+::ng-deep .ui-chkbox-icon {
+font-size: 14px !important;
+}
+.leave_history {
+min-height: 700px;
+}
+
+.filter_heading{
+  font-size: 12px;
+  font-weight: Bold;
+  color: #4a4a4a;
+}
+.go-center-body{
+  position: absolute;
+  left:50%;
+  top:15%;
+}
+
+.checkbox_style{
+  width: 16px;
+  height: 16px;
+  border: solid 1px #969a9f;
+}
+
+.filter_selectboxs {
+  float: left;
+  width: 100%;
+}
+.filter_selectboxs  .checkbox_1{
+    float: left;
+}
+.filter_selectboxs  label{
+    float: left;
+    white-space: nowrap;
+}
+.filter_selectboxs  .p-field-checkbox {
+  float: left;
+  margin-right: 2px;
+  margin-bottom: 5px;
+  width: 48%;
+}
+.statusListcont {
+  max-height: 200px;
+  overflow: visible;
+}
+.checkbox_style2 {
+  vertical-align: middle;
+  padding: 10px 20px !important;
+  text-align: center;
+}
+.checkbox_style2 .check_mng input:checked ~ .checkmark:after,
+.checkbox_style2 .check_mng input:checked ~ .checkmark {
+  border-color: #FB8181  !important;
+}
+.td-one{
+  width: 16%;
+}
+
+.manger_timesheet{
+  background: #fff !important;
+}
+
+/* Week and month filter view  */

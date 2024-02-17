@@ -1,0 +1,108 @@
+
+.productMain{
+  padding-bottom: 12px;
+}
+.pageTitle h4 {
+  font-family: "Open Sans", sans-serif;
+}
+
+.modal-content {
+  padding: 3%;
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.form-control{
+  font-size: 12px;
+  font-family: "latoregular";
+}
+
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.modal-footer{
+  border:none;
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.required {
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-family: "latobold";
+  margin-bottom: 8px;
+}
+
+.form-group textarea{
+  min-height: 100px;
+  overflow-y: scroll;
+}
+
+.custom-select {
+  font-size: 12px;
+  font-family: "latoregular";
+}
+
+table {
+  width: 96%;
+  margin: 0px auto;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #4a4a4a;
+}
+
+.btn-success {
+  font-size: 12px;
+}
+
+.btn-light {
+  font-size: 13px !important;
+  color: #333;
+  margin-left: 12px;
+}
+
+.btn-link {
+  font-size: 13px !important;
+  color: #333;
+  padding: 0px;
+}
+
+.ag-theme-material .ag-header-row:first-child .ag-header-cell {
+  background: #000000 !important;
+}
+.btn-warning {
+  padding: 6px;
+  font-size: 13px !important;
+  color: #333;
+  margin-left: 12px;
+}
+
+.text-danger {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+form-control:disabled, .form-control[readonly] {
+  background-color: #e9ecef !important;
+  line-height: 24px;
+}
+
+.red_color{
+  color: red;
+}

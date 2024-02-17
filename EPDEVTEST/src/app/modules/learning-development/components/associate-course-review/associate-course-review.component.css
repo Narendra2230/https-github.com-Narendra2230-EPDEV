@@ -1,0 +1,12 @@
+.fa-star{
+  font-size: 24px;
+  margin: 0px 10px;
+  color: #c8c8c8;
+}
+.fa-star.active{
+  color: #ffca2c;
+}
+.card-body{
+  height: 80vh;
+  overflow-y: auto;
+}

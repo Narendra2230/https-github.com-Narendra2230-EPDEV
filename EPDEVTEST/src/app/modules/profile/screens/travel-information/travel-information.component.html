@@ -1,0 +1,187 @@
+<div class="time_sheet profileSheet">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/#/profile-landing">Profile</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Travel Information</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <div class="time_sheet_heading row pad-3">
+        <div class="profileInnerHead d-flex justify-content-center align-items-center">
+            <div class="profileImage">
+                <img src="assets/images/travel-information/travel-info.svg" alt="profile">
+            </div>
+            <h4>Travel Information</h4>
+            <div class="backProfile">
+                <a [routerLink]="getRout()">
+                    Back to list
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- time_sheet_heading-End-->
+
+    <div class="profileFullInfo">
+        <div class="profileFullInfoIn">
+            <div class="profileHeadNav">
+                <ul class="d-flex justify-content-start">
+                    <li [ngClass]="currentTab == 'VVP' ? 'active' : ''"><a (click)="tabClick('VVP',$event)">Valid
+                            Visa(s) Processed</a></li>
+                    <li [ngClass]="currentTab == 'IDL' ? 'active' : ''"><a
+                            (click)="tabClick('IDL',$event)">International Driving License</a></li>
+                </ul>
+            </div>
+            <div class="tabscontent">
+                <div id="tab1" *ngIf="currentTab == 'VVP'" [ngClass]="currentTab == 'VVP' ? 'active' : ''">
+                  <div class="text-right" *ngIf="userType != 'manager'  && userType != 'finance'"> <button (click)="add()" class="addBtn">Add Visa</button> </div>
+                    <div>
+                        <br/>
+                        <mat-progress-bar
+                  *ngIf="isLoading"
+                  mode="indeterminate"
+                ></mat-progress-bar>
+                    </div>
+                    <div *ngFor="let VISA of employeeTravelVISADetails" class="profileNavCont">
+                        <div class="peronalCont">
+                            <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+                                <h4>{{VISA.visaType}}</h4>
+                            </div>
+                            <div class="personalContForm">
+                                <ul class="d-flex justify-content-between flex-wrap">
+                                    <li>
+                                        <label>Permitted Countries</label>
+                                        <!-- <input [(ngModel)]="VISA.permittedCountries" type="text" name="text"
+                                            placeholder=""   > -->
+                                            <select [(ngModel)]="VISA.permittedCountries" [ngClass]="
+                                            !checkPreviligies('permittedCountries') ? 'select-disabled' : ''
+                                          " [attr.readonly]="!checkPreviligies('permittedCountries')">
+                                                <option value="">Select</option>
+                                                <option *ngFor="let dropdown of getMetaValues('PERMITCOUNTRIES')" value="{{ dropdown.name }}">
+                                                  {{ dropdown.name }}
+                                                </option>
+                                              </select>
+                                    </li>
+
+                                 
+                                    <li>
+                                        <label>Visa Type</label>
+                                        <!-- <input [(ngModel)]="VISA.visaType" type="text" name="text"
+                                        placeholder=""   > -->
+                                        <select [(ngModel)]="VISA.visaType" [ngClass]="
+                                        !checkPreviligies('visaType') ? 'select-disabled' : ''
+                                      " [attr.readonly]="!checkPreviligies('visaType')" >
+                                        <option value="">Select</option>
+                                        <option *ngFor="let dropdown of getMetaValues('VISATYPE')" value="{{ dropdown.name }}">
+                                          {{ dropdown.name }}
+                                        </option>
+                                      </select>
+                               
+                                    </li>
+                                    <li>
+                                        <label>Valid From</label>
+                                        <input   [(ngModel)]="VISA.validFrom" 
+                                        [ngClass]="!checkPreviligies('validFrom') ? 'select-disabled' : ''" 
+                                        [readonly]="!checkPreviligies('validFrom')" 
+                                        type="date"  class="dateInput" name="text"
+                                            placeholder="DD/MM/YY">
+                                    </li>
+                                    <li>
+                                        <label>Valid Through</label>
+                                        <input   [(ngModel)]="VISA.validTo"
+                                        [ngClass]="!checkPreviligies('validTo') ? 'select-disabled' : ''" 
+                                        [readonly]="!checkPreviligies('validTo')" 
+                                        type="date"  class="dateInput" name="text"
+                                            placeholder="DD/MM/YY">
+                                    </li>
+                                    <li>
+                                        <label>Sponsored By</label>
+                                        <input   [(ngModel)]="VISA.sponsoredBy" 
+                                        [ngClass]="!checkPreviligies('sponsoredBy') ? 'select-disabled' : ''" 
+                                        [readonly]="!checkPreviligies('sponsoredBy')" 
+                                        type="text" name="text"
+                                            placeholder="">
+                                    </li>
+                                    <li>
+                                        <label>No of Entries</label>
+                                        <input   [(ngModel)]="VISA.num_Of_Entries"
+                                        [ngClass]="!checkPreviligies('num_Of_Entries') ? 'select-disabled' : ''" 
+                                        [readonly]="!checkPreviligies('num_Of_Entries')" 
+                                        type="text" name="text"
+                                            placeholder="">
+                                    </li>
+                                    <li></li>
+                                    <li></li><li></li>
+                                    <li *ngIf="userType != 'manager'  && userType != 'finance'">
+                                        <button (click)="GetEmployeeTravelDetails()"  class="reset btn-reset"></button>
+                                        <button (click)="PostEmpTravelDetails(VISA)" class="btn-save">Save</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab2" *ngIf="currentTab == 'IDL'" [ngClass]="currentTab == 'IDL' ? 'active' : ''">
+                    <div>
+                        <br/>
+                        <mat-progress-bar
+                  *ngIf="isLoading1"
+                  mode="indeterminate"
+                ></mat-progress-bar>
+                    </div>
+                    <div class="profileNavCont" *ngFor="let licence of employeeTravelDrivingDetails">
+                        <div class="peronalCont">
+                            <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+                                <h4>Driving License</h4>
+                            </div>
+                            <div class="personalContForm">
+                                <ul class="d-flex justify-content-between flex-wrap">
+                                    <li>
+                                        <label>Licence Number</label>
+                                        <input [(ngModel)]="licence.licence_Num"  
+                                        [ngClass]="!checkPreviligies('licence_Num') ? 'select-disabled' : ''" 
+                                        [readonly]="!checkPreviligies('licence_Num')" 
+                                        type="text" name="text" placeholder="">
+                                    </li>
+                                    <li>
+                                        <label>Valid Countries</label>
+                                        <select [(ngModel)]="licence.valid_Countries" [ngClass]="
+                                        !checkPreviligies('valid_Countries') ? 'select-disabled' : ''
+                                      " [attr.readonly]="!checkPreviligies('valid_Countries')">
+                                            <option value="">Select</option>
+                                            <option *ngFor="let dropdown of getMetaValues('PERMITCOUNTRIES')" value="{{ dropdown.name }}">
+                                              {{ dropdown.name }}
+                                            </option>
+                                          </select>
+                                    </li>
+                                    <li>
+                                        <label>Valid From</label>
+                                        <input  [(ngModel)]="licence.validFrom"  
+                                        [ngClass]="!checkPreviligies('validFrom') ? 'select-disabled' : ''" 
+                                        [readonly]="!checkPreviligies('validFrom')" 
+                                        type="date"  class="dateInput" name="text" placeholder="DD/MM/YY">
+                                    </li>
+                                    <li>
+                                        <label>Valid Through</label>
+                                        <input  [(ngModel)]="licence.validThrough"   
+                                        [ngClass]="!checkPreviligies('validThrough') ? 'select-disabled' : ''" 
+                                        [readonly]="!checkPreviligies('validThrough')" 
+                                        type="date"  class="dateInput" name="text" placeholder="DD/MM/YY">
+                                    </li>
+                                    <li></li>
+                                    <li *ngIf="userType != 'manager'  && userType != 'finance'">
+                                        <button (click)="GetEmployeeTravelDetails1()" class="reset btn-reset"></button>
+                                        <button (click)="PostEmpIDLDetails(licence)" class="btn-save">Save</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

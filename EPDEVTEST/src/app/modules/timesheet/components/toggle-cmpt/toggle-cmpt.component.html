@@ -1,0 +1,27 @@
+<ul>
+  <!--  <li>-->
+        <!-- <span>TIMESHEET</span> -->
+        <!-- <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label> -->
+        <!-- <mat-slide-toggle  disabled   ></mat-slide-toggle> -->
+        <!-- <mat-slide-toggle disabled checked  ></mat-slide-toggle> -->
+        <!-- <mat-slide-toggle
+        class="example-margin"
+        [color]="color"
+        [checked]="checked"
+        [disabled]="disabled"> -->
+
+    <!-- </mat-slide-toggle> -->
+        <!-- <span class="unchecked">LEAVE</span> -->
+    <!--</li>-->
+
+    <li *ngIf="isManager">
+        <span>ME</span>
+        <mat-slide-toggle  [disabled]="!isManager"  [checked]="checked" (change)="onChageTeam($event)" ></mat-slide-toggle>
+        <span class="unchecked">TEAM</span>
+    </li>
+    <!---STyle purpose added this <li> tag we can remove once uncomment above one-->
+    <li>&nbsp;</li>
+</ul>

@@ -1,0 +1,60 @@
+<div class="eval_rating_heading" id="keyinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img lass="close" (click)='closePopup()' data-dismiss="modal" aria-label="Close" src="assets/images/cancel.png">
+                </div>
+                <div class="modal-body">
+                    <div class="ass_key_info">
+                        <div class="ass_key_logo">
+                            <ul>
+                                <li class="info_logo">
+                                    <img src="{{associateDetails.image_Path}}" alt="">
+                                </li>
+                                <li>Associate Key Information </li>
+                                <li *ngIf="isLoading"> <app-preloader loderType="facebook"></app-preloader> </li>
+                            </ul>
+                        </div>
+                        <div class="full_key_info">
+                            <ul>
+                                <li>
+                                    <h5>Employee Name</h5>
+                                    <h6>{{associateDetails.name}} </h6>
+                                </li>
+                                <li>
+                                    <h5>Employee ID</h5>
+                                    <h6>{{associateDetails.id}}</h6>
+                                </li>
+                                <li>
+                                    <h5>Designation</h5>
+                                    <h6>{{associateDetails.designation}}</h6>
+                                </li>
+                                <li>
+                                    <h5>Level</h5>
+                                    <h6>{{associateDetails.level}}</h6>
+                                </li>
+                                <li>
+                                    <h5>Band</h5>
+                                    <h6>{{associateDetails.band}}</h6>
+                                </li>
+                              
+                                <li>
+                                    <h5>BTU</h5>
+                                    <h6>{{associateDetails.bu}}</h6>
+                                </li>
+                                <li>
+                                    <h5>Sub-BTU</h5>
+                                    <h6>{{associateDetails.subbu}}</h6>
+                                </li>
+                                <li>
+                                    <h5>Track</h5>
+                                    <h6>{{associateDetails.track}}</h6>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

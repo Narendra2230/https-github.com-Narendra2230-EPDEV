@@ -1,0 +1,537 @@
+<div class="newRequest">
+<div class="page-header1">
+    <div class="page-leftheader float-left">
+        <h4 class="page-title">Application<span class="font-weight-normal text-muted ml-2">Request</span><span *ngIf="rrId"> : {{rrId}}</span></h4>
+    </div>
+    <div class="page-rightheader float-right">
+        <a class="btn btn-danger" routerLink="/landingPage"><i class="fa fa-angle-left" aria-hidden="true"></i> &nbsp; Back to Home</a>
+    </div>
+</div>
+<!--New Request - start-->
+<div class="newRequest_page">
+    <div>
+        <mat-progress-bar
+          *ngIf="isLoading"
+          mode="indeterminate"
+        ></mat-progress-bar>
+      </div>
+    <div class="row">
+        <div class="col-md-2 leftNav2" style="height: 550px;">
+            <div class="card">
+                <!-- New Request Tabs Nav - Start -->
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a (click)="show(0)" class="nav-item nav-link 0 active" style="background-color:none !important;">Requester Details</a>
+                        <a (click)="show(1)" class="nav-item nav-link 1">BTU & Practice</a>
+                        <a (click)="show(2)" class="nav-item nav-link 2">Interview Panel</a>
+                        <a (click)="show(3)" class="nav-item nav-link 3">Compensation</a>
+                        <a (click)="show(4)" class="nav-item nav-link 4">Job Description</a>
+                        <a *ngIf="edit && ( isRmgMember || isTagMember )" (click)="show(5)" class="nav-item nav-link 5">RMG Status</a>
+                        <a *ngIf="edit && isTagMember" (click)="show(6)" class="nav-item nav-link 6">TAG Status</a>
+                        <a *ngIf="edit && isRmgMember" (click)="show(6)" class="nav-item nav-link 6">History</a>
+                        <a *ngIf="edit && isTagMember" (click)="show(7)" class="nav-item nav-link 7">History</a>
+                    </div>
+                </nav>
+            </div>
+            <!-- New Request Tabs Nav - End -->
+        </div>
+        <div class="col-md-10" style="height: 550px;">
+            <!-- New Request Form - Start -->
+            <div class="newRequest_Form newRequest_Form2">
+                <div class="tab-content" id="nav-tabContent">
+                    <form [formGroup]="requestForm" (ngSubmit) = "submit()">
+                    <!-- First Tab Content - Start -->
+                    <div id="0">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Hiring Request Details</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- <form> -->
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="">Requested By <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" id="requestedBy" formControlName="RequestedBy">
+                                                <option *ngFor="let request of dropDownData.RequestedBy" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Verified By <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="VerifiedBy">
+                                                <option *ngFor="let request of dropDownData.VerifiedBy" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Authorized By <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="AuthorizedBy">
+                                                <option *ngFor="let request of dropDownData.AuthorizedBy" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Entity <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="Entitty">
+                                                <option *ngFor="let request of dropDownData.Entity" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Role <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="Role">
+                                                <option *ngFor="let request of dropDownData.Role" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Designation <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="Designation">
+                                                <option *ngFor="let request of dropDownData.Designation" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group   col-md-3">
+                                            <label for="">Emp Type <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="EmpType">
+                                                <option *ngFor="let request of dropDownData.EmpType" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Reason <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2"  formControlName="Reason" (change)="changeStatus($event.target.value)">
+                                                <option *ngFor="let request of dropDownData.Reason" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">Number of Openings <span class="mandatory">*</span></label>
+                                            <input  type="number" name="" placeholder="Number of Openings" class="form-control" formControlName="NumberOfOpenings">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">Years of Exp <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="YearsOfExp">
+                                                <option *ngFor="let request of dropDownData.YearsofExp" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-3">
+                                            <label for="">Utilization <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="Utilization">
+                                                <option *ngFor="let request of dropDownData.Utilization" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Position Name <span class="mandatory">*</span></label>
+                                            <input  type="text" name="" placeholder="Position Name" class="form-control" formControlName="PositionName">
+                                        </div>
+                                     
+                                        <div class="form-group col-md-12">
+                                            <div class="formButtons">
+                                                <button class="btn btn-primary" type="button" (click)="show(1)">Next</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- First Tab Content - End -->
+                    
+                      <div id="1" hidden>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">BTU & Practice</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- <form> -->
+                                    <div class="form-row">
+                                          <div class="form-group col-md-3">
+                                            <label for="">BTU <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="BTU" (change)="changeZohoRequiredStatus($event.target.value)">
+                                                <option *ngFor="let request of dropDownData.BTU" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">Practice</label>
+                                            <select class="custom-select select2" id="practice" formControlName="Practice">
+                                                <option value="" selected disabled></option>
+                                                <option *ngFor="let request of practice" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">Sub-Practice</label>
+                                            <select class="custom-select select2" formControlName="SubPractice">
+                                                <option value="" selected disabled></option>
+                                                <option *ngFor="let request of subPractice" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Competency <span class="mandatory">*</span></label>
+                                            <input  type="text" name="" placeholder="Competency" class="form-control" formControlName="Competency">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">CSU<span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="CSU">
+                                                <option *ngFor="let request of dropDownData.CSU" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Customer <span *ngIf="isSOWMandatory" class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="Customer">
+                                                <option *ngFor="let request of dropDownData.Customer" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">SOW <span *ngIf="isSOWMandatory" class="mandatory">*</span></label>
+                                            <select class="custom-select select2" id="sow" formControlName="SOW">
+                                                <option *ngFor="let request of SOW" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Reporting Manager <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="ReportingManager">
+                                                <option *ngFor="let request of dropDownData.ReportingManager" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <div class="formButtons">
+                                                <button type="button" class="btn btn-sunera" (click)="show(0)">Previous</button>
+                                                <button type="button" class="btn btn-primary" (click)="show(2)">Next</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Second Tab Content - End -->
+                                  
+                    <!-- Second Tab Content - Start -->
+                    <div id="2" hidden>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Interviewer Details</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- <form> -->
+                                    <div class="form-row">
+                                       <div class="form-group col-md-3">
+                                            <label for="">Zoho Id <span *ngIf="isZohoIdMandatory" class="mandatory">*</span></label>
+                                            <select class="custom-select select2" id="zohoId" formControlName="ZohoId" (change)="populateZohoReason($event.target.value)">
+                                                <option *ngFor="let request of dropDownData.ZohoId" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">Zoho StageReason</label>
+                                            <input  type="text" name="" formControlName="SOWStage" placeholder="Zoho Stage reason" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Zoho Contract Period</label>
+                                            <input  type="text" name="" formControlName="zohoContractPeriod" placeholder="Zoho Contract Period" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Zoho Closing Date</label>
+                                            <input  type="text" name="" formControlName="zohoClosingDate" placeholder="Zoho Closing Date" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">L1 Panel Interviewer1 <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="L1PanelInterviewer1">
+                                                <option *ngFor="let request of dropDownData.L1PanelInterviewer1" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">L1 Panel Interviewer2 <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="L1PanelInterviewer2">
+                                                <option *ngFor="let request of dropDownData.L1PanelInterviewer2" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-3">
+                                            <label for="">L2 Panel Interviewer1 <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="L2PanelInterviewer1">
+                                                <option *ngFor="let request of dropDownData.L2PanelInterviewer1" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">L2 Panel Interviewer2 <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="L2PanelInterviewer2">
+                                                <option *ngFor="let request of dropDownData.L2PanelInterviewer2" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-3">
+                                            <label for="">L3 Panel Interviewer1</label>
+                                            <select class="custom-select select2" formControlName="L3PanelInterviewer1">
+                                                <option *ngFor="let request of dropDownData.L3PanelInterviewer1" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">L3 Panel Interviewer2</label>
+                                            <select class="custom-select select2" formControlName="L3PanelInterviewer2">
+                                                <option *ngFor="let request of dropDownData.L3PanelInterviewer2" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <div class="formButtons">
+                                                <button type="button" class="btn btn-sunera" (click)="show(1)">Previous</button>
+                                                <button type="button" class="btn btn-primary" (click)="show(3)">Next</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Second Tab Content - End -->
+                    
+                    <!-- Thired Tab Content - Start -->
+                    <div id="3" hidden>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Compensation</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- <form> -->
+                                    <div class="form-row">
+                                        <div class="form-group   col-md-3">
+                                            <label for="">CTC Type <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="CTCType">
+                                                <option *ngFor="let request of dropDownData.CTCType" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">Currency <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="CurrencyType">
+                                                <option *ngFor="let request of dropDownData.CurrencyType" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Budgeted CTC <span class="mandatory">*</span></label>
+                                            <input  type="number" name="" formControlName="BudgetedCTC" placeholder="Budgeted CTC" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Budgeted Variable % <span class="mandatory">*</span></label>
+                                            <input  type="number" name="" formControlName="BudgetVariable" placeholder="Budgeted Variable" class="form-control">
+                                        </div>
+                                          <div class="form-group col-md-3">
+                                            <label for="">Incentive</label>
+                                            <input  type="text" name="" formControlName="Incentive" placeholder="Incentive" class="form-control">
+                                        </div>
+                                        
+                                        <div class="form-group col-md-3">
+                                            <label for="">Location <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="Location">
+                                                <option *ngFor="let request of dropDownData.Location" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Sub-Location <span class="mandatory">*</span></label>
+                                            <select class="custom-select select2" formControlName="SubLocation">
+                                                <option *ngFor="let request of dropDownData.SubLocation" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <div class="formButtons">
+                                            <button type="button" class="btn btn-sunera" (click)="show(2)">Previous</button>
+                                            <button type="button" class="btn btn-primary" (click)="show(4)">Next</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Thired Tab Content - End -->
+                    <!-- jdth Tab Content - Start -->
+                    <div id="4" hidden>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Skill & Job Description</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- <form> -->
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="">Primary Skill <span class="mandatory">*</span></label>
+                                            <input  type="text" name="" formControlName="PrimarySkill" placeholder="Primary Skill" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Secondary Skill <span class="mandatory">*</span></label>
+                                            <input  type="text" name="" formControlName="SecondarySkill" placeholder="Secondary Skill" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Priority</label>
+                                            <select class="custom-select select2" formControlName="ResourcePriority">
+                                                <option *ngFor="let request of dropDownData.Priority" [value]="request.id">{{request.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Expected DOJ <span class="mandatory">*</span></label>
+                                            <input  type="date" class="form-control" formControlName="ExpectedDOJ">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="">Job Description <span class="mandatory">*</span></label>
+                                            <textarea class="form-control" formControlName="JobDescription" id="exampleFormControlTextarea1" rows="15"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <div *ngIf="successMessage" class="message text-success">{{successMessage}}</div>
+                                            <div *ngIf="errorMessage" class="message text-danger">{{errorMessage}}</div>
+                                            <div class="formButtons">
+                                                <button type="button" class="btn btn-sunera" (click)="show(3)">Previous</button> &nbsp;
+                                                <button *ngIf="!edit" type="submit" id="submit" class="btn btn-sunera">Submit</button>
+                                                <div *ngIf="!edit && loader" class="loader loader1"></div>
+                                                <!-- <button *ngIf="edit" type="button" class="btn btn-sunera" (click)="show(3)">Previous</button> -->
+                                                <button *ngIf="edit && (isRmgMember || isTagMember)" type="button" class="btn btn-primary" (click)="show(5)">Next</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- jd th Tab Content - End -->
+
+                    <!-- RMG Tab Content - Start -->
+                    <div *ngIf="edit && ( isRmgMember || isTagMember )" id="5" hidden>
+                        <div class="card">
+                           <div class="card-header">
+                              <h4 class="card-title">RMG Status</h4>
+                           </div>
+                           <div class="card-body">
+                                 <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                       <label for="">Resource Manager<span class="mandatory">*</span></label>
+                                       <select class="custom-select" formControlName="ResourceManagerId">
+                                        <option *ngFor="let request of dropDownData.ResourceManager" [value]="request.id">{{request.name}}</option>
+                                       </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                       <label for="">RRID Status<span class="mandatory">*</span></label>
+                                       <select class="custom-select" formControlName="ApprovalStatus">
+                                        <option *ngFor="let request of dropDownData.ApprovalStatus" [value]="request.id">{{request.name}}</option>
+                                       </select>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <div *ngIf="successMessage && isRmgMember" class="message text-success">{{successMessage}}</div>
+                                        <div *ngIf="errorMessage && isRmgMember" class="message text-danger">{{errorMessage}}</div>
+                                       <div class="formButtons">
+                                        <button type="button" class="btn btn-sunera" (click)="show(4)">Previous</button>
+                                        <button type="button" class="btn btn-primary" (click)="show(6)">Next</button> &nbsp;
+                                        <button *ngIf="isRmgMember && !isWithdrawn" id="submit" type="submit" class="btn btn-primary">Submit</button>
+                                        <div *ngIf="isRmgMember && !isWithdrawn && loader" class="loader loader2"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- RMG Tab Content - End -->
+
+                     <!-- TAG Tab Content - Start -->
+                     <div *ngIf="edit && isTagMember" id="6" hidden>
+                        <div class="card">
+                           <div class="card-header">
+                              <h4 class="card-title">TAG Status</h4>
+                           </div>
+                           <div class="card-body">
+                                 <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                       <label for="">TAG Head<span class="mandatory">*</span></label>
+                                       <select class="custom-select" formControlName="TagHeadId">
+                                        <option *ngFor="let request of dropDownData.TagHead" [value]="request.id">{{request.name}}</option>
+                                       </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                       <label for="">TAG Recruiter<span class="mandatory">*</span></label>
+                                       <select class="custom-select" formControlName="TagRecruiterId">
+                                          <option *ngFor="let request of dropDownData.TagRecruiter" [value]="request.id">{{request.name}}</option>
+                                       </select>
+                                    </div>
+                                    <div class="form-group  col-md-4">
+                                       <label for="">RRID Status<span class="mandatory">*</span></label>
+                                       <select class="custom-select" formControlName="TagStatus">
+                                        <option *ngFor="let request of dropDownData.ApprovalStatus" [value]="request.id">{{request.name}}</option>
+                                       </select>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <div *ngIf="successMessage && isTagMember" class="message text-success">{{successMessage}}</div>
+                                        <div *ngIf="errorMessage && isTagMember" class="message text-danger">{{errorMessage}}</div>
+                                       <div class="formButtons">
+                                        <button type="button" class="btn btn-sunera" (click)="show(5)">Previous</button>
+                                        <button type="button" class="btn btn-primary" (click)="show(7)">Next</button> &nbsp;
+                                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                        <div *ngIf="loader" class="loader loader3"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- TAG Tab Content - End -->
+
+                     <div *ngIf="edit && isRmgMember" id="6" hidden>
+                        <div class="card">
+                           <div class="card-header">
+                              <h4 class="card-title">History</h4>
+                           </div>
+                           <div class="card-body">
+                              <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+                              <ag-grid-angular
+                                style="width: 100%; height: 300px"
+                                class="ag-theme-material"
+                                [rowData]="displayedRowData"
+                                [columnDefs]="displayedColumnDefs"
+                                [frameworkComponents]="frameworkComponents"
+                                pagination="true"
+                                [paginationPageSize]="10"
+                                (gridReady)="onGridReady($event)"
+                              >
+                              </ag-grid-angular>
+                              <div class="form-group col-md-12">
+                                <div class="formButtons">
+                                 <button type="button" class="btn btn-sunera" (click)="show(5)">Previous</button>
+                                </div>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div *ngIf="edit && isTagMember" id="7" hidden>
+                        <div class="card">
+                           <div class="card-header">
+                              <h4 class="card-title">History</h4>
+                           </div>
+                           <div class="card-body">
+                              <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+                              <ag-grid-angular
+                                style="width: 100%; height: 300px"
+                                class="ag-theme-material"
+                                [rowData]="displayedRowData"
+                                [columnDefs]="displayedColumnDefs"
+                                [frameworkComponents]="frameworkComponents"
+                                pagination="true"
+                                [paginationPageSize]="10"
+                                (gridReady)="onGridReady($event)"
+                              >
+                              </ag-grid-angular>
+                              <div class="form-group col-md-12">
+                                <div class="formButtons">
+                                 <button type="button" class="btn btn-sunera" (click)="show(6)">Previous</button>
+                                </div>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+
+                </form>
+                </div>
+            </div>
+            <!-- New Request Form - End -->
+        </div>
+    </div>
+</div>
+<!--New Request - End-->
+</div>
+

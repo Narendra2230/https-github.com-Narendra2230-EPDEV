@@ -1,0 +1,110 @@
+<div class="time_sheet">
+    <app-org-hierarchy-header></app-org-hierarchy-header>
+    <div class="inner_page">
+            
+        <div class="simplebar">
+            <div class="hirarchy-outer">
+                <div class="company-logo">
+                    <label class="logo_heading">
+                        <figcaption>
+                            <img src="assets/images/org/logo-icon.png" alt="Suneratech">
+                        </figcaption>
+                    </label>
+                </div>
+                <!-- level 1 -->
+                <div class="hirarchy level-1">
+                    <!--<div class="divider"></div> -->
+                    <div class="tickets-wrapper">
+                        <div class="ticket" id="L0T{{ind}}"
+                            [ngClass]="{'active':selectedItem=='L0T'+ind, 'defaultBorder':manager.hierarchyColor==undefined}" *ngIf="manager!=undefined">
+                            <div class="container">
+                                <div class="row pad-top-10">
+                                    <div class="col-12">
+                                        <img *ngIf="manager.imageUrl" src="{{manager.imageUrl}}" align="profile pic"
+                                            class="ticket_image">
+                                        <img *ngIf="!manager.imageUrl" src="assets/images/org/emp-logo.png"
+                                            align="profile pic" class="ticket_image">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="org_emp_txt">{{manager.firstName}} {{manager.lastName}}</div>
+                                        <div class="org_emp_txt">{{manager.designation|uppercase}}</div>
+                                        <div class="org_emp_txt">Reporties {{manager.num_Reportees}}</div>
+                                    </div>
+                                    <button class="viewButton" (click)="updateModel($event,manager)">VIEW</button>
+                                    <div class="after-grid" *ngIf="selectedItem=='L0T'+ind"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div clear="all"></div>
+                    </div>
+
+
+                    <div class="tickets-wrapper" style="display: grid;" [ngClass]="{'blank-ticket':manager==undefined}">
+                        <div class="ticket employeeBorder active" id="L0T{{ind}}"
+                            [ngClass]="{'defaultBorder':employee.hierarchyColor==undefined}">
+                            <div class="container">
+                                <div class="row pad-top-10">
+                                    <div class="col-12">
+                                        <img *ngIf="employee.imageUrl" src="{{employee.imageUrl}}" align="profile pic"
+                                            class="ticket_image">
+                                        <img *ngIf="!employee.imageUrl" src="assets/images/org/emp-logo.png"
+                                            align="profile pic" class="ticket_image">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="org_emp_txt">{{employee.firstName}} {{employee.lastName}}</div>
+                                        <div class="org_emp_txt">{{employee.designation|uppercase}}</div>
+                                        <div class="org_emp_txt">Reporties {{employee.num_Reportees}}</div>
+                                    </div>
+                                    <button class="viewButton" (click)="updateModel($event,employee)">VIEW</button>
+                                    <div class="after-grid"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div clear="all"></div>
+                    </div>
+                </div>
+              
+
+                <div class="hirarchy child-hirarchy" id="childlevel" [ngClass]="{'blank-manager-child-hirarchy':manager==undefined}">
+                    <div class="divider"></div>
+                    <div class="tickets-wrapper hide-greater-three">
+                        <div *ngFor="let t of employee.lstChildren; let ind=index;" class="ticket  {{t.hierarchyColor}}"
+                            id="L{{childlevel}}P{{parentLevel}}T{{ind}}"
+                            [ngClass]="{'view-more':ind==3,'active':(selectedItem=='L'+childlevel+'T'+i && selectedLevel == childlevel && selectedLevel==parentLevel), 'defaultBorder':t.hierarchyColor==undefined}">
+                            <div class="container">
+                                <div class="row pad-top-10">
+                                    <div class="col-12">
+                                        <img *ngIf="t.imageUrl" src="{{t.imageUrl}}" align="profile pic"
+                                            class="ticket_image">
+                                        <img *ngIf="!t.imageUrl" src="assets/images/org/emp-logo.png"
+                                            align="profile pic" class="ticket_image">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="org_emp_txt">{{t.firstName}} {{t.lastName}}</div>
+                                        <div class="org_emp_txt">{{t.designation|uppercase}}</div>
+                                        <div class="org_emp_txt">Reporties {{t.num_Reportees}}</div>
+                                    </div>
+                                    <button class="viewButton" (click)="updateModel($event,t)">VIEW</button>
+                                    <div class="view-more-content" *ngIf="enableViewMore(ind,employee.lstChildren.length)" (click)="viewMore($event)">
+                                        {{employee.lstChildren.length-4}}+ MORE</div>
+                                    <div class="after-grid"
+                                        *ngIf="selectedItem=='L'+childlevel+'P'+parentLevel+'T'+ind"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/ level 1 -->
+            </div>
+        </div>
+        <div class="reset">
+            <span class="reset_to_defualt" (click)='resetReporting()'>
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+                Reset to default
+            </span>
+          </div>
+    </div>
+    </div>
+
+<button type="button" id="launchModel" data-toggle="modal" data-target="#myModal" style="display:none"></button>
+<app-emp-profile [profile]="{modelData:modelData,modelBorder:modelBorder}"></app-emp-profile>

@@ -1,0 +1,45 @@
+<div class="rating_comment_popup">
+    <div class="rating_comment_popup_in" *ngIf="!isCommnetView">
+        <div class="comment_heading">
+            <h3 class="mar-bot-20">Comments</h3>
+            <div>
+                <span class="m-r-10 go-btn" (click)="toogleView()">Back</span>
+                <span class="close-btn m-r-10" (click)="closeCommentpopup()"> Close </span>
+            </div>
+        </div>
+        {{allcomments|json}}
+        <ul *ngFor="let c of comments;" class="show_comments">
+            <li>Associate: {{c.comment}}</li>
+            <li>Manager:{{c.managerComment}}</li>
+        </ul>
+
+    </div>
+
+    <div class="rating_comment_popup_in" *ngIf="isCommnetView">
+        <div class="comment_heading">
+            <h3>Comments</h3>
+            <span class="go-btn" (click)="toogleView()">Show all comments</span>
+        </div>
+        <div class="comment_form">
+            <form #commentsPopup="ngForm">
+                <ul>
+                    <li>
+                        <label>Employee Comments</label>
+                        <input type="text"  [readonly]="!isPersonal" [(ngModel)]="latestComments.comment"
+                            name="Reviwer_Comments" required placeholder="Associate Comments ">
+                    </li>
+                    <li>
+                        <label>Manager Comments </label>
+                        <input type="text" [(ngModel)]="latestComments.managerComment" [readonly]="isPersonal"
+                            name="Employee_Comments" required placeholder="Manager Comments">
+
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="comment_btns">
+            <button (click)="closeCommentpopup()" class="cancel_btn" type="button">CANCEL</button>
+            <button (click)="saveRationComments(commentsPopup.value)" type="button">SAVE</button>
+        </div>
+    </div>
+</div>

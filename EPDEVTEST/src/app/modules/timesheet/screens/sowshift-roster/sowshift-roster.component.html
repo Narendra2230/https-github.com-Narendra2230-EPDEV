@@ -1,0 +1,52 @@
+<div class="time_sheet">
+  <!-- breadcrumb_list -->
+  <div class="breadcrumb_list">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="https://ep.suneratech.com/Home/Dashboard">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="/modules/#/timesheet">Shift Roster</a>
+      </li>
+    </ol>
+  </div>
+  <!-- breadcrumb_list-End-->
+
+  <!-- time_sheet_heading -->
+  <div class="time_sheet_heading row pad-3">
+    <div class="toogle_slide col-4"></div>
+    <div class="col-4 text-center pad-1">
+      <h4>SOWs Shift Roster</h4>
+    </div>
+    <div class="toogle_slide col-4"></div>
+  </div>
+  <!-- time_sheet_heading-End-->
+  <table class="table table-bordered shift_roster">
+    <thead>
+      <tr>
+        <th scope="col">SOW ID</th>
+        <th scope="col">SOW Name</th>
+        <th scope="col">General Shift</th>
+        <th scope="col">Shift A</th>
+        <th scope="col">Shift B</th>
+        <th scope="col">Night Shift</th>
+        <th scope="col">On Call</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of getProjectDetails; let i = index">
+        <td scope="row">{{ project.projectId }}</td>
+        <td scope="row">{{ project.projectName }}</td>
+        <td *ngFor="let projectChks of project.lstShiftDetails; let j = index">
+          <input type="checkbox" [checked]="projectChks?.assigned" [(ngModel)]="projectChks.assigned" />
+        </td>
+        <td>
+          <button type="button" class="save_btn" (click)="chk(i, project)">
+            SAVE
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

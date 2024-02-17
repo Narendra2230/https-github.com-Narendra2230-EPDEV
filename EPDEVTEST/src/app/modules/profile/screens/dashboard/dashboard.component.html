@@ -1,0 +1,259 @@
+<div class="time_sheet profileSheet">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/#/profile-landing">Profile</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <app-profile-page-header userType="{{userType}}" backurl="{{backurl}}" headingText="{{userType ? (personalInfo.firsT_NAME+ ' '+ personalInfo.lasT_NAME) + ' Profile' : 'My Profile'}} ">
+    </app-profile-page-header>
+    <!-- time_sheet_heading-End-->
+
+    <div class="profileMain">
+        <div class="profileMainIn row justify-content-between flex-wrap">
+            <div class="profileBox">
+                <div class="profileInfo">
+                    <div class="profileTop">
+                        <h3>Profile</h3>
+                        <div class="profileImage">
+                            <img src="{{personalInfo.profile_Picture || './../../../assets/images/user-avatar.jpg'}}" alt="profile" class="profile_pic">
+                        </div>
+                        <h4>{{personalInfo.firsT_NAME}} {{personalInfo.lasT_NAME}}</h4>
+                        <h5>Employee ID : <span>{{personalInfo.emP_ID}}</span></h5>
+                        <h5>Email : <span>{{personalInfo.email_Address}}</span></h5>
+                        <h5>Phone : <span>{{personalInfo.phone_Number}}</span></h5>
+                    </div>
+                    <div class="profileBtm">
+                        <ul>
+                            <li *ngIf="userType != 'manager' && userType != 'finance'">
+                                <a [routerLink]="getRoutes('/profile-info')" [queryParams]="{to: 'PI'}">Personal Details</a></li>
+                            <li><a [routerLink]="getRoutes('/profile-info')" [queryParams]="{to: 'AD'}">Employment Details</a></li>
+                            <li><a [routerLink]="getRoutes('/profile-info')" [queryParams]="{to: 'CI'}">Emergency Contact</a></li>
+                            <li><a [routerLink]="getRoutes('/profile-info')" [queryParams]="{to: 'EI'}">Education Information</a></li>
+                            <li><a [routerLink]="getRoutes('/profile-info')" [queryParams]="{to: 'CRT'}">Skills & Certifications</a></li>
+                            <li><a [routerLink]="getRoutes('/profile-info')" [queryParams]="{to: 'PE'}">Experience History</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="profileBox" *ngIf="userType != 'finance'">
+                <div class="profileInfo">
+                    <div class="profileTop">
+                        <h3>Compensation & Bank Info</h3>
+                        <div class="profileImage">
+                            <img src="assets/images/profile/compensation.svg" alt="profile">
+                        </div>
+                        <div class="downloadBox">
+                            <ul>
+                                <li class="eye-icon"> <i (click)="showCompans=!showCompans" [ngClass]="showCompans ? 'fa fa-eye' : 'fa fa-eye-slash'"></i> </li>
+                            </ul>
+                        </div>
+                        <h4>Details</h4>
+                        <div class="profileDtlsMain">
+                            <div class="profileDtls">
+                                <h5>Annual CTC :
+                                    <span *ngIf="!showCompans">XXXX</span>
+                                    <span *ngIf="showCompans">{{personalInfo.salary}}</span>
+                                </h5>
+                                <h5>Acc.No : <span *ngIf="!showCompans">XXXX</span>
+                                    <span *ngIf="showCompans">{{personalInfo.accountNumber}}</span>
+                                </h5>
+                            </div>
+                            <div class="profileDtls">
+                                <h5>Annual PA : <span *ngIf="!showCompans">XXXX</span>
+                                    <span *ngIf="showCompans">{{personalInfo.ogpb}}</span>
+                                </h5>
+                                <h5 *ngIf="personalInfo.location == 'India'">IFSC :
+                                    <span *ngIf="!showCompans">XXXX</span>
+                                    <span *ngIf="showCompans">{{personalInfo.ifscCode}}</span>
+                                </h5>
+
+                                <h5 *ngIf="personalInfo.location == 'US'">Routing Number :
+                                    <span *ngIf="!showCompans">XXXX</span>
+                                    <span *ngIf="showCompans">{{personalInfo.ifscCode}}</span>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profileBtm">
+                        <ul>
+                            <li><a [routerLink]="getRoutes('/compensation-bank-info')" [queryParams]="{to: 'CMP'}">Compensation</a></li>
+                            <li *ngIf="userType != 'manager'  && userType != 'finance'"><a [routerLink]="getRoutes('/compensation-bank-info')" [queryParams]="{to: 'BANK'}">Bank
+                                    Info</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="profileBox" *ngIf="personalInfo.location == 'US'">
+                <div class="profileInfo">
+                    <div class="profileTop">
+                        <h3>Onboarding</h3>
+                        <div class="profileImage">
+                            <img src="assets/images/profile/contract.svg" alt="profile">
+                        </div>
+                        <!--<div class="downloadBox">
+                            <ul>
+                                <li><img src="assets/images/profile/download-red.svg" alt="download-red"></li>
+                            </ul>
+                        </div> -->
+                        <h4>Documents Upload Status</h4>
+                        <div class="profileDtlsMain">
+                            <div class="profileDtls">
+                                <h5>Associate Hand Book : <span>() </span></h5>
+                                <h5>Employer Offering Cov : <span>()</span></h5>
+                                <h5>i-9.pdf : <span>()</span></h5>
+                            </div>
+                            <div class="profileDtls">
+                                <h5>Handbook ACK : <span></span></h5>
+                                <h5>Direct Deposit - Payroll : <span>()</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profileBtm">
+                        <ul>
+                            <li *ngIf="userType != 'manager'  && userType != 'finance'"><a [routerLink]="getRoutes('/on-boarding')">Download or Upload Documents</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="profileBox">
+                <div class="profileInfo">
+                    <div class="profileTop">
+                        <h3>Insurance</h3>
+                        <div class="profileImage">
+                            <img src="assets/images/profile/medical-insurance.svg" alt="profile">
+                        </div>
+                        <!--<div class="downloadBox">
+                            <ul>
+                                <li><img src="assets/images/profile/download-red.svg" alt="download-red"></li>
+                            </ul>
+                        </div> -->
+                        <h4>Details</h4>
+                        <div class="profileDtlsMain" *ngIf="personalInfo.location == 'US'">
+                            <div class="profileDtls">
+                                <h5>Medical : <span>{{personalInfo.medical}}</span></h5>
+                                <h5>Dental : <span>{{personalInfo.dental}}</span></h5>
+                            </div>
+                            <div class="profileDtls">
+                                <h5>Vision : <span>{{personalInfo.vision}}</span></h5>
+                            </div>
+                        </div>
+                        <div class="profileDtlsMain" *ngIf="personalInfo.location != 'US'">
+                            <div class="profileDtls">
+                                <h5>Card No : <span>{{personalInfo.cardnum}}</span></h5>
+                                <h5>TPA No : <span>{{personalInfo.tpano}}</span></h5>
+                                <h5>Contact Name : <span>Venkata Prudhvi</span></h5>
+                            </div>
+                            <div class="profileDtls">
+                                <h5>No. of Insured : <span>XX</span></h5>
+                                <h5>Name of the Insurer : <span>Oriental</span></h5>
+                                <h5>Contact No : <span>7382319790</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- finance -->
+                    <div class="profileBtm">
+                        <ul>
+                            <li *ngIf="userType != 'manager'  && userType != 'finance'"><a [routerLink]="getRoutes('/insurance')">View Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="profileBox">
+                <div class="profileInfo">
+                    <div class="profileTop">
+                        <h3>Project Allocations</h3>
+                        <div class="profileImage">
+                            <img src="assets/images/profile/project_allocation.svg" alt="profile">
+                        </div>
+                        <h4>Recent Allocation</h4>
+                        <div class="profileDtlsMain">
+                            <div class="profileDtls ">
+                                <h5 class="profile-customerName"><span>Customer : </span> <span class="nametext"> {{personalInfo.customer}}</span></h5>
+                                <h5>SOW : <span>{{personalInfo.sowname}}</span></h5>
+                                <h5>Allocation Start Date : <span>{{personalInfo.soW_START_DT|date:'dd-MM-yyyy'}}</span></h5>
+                            </div>
+                            <div class="profileDtls">
+                                <h5>Project : <span>{{personalInfo.projecT_NAME}}</span></h5>
+                                <h5>Billable : <span>{{personalInfo.billable}}</span></h5>
+                                <h5>Allocation End Date : <span>{{personalInfo.soW_END_DT|date:'dd-MM-yyyy'}}</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profileBtm">
+                        <ul>
+                            <li><a [routerLink]="getRoutes('/project-allocations')">View All</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="profileBox">
+                <div class="profileInfo">
+                    <div class="profileTop">
+                        <h3>Travel Information</h3>
+                        <div class="profileImage">
+                            <img src="assets/images/profile/booking.svg" alt="profile">
+                        </div>
+                        <h4>Visa Details</h4>
+                        <div class="profileDtlsMain">
+                            <div class="profileDtls">
+                                <h5>Permitted Country : <span>{{personalInfo.permitteD_COUNTRIES}}</span></h5>
+                                <h5>Valid From : <span>{{personalInfo.validfrom|date:'dd-MM-yyyy'}}</span></h5>
+                            </div>
+                            <div class="profileDtls">
+                                <h5>Visa type : <span>{{personalInfo.visA_TYPE}}</span></h5>
+                                <h5>Valid Through : <span>{{personalInfo.validthrough|date:'dd-MM-yyyy'}}</span></h5>
+                            </div>
+                        </div>
+                        <h4>Driving License</h4>
+                        <div class="profileDtlsMain">
+                            <div class="profileDtls">
+                                <h5>License No : <span>{{personalInfo.visA_TYPE}}</span></h5>
+                            </div>
+                            <div class="profileDtls">
+                                <h5>Valid Countries : <span>{{personalInfo.visA_TYPE}}</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profileBtm">
+                        <ul>
+                            <li><a [routerLink]="getRoutes('/travel-information')" [queryParams]="{to: 'VVP'}">
+                                Visa Details</a></li>
+                            <li><a [routerLink]="getRoutes('/travel-information')" [queryParams]="{to: 'IDL'}">International Driving License</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="profileBox">
+                <div class="profileInfo">
+                    <div class="profileTop">
+                        <h3>Assets Allocated</h3>
+                        <div class="profileImage">
+                            <img src="assets/images/profile/assets_allocation.svg" alt="profile">
+                        </div>
+                        <h4>Recent Asset Allocated</h4>
+                        <div class="profileDtlsMain">
+                            <div class="profileDtls">
+                                <h5>Asset Type : <span>{{personalInfo.assetType}}</span></h5>
+                                <h5>Location : <span>{{personalInfo.assetLocation}}</span></h5>
+                            </div>
+                            <div class="profileDtls">
+                                <h5>Asset Name : <span>{{personalInfo.assetName}}</span></h5>
+                                <h5>Serial No : <span>{{personalInfo.assetSerialNo}}</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profileBtm">
+                        <ul>
+                            <li><a [routerLink]="getRoutes('/assests-allowed')">View All</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

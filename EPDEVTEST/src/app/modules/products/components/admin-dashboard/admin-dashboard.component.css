@@ -1,0 +1,15 @@
+.pageTitle h4{
+    font-family: 'Open Sans', sans-serif;
+}
+
+table{
+    font-size: 12px;
+    font-family: 'latoregular';
+    margin-top: 3%;
+}
+
+.btn-link{
+    font-size: 13px !important;
+    color: #333;
+    padding: 0px;
+}

@@ -1,0 +1,16 @@
+.p-b-10{
+    padding-bottom: 10px !important;
+}
+
+.form-control{
+    line-height:15px;
+    font-size:12px;
+}
+
+label{
+   font-size: 12px;
+}
+
+.sow_management{
+    padding-left: 0px;
+}

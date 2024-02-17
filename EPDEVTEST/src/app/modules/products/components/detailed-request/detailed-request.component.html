@@ -1,0 +1,199 @@
+<div class="container ml-5 mt-4" style="width: 96%">
+  <div class="profileMain">
+    <div class="row m-0 p-0 p-b-3">
+      <div class="col-8 pageTitle">
+        <h4>Product Review</h4>
+      </div>
+      <div class="col-4 text-right">
+        <a (click)="GoBack()" class="btn btn-link">Back to list</a>
+      </div>
+    </div>
+
+    <div class="card m-t-20">
+      <div class="card-header">{{ detail.productTicketId }}</div>
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-text">
+          <form class="row requster_info">
+            <div class="col-md-4">
+              <label class="form-label">Project Name :</label>
+              <span>{{ detail.productName }}</span>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Requester :</label>
+              <span> {{ detail.requesterName }}</span>
+            </div>
+
+            <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+              <label class="form-label">Issue Type :</label>
+              <span> {{ detail.reviewTypeName }}</span>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Priority:</label>
+              <span> {{ detail.ticketPriority }}</span>
+            </div>
+            <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+              <label class="form-label">Request date:</label>
+              <span> {{ detail.expGoLiveDate }}</span>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">Request Summary : </label>
+              <span>{{ detail.summary }}</span>
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">Request Description : </label>
+              <div class="card">
+                <div class="card-body">
+                  {{ detail.description }}
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="card m-t-20" *ngIf="isOwnerView">
+      <div class="card-header">Product Owner Response</div>
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-text">
+          <form class="row product_owner">
+            <div class="col-12 col-md-4 col-lg-3">
+              <label class="form-label">Request Status</label>
+              <select
+                class="custom-select"
+                [(ngModel)]="ticketPut.requestStatus"
+                name="requestStatus"
+                required
+              >
+                <option
+                  *ngFor="let item of RequestStatusList"
+                  value="{{ item.name }}"
+                >
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-3">
+              <label class="form-label">Issue Status</label>
+              <select
+                class="custom-select"
+                [(ngModel)]="ticketPut.ticketStatus"
+                required
+                name="ticketStatus"
+              >
+                <option
+                  *ngFor="let item of TicketStatusList"
+                  value="{{ item.name }}"
+                >
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-3">
+              <label class="form-label">Expected Go live</label>
+              <input
+                type="date"
+                [(ngModel)]="ticketPut.expGoLiveDate"
+                class="form-control"
+                name="expGoLiveDate"
+              />
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-3">
+              <label class="form-label">Priority</label>
+              <select
+                class="custom-select"
+                [(ngModel)]="ticketPut.priority"
+                name="requestStatus"
+                required
+              >
+                <option
+                  *ngFor="let item of ticketProperList"
+                  value="{{ item.id }}"
+                >
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+
+            <!-- <div class="col-md-6">
+              <label class="form-label">Attachments</label>
+              <input class="form-control" type="file" id="formFile" />
+            </div> -->
+
+            <div class="col-md-12">
+              <label class="form-label">Comments</label>
+              <textarea
+                class="form-control"
+                placeholder="Comment"
+                required=""
+                [(ngModel)]="ticketPut.comments"
+                name="comments"
+              ></textarea>
+            </div>
+
+            <div class="col-12">
+              <button
+                type="button"
+                class="btn btn-success request_save"
+                (click)="Submit()"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="card m-t-20">
+      <div class="card-header">History</div>
+      <div class="overflowauto mt-10">
+        <mat-progress-bar
+          *ngIf="loading"
+          mode="indeterminate"
+        ></mat-progress-bar>
+        <ag-grid-angular
+          style="width: 100%; height: 500px"
+          class="ag-theme-material"
+          [rowData]="displayedRowData"
+          [columnDefs]="displayedColumnDefs"
+          pagination="true"
+          [frameworkComponents]="frameworkComponents"
+        >
+        </ag-grid-angular>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade bd-example-modal-lg show"
+  *ngIf="selectedComment != '' && selectedComment != null"
+  tabindex="-1"
+  role="dialog"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content pb-5">
+      <div class="modal-header">
+        <h5 class="modal-title">History Comment</h5>
+        <button type="button" class="close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="line-h-word-s">{{ selectedComment }}</p>
+      </div>
+    </div>
+  </div>
+</div>

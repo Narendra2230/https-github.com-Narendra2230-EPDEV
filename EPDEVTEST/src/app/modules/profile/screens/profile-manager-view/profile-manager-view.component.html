@@ -1,0 +1,113 @@
+<style>
+    table td {
+    font-size: 12px;
+    line-height: 1.0;
+}
+ </style>
+ 
+<div class="time_sheet profileSheet">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/#/profile-landing">Profile</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <app-profile-page-header headingText='Associate List'></app-profile-page-header>
+    <!-- time_sheet_heading-End-->
+    <div class="profileMain">
+        <div class="apply_leave_page">
+
+            <section class="leave_history">
+
+                <div class="leave_history_table">
+
+
+                    <div class="mat-elevation-z8">
+                        <mat-form-field>
+                            <input matInput placeholder="Search" (keyup)="filterTable($event.target.value)">
+                         </mat-form-field>
+                        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+                        <table mat-table [dataSource]="data" class="table table-bordered" matSort
+                            matSortActive="fromDate" matSortDisableClear matSortDirection="desc">
+                            <!-- Number Column -->
+
+
+                            <ng-container matColumnDef="avathar">
+                                <th mat-header-cell *matHeaderCellDef>Avatar</th>
+                                <td mat-cell *matCellDef="let s">
+                                    <img src="{{checkImage(s.profilE_PICTURE)}}" alt="Avatar"
+                                        class="associate_avatar">
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="empName">
+                                <th mat-header-cell *matHeaderCellDef class="td-one">Employee Name</th>
+                                <td mat-cell *matCellDef="let s" class="td-one">   {{s.emP_NAME}}
+                                    <!--<a routerLink="/profile-landing/manager/{{enCryptEmpID(s.id)}}">
+                                        {{s.emP_NAME}}
+                                    </a>  -->
+                                </td>
+                            </ng-container>
+
+                            <!-- Title Column -->
+                            <ng-container matColumnDef="leaveType">
+                                <th mat-header-cell *matHeaderCellDef class="td-one">ID</th>
+                                <td mat-cell *matCellDef="let s" class="td-one">{{s.emP_ID}}</td>
+                            </ng-container>
+
+                            <!-- State Column -->
+                            <ng-container matColumnDef="fromDate">
+                                <th mat-header-cell *matHeaderCellDef class="td-one">Designation
+                                </th>
+                                <td mat-cell *matCellDef="let s" class="td-one">{{formatDate(s.designation)}}</td>
+                            </ng-container>
+
+                            <!-- toDate Column -->
+                            <ng-container matColumnDef="toDate">
+                                <th mat-header-cell *matHeaderCellDef class="td-one">BU
+                                </th>
+                                <td mat-cell *matCellDef="let s" class="td-one">{{formatDate(s.buname)}}</td>
+                            </ng-container>
+
+                            <!-- strNumber_of_Days Column -->
+                            <ng-container matColumnDef="strNumber_of_Days">
+                                <th mat-header-cell *matHeaderCellDef>SBU</th>
+                                <td mat-cell *matCellDef="let s">{{s.sbuname}}</td>
+                            </ng-container>
+
+                            <!-- strNumber_of_Days Column -->
+                            <ng-container matColumnDef="leaveStatusDesc">
+                                <th mat-header-cell *matHeaderCellDef>Track</th>
+                                <td mat-cell *matCellDef="let s">{{s.trackname}}</td>
+                            </ng-container>
+
+                            <!-- strNumber_of_Days Column -->
+
+                            <ng-container matColumnDef="locatioN_NAME">
+                                <th mat-header-cell *matHeaderCellDef>Type</th>
+                                <td mat-cell *matCellDef="let s">{{s.employmenT_TYPE}}</td>
+                            </ng-container>
+
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+
+                        <!-- <p style="text-align:center;margin-top: 5%;" *ngIf="data.length===0  && !isLoading">No Data Found
+                </p> -->
+                        <mat-paginator [pageIndex]="0" [pageSize]="10" [length]="resultsLength"></mat-paginator>
+
+                    </div>
+                </div>
+
+                <div class="fotterbtn">
+
+                </div>
+            </section>
+            <!-- Leave Applied History end -->
+        </div>
+    </div>
+</div>

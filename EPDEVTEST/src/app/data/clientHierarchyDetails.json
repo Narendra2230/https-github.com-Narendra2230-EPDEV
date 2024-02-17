@@ -1,0 +1,65 @@
+{
+    "clientId": 298,
+    "clientName": "TracFone Wireless, Inc",
+    "displayName": null,
+    "msoWid": 611,
+    "msowName": "DSS Managed services",
+    "lstEmployees": [
+        {
+            "id": 3309,
+            "empId": 100805,
+            "firstName": "Prashanth",
+            "lastName": "Abbagani",
+            "phoneNumber": "9000390391",
+            "emailAddress": "raju.nagapuri@suneratech.com",
+            "designation": "Vice President",
+            "track": "Technology",
+            "businessUnit": "Tracfone",
+            "subBusinessUnit": "Projects",
+            "reportManagerID": 1941,
+            "num_Reportees": 33,
+            "hierarchyColor": null,
+            "imageUrl": "100805.jpeg",
+            "lstChildren": [
+                {
+                    "id": 2855,
+                    "empId": 200349,
+                    "firstName": "Rama Rao",
+                    "lastName": "Kancharapu",
+                    "phoneNumber": "4327708412",
+                    "emailAddress": "raju.nagapuri@suneratech.com",
+                    "designation": "Associate Vice President",
+                    "track": "Technology",
+                    "businessUnit": "Tracfone",
+                    "subBusinessUnit": "Projects",
+                    "reportManagerID": 188,
+                    "num_Reportees": 39,
+                    "hierarchyColor": null,
+                    "imageUrl": "200349.jpg",
+                    "lstChildren": [
+                        {
+                            "id": 3309,
+                            "empId": 100805,
+                            "firstName": "Prashanth",
+                            "lastName": "Abbagani",
+                            "phoneNumber": "9000390391",
+                            "emailAddress": "raju.nagapuri@suneratech.com",
+                            "designation": "Vice President",
+                            "track": "Technology",
+                            "businessUnit": "Tracfone",
+                            "subBusinessUnit": "Projects",
+                            "reportManagerID": 1941,
+                            "num_Reportees": 33,
+                            "hierarchyColor": null,
+                            "imageUrl": "100805.jpeg",
+                            "lstChildren": null,
+                            "lstParent": null
+                        }
+                    ],
+                    "lstParent": null
+                }
+            ],
+            "lstParent": null
+        }
+    ]
+}

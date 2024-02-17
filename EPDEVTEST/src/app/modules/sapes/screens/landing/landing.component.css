@@ -1,0 +1,6 @@
+.btn-no-active{opacity: 0.5;cursor: no-drop;}
+.btn-active{opacity: 1;cursor: pointer;}
+.submit_disable{background: #71c285;color: #ffffff;cursor: no-drop;opacity: 0.5;}
+.mart-50{margin-top: 50px;}
+.eligible-text{font-size: 12px;margin-top: 10px;display: block;font-family: 'latoregular';}
+.eligible{font-size: 12px;margin-top: 10px;color: #ff7058;font-family: 'latoregular';}

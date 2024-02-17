@@ -1,0 +1,2630 @@
+<div class="time_sheet profileSheet">
+  <!-- breadcrumb_list -->
+  <div class="breadcrumb_list">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="https://ep.suneratech.com/Home/Dashboard">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="/modules/#/profile-landing">Profile</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="javascript:void(0)">Profile Information</a>
+      </li>
+    </ol>
+  </div>
+  <!-- breadcrumb_list-End-->
+
+  <!-- time_sheet_heading -->
+  <div class="time_sheet_heading row pad-3">
+    <div
+      class="profileInnerHead d-flex justify-content-center align-items-center"
+    >
+      <div class="profileImage">
+        <!--  <img src="{{personalInfo.profile_Picture || './../../../assets/images/user-avatar.jpg'}}" alt="profile" /> -->
+      </div>
+      <h4>{{ personalInfo.firstName }} Profile</h4>
+      <div class="backProfile">
+        <a [routerLink]="getRout()"> Back to list </a>
+      </div>
+    </div>
+  </div>
+  <!-- time_sheet_heading-End-->
+
+  <div class="profileFullInfo">
+    <div class="profileFullInfoIn">
+      <div class="profileHeadNav">
+        <ul class="d-flex justify-content-start">
+          <li
+            [ngClass]="currentTab == 'PI' ? 'active' : ''"
+            *ngIf="userType != 'manager' && userType != 'finance'"
+          >
+            <a (click)="tabClick('PI', $event)">Personal Details</a>
+          </li>
+          <li [ngClass]="currentTab == 'AD' ? 'active' : ''">
+            <a (click)="tabClick('AD', $event)">Employment Details</a>
+          </li>
+          <li [ngClass]="currentTab == 'CI' ? 'active' : ''">
+            <a (click)="tabClick('CI', $event)">Emergency Contact</a>
+          </li>
+          <li [ngClass]="currentTab == 'EI' ? 'active' : ''">
+            <a (click)="tabClick('EI', $event)">Education Information</a>
+          </li>
+          <li [ngClass]="currentTab == 'CRT' ? 'active' : ''">
+            <a (click)="tabClick('CRT', $event)">Skills & Certifications</a>
+          </li>
+          <li [ngClass]="currentTab == 'PE' ? 'active' : ''">
+            <a (click)="tabClick('PE', $event)">Experience History</a>
+          </li>
+        </ul>
+      </div>
+      <div class="tabscontent">
+        <div
+          *ngIf="currentTab == 'PI'"
+          [ngClass]="currentTab == 'PI' ? 'active' : ''"
+          id="tab1"
+        >
+          <div class="profileNavCont">
+            <!-- <app-preloader *ngIf="isLoading1" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>Personal Details</h4>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+                    ><img src="assets/images/profile/edit.svg" alt="edit"
+                  /></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="isLoading1"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li class="pos_relative">
+                    <label
+                      [ngClass]="
+                        hasError('firstName') ? 'validation-error' : ''
+                      "
+                      >First Name <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="personalInfo.firstName"
+                      type="text"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('firstName') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('firstName')"
+                    />
+                  </li>
+
+                  <li>
+                    <label>Middle Name</label>
+                    <input
+                      [(ngModel)]="personalInfo.middleName"
+                      type="text"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('middleName') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('middleName')"
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="hasError('lastName') ? 'validation-error' : ''"
+                      >Last Name <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="personalInfo.lastName"
+                      type="text"
+                      name="text"
+                      autocomplete="doNotAutoComplete"
+                      [ngClass]="
+                        !checkPreviligies('lastName') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('lastName')"
+                    />
+                  </li>
+
+                  <li class="pos_relative">
+                    <label
+                      [ngClass]="
+                        hasError('emailAddress') ? 'validation-error' : ''
+                      "
+                      >Office Email ID
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="personalInfo.emailAddress"
+                      type="text"
+                      name="text"
+                      autocomplete="doNotAutoComplete"
+                      [ngClass]="
+                        !checkPreviligies('emailAddress')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                    />
+                    <!--  <small matTooltip="Office mail id" tooltipClass="ttxt" class="meta_info_icn">
+<i _ngcontent-vnv-c10="" class="fa fa-info-circle"></i>
+</small> -->
+                  </li>
+
+                  <li>
+                    <label>Date of Wedding </label>
+                    <input
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="personalInfo.dateofWedding"
+                      placeholder="MM/DD/YY"
+                      autocomplete="doNotAutoComplete"
+                      [ngClass]="
+                        !checkPreviligies('dateofWedding')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('dateofWedding')"
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('phoneNumber') ? 'validation-error' : ''
+                      "
+                      >Phone (M) <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="personalInfo.phoneNumber"
+                      autocomplete="doNotAutoComplete"
+                      type="number"
+                      pattern="/^-?\d+\.?\d*$/"
+                      onKeyPress="if(this.value.length==10) return false;"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('dateofBirth') ? 'validation-error' : ''
+                      "
+                      >Date of Birth
+                      <small class="field_required">*</small>
+                      <small class="eye-icon dob_show"
+                        ><i
+                          (click)="showdob = !showdob"
+                          [ngClass]="showdob ? 'fa fa-eye' : 'fa fa-eye-slash'"
+                        ></i
+                      ></small>
+                    </label>
+                    <input
+                      *ngIf="!showdob"
+                      type="text"
+                      name="text"
+                      placeholder="** - **- ****"
+                      readonly
+                    />
+                    <input
+                      *ngIf="showdob"
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="personalInfo.dateofBirth"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      >Date of Joining
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="personalInfo.dateofJoining"
+                      [ngClass]="
+                        !checkPreviligies('dateofJoining')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('dateofJoining')"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="hasError('gender') ? 'validation-error' : ''"
+                      >Gender <small class="field_required">*</small></label
+                    >
+                    <select [(ngModel)]="personalInfo.gender">
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('Gender')"
+                        value="{{ dropdown.name }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('martialStatus') ? 'validation-error' : ''
+                      "
+                      >Marital Status
+                      <small class="field_required">*</small></label
+                    >
+                    <select
+                      [(ngModel)]="personalInfo.martialStatus"
+                      [ngClass]="
+                        !checkPreviligies('martialStatus')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('martialStatus')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('MartialStatus')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('bloodGroup') ? 'validation-error' : ''
+                      "
+                      >Blood Group<small class="field_required">*</small></label
+                    >
+                    <select [(ngModel)]="personalInfo.bloodGroup">
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let d of getMetaValues('BLOODGROUP')"
+                        value="{{ d.id }}"
+                      >
+                        {{ d.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('nationality') ? 'validation-error' : ''
+                      "
+                      >Nationality<small class="field_required">*</small></label
+                    >
+                    <select [(ngModel)]="personalInfo.nationality">
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let d of getMetaValues('Nationality')"
+                        value="{{ d.id }}"
+                      >
+                        {{ d.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('personalEmail') ? 'validation-error' : ''
+                      "
+                      >Personal Email
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="personalInfo.personalEmail"
+                      type="text"
+                      name="text"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label>Phone (L)</label>
+                    <input
+                      [(ngModel)]="personalInfo.homePhoneNumber"
+                      type="number"
+                      maxlength="10"
+                      name="text"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label>Ext. (Optional)</label>
+                    <input
+                      [(ngModel)]="personalInfo.extNumber"
+                      type="text"
+                      name="text"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('profile_Picture') ? 'validation-error' : ''
+                      "
+                      >Profile Pic
+                      <small class="field_required">*</small></label
+                    >
+                    <div class="frow">
+                      <div class="f-left">
+                        <input
+                          (change)="uploadAdhaar(personalInfo, $event, 'PPIC')"
+                          type="file"
+                          name="file"
+                        />
+                        <!-- [(ngModel)]="personalInfo.profile_Picture" -->
+                        <input
+                          value="{{
+                            getfileName(personalInfo.profile_Picture)
+                          }}"
+                          class="noPadding"
+                          type="text"
+                          name="text"
+                          disabled
+                        />
+                      </div>
+
+                      <div
+                        class="btn-upload f-right"
+                        *ngIf="
+                          personalInfo.profile_Picture
+                            ? personalInfo.profile_Picture
+                            : 'javascript:void(0)'
+                        "
+                      >
+                        <a
+                          mat-menu-item
+                          target="_blank"
+                          href="{{ personalInfo.profile_Picture }}"
+                        >
+                          <span class="download_icn">
+                            <i _ngcontent-vnv-c10="" class="fa fa-download"></i
+                          ></span>
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li></li>
+                  <li></li>
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button (click)="profileSubmit()" class="btn-save">
+                      Save
+                    </button>
+                    <button
+                      (click)="getPersonalInfo()"
+                      [disabled]="preLoader1"
+                      class="reset btn-reset"
+                    >
+                      <p-progressSpinner
+                        class="resetPreloader"
+                        [style]="{ width: '15px', height: '15px' }"
+                        *ngIf="preLoader1"
+                      >
+                      </p-progressSpinner>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="profileNavCont">
+            <!-- <app-preloader *ngIf="isLoading2" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>Government ID details</h4>
+                <ul style="color: #fff">
+                  <li class="eye-icon">
+                    <i
+                      (click)="showCompans = !showCompans"
+                      [ngClass]="showCompans ? 'fa fa-eye' : 'fa fa-eye-slash'"
+                      ><span class="revel_sal">
+                        Reveal Government ID Details</span
+                      ></i
+                    >
+                  </li>
+                </ul>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+><img src="assets/images/profile/edit.svg" alt="edit"
+/></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="isLoading2"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li *ngIf="empAssociateInfo.location !== 'US'">
+                    <label>Voter ID No.</label>
+                    <input
+                      *ngIf="!showCompans"
+                      type="number"
+                      name="text"
+                      placeholder="****"
+                    />
+                    <input
+                      *ngIf="showCompans"
+                      [(ngModel)]="empKYCInfo.voterId"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li *ngIf="empAssociateInfo.location !== 'US'">
+                    <label
+                      [ngClass]="hasError('aadharNo') ? 'validation-error' : ''"
+                      >Aadhar Card No.<small class="field_required"
+                        >*</small
+                      ></label
+                    >
+                    <input
+                      *ngIf="!showCompans"
+                      type="number"
+                      name="text"
+                      placeholder="****"
+                    />
+                    <input
+                      *ngIf="showCompans"
+                      [(ngModel)]="empKYCInfo.aadharNo"
+                      type="number"
+                      pattern="/^-?\d+\.?\d*$/"
+                      onKeyPress="if(this.value.length==12) return false;"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li *ngIf="empAssociateInfo.location !== 'US'">
+                    <label
+                      [ngClass]="
+                        hasError('nameAsPerAadhar') ? 'validation-error' : ''
+                      "
+                      >Name as per Aadhar Card<small class="field_required"
+                        >*</small
+                      ></label
+                    >
+                    <input
+                      *ngIf="!showCompans"
+                      type="number"
+                      name="text"
+                      placeholder="****"
+                    />
+                    <input
+                      *ngIf="showCompans"
+                      OnlyText
+                      [(ngModel)]="empKYCInfo.nameAsPerAadhar"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li *ngIf="empAssociateInfo.location !== 'US'">
+                    <label
+                      [ngClass]="
+                        hasError('aadharFilePath') ? 'validation-error' : ''
+                      "
+                      >Upload Aadhar
+                      <small class="field_required">*</small></label
+                    >
+                    <div class="frow">
+                      <div class="f-left">
+                        <!-- [(ngModel)]="empKYCInfo.aadharFilePath"  -->
+                        <input
+                          (change)="uploadAdhaar(empKYCInfo, $event, 'AADHAR')"
+                          type="file"
+                          name="file"
+                        />
+                        <input
+                          value="{{ getfileName(empKYCInfo.aadharFilePath) }}"
+                          class="noPadding"
+                          type="text"
+                          name="text"
+                          disabled
+                        />
+                      </div>
+
+                      <div
+                        class="btn-upload f-right"
+                        *ngIf="empKYCInfo.aadharFilePath"
+                      >
+                        <a
+                          mat-menu-item
+                          target="_blank"
+                          href="{{
+                            empKYCInfo.aadharFilePath
+                              ? empKYCInfo.aadharFilePath
+                              : 'javascript:void(0)'
+                          }}"
+                        >
+                          <span class="download_icn">
+                            <i _ngcontent-vnv-c10="" class="fa fa-download"></i
+                          ></span>
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li *ngIf="empAssociateInfo.location !== 'US'">
+                    <label
+                      [ngClass]="
+                        hasError('panCardNo') ? 'validation-error' : ''
+                      "
+                      >PAN Card Number<small class="field_required"
+                        >*</small
+                      ></label
+                    >
+                    <input
+                      *ngIf="!showCompans"
+                      type="number"
+                      name="text"
+                      placeholder="****"
+                    />
+                    <input
+                      *ngIf="showCompans"
+                      [(ngModel)]="empKYCInfo.panCardNo"
+                      autocomplete="doNotAutoComplete"
+                      type="text"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label>Driving License Number</label>
+                    <input
+                      *ngIf="!showCompans"
+                      type="number"
+                      name="text"
+                      placeholder="****"
+                      readonly
+                    />
+                    <input
+                      *ngIf="showCompans"
+                      [(ngModel)]="empKYCInfo.drivingLicenceNo"
+                      autocomplete="doNotAutoComplete"
+                      type="text"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label>Passport Number</label>
+                    <input
+                      *ngIf="!showCompans"
+                      type="number"
+                      name="text"
+                      placeholder="****"
+                      readonly
+                    />
+                    <input
+                      *ngIf="showCompans"
+                      [(ngModel)]="empKYCInfo.passportNumber"
+                      autocomplete="doNotAutoComplete"
+                      type="text"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label>Passport Valid Through</label>
+                    <input
+                      *ngIf="!showCompans"
+                      type="number"
+                      name="text"
+                      placeholder="****"
+                      readonly
+                    />
+                    <input
+                      *ngIf="showCompans"
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="empKYCInfo.passportExpiryDate"
+                      autocomplete="doNotAutoComplete"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+
+                  <li *ngIf="empAssociateInfo.location == 'US'">
+                    <label
+                      >SSN Number<small class="field_required">*</small></label
+                    >
+                    <input
+                      *ngIf="!showCompans"
+                      type="number"
+                      name="text"
+                      placeholder="****"
+                      readonly
+                    />
+                    <input
+                      *ngIf="showCompans"
+                      [ngClass]="
+                        !checkPreviligies('SSN') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('SSN')"
+                      [(ngModel)]="empKYCInfo.ssnNo"
+                      type="text"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li *ngIf="empAssociateInfo.location !== 'US'">
+                    <label>UAN Number</label>
+                    <input
+                      *ngIf="!showCompans"
+                      type="number"
+                      name="text"
+                      placeholder="****"
+                      readonly
+                    />
+                    <input
+                      *ngIf="showCompans"
+                      [(ngModel)]="empKYCInfo.uanNumber"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li></li>
+
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button (click)="kycSubmit()" class="btn-save">Save</button>
+                    <button
+                      (click)="GetEmpKYCInfo()"
+                      [disabled]="preLoader2"
+                      class="reset btn-reset"
+                    >
+                      <!-- <p-progressSpinner class='resetPreloader' [style]="{width: '15px', height: '15px'}"
+*ngIf='preLoader2'>
+</p-progressSpinner> -->
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="profileNavCont">
+            <!-- <app-preloader *ngIf="isLoading3" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>Dependent(s) Details</h4>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+                    ><img src="assets/images/profile/edit.svg" alt="edit"
+                  /></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="isLoading3"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('fatherName') ? 'validation-error' : ''
+                      "
+                      >Father's Name
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      OnlyText
+                      [(ngModel)]="empDependentInfo.fatherName"
+                      autocomplete="doNotAutoComplete"
+                      type="text"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label>Father's DOB</label>
+                    <input
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="empDependentInfo.fatherDOB"
+                      autocomplete="doNotAutoComplete"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('motherName') ? 'validation-error' : ''
+                      "
+                      >Mother's Name
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      OnlyText
+                      [(ngModel)]="empDependentInfo.motherName"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label>Mother's DOB</label>
+                    <input
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="empDependentInfo.motherDOB"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+                  <li>
+                    <label>Spouse Name</label>
+                    <input
+                      OnlyText
+                      [(ngModel)]="empDependentInfo.spouceName"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      >Spouse DOB<small class="field_required"></small
+                    ></label>
+                    <input
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="empDependentInfo.spouceDOB"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+                  <li>
+                    <label>Child1 Name</label>
+                    <input
+                      OnlyText
+                      [(ngModel)]="empDependentInfo.child1Name"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      >Child1 DOB<small class="field_required"></small
+                    ></label>
+                    <input
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="empDependentInfo.child1DOB"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+                  <li>
+                    <label>Child2 Name</label>
+                    <input
+                      OnlyText
+                      [(ngModel)]="empDependentInfo.child2Name"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      >Child2 DOB<small class="field_required"></small
+                    ></label>
+                    <input
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="empDependentInfo.child2DOB"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button (click)="dependentSubmit()" class="btn-save">
+                      Save
+                    </button>
+                    <button
+                      (click)="GetEmpDependentInfo()"
+                      [disabled]="preLoader3"
+                      class="reset btn-reset"
+                    >
+                      <!-- <p-progressSpinner class='resetPreloader' [style]="{width: '15px', height: '15px'}"
+                        *ngIf='preLoader3'>
+                      </p-progressSpinner> -->
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="currentTab == 'AD'"
+          [ngClass]="currentTab == 'AD' ? 'active' : ''"
+          id="tab2"
+        >
+          <div class="profileNavCont">
+            <!-- <app-preloader *ngIf="isLoading4" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>Employment Details</h4>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+                    ><img src="assets/images/profile/edit.svg" alt="edit"
+                  /></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="isLoading4"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li>
+                    <label
+                      >Associate ID
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empAssociateInfo.associateId"
+                      type="text"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('associateId')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('associateId')"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      >Employment <small class="field_required">*</small></label
+                    >
+                    <select
+                      [(ngModel)]="empAssociateInfo.employmentTypeID"
+                      [ngClass]="
+                        !checkPreviligies('employmentTypeID')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('employmentTypeID')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('EmploymentType')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label>Track <small class="field_required">*</small></label>
+                    <select
+                      [(ngModel)]="empAssociateInfo.track"
+                      [ngClass]="
+                        !checkPreviligies('track') ? 'select-disabled' : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('track')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of subTracks"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      >Designation
+                      <small class="field_required">*</small></label
+                    >
+                    <select
+                      [(ngModel)]="empAssociateInfo.designation_Id"
+                      [ngClass]="
+                        !checkPreviligies('designation_Id')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('designation_Id')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('Designations')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <!-- BTU -->
+
+                  <li>
+                    <label>BTU <small class="field_required">*</small></label>
+                    <select
+                      [(ngModel)]="empAssociateInfo.btuId"
+                      [ngClass]="
+                        !checkPreviligies('btuId') ? 'select-disabled' : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('btuId')"
+                      (change)="mulitselectChange('BTU', $event)"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('BTU')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <!-- Practice -->
+                  <li>
+                    <label
+                      >Practice <small class="field_required">*</small></label
+                    >
+                    <p-multiSelect
+                      [maxSelectedLabels]="1"
+                      [ngClass]="
+                        !checkPreviligies('Practice') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('Practice')"
+                      styleClass="sub_practice_class"
+                      (onChange)="mulitselectChange('PracticeList', $event)"
+                      [options]="PracticeList"
+                      [(ngModel)]="selectedPracticeList"
+                      optionLabel="text"
+                      optionValue="id"
+                    ></p-multiSelect>
+                    <div class="showmore">
+                      <span>See All</span>
+                      <div class="seealllist">
+                        <ul>
+                          <li *ngFor="let a of selectedPracticeList">
+                            {{ a.text }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+
+                  <!-- zSub Practice -->
+                  <li>
+                    <label
+                      >Sub Practice
+                      <small class="field_required">*</small></label
+                    >
+                    <p-multiSelect
+                      [maxSelectedLabels]="1"
+                      [ngClass]="
+                        !checkPreviligies('Practice') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('Practice')"
+                      styleClass="sub_practice_class"
+                      (onChange)="mulitselectChange('SubPracticeList', $event)"
+                      [options]="SubPracticeList"
+                      [(ngModel)]="selectedSubPracticeList"
+                      optionLabel="text"
+                      optionValue="id"
+                    ></p-multiSelect>
+
+                    <div class="showmore">
+                      <span>See All</span>
+                      <div class="seealllist">
+                        <ul>
+                          <li *ngFor="let a of selectedSubPracticeList">
+                            {{ a.text }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+
+                  <!-- Competency -->
+                  <li>
+                    <label
+                      >Competency <small class="field_required">*</small></label
+                    >
+                    <!-- <select [(ngModel)]="empAssociateInfo.practiceLeadId" >
+                                                <option value="">Select</option>
+                                                <option *ngFor="let dropdown of CompetencyList"
+                                                    value="{{ dropdown.value }}">
+                                                    {{ dropdown.text }}
+                                                </option>
+                                            </select> -->
+                    <p-multiSelect
+                      [maxSelectedLabels]="1"
+                      [ngClass]="
+                        !checkPreviligies('Practice') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('Practice')"
+                      styleClass="sub_practice_class"
+                      (onChange)="mulitselectChange('CompetencyList', $event)"
+                      [options]="CompetencyList"
+                      [(ngModel)]="selectedCompetencyList"
+                      optionLabel="text"
+                      optionValue="id"
+                    ></p-multiSelect>
+                    <div class="showmore">
+                      <span>See All</span>
+                      <div class="seealllist">
+                        <ul>
+                          <li *ngFor="let a of selectedCompetencyList">
+                            {{ a.text }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <label
+                      >Location <small class="field_required">*</small></label
+                    >
+                    <select
+                      (change)="dropDownChange('Location', $event)"
+                      [(ngModel)]="empAssociateInfo.location"
+                      [ngClass]="
+                        !checkPreviligies('location') ? 'select-disabled' : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('location')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('Location')"
+                        value="{{ dropdown.name }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      >Sub Location
+                      <small class="field_required">*</small></label
+                    >
+                    <select
+                      [ngClass]="
+                        !checkPreviligies('subLocations')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('subLocations')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of subLocations"
+                        value="{{ dropdown.name }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+                  <li>
+                    <label
+                      >EP Access Role
+                      <small class="field_required">*</small></label
+                    >
+                    <select
+                      [(ngModel)]="empAssociateInfo.role_Id"
+                      [ngClass]="
+                        !checkPreviligies('rolE_NAME') ? 'select-disabled' : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('rolE_NAME')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('EPAccessRole')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      >Reporting Manager
+                      <small class="field_required">*</small></label
+                    >
+                    <select
+                      [(ngModel)]="empAssociateInfo.report_Manager_Id"
+                      [ngClass]="
+                        !checkPreviligies('report_Manager_Id')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('report_Manager_Id')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('Manager')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label>Band <small class="field_required">*</small></label>
+                    <select
+                      [(ngModel)]="empAssociateInfo.band"
+                      [ngClass]="
+                        !checkPreviligies('band') ? 'select-disabled' : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('band')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('Band')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+                  <li>
+                    <label>HRBP<small class="field_required">*</small></label>
+                    <select
+                      [(ngModel)]="empAssociateInfo.buddyId"
+                      [ngClass]="
+                        !checkPreviligies('buddyId') ? 'select-disabled' : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('buddyId')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('Buddy')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      >Company <small class="field_required">*</small></label
+                    >
+                    <select
+                      [(ngModel)]="empAssociateInfo.company_Id"
+                      [ngClass]="
+                        !checkPreviligies('Company') ? 'select-disabled' : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('Company')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('Company')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      >Experience <small class="field_required">*</small></label
+                    >
+                    <input
+                      [ngClass]="
+                        !checkPreviligies('experience') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('experience')"
+                      [(ngModel)]="empAssociateInfo.experience"
+                      type="text"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      >Probition Status
+                      <small class="field_required">*</small></label
+                    >
+                    <select
+                      [(ngModel)]="empAssociateInfo.probitionStatus"
+                      [ngClass]="
+                        !checkPreviligies('probitionStatus')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('probitionStatus')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('ProfileStatus')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.id }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      >Performance Assessment Persona
+                      <small class="field_required">*</small></label
+                    >
+                    <select [(ngModel)]="empAssociateInfo.paPersona">
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('PAPersona')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li *ngIf="empAssociateInfo.location == 'US'">
+                    <label
+                      >H1B Link <small class="field_required">*</small></label
+                    >
+                    <select
+                      [(ngModel)]="empAssociateInfo.lcaAssociateId"
+                      [ngClass]="
+                        !checkPreviligies('lcaAssociateId')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('lcaAssociateId')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('H1B')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li></li>
+                  <li></li>
+                  <li></li>
+
+                  <li *ngIf="userType == 'hr'">
+                    <button
+                      (click)="getEmpAssociateInfo()"
+                      class="reset btn-reset"
+                    ></button>
+                    <button (click)="PutEmpAssociateInfo()" class="btn-save">
+                      Save
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="currentTab == 'CI'"
+          [ngClass]="currentTab == 'CI' ? 'active' : ''"
+          id="tab3"
+        >
+          <div class="profileNavCont">
+            <!-- <app-preloader *ngIf="isLoading5" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>Emergency Contact</h4>
+              </div>
+              <mat-progress-bar
+                *ngIf="isLoading5"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('emContactPerson') ? 'validation-error' : ''
+                      "
+                      >EM Contact Person
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      OnlyText
+                      [(ngModel)]="empEmergancyContactInfo.emContactPerson"
+                      type="text"
+                      [ngClass]="
+                        !checkPreviligies('emContactPerson')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('emContactPerson')"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('emContactNumber1') ? 'validation-error' : ''
+                      "
+                      >EM Contact Num 1
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empEmergancyContactInfo.emContactNumber1"
+                      type="number"
+                      [ngClass]="
+                        !checkPreviligies('emContactNumber1')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('emContactNumber1')"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('emContactNumber2') ? 'validation-error' : ''
+                      "
+                      >EM Contact Num 2
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empEmergancyContactInfo.emContactNumber2"
+                      type="number"
+                      [ngClass]="
+                        !checkPreviligies('emContactNumber2')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('emContactNumber2')"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label>LinkedIn Id</label>
+                    <input
+                      [(ngModel)]="empEmergancyContactInfo.linkdlnId"
+                      type="text"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('linkdlnId') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('linkdlnId')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('emContactRelation') ? 'validation-error' : ''
+                      "
+                      >EM Contact Relation
+                      <small class="field_required">*</small></label
+                    >
+                    <select
+                      [(ngModel)]="empEmergancyContactInfo.emContactRelation"
+                      [ngClass]="
+                        !checkPreviligies('emContactRelation')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('emContactRelation')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="
+                          let dropdown of getMetaValues('EmergencyRelation')
+                        "
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li></li>
+                  <li></li>
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button
+                      class="reset"
+                      class="reset btn-reset"
+                      (click)="getEmpEmergancyContactInfo()"
+                    ></button>
+                    <button (click)="contactSubmit()" class="btn-save">
+                      Save
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="profileNavCont">
+            <!-- <app-preloader *ngIf="isLoading6" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>Present Address</h4>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+                    ><img src="assets/images/profile/edit.svg" alt="edit"
+                  /></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="isLoading6"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('pres_AddressLine1') ? 'validation-error' : ''
+                      "
+                      >Address Line 1
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.pres_AddressLine1"
+                      type="text"
+                      [ngClass]="
+                        !checkPreviligies('pres_AddressLine1')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('pres_AddressLine1')"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label>Address Line 2</label>
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.pres_AddressLine2"
+                      type="text"
+                      [ngClass]="
+                        !checkPreviligies('pres_AddressLine2')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('pres_AddressLine2')"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('pres_City') ? 'validation-error' : ''
+                      "
+                      >City <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.pres_City"
+                      type="text"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('pres_City') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('pres_City')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('pres_State') ? 'validation-error' : ''
+                      "
+                      >State <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.pres_State"
+                      type="text"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('pres_State') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('pres_State')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('pres_ZIPCode') ? 'validation-error' : ''
+                      "
+                      >ZIP Code <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.pres_ZIPCode"
+                      type="number"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('pres_ZIPCode')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('pres_ZIPCode')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li></li>
+                  <li></li>
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button
+                      class="reset btn-reset"
+                      (click)="GetEmpPresentAddressInfo()"
+                    ></button>
+                    <button (click)="contactSubmit1()" class="btn-save">
+                      Save
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="profileNavCont">
+            <!-- <app-preloader *ngIf="isLoading7" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>Permanent Address</h4>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+                    ><img src="assets/images/profile/edit.svg" alt="edit"
+                  /></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="isLoading7"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('perm_AddressLine1') ? 'validation-error' : ''
+                      "
+                      >Address Line 1
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.perm_AddressLine1"
+                      type="text"
+                      [ngClass]="
+                        !checkPreviligies('perm_AddressLine1')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('perm_AddressLine1')"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label>Address Line 2</label>
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.perm_AddressLine2"
+                      type="text"
+                      [ngClass]="
+                        !checkPreviligies('perm_AddressLine2')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('perm_AddressLine2')"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('perm_City') ? 'validation-error' : ''
+                      "
+                      >City <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.perm_City"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      [ngClass]="
+                        !checkPreviligies('perm_City') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('perm_City')"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('perm_State') ? 'validation-error' : ''
+                      "
+                      >State <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.perm_State"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      [ngClass]="
+                        !checkPreviligies('perm_State') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('perm_State')"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('perm_ZIPCode') ? 'validation-error' : ''
+                      "
+                      >ZIP Code <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empPresentAddressInfo.perm_ZIPCode"
+                      type="number"
+                      [ngClass]="
+                        !checkPreviligies('perm_ZIPCode')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('perm_ZIPCode')"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li></li>
+                  <li></li>
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button
+                      class="reset btn-reset"
+                      (click)="GetEmpPresentAddressInfo()"
+                    ></button>
+                    <button (click)="contactSubmit2()" class="btn-save">
+                      Save
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="currentTab == 'EI'"
+          [ngClass]="currentTab == 'EI' ? 'active' : ''"
+          id="tab4"
+        >
+          <div class="profileNavCont">
+            <!-- <app-preloader *ngIf="isLoading8" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>Highest Qualification</h4>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+                    ><img src="assets/images/profile/edit.svg" alt="edit"
+                  /></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="isLoading8"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('highQualification') ? 'validation-error' : ''
+                      "
+                      >Highest Qualification<small class="field_required"
+                        >*</small
+                      ></label
+                    >
+                    <select
+                      [(ngModel)]="empEducationInfo.highQualification"
+                      [ngClass]="
+                        !checkPreviligies('highQualification')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [attr.readonly]="!checkPreviligies('highQualification')"
+                    >
+                      <option value="">Select</option>
+                      <option
+                        *ngFor="let dropdown of getMetaValues('QUALIFICATION')"
+                        value="{{ dropdown.id }}"
+                      >
+                        {{ dropdown.name }}
+                      </option>
+                    </select>
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('qualificationYear') ? 'validation-error' : ''
+                      "
+                      >Year <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empEducationInfo.qualificationYear"
+                      type="number"
+                      [ngClass]="
+                        !checkPreviligies('qualificationYear')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('qualificationYear')"
+                      onKeyPress="if(this.value.length==4) return false;"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('institute') ? 'validation-error' : ''
+                      "
+                      >Institute/College
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empEducationInfo.institute"
+                      type="text"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('institute') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('institute')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('university') ? 'validation-error' : ''
+                      "
+                      >University <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empEducationInfo.university"
+                      type="text"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('university') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('university')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button
+                      class="reset btn-reset"
+                      (click)="getEmpEducationInfo()"
+                    ></button>
+                    <button (click)="eduSubmit()" class="btn-save">Save</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="profileNavCont">
+            <!-- <app-preloader *ngIf="isLoading9" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>Academic</h4>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+                    ><img src="assets/images/profile/edit.svg" alt="edit"
+                  /></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="isLoading9"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('percentage_10th') ? 'validation-error' : ''
+                      "
+                      >10th(%)<small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empEducationInfo.percentage_10th"
+                      type="number"
+                      [ngClass]="
+                        !checkPreviligies('percentage_10th')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('percentage_10th')"
+                      onKeyPress="if(this.value.length==2) return false;"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('percentage_12th') ? 'validation-error' : ''
+                      "
+                      >12th(%) <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empEducationInfo.percentage_12th"
+                      [ngClass]="
+                        !checkPreviligies('percentage_12th')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('percentage_12th')"
+                      onKeyPress="if(this.value.length==2) return false;"
+                      type="number"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('percentage_Degree') ? 'validation-error' : ''
+                      "
+                      >Bachelors(%)
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="empEducationInfo.percentage_Degree"
+                      type="number"
+                      [ngClass]="
+                        !checkPreviligies('percentage_Degree')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('percentage_Degree')"
+                      onKeyPress="if(this.value.length==2) return false;"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('percentage_Masters') ? 'validation-error' : ''
+                      "
+                      >Masters(%)</label
+                    >
+                    <input
+                      [(ngModel)]="empEducationInfo.percentage_Masters"
+                      type="number"
+                      [ngClass]="
+                        !checkPreviligies('percentage_Masters')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('percentage_Masters')"
+                      onKeyPress="if(this.value.length==2) return false;"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li></li>
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button
+                      class="reset btn-reset"
+                      (click)="getEmpEducationInfo()"
+                    ></button>
+                    <button (click)="eduSubmit1()" class="btn-save">
+                      Save
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="currentTab == 'CRT'"
+          [ngClass]="currentTab == 'CRT' ? 'active' : ''"
+          id="tab5"
+        >
+
+        <div class="profileNavCont">
+          <div class="peronalCont">
+            <div
+            class="peronalHeadEdit d-flex justify-content-between align-items-center"
+          >
+            <h4>Resume</h4>
+          </div>
+            <!-- <mat-progress-bar
+              *ngIf="c.isLoading"
+              mode="indeterminate"
+            ></mat-progress-bar> -->
+            <div class="personalContForm">
+              <div class="row m-0 p-0">
+                <div class="col-6">
+                  <label
+                    [ngClass]="
+                      hasError('resumePath') ? 'validation-error' : ''
+                    "
+                    >Upload CV <small class="field_required">*</small>
+                    <a href="https://suneratechnologies.sharepoint.com/:w:/s/HRBP/EVy_XzfC5c1HtcXoFZFQE4ABBJfyOLPwfcmrFMP7Kn6CLQ?e=4fq1ho&CID=7316F86A-8F1B-4195-BDCA-87354BB5A702&isSPOFile=1&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMjA5MDQwMDcxMiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D" target="_blank">
+                      ( Sunera Sample Resume Format )
+                    </a>
+                    </label
+                  >
+                  <div class="frow">
+                    <div class="f-left">
+                      <input
+                        class="form-control-skill form-control-skill-file"
+                        [ngClass]="
+                          !checkPreviligies('resumePath')
+                            ? 'select-disabled'
+                            : ''
+                        "
+                        (change)="uploadAdhaar(personalInfo, $event, 'CV',i=0)"
+                        type="file"
+                        accept="application/pdf,application/msword"
+                        name="file"
+                      />
+                      <!-- [(ngModel)]="personalInfo.resumePath" -->
+                      <input
+                        value="{{ getfileName(personalInfo.resumePath) }}"
+                        class="self_resume"
+                        type="text"
+                        name="text"
+                        disabled
+                      />
+                    </div>
+                    <div
+                      class="btn-upload f-right"
+                      *ngIf="personalInfo.resumePath"
+                    >
+                      <a
+                        mat-menu-item
+                        target="_blank"
+                        href="https://{{
+                          personalInfo.resumePath
+                            ? personalInfo.resumePath
+                            : 'javascript:void(0)'
+                        }}"
+                      >
+                        <span class="download_icn">
+                          <i _ngcontent-vnv-c10="" class="fa fa-download"></i
+                        ></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row m-0 p-0">
+                <div class="offset-lg-11">
+                  <button class="btnsave-skill" (click)="updateResume()">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profileNavCont">
+            <div class="peronalCont">
+              <div
+              class="peronalHeadEdit d-flex justify-content-between align-items-center">
+              <h4>Primary Skills & Secondary Skills</h4>
+            </div>
+              <div class="personalContForm">
+                <div class="row m-0 p-0">
+                  <form [formGroup]="skillForm" (ngSubmit) = "SaveSkills()" style="width:100%;">
+                  <!-- <div class="m-b-12"> -->
+                    <table  class="table">
+                      <thead>
+                        <tr>
+                            <th scope="col">Skills</th>
+                            <th scope="col">Version</th>
+                            <th scope="col">Level</th>
+                            <th scope="col">Experience</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody formArrayName="skills" *ngFor="let skill of skillForm.get('skills').controls; let i = index" style="border-top: none;">
+                      <tr [formGroupName]="i">
+                          <td>
+                            <input type="text" class="form-control" [id]="'skill' + i" placeholder="skill"  formControlName="skillSet">
+                            <div *ngIf="skill.get('skillSet').errors?.required &&
+                                    skill.get('skillSet').touched">
+                                    Skill is required
+                            </div>
+                          </td>
+                          <td>
+                            <input type="text" class="form-control" [id]="'version' + i" placeholder="version"  formControlName="skillVersion">
+                            <div *ngIf="skill.get('skillVersion').errors?.required &&
+                                    skill.get('skillVersion').touched">
+                                    version is required
+                            </div>
+                          </td>
+                          <td>
+                            <select class="custom-select select2" class="form-control" id="'level' + i" formControlName="skillLevel">
+                              <option value="Beginner">Beginner</option>
+                              <option value="Intermediate">Intermediate</option>
+                              <option value="Expert">Expert</option>
+                          </select>
+                            <div *ngIf="skill.get('skillLevel').errors?.required &&
+                                    skill.get('skillLevel').touched">
+                                    level is required
+                            </div>
+                          </td>
+                          <td>
+                            <input type="number" class="form-control" [id]="'experience' + i" placeholder="experience"  formControlName="skillExperience">
+                            <div *ngIf="skill.get('skillExperience').errors?.required &&
+                                    skill.get('skillExperience').touched">
+                                    experience is required
+                            </div>
+                          </td>
+                          <td>
+                          <div style="display:flex;">
+                            <button type="button" class="btn btn-success" (click)="addProductButtonClick()" style="width: 38px;border-radius: 50%;"><i class="fa fa-plus"></i></button>&nbsp; &nbsp;
+                            <button type="button" class="btn btn-danger" (click)="delete(i)" style="border-radius: 50%;">
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </div>
+                          </td>
+                      </tr>
+                    </tbody>
+                    </table>
+                <!-- </div> -->
+                <div class="row m-0 p-0" style="float: right">
+                  <div class="offset-lg-16" style="position: relative;left:-32px;">
+                    <button class="btn btn-success" [disabled]="skillForm.invalid" style="width: 63px;">Save</button>
+                  </div>
+                </div>
+                <div *ngIf="successMessage" class="message text-success" style="text-align: -webkit-center;font-weight: bolder;
+                font-size: larger;">{{successMessage}}</div>
+                <div *ngIf="errorMessage" class="message text-danger" style="text-align: -webkit-center;font-weight: bolder;
+                font-size: larger;">{{errorMessage}}</div>
+                  </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="profileNavCont">
+            <div class="peronalCont">
+              <div
+              class="peronalHeadEdit d-flex justify-content-between align-items-center">
+               <h4>Functinal Skills</h4>
+            </div>
+            <div class="personalContForm">
+              <div class="row m-0 p-0">
+                <form [formGroup]="functionalForm" (ngSubmit) = "SaveFunctionalSkills()" style="width:100%;">
+                <!-- <div class="m-b-12"> -->
+                  <table  class="table">
+                    <thead>
+                      <tr>
+                          <th scope="col" style="width: 250px;">Skills</th>
+                          <th scope="col">Category</th>
+                          <th scope="col">Level</th>
+                          <th scope="col">Experience</th>
+                          <th scope="col">Action</th>
+                      </tr>
+                  </thead>
+                  <tbody formArrayName="skills" *ngFor="let skill of functionalForm.get('skills').controls; let i = index" style="border-top: none;">
+                    <tr [formGroupName]="i">
+                        <td>
+                          <select class="custom-select select2" class="form-control" [id]="'skill' + i" formControlName="functionalSkill" (change)="setCategory($event.target.value,i)">
+                            <option *ngFor="let value of functionalValues" [value]="value.skillSet">{{value.skillSet}}</option>
+                        </select>
+                          <div *ngIf="skill.get('functionalSkill').errors?.required &&
+                                  skill.get('functionalSkill').touched">
+                                  Functional Skill is required
+                          </div>
+                        </td>
+                        <td>
+                          <input type="text" class="form-control" [id]="'category' + i" placeholder="category"  formControlName="category" style="background-color: #dddddd !important;">
+                        </td>
+                        <td>
+                          <select class="custom-select select2" class="form-control" id="'level' + i" formControlName="skillLevel">
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Expert">Expert</option>
+                        </select>
+                          <div *ngIf="skill.get('skillLevel').errors?.required &&
+                                  skill.get('skillLevel').touched">
+                                  level is required
+                          </div>
+                        </td>
+                        <td>
+                          <input type="number" class="form-control" [id]="'experience' + i" placeholder="experience"  formControlName="skillExperience">
+                          <div *ngIf="skill.get('skillExperience').errors?.required &&
+                                  skill.get('skillExperience').touched">
+                                  experience is required
+                          </div>
+                        </td>
+                        <td>
+                        <div style="display:flex;">
+                          <button type="button" class="btn btn-success" (click)="addFunctionalProductButtonClick()" style="width: 38px;border-radius: 50%;"><i class="fa fa-plus"></i></button>&nbsp; &nbsp;
+                          <button type="button" class="btn btn-danger" (click)="deleteFunctional(i)" style="border-radius: 50%;">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </div>
+                        </td>
+                    </tr>
+                  </tbody>
+                  </table>
+              <!-- </div> -->
+              <div class="row m-0 p-0" style="float: right">
+                <div class="offset-lg-16" style="position: relative;left:-32px;">
+                  <button class="btn btn-success" [disabled]="functionalForm.invalid" style="width:63px;">Save</button>
+                </div>
+              </div>
+              <div *ngIf="functionalSuccessMessage" class="message text-success" style="text-align: -webkit-center;font-weight: bolder;
+              font-size: larger;">{{functionalSuccessMessage}}</div>
+              <div *ngIf="functionalErrorMessage" class="message text-danger" style="text-align: -webkit-center;font-weight: bolder;
+              font-size: larger;">{{functionalErrorMessage}}</div>
+                </form>
+            </div>
+          </div>
+              </div>
+            </div>
+          </div>
+        
+
+         
+          <div *ngIf="userType != 'manager' && userType != 'finance'">
+             <span>Certifications</span> 
+            <button class="addBtn f-right" (click)="addCert()">Add Certificate</button>
+          </div>
+
+          <div>
+            <mat-progress-bar
+              *ngIf="isLoading10"
+              mode="indeterminate"
+            ></mat-progress-bar>
+          </div>
+          <div class="profileNavCont" *ngFor="let c of empCertificationInfo; let i = index">
+            <!-- <app-preloader *ngIf="isLoading10" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>{{ c.certificateName }}</h4>
+                <span
+                  *ngIf="userType != 'manager' && userType != 'finance'"
+                  (click)="confirm('CRT', c)"
+                  href="#"
+                >
+                  <span class="delete_operation"> </span>
+                </span>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+                    ><img src="assets/images/profile/edit.svg" alt="edit"
+                  /></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="c.isLoading"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('certificateName') ? 'validation-error' : ''
+                      "
+                      >Certificate Name
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="c.certificateName"
+                      [ngClass]="
+                        !checkPreviligies('certificateName')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('certificateName')"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('institutionName') ? 'validation-error' : ''
+                      "
+                      >Institution Name
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="c.institutionName"
+                      [ngClass]="
+                        !checkPreviligies('institutionName')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('institutionName')"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="hasError('grade') ? 'validation-error' : ''"
+                      >Grade <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="c.grade"
+                      [ngClass]="
+                        !checkPreviligies('grade') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('grade')"
+                      type="text"
+                      name="text"
+                      autocomplete="doNotAutoComplete"
+                      placeholder=""
+                    />
+                  </li>
+                  <li> </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('certifiedOn') ? 'validation-error' : ''
+                      "
+                      >Certified On
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="c.certifiedOn"
+                      type="date"
+                      class="dateInput"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('certifiedOn')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('certifiedOn')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder="MM/YY"
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('valid_Upto') ? 'validation-error' : ''
+                      "
+                      >Valid Upto <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="c.valid_Upto"
+                      type="date"
+                      class="dateInput"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('valid_Upto') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('valid_Upto')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder="MM/YY"
+                    />
+                  </li>
+                 
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('profile_Picture') ? 'validation-error' : ''
+                      "
+                      >Upload Certificate
+                      <small class="field_required">*</small></label
+                    >
+                    <div class="frow">
+                      <div class="f-left">
+                        <input  (change)="uploadAdhaar(personalInfo, $event, 'Certificate',i)"  type="file"  name="file"/>
+                        <input [(ngModel)]="c.fileName" class="noPadding" type="text" name="text" disabled />
+                      </div>
+
+                      <div class="btn-upload f-right"
+                        *ngIf="
+                          personalInfo.profile_Picture
+                            ? personalInfo.profile_Picture
+                            : 'javascript:void(0)'
+                        " >
+                        <a mat-menu-item target="_blank" href="https://{{c.certificateFilePath}}" download="test.jpg">
+                          <span class="download_icn"> <i _ngcontent-vnv-c10="" class="fa fa-download"></i></span>
+                        </a>
+                      </div>
+
+                    </div>
+                  </li>
+                 <li></li>
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button
+                      class="reset btn-reset"
+                      (click)="getEmpCertificationInfo()"
+                    ></button>
+                    <button (click)="crtSubmit(c)" class="btn-save">
+                      Save
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="currentTab == 'PE'"
+          [ngClass]="currentTab == 'PE' ? 'active' : ''"
+          id="tab6"
+        >
+          <div
+            class="text-right"
+            *ngIf="userType != 'manager' && userType != 'finance'"
+          >
+            <button class="addBtn m-t-10" (click)="addEmployer()">
+              Add Employment
+            </button>
+          </div>
+          <div>
+            <mat-progress-bar
+              *ngIf="isLoading11"
+              mode="indeterminate"
+            ></mat-progress-bar>
+          </div>
+          <div
+            class="profileNavCont"
+            *ngFor="let c of empPreviousOrganizations"
+          >
+            <!-- <app-preloader *ngIf="isLoading11" loderType="square"></app-preloader> -->
+            <div class="peronalCont">
+              <div
+                class="peronalHeadEdit d-flex justify-content-between align-items-center"
+              >
+                <h4>{{ c.organization_Name }}</h4>
+                <span
+                  *ngIf="userType != 'manager' && userType != 'finance'"
+                  (click)="confirm('ORG', c)"
+                  href="#"
+                >
+                  <span class="delete_operation"> </span>
+                </span>
+                <!--  <a  *ngIf="userType != 'manager'" href="javascript:void(0)"
+                    ><img src="assets/images/profile/edit.svg" alt="edit"
+                  /></a> -->
+              </div>
+              <mat-progress-bar
+                *ngIf="c.isLoading"
+                mode="indeterminate"
+              ></mat-progress-bar>
+              <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('valid_Upto') ? 'validation-error' : ''
+                      "
+                      >Organization Name
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="c.organization_Name"
+                      [ngClass]="
+                        !checkPreviligies('organization_Name')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('organization_Name')"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('designation') ? 'validation-error' : ''
+                      "
+                      >Designation
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="c.designation"
+                      [ngClass]="
+                        !checkPreviligies('designation')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('designation')"
+                      type="text"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('from_Date') ? 'validation-error' : ''
+                      "
+                      >From <small class="field_required">*</small></label
+                    >
+                    <input
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="c.from_Date"
+                      [ngClass]="
+                        !checkPreviligies('from_Date') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('from_Date')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+
+                  <li>
+                    <label
+                      [ngClass]="hasError('to_Date') ? 'validation-error' : ''"
+                      >To <small class="field_required">*</small></label
+                    >
+                    <input
+                      type="date"
+                      class="dateInput"
+                      [(ngModel)]="c.to_Date"
+                      [ngClass]="
+                        !checkPreviligies('to_Date') ? 'select-disabled' : ''
+                      "
+                      [readonly]="!checkPreviligies('to_Date')"
+                      autocomplete="doNotAutoComplete"
+                      placeholder="MM/DD/YY"
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('reference_Name') ? 'validation-error' : ''
+                      "
+                      >Reference Name
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="c.reference_Name"
+                      type="text"
+                      [ngClass]="
+                        !checkPreviligies('reference_Name')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('reference_Name')"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      placeholder=""
+                    />
+                  </li>
+                  <li>
+                    <label
+                      [ngClass]="
+                        hasError('reference_Contact') ? 'validation-error' : ''
+                      "
+                      >Reference Contact
+                      <small class="field_required">*</small></label
+                    >
+                    <input
+                      [(ngModel)]="c.reference_Contact"
+                      type="number"
+                      autocomplete="doNotAutoComplete"
+                      name="text"
+                      [ngClass]="
+                        !checkPreviligies('reference_Contact')
+                          ? 'select-disabled'
+                          : ''
+                      "
+                      [readonly]="!checkPreviligies('reference_Contact')"
+                      placeholder=""
+                    />
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li *ngIf="userType != 'manager' && userType != 'finance'">
+                    <button (click)="preOrgSubmit(c)" class="btn-save">
+                      Save
+                    </button>
+                    <button
+                      class="reset btn-reset"
+                      (click)="getEmpPreviousOrganizations()"
+                    ></button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-confirmDialog
+  header="Confirmation Alert!"
+  icon="pi pi-exclamation-triangle"
+></p-confirmDialog>
+
+<p-overlayPanel #op>
+  <div style="width: 100; height: 300; background-color: red"></div>
+</p-overlayPanel>

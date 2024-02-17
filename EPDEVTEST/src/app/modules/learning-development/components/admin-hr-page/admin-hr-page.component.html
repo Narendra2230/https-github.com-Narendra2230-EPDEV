@@ -1,0 +1,85 @@
+<div class="learning-training">
+  <div class="container">
+    <div class="row m-0 p-0 p-b-3">
+      <div class="col-8 pageTitle">
+        <h4>HR Dashboard</h4>
+      </div>
+      <div class="col-4 text-right">
+        <a class="bak_dashboard" routerlink="/associate-learning" >Back to Dashboard</a>
+      </div>
+    </div>
+
+    <div class="enroll-courses">
+      <div class="row">
+        <div class="card">
+          <div class="card-body">
+            <div class="row m-0 p-0 mb-2">
+              <div class="col-9">
+                <h4>Courses</h4>
+              </div>
+              <div class="col-3">
+                <input type="search" class="form-control" placeholder="Search" (keyup)="searchFun()" [(ngModel)]="searchKeyword">
+              </div>
+            </div>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Sr</th>
+                  <th>Title</th>
+                  <th>Trainer</th>
+                  <th>Type</th>
+                  <th>Duration</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Enrollment</th>
+                  <th>Completed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of ListOfCourse; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ item.title }}</td>
+                  <td>{{ item.trainer }}</td>
+                  <td>{{ item.courseType }}</td>
+                  <td>{{ item.duration }}</td>
+                  <td>{{ item.date | date: "dd MMM yyyy" }}</td>
+                  <td>
+                    {{ item.startTime | time24to12 }} -
+                    {{ item.endTime | time24to12 }}
+                  </td>
+                  <th>{{item.enrollment}}</th>
+                  <th>{{item.completed}}</th>
+                  <td>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                     role="switch"
+                      id="flexSwitchCheckChecked"
+                      checked
+                      *ngIf="item.courseStatus"
+                    />
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="flexSwitchCheckChecked"
+                      *ngIf="!item.courseStatus"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination float-right">
+                <li class="page-item" *ngFor="let item of PaginationList">
+                  <a class="page-link" (click)="navClick(item)">{{item}}</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,5 @@
+.goals_table_main {
+    max-height: 300px;
+    overflow: auto;
+    margin-bottom: 100px;
+}

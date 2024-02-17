@@ -1,0 +1,54 @@
+.error_txt{
+    color: #fb8181
+}
+
+.kpi{
+    font-size: 13px;
+}
+
+.kpi_des{
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .kpi_dec{
+    margin-bottom: 25px;
+    overflow: auto;
+    height: 45px;
+  }
+
+  .green_border{
+    border-color: #71c285;
+    color: #71c285;
+  }
+
+  .red_border{
+    border-color: #fb8181;
+    color: #fb8181;
+  }
+
+  .obj-KPI-note{
+    font-size: 10px;
+    font-family: 'latoregular';    
+  }
+
+  .opgp_weitage_val{
+    border-left: 0.5px dotted #e9ebfa;
+  }
+
+  .final_score{
+    font-family: 'poppins_lightregular';
+    font-size: 12px;
+    text-align: right;
+    padding-bottom: 23px;
+    color: #4a4a4a;
+  }
+
+  .pad-right-0{
+    padding-right:0px;
+  }
+
+  .score_card{
+    font-family: 'poppins_lightregular';
+    font-size: 12px;
+  }

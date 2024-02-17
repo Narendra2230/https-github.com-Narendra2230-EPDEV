@@ -1,0 +1,150 @@
+<div class="time_sheet profileSheet">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="/modules/#/profile-landing">Profile</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Project Allocations</a></li>
+          </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <div class="time_sheet_heading row pad-3">
+        <div class="profileInnerHead d-flex justify-content-center align-items-center">
+            <div class="profileImage">
+                <img src="assets/images/project-allocations/project-allocations.svg" alt="insurance" />
+            </div>
+            <h4>Project Allocations</h4>
+            <div class="backProfile">
+                <a [routerLink]="getRout()">
+          Back to list
+        </a>
+            </div>
+        </div>
+    </div>
+    <!-- time_sheet_heading-End-->
+
+    <div class="profileFullInfo">
+        <div class="profileFullInfoIn">
+            <div class="profileHeadNav">
+                <ul class="d-flex justify-content-start">
+                    <li [ngClass]="currentTab == 'RA' ? 'active' : ''">
+                        <a (click)="tabClick('RA',$event)">Recent Allocations</a>
+                    </li>
+
+                    <li [ngClass]="currentTab == 'AH' ? 'active' : ''">
+                        <a (click)="tabClick('AH',$event)">Allocation History</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <br/>
+                <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+            </div>
+            <div class="tabscontent">
+                <div id="tab1" *ngIf="currentTab == 'RA'" [ngClass]="currentTab == 'RA' ? 'active' : ''">
+               
+            <div class="profileNavCont" *ngFor="let pr of empAllocationDetails; let ii = index">
+                <!-- <app-preloader *ngIf="isLoading" loderType="square" ></app-preloader> -->
+                <div class="peronalCont">
+                    <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+                        <h4>{{ pr.project }}</h4>
+                    </div>
+                    <div class="personalContForm">
+                        <ul class="d-flex justify-content-between flex-wrap">
+                          
+                            <li>
+                                <label>SOW</label>
+                                <input readonly [(ngModel)]="pr.sowName" type="text" name="text" placeholder="" />
+                            </li>
+                            <li>
+                                <label>Customer</label>
+                                <input readonly [(ngModel)]="pr.customerName" type="text" name="text" placeholder="" />
+                            </li>
+                            <li>
+                                <label>Allocation Start Date</label>
+                                <input readonly [(ngModel)]="pr.allocationStartDate" type="date" class="dateInput" name="text" placeholder="" />
+                            </li>
+                            <li>
+                                <label>Allocation End Date</label>
+                                <input readonly [(ngModel)]="pr.allocationEndDate" type="date" class="dateInput" name="text" placeholder="" />
+                            </li>
+                            <li>
+                                <label>Level1 Approver</label>
+                                <input readonly [(ngModel)]="pr.level1Approver" type="text" name="text" placeholder="" />
+                            </li>
+                            <li>
+                                <label>Level2 Approver</label>
+                                <input readonly [(ngModel)]="pr.level2Approver" type="text" name="text" placeholder="" />
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <!-- <li>
+                                <button type="submit">Submit</button>
+                                <button class="reset"> </button>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="tab1" *ngIf="currentTab == 'AH'" [ngClass]="currentTab == 'AH' ? 'active' : ''">
+    <div class="relative col-sm-12 row" style="width: 36%;">
+       <div class="col-sm-4 select_txt">Please select year</div>
+       <div class="col-sm-8">
+        <select class="form-control" [(ngModel)]="currentYears" (change)="yearchange($event)">
+            <option value="">Select</option>
+            <option *ngFor="let a of years" value="{{a.id}}">{{a.value}}</option>
+        </select>
+    </div></div>
+    <div class="no-message" *ngIf="billableHoursDetails.length == 0">
+        Not Allocated any Project 
+    </div>
+               
+    <div class="profileNavCont" *ngFor="let bb of billableHoursDetails; let ii = index">
+        <!-- <app-preloader *ngIf="isLoading" loderType="square" ></app-preloader> -->
+        <div class="peronalCont">
+            <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+                <h4>{{ bb.sowName }}</h4>
+            </div>
+            <div class="personalContForm">
+                <ul class="d-flex justify-content-between flex-wrap">
+                  
+                    <li>
+                        <label>clientName</label>
+                        <input readonly [(ngModel)]="bb.clientName" type="text" name="text" placeholder="" />
+                    </li>
+
+                    <li>
+                        <label>SOW Name</label>
+                        <input readonly [(ngModel)]="bb.sowName" type="text" name="text" placeholder="" />
+                    </li>
+
+                    <li>
+                        <label>Approved Hours</label>
+                        <input readonly [(ngModel)]="bb.approvedHours" type="text" name="text" placeholder="" />
+                    </li>
+                    <li>
+                        <label>Year</label>
+                        <input readonly type="text" name="text" placeholder="" />
+                    </li>
+                   
+                 
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <!-- <li>
+                        <button type="submit">Submit</button>
+                        <button class="reset"> </button>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

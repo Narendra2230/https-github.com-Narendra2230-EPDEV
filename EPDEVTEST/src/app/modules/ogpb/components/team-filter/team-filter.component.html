@@ -1,0 +1,57 @@
+<form #getData="ngForm">
+    <div class="team_filter">
+        <ul class="select-items">
+            <li>
+                <select [ngModel]="'null'" name="bands" class="">
+                    <option class="optionOne" value="null">Band</option>
+                    <option *ngFor="let m of (metaInfo.bands|| []);" [value]="m.id">{{m.name}}</option>
+                </select>
+            </li>
+            
+            <li>
+                <select [ngModel]="'null'" name="groups" class="">
+                    <option class="optionOne" value="null">Group</option>
+                    <option *ngFor="let m of (metaInfo.groups|| []);" [value]="m.id">{{m.name}}</option>
+                </select>
+            </li>
+            <li>
+                <select [ngModel]="'null'" name="designations">
+                    <option class="optionOne" value="null">Designation</option>
+                    <option *ngFor="let m of (metaInfo.designations|| []);" [value]="m.id">{{m.name}}</option>
+                </select>
+            </li>
+
+            <li>
+                <select [(ngModel)]="latestSeletedFilters.bu" name="businessUnits" id="businessUnits"
+                    (change)="businessUnitsChange($event)">
+                    <option class="optionOne" value="null">BU</option>
+                    <option *ngFor="let m of (metaInfo.businessUnits|| []);" [value]="m.id">{{m.name}}</option>
+                </select>
+            </li>
+
+            <li>
+                <select [(ngModel)]="latestSeletedFilters.subbu" name="subBusinesssUnits" (change)="trackChange($event)">
+                    <option class="optionOne" value="null">SBU</option>
+                    <option *ngFor="let m of (metaInfo.subBusinesssUnits || []);" [value]="m.id">{{m.name}}</option>
+                </select>
+            </li>
+            <li>
+                <select [(ngModel)]="latestSeletedFilters.track" name="tracks">
+                    <option class="optionOne" value="null">Track</option>
+                    <option *ngFor="let m of (metaInfo.tracks || []);" [value]="m.id">{{m.name}}</option>
+                </select>
+            </li>
+
+            <li>
+                <button (click)="searchData(getData.value)" class="open_filter">SEARCH</button>
+
+            </li>
+            <li> <i (click)="resetFiltr();getData.reset()" class="fa fa-refresh" aria-hidden="true"></i> </li>
+            <li>
+                <span *ngIf="isLoading">
+                    <app-preloader></app-preloader>
+                </span>
+            </li>
+        </ul>
+    </div>
+</form>

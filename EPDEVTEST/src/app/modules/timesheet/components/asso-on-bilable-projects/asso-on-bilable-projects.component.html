@@ -1,0 +1,18 @@
+<div class="billable">
+    <div class="row no-flex">
+        <div class="col" *ngFor="let d of mangerDashboardData">
+            <ul>
+                <li>
+                    <h5 class="project_name">{{d.sowName}}</h5>
+                </li>
+                <li>
+                    <h3>{{d.associatesCount}}</h3>
+                </li>
+                <li>
+                    <h6>Associates</h6>
+                    <span>{{d.totalHours}} Hrs</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

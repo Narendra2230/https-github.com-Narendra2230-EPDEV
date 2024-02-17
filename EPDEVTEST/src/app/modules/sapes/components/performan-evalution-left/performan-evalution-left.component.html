@@ -1,0 +1,42 @@
+
+    <div class="opgp_weitage_val" *ngFor="let kpid of pMSKpiLists;let i=index;">
+
+        <div class="opgp_wetg_val_hdr padd_l_r_21">
+            <ul>
+                <li>Delivery KPI</li>
+              <!--  <li>OGPB Weightage ( {{pMSFInalRating['fixidTotalScore']}}%)</li> -->
+               <li>Performance Assessment Weightage ( 100 %)</li>
+            </ul>
+        </div>
+        <div class="opgp_wetg_val_scr padd_l_r_21">
+            <p>Default Measuring KPI</p>
+        </div>
+        <div class="opgp_rate_wtg padd_l_r_21">
+            <ul>
+                <li><span>{{kpid['weightage']}} %</span> Weightage</li>
+                <li>{{kpid['kpiNumber']}}</li>  
+            </ul>
+        </div>
+        <div class="opgb_rating_body padd_l_r_21">
+            <div class="rating_body_hdr">
+                <p>{{kpid['kpiDescription']}}</p>
+            </div>
+            <div class="self_rating_input">
+                <div class="opgb_sytm_rtng">
+                    <label>System Rating</label>
+                    <input type="text" (keyup)="onKey($event,'system_rate',i)" value="{{kpid['systemScore']}}"
+                        name="text" type="text" pattern="\d*" maxlength="2" disabled placeholder="">
+                    <small>%</small>
+                </div>
+            </div>
+            <div class="opgb_eliglbe_val" *ngIf="kpid['systemScore']!==null && kpid['systemScore']!==0">
+                <p><span>Congratulations!</span>
+                    You are eligible for 50% OGPB by default</p>
+            </div>
+            <div class="opgb_eliglbe_val" *ngIf="kpid['systemScore']===null || kpid['systemScore']===0">
+                <p><span class="error_txt">Oops!</span>
+                    Sorry you are not eligible for OGPB</p>
+            </div>
+           
+        </div>
+    </div>

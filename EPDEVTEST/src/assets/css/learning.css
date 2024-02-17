@@ -1,0 +1,353 @@
+
+
+/* CSS Reset */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,caption,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
+*,*:after,*:before {box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-ms-box-sizing: border-box;-o-box-sizing: border-box;}
+
+/* Default Style Here */
+
+body{
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	line-height: 22px;
+	color: #212529;
+	background: #f1f4fb;
+    padding: 15px;
+    font-weight: 400;
+}
+img {
+    display: block;
+	max-width: 100%;
+    height: auto;
+}
+a{
+    text-decoration: none;
+    transition:all 0.5s ease;
+}
+.learning-training .float-left{
+	float: left;
+}
+.learning-training .float-right{
+	float: right;
+}
+.pageTitle{
+    float: left;
+    width: 100%;
+}
+.pageTitle h1{
+	font-size: 30px;
+	font-weight: 500;
+    margin-bottom: 30px;
+    float: left;
+}
+.pageTitle .btn{
+    float: right;
+}
+.learning-training{
+	padding: 30px 0;
+	clear: both;
+	overflow: hidden;
+}
+.learning-training .card{
+	margin-bottom: 15px;
+	word-wrap: break-word !important;
+    background-clip: border-box !important;
+    background-color: #fff !important;
+    border: 0 !important;
+    border-radius: 13px !important;
+    box-shadow: 0 0.15rem 0.75rem 0 rgb(228 231 237) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 1.5rem !important;
+    min-width: 0 !important;
+    position: relative !important;
+    width: 100% !important;
+}
+.learning-training .card h2{
+	font-weight: 500;
+    font-size: 18px;
+    color: #0d6efd;
+    position: relative;
+    margin-bottom: 25px;
+    font-family: 'latoregular';
+}
+.learning-training .card h2:before{
+	background: #f44336;
+    content: "";
+    height: 25px;
+    left: -25px;
+    padding: 2px;
+    position: absolute;
+    top: 2px;
+}
+.learning-training .table-align-center{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.learning-training .month {
+  padding: 0;
+  width: 100%;
+  background: #fff;
+  text-align: center;
+  float: left;
+  margin: 0 0 15px 0;
+}
+
+.learning-training .month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.learning-training .month ul li {
+  color: #333;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  list-style: none;
+}
+.learning-training .month .prev {
+  float: left;
+  padding-top: 10px;
+}
+.learning-training .month .next {
+  float: right;
+  padding-top: 10px;
+}
+.learning-training .month span{
+    display: block;
+    padding: 15px 0 0 0;
+}
+.learning-training .weekdays {
+  margin: 0;
+  padding: 10px 5px;
+  float: left;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ededed;
+}
+
+.learning-training .weekdays li {
+  display: inline-block;
+  width: 14%;
+  color: #666;
+  text-align: center;
+}
+
+.learning-training .days {
+  padding: 10px 5px;
+  background: #fff;
+  margin: 0;
+  float: left;
+  width: 100%;
+  border: 1px solid #ededed;
+}
+
+.learning-training .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 12%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #777;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 3px !important;
+}
+.learning-training .days li:hover,
+.learning-training .days li.active {
+  background: #0d6efd;
+  color: white !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+  .learning-training .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+  .learning-training .weekdays li, .days li {width: 12.5%;}
+  .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+  .learning-training .weekdays li, .days li {width: 12.2%;}
+}
+.learning-training .basicinfo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.learning-training .basicinfo li{
+    clear: both;
+    overflow: hidden;
+    padding: 0 0 15px 0;
+    text-transform: capitalize;
+    font-family: 'Open Sans', sans-serif;
+}
+.learning-training .basicinfo li strong{
+    width: 25%;
+    float: left;
+    font-weight: 500;
+}
+.learning-training .basicinfo li span{
+    float: left;
+    width: 70%;
+    padding: 0 0 0 5%;
+}
+.learning-training .basicinfo li strong:after{
+    content:':';
+    float: right;
+}
+.learning-training .showEntries {
+    float: left;
+}
+.learning-training .showEntries .form-select{
+    display: inline-block;
+    width: auto;
+    margin: 0 5px;
+}
+.learning-training .statistic1{
+    clear: both;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+.learning-training .statistic1 label{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+}
+.learning-training .statistic1 label span{
+    float: right;
+}
+.enroll-courses{
+
+}
+.enroll-courses .cardContent{
+    clear: both;
+    overflow: hidden;
+    padding: 26px;
+}
+.enroll-courses figure img{
+    border-radius: 15px;
+    width: 100%;
+}
+.enroll-courses figure .imginner{
+    position: relative;
+}
+
+.enroll-courses .status{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgb(0 14 22 / 66%);
+    padding: 8px;
+    width: 100%;
+    text-align: right;
+}
+.enroll-courses .status .form-check{
+    margin: 0;
+    padding: 0;
+}
+.enroll-courses .status label{
+    display: inline-block;
+    color: #fff;
+    padding: 2px 0 0 0;
+}
+.form-check .form-check-input{
+    display: inline-block;
+    float: none;
+    margin: 5px 0 0 10px;
+}
+.enroll-courses .courseInfo{
+    padding: 10px 0 0 15px;
+    font-size: 14px;
+    font-family: 'Open Sans';
+}
+.enroll-courses .courseInfo h3{
+    font-size: 20px;
+    font-weight: 500;
+    color: #0d6efd;
+    margin: 10px 0 15px 0;
+    padding: 0;
+}
+.enroll-courses .courseInfo p{
+    margin: 0;
+    padding: 0;
+}
+.enroll-courses .courseInfo strong{
+    display: inline-block;
+    padding: 0 0 10px 0;
+}
+.enroll-courses .courseInfo span{
+    display: inline-block;
+    padding: 0 0 10px 5px;
+}
+.enroll-courses .btn{
+    margin: 10px 5px 0 0;
+}
+.enroll-courses .btn i{
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.createnrollCourse{
+
+}
+.createnrollCourse h2{
+    font-weight: 500;
+    font-size: 25px;
+    color: #0d6efd;
+    position: relative;
+    margin-bottom: 0;
+}
+.createnrollCourse .form-group{
+    margin: 0 0 10px 0;
+}
+.createnrollCourse .form-group label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+.attendance-modal h2{
+    font-weight: 500;
+    font-size: 25px;
+    color: #0d6efd;
+    position: relative;
+    margin-bottom: 0;
+}
+.attendance-modal h2 span{
+    color: #333;
+}
+.attendance-modal .modal-dialog{
+    max-width: 700px;
+}
+.attendance-modal .form-control{
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+}
+.modal-backdrop.show {
+    opacity: 0.6 !important;
+}
+
+.fade.show{
+  background: #000000ad !important;
+}
+
+.pageTitle{padding: 0px;}
+
+.pageTitle h4{
+  font-size: 24px !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.p-b-3{
+  padding-bottom: 3% !important;
+}

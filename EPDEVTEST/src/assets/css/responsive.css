@@ -1,0 +1,235 @@
+    @media (max-width:1920px) {
+    .container{width:100%}
+    .toogle_slide li:last-child{margin-left:28px}
+    .toogle_slide li span{font-size:16px;line-height:20px}
+    .user_info ul li h3{font-size:24px;line-height:28px}
+    .time_sheet_heading h4{font-size:22px;line-height:28px}
+    .billable h4{font-size:14px;line-height:26px}
+    .billable ul li h5,.billable ul li span,.billable ul li h6{font-size:11px;line-height:15px}
+    .billable ul li:first-child{margin-bottom:15px}
+    .billable ul li h3{font-size:31px;line-height:35px}
+    .billable ul li p{font-size:14px;line-height:26px}
+    .pie_value ol li{font-size:11px;line-height:17px}
+    .mng_timesheet_table ul li:last-child a{font-size:10px}
+    .mng_timesheet_table ul li{font-size:13px}
+    .billable .timesheet ul li{font-size:11px;line-height:15px}
+    .sheet_date{font-size:14px;line-height:35px;margin-right:0}
+    .all_cal_time ul li{margin-left:17px;font-size:14px;line-height:18px}
+    .evl_prcs_lft li h5{font-size:13px;line-height:18px;margin-bottom:10px}
+    .evl_prcs_lft li h4{font-size:14px;line-height:26px}
+    .evl_prcs_lft li p{font-size:12px;line-height:26px}
+    .padd_l_r_21{padding-left:12px;padding-right:12px}
+    .opgp_wetg_val_hdr ul li{font-size:13px;line-height:20px}
+    .opgp_wetg_val_scr p span{display:inline-block}
+    .opgp_wetg_val_scr p{font-size:14px;line-height:19px}
+    .opgp_rate_wtg ul li span{font-size:12px}
+    .rating_body_hdr p{font-size:15px;line-height:22px}
+    .opgb_sytm_rtng label{font-size:13px}
+    .opgb_eliglbe_val p{font-size:14px}
+    .rqstn_attr_single h6{font-size:19px;line-height:29px}
+    .my_requstition{width:99%}
+    .rqstn_attr_single{padding:0 10px 35px}
+    .requstition_header{padding:12px 10px}
+    .evl_prcs_lft li h5{font-size:15px;line-height:20px;margin-bottom:5px;}
+    .team_evl_prs li h3{font-size:56px}
+    /*.empl_logo{width:20%}*/
+    .team_full_details{padding-left:10px;width:84%}
+    .team_full_details ul li h5{font-size:13px;line-height:20px}
+    .team_full_details ul li h6{font-size:13px;line-height:16px}
+    .team_full_details ul li{margin:3px 0}
+    .team_emp_details{width:90%}
+    .single_team_details{margin-bottom:20px}
+    .employee_profile_details ul li h6{font-size:13px;line-height:26px}
+    .profile_back a{font-size:24px}
+    .goals_table_in ul li{font-size:12px;line-height:16px}
+    .goals_table_in ul.drag_info li{font-size:14px;line-height:18px}
+    .manger_filter .team_filter > ul > li:nth-child(1),.manger_filter .team_filter > ul > li:nth-child(2),.manger_filter .team_filter > ul > li:nth-child(3),.manger_filter .team_filter > ul.open > li{font-size:13px;margin-right:8px;padding-right:6px}
+    .timesheet-status span input{width: 110px;}  
+    .ogpb_full_policy li.check_policy small{margin-left:-25% !important}
+    .policy-info{margin-left: 72px !important;margin-top: 15px !important;}
+    .apply_leave_block input:checked + .slider.round:before{left: -22px;}
+    }
+
+    @media (max-width:1399px) {
+    .container{width:100%}
+    .switch{width:50px;height:20px;margin:0 5px}
+    .slider:before{height:13px;width:13px;left:5px}
+    input:checked + .slider:before{-webkit-transform:translateX(25px);-ms-transform:translateX(25px);transform:translateX(25px)}
+    .toogle_slide li span{font-size:14px;line-height:18px}
+    .toogle_slide li:last-child{margin-left:20px}
+    .time_sheet_heading h4{font-size:16px !important;line-height:21px}
+    .time_sheet_heading .cal_select p{font-size:14px;line-height:18px}
+    .project_billing{padding-top:24px}
+    .billable h4{    font-size: 14px;line-height: 17px;margin-bottom: 7px;}
+    .billable ul li h5,.billable ul li span,.billable ul li h6{font-size:11px;line-height:18px}
+    .project_billing.manager_billing .col{padding:0 8px}
+    .project_billing.manager_billing .col:first-child{padding-left:15px}
+    .billable ul li h3{font-size:28px;line-height:36px}
+    .billable ul li p{font-size:12px;line-height:23px}
+    .pie_value ol li{font-size:11px;line-height:18px}
+    .select_calender ul li:nth-child(2){margin:0 15px}
+    .sheet_date{font-size:12px !important;line-height:35px;margin-right:0}
+    .timesheet_row_one{margin-bottom:20px}
+     .all_cal_time ul li{margin-left:9px;font-size:12px;line-height:17px}
+    .timesheet_option_left ul li{font-size:13px;margin-right:12px}
+    .timesheet_option_left{padding:10px 17px}
+    .timesheet_option{padding:20px 0}
+    .user_info ul li h3{font-size:20px;line-height:24px}
+    .time_sheet_heading h4{font-size:18px}
+    .evl_prcs_lft li h4{height:52px}
+    .evl_prcs_lft ul li{width:16%}
+    .evl_prcs_lft li h6{font-size:11px;line-height:20px}
+    .evl_prcs_lft li.active:after{bottom:-24px;height:4px}
+    .ogp_month ul li{font-size:15px;line-height:19px;margin-bottom:10px}
+    .ogp_year ul li.active_prev_old{font-size:13px;line-height:16px}
+    .ogp_year ul li.active_prev{font-size:20px;line-height:24px}
+    .ogp_year ul li.active{font-size:26px;line-height:30px}
+    .eval_rating_heading{margin-top:20px;margin-bottom:15px}
+    .opgp_wetg_val_hdr ul li{font-size:14px;line-height:16px}
+    .opgp_wetg_val_scr p{font-size:12px;line-height:17px}
+    .opgp_wetg_val_scr{min-height:50px}
+    .opgp_rate_wtg ul li span{font-size:14px}
+    .rating_body_hdr p{font-size:13px;line-height:18px}
+    .rating_body_hdr{height: 100px;overflow-y: auto;}
+    .opgb_sytm_rtng label{font-size:12px}
+    .opgb_sytm_rtng input{border-bottom:solid 2px #e0e0e0;font-size:12px;height:30px}
+    .opgb_eliglbe_val{padding-top:65px;min-height:105px}
+    .raise_discsn input,.default_btn{font-size:11px;height:26px;padding:0 12px}
+    .raise_cmnt h6{font-size:11px;line-height:18px;padding:0 12px}
+    .my_requstition{width:99%}
+    .rqstn_attr_single h6{font-size:17px;line-height:24px}
+    .rqstn_attr_single p{font-size:13px;line-height:22px;margin-bottom:15px}
+    .submit_rating{padding:10px 0;margin-top:100px}
+    .ogpb_full_policy{padding:30px 16px}
+    .ogpb_full_policy li{margin-bottom:10px}
+    .ogpb_full_policy li h4{font-size:16px;line-height:20px}
+    .ogpb_full_policy li p{font-size:14px;line-height:20px;margin-top:5px}
+    .ass_key_info{padding:16px 0 10px}
+    .full_key_info{margin-top:20px}
+    .full_key_info ul li{margin-bottom:11px}
+    .full_key_info ul li h5{font-size:16px;line-height:22px}
+    .full_key_info ul li h6{font-size:15px;line-height:22px}
+    .eval_rating_heading .modal{width:610px}
+    .submitted_popup_badges .modal-dialog{max-width:300px;margin:0 auto}
+    .submitted_badges h4{font-size:12px}
+    .submitted_badges{padding:8px 10px}
+    .evl_prcs_lft li h5{font-size:13px;line-height:19px;margin-bottom:5px;min-height:60px}
+    .team_evl_prs li h3{font-size:36px}
+    .evl_prcs_lft.team_evl_prs ul li{width:13%!important}
+    .evl_prcs_lft ul li:first-child{width:13% !important}
+    .evl_prcs_lft li h5 {min-height: 65px;}
+    .team_filter > ul > li{font-size:14px}
+    .team_filter > ul > li:after{font-size:14px}
+    .team_filter > ul{padding-bottom:4px}
+    button.open_filter{font-size:16px}
+    .team_filter > ul.open > li{padding-right:8px;margin-right:6px}
+    .team_emp_details{margin-top:25px}
+    .team_full_details ul li h5{font-size:11px;line-height:18px}
+    .team_full_details ul li h6{font-size:11px;line-height:15px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+    .need_help_popup_main .modal-header img{left:8px}
+    .need_help_popup_main .ass_key_logo li{font-size:18px}
+    .employee_profile_details ul li h6{font-size:11px;line-height:26px}
+    .employee_profile_details ul li h5{font-size:11px;line-height:18px}
+    .employee_profile_details ul li{margin-right:17px}
+    .employee_profile_details{padding:17px 0 17px 15px}
+    .profile_back a{font-size:18px}
+    .comment_popup_in{margin-bottom:30px}
+    .mngr_review_form.empl_rvw_frm{margin-top:28px}
+    .submit_pop_dtl.comment_popup_dtl{padding:25px 30px}
+    .comment_popup_in ul{margin-bottom:25px}
+    .sub_menu{top:24px}
+    .goals_table_in ul li:last-child .fa{font-size:16px;margin-right:12px}
+    .goals_table_in ul li{font-size:12px;line-height:14px}
+    .goals_table_in ul{padding:12px 15px}
+    .assigning_goal{padding:12px 15px}
+    .assigning_goal_main h4{font-size:18px;line-height:22px}
+    .goals_table_in ul.drag_info li{font-size:12px;line-height:16px}
+    .submit_rating li input{font-size:14px;line-height:18px;height:40px}
+    .assigned_goals{margin-top:30px}
+    .system_defined{margin-bottom:20px}
+    .system_defined h5{font-size:14px;line-height:18px;padding-bottom:6px}
+    .mng_timesheet_table ul li{font-size:12px;margin-right:8px}
+    .manger_filter .team_filter > ul > li:nth-child(1),.manger_filter .team_filter > ul > li:nth-child(2),.manger_filter .team_filter > ul > li:nth-child(3),.manger_filter .team_filter > ul.open > li{font-size:11px;margin-right:8px;padding-right:6px}
+     .timesheet-status span{
+       
+    }
+    .timesheet-status span input{width: 88px !important;}  
+    .ogpb_full_policy li.check_policy small{margin-left:0% !important}
+    .policy-info{margin-left: 30px !important;margin-top: 15px !important;}
+    .apply_leave_block input:checked + .slider.round:before{left: -10px !important;;}
+    }
+    @media (max-width:1199px) {
+    .container{width:100%}
+    .toogle_slide li span{font-size:11px;line-height:15px}
+    .switch{width:40px;height:18px;margin:0 4px}
+    .toogle_slide li:last-child{margin-left:10px}
+    .slider:before{height:10px;width:10px;left:5px}
+    input:checked + .slider:before{-webkit-transform:translateX(20px);-ms-transform:translateX(20px);transform:translateX(20px)}
+    .user_info ul li{margin-left:14px}
+    .user_info ul li h3{font-size:16px;line-height:20px}
+    .time_sheet_heading .cal_select p{font-size:13px;line-height:17px}
+    .time_sheet_heading h4{font-size:18px !important;line-height:17px}
+    .time_sheet_heading{padding:15px 0}
+    .sheet_date{font-size:10px;margin-right:0}
+    .timesheet_row_one{margin-bottom:14px}
+    .upload-btn-wrapper{width:95px}
+    .upload_btn{font-size:10px}
+    .all_cal_time ul li{margin-left:6px;font-size:9px;line-height:13px}
+    .timesheet_option_left ul li{font-size:12px;margin-right:12px}
+    .timesheet_option_left ul li img{width:20px}
+    .time_btns ul li input{font-size:11px;padding:12px 10px;min-width:75px}
+    .timesheet_option{padding:15px 0}
+    .cal_day span{font-size:21px;line-height:25px;margin-right:6px}
+    .select_calender ul li:nth-child(2){margin:0 8px}
+    .select_calender ul li strong{margin:0 7px;font-size:12px}
+    .full_hours h6{font-size:12px;line-height:16px}
+    .monthly_sheet h5{font-size:14px;line-height:18px}
+    .monthly_sheet ul li img{width:20px}
+    .view_timesheet_head ul li{margin-right:8px}
+    .view_timesheet_head{padding:9px 0}
+    .view_timesheet{padding-top:20px}
+    .cal_day span{font-size:16px;line-height:20px;margin-right:6px}
+    .user_info ul li h3{font-size:12px;line-height:20px}
+    .billable h4{font-size:10px;line-height:20px;margin-bottom:9px}
+    .billable ul li h5,.billable ul li span,.billable ul li h6{font-size:9px;line-height:14px}
+    .billable ul li h3{font-size:17px;line-height:21px}
+    .billable ul li h3 sup{font-size:10px}
+    .billable ul li p{font-size:9px;line-height:15px}
+    .pie_value ol{margin-top:5px}
+    .pie_value ol li{font-size:8px;line-height:16px}
+    .billable ul li:first-child{margin-bottom:15px}
+    .timesheet-status span input{width: 85px !important;}  
+    .ogpb_full_policy li.check_policy small{margin-left:0% !important}
+    .apply_leave_block input:checked + .slider.round:before{left: -10px !important;;}
+    }
+    @media (max-width:979px) {
+    .container{width:100%}
+    .user_info ul li h3{font-size:11px}
+    .user_info ul li label{font-size:12px}
+    .user_info ul li{margin-left:6px}
+    .logo span,.logo span small{font-size:12px}
+    .logo a img{width:120px}
+    .main_header{padding:10px 4px}
+    .col.timesheet {display:none;}
+	.toogle_slide {display:none;}
+	.project_billing {display:none;}
+	.monthly_sheet h5{display:none;}
+	.timeshet-date{display:none;}
+	.w-100{display:none !important;}
+	.view_timesheet{overflow-x: scroll;width: 800px;}
+	.main_menu {margin-top: 5.5%;}
+    }
+    @media (max-width:767px) {
+    .container{width:100%}
+    .logo a img{width:100px}
+    .logo{text-align:left;margin-bottom:0}
+    .user_info ul li label{font-size:12px}
+    .user_info ul li:last-child{display:none}
+    }
+    @media (max-width:575px) {
+  
+    .user_info ul li label{font-size:14px}
+    .logo{text-align:center;margin-bottom:12px}
+    .user_info.text-right{text-align:center!important}
+    .user_info ul li:last-child{display:none}
+    }

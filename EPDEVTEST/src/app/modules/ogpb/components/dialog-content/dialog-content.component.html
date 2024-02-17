@@ -1,0 +1,38 @@
+<div class="policy_popup_in">
+    <div class="ogpb_policy_info">
+        <h5>Performance Assessment <span>Information</span>
+            <img src="assets/images/ogpb/policy_info.png" alt="policy_info" class="policy-info">
+        </h5>
+
+    </div>
+    <div class="ogpb_full_policy">
+        <span (click)="closePopup()" class="pull-right w-color"> X </span>
+        <ul>
+            <li>
+                <h4>Objective</h4>
+                <p>Performance Assessment is introduced in order to create performance driven organization.</p>
+            </li>
+            <li>
+                <h4>Scope</h4>
+                <p>This policy applies to all Associates of the company who have Performance Assessment as part of their CTC. Employees
+                    who do not have Performance Assessment, this policy continues to apply for SAPES(Sunera Annual Performance Evaluation
+                    System) purposes.</p>
+            </li>
+            <li>
+                <h4>Policy</h4>
+                <p>This policy explains the formulation of Performance Assessment.</p>
+            </li>
+            <li>
+                <h4>Eligibility</h4>
+                <p>This policy is applicable for all the associates of Sunera Technologies Pvt. Ltd.</p>
+            </li>
+            <li class="check_policy">
+                <label class="check_contn">
+                    <input type="checkbox" [checked]="isChecked"  [disabled]="isUserAccepted" (change)="!isChecked && checkValue()">
+                    <span class="checkmark"></span>
+                </label>
+                <small data-dismiss="modal"><span (click)="closePopup()" > &nbsp;&nbsp;&nbsp;I UNDERSTAND ABOVE PERFORMANCE ASSESSMENT TERMS</span></small>
+            </li>
+        </ul>
+    </div>
+</div>

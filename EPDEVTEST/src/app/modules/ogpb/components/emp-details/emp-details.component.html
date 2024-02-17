@@ -1,0 +1,66 @@
+<div class="employee_profile row">
+  <div class="employee_profile_main">
+    <div class="empl_evalution_logo">
+        <img [src]="empinfo.profileImage" style="width: 72px;height: 69px;"/>
+    </div>
+    <div class="employee_profile_details">
+      <ul>
+        <li>
+          <h5>Employee Name</h5>
+          <h6>{{empinfo.firstName+ " "+ empinfo.lastName}}</h6>
+        </li>
+        <li>
+          <h5>Employee</h5>
+          <h6>{{empinfo.associateId}}</h6>
+        </li>
+        <li>
+          <h5>Designation</h5>
+          <h6>{{empinfo.designation}}</h6>
+        </li>
+        <li>
+          <h5>Level</h5>
+          <h6>{{empinfo.associateLevel}}</h6>
+        </li>
+        <li>
+          <h5>Band</h5>
+          <h6>{{empinfo.band}}</h6>
+        </li>
+        <!--<li>
+          <h5>Group</h5>
+          <h6>{{empinfo.associateGroup}}</h6>
+        </li> -->
+        <li>
+          <h5>BTU</h5>
+          <h6>{{empinfo.bu}}</h6>
+        </li>
+        <li>
+          <h5>Sub-BTU</h5>
+          <h6>{{empinfo.subBu}}</h6>
+        </li>
+        <li>
+        <!--  <h5>Track</h5>
+          <h6>{{empinfo.track}}</h6>
+        </li> 
+        <li>
+          <h5>Eligibility</h5>
+          <h6>{{empinfo.ogpbEligibility}}</h6>
+        </li>
+        <li>
+          <h5>Associate Rating</h5>
+          <h6>{{empinfo.associateScore}}</h6>
+        </li>
+        <li>
+          <h5>Manager Rating</h5>
+          <h6>{{empinfo.mangerScore}}</h6>
+        </li>
+        <li>
+          <h5>Approver Rating</h5>
+          <h6> </h6> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="profile_back">
+    <a href="javascript:void()" (click)="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+  </div>
+</div>

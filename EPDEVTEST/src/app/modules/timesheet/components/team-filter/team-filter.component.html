@@ -1,0 +1,18 @@
+<div class="team_filter_main manger_filter">
+    <div class="team_filter">
+        <ul>
+            <li *ngFor="let f of filters">
+                <select class="select-filter" [(ngModel)]="filterModel[getStr(f)]" *ngIf="getStr(f)==='Year' || getStr(f)==='Action' || getStr(f)==='TimeheetAction' || getStr(f)==='Month' || getStr(f)==='TimeheetAction'">
+                    <option value="">{{f}}</option>
+                    <option  *ngFor="let o of getValue(f)" value="{{o.value}}">{{o.key}}</option>
+                </select>
+                <select class="select-filter" [(ngModel)]="filterModel[getStr(f)]" *ngIf="getStr(f)==='ReportingManager' || getStr(f)==='BusinessUnit' || getStr(f)==='AllocationStatus' || getStr(f)==='Associates'">
+                    <option value="">{{f}}</option>
+                    <option  *ngFor="let o of getValue(f)" value="{{o.key}}">{{o.value}}</option>                    
+                </select>
+            </li>
+        </ul>
+        <button (click)="search()" class="open_filter">SEARCH</button>
+        <button (click)="resetFun()" class="open_refresh"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="time_sheet profileSheet">
+    <!-- breadcrumb_list -->
+    <div class="breadcrumb_list">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://ep.suneratech.com/Home/Dashboard">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Assets Allocated</a></li>
+        </ol>
+    </div>
+    <!-- breadcrumb_list-End-->
+
+    <!-- time_sheet_heading -->
+    <div class="time_sheet_heading row pad-3">
+        <div class="profileInnerHead d-flex justify-content-center align-items-center">
+            <div class="profileImage">
+                <img src="assets/images/assests-allowed/assests-allowed.svg" alt="assets allowed">
+            </div>
+            <h4>Assets Allocated</h4>
+            <div class="backProfile">
+                <a [routerLink]="getRout()">
+                    Back to list
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- time_sheet_heading-End-->
+
+    <div class="profileFullInfo">
+        <div class="profileFullInfoIn">
+            <div class="profileHeadNav">
+                <ul class="d-flex justify-content-start">
+                    <li class="active"><a href="javascript:void(0)">Assets Allocated</a></li>
+                </ul>
+            </div>
+            <div>
+                <br/>
+                <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+            </div>
+            <div *ngFor=" let asset of empAssetDetails;let ii = index;" class="profileNavCont">
+                <app-preloader *ngIf="isLoading" loderType="square"></app-preloader>
+                <div class="peronalCont">
+                    <div class="peronalHeadEdit d-flex justify-content-between align-items-center">
+                        <h4>{{asset.assetName}}</h4>
+                    </div>
+                    <div class="personalContForm">
+                        <ul class="d-flex justify-content-between flex-wrap">
+                            <li>
+                                <label>Asset Type</label>
+                                <input readonly [(ngModel)]="asset.assetType" type="text" name="text" placeholder="">
+                            </li>
+                            <li>
+                                <label>Asset Name</label>
+                                <input readonly [(ngModel)]="asset.assetName" type="text" name="text" placeholder="">
+                            </li>
+                            <li>
+                                <label>Serial No.</label>
+                                <input readonly [(ngModel)]="asset.serialnumber" type="text" name="text" placeholder="">
+                            </li>
+                            <li>
+                                <label>Location</label>
+                                <input readonly [(ngModel)]="asset.location" type="text" name="text" placeholder="">
+                            </li>
+                            <li></li>
+                            <!-- <li>
+                                <button type="submit">Submit</button>
+                                <button class="reset"> </button>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="rating_comment_popup leaveBalance_popup">
+    <div class="submit_pop_dtl p-0">
+        <div class="d-flex popup-heading w-100 item-jc">
+            <h5 class="w-color"> Associate on Leave </h5>
+
+            <span (click)="closePopup()" class="c-btn"> <img src="assets/images/leave/icon-close.png" alt=""> </span>
+        </div>
+        <div class="leave_history_table">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">From Date</th>
+                        <th scope="col">To Date</th>
+                        <th scope="col">Type</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let s of list; let i=index;">
+                        <td>{{s.name}}</td>
+                        <td>{{ formatDate(s.from_Date)}}</td>
+                        <td> {{formatDate(s.to_Date)}} </td>
+                        <td> {{s.leave_Type}} </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+          
+        <!-- <button (click)="closePopup()"  class="cancel_btn" data-dismiss="modal" type="button">CANCEL</button> -->
+        <!-- <button (click)="yesRaise()"  type="button">YES</button> -->
+        <!-- data-dismiss="modal" data-target="#submitted_popup" data-toggle="modal" -->
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="" id="rating_popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="submit_pop_dtl">
+                <h3>Do you want to Assign Goals?</h3>
+                <button class="cancel_btn" type="button"(click)="popupDismiss()">CANCEL</button>
+                <button [ngClass]="isLaoding  ? 'btn-no-active' : 'btn-active'" [disabled]="isLaoding" data-dismiss="modal" type="button" (click)="savGoals()">YES
+                    <img *ngIf="isLaoding" src="assets/images/loading.gif" alt="loading" class="goals_loader">
+                </button>
+            </div> 
+        </div>
+    </div>
+</div>
+</div>

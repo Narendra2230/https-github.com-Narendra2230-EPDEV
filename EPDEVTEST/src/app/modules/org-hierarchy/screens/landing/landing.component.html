@@ -1,0 +1,104 @@
+<div class="time_sheet" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+  <app-org-hierarchy-header></app-org-hierarchy-header>
+  <!-- search -->
+  <!-- <form>
+    <input type="text" name="focus" required class="search_box" placeholder="Enter search term" readonly/>
+    <button class="close_icon" type="reset"></button>
+    <button class="btn_search">
+      
+    </button>
+  </form> -->
+  <form class="search-employee-form">
+    <!-- <input type="text"  placeholder="Enter search term"
+     list="emp_sugestions" value="" (keyup)="fetchDataList($event)" [matAutocomplete]="auto">
+    <datalist id="emp_sugestions" #dataList *ngIf="dataListValues">
+      <select id="emp_sugestions_select">
+       <option *ngFor="let x of dataListValues" value="{{x.firstName}} {{x.lastName}}">{{x.firstName}} {{x.lastName}}</option>
+      </select>
+    </datalist> -->
+    <mat-form-field class="example-full-width">
+    <input type="text"   [formControl]="searchEmployeeForm" placeholder="Enter search term"
+      [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getSelectedValue($event.option.value)'>
+      <mat-option *ngFor="let x of filteredOptions | async"  value="{{x.firstName}} {{x.lastName}}">
+        {{x.firstName | titlecase}} {{x.lastName | titlecase}}
+      </mat-option>
+    </mat-autocomplete>
+    <button class="search-btn btn-reset" type="button" (click)="resetSearch(searchNameInput)">
+      <i class="fa fa-close"></i>
+    </button>
+    <button type="button" class="search-btn" (click)="navigateMyLine(searchNameInput)">
+      <i class="fa fa-search"></i>
+    </button>
+  </mat-form-field>
+  </form>
+  <!--/ search -->
+  <div class="inner_page">
+    <div class="simplebar" #simplebar id='simplebar'[scrollTop]="simplebar.scrollHeight" [scrollLeft]="scrollLeftValue">
+      <div class="hirarchy-outer">
+        <div class="company-logo">
+          <label class="logo_heading">
+            <figcaption>
+              <img src="assets/images/org/logo-icon.png" alt="Suneratech">
+            </figcaption>
+          </label>
+        </div>
+        <!-- level 1 -->
+        <div class="hirarchy level-1">
+          <div class="divider"></div>
+          <div class="tickets-wrapper">
+            <div *ngFor="let t of team; let ind=index;" class="ticket" id="L0T{{ind}}"
+              [ngClass]="{'active':selectedItem=='L0T'+ind, 'defaultBorder':t.hierarchyColor==undefined}">
+              <div class="container">
+                <div class="row pad-top-10">
+                  <div class="col-12">
+                    <span style="float: left;margin-left: 20px;">
+                      <div class="org_emp_txt">{{t.firstName}} {{t.lastName}}</div>
+                      <div class="org_emp_txt">{{t.designation|uppercase}}</div>
+                      <div class="org_emp_txt">Reporties {{t.num_Reportees}}</div>
+                    </span>
+                    <span>
+                    <img *ngIf="t.imageUrl" src="{{t.imageUrl}}" align="profile pic" class="ticket_image">
+                    <img *ngIf="!t.imageUrl" src="assets/images/org/emp-logo.png" align="profile pic"
+                      class="ticket_image">
+                    </span>
+                  </div>
+                  <!--
+                  <div class="col-12">
+                    <div class="org_emp_txt">{{t.firstName}} {{t.lastName}}</div>
+                    <div class="org_emp_txt">{{t.designation|uppercase}}</div>
+                    <div class="org_emp_txt">Reporties {{t.num_Reportees}}</div>
+                  </div>
+                  <button class="viewButton" (click)="updateModel($event,t)">VIEW</button>-->
+
+                  <!-- <span (click)="nextClick(ind,t)" class="plus_circle"><i class="fa fa-plus-circle"></i></span> -->
+                  <div class="plus_circle expand">
+                    <i (click)="viewNext($event)" class="fa fa-plus" [ngClass]="{'fa-minus': selectedItem=='L0T'+ind}"></i>
+                  </div>
+                  <div class="after-grid" *ngIf="selectedItem=='L0T'+ind"></div>
+                  <!-- child -->
+                  <app-emp-list *ngIf="selectedItem=='L0T'+ind"
+                    [newtickets]="{childTicketsInp:t.lstChildren,level:'1',parent:'1'}"></app-emp-list>
+                  <!-- child -->
+                </div>
+              </div>
+            </div>
+            <div clear="all"></div>
+          </div>
+        </div>
+        <!--/ level 1 -->
+      </div>
+    </div>
+    <!-- <div>Test</div> -->
+    <div class="reset">
+        <span class="reset_to_defualt" (click)='resetHirarchy()'>
+            <i class="fa fa-refreshf" aria-hidden="true"></i>
+            Reset to default
+        </span>
+      </div>
+  </div>
+
+  
+</div>
+<button type="button" id="launchModel" data-toggle="modal" data-target="#myModal" style="display:none;"></button>
+<app-emp-profile [profile]="{modelData:modelData,modelBorder:modelBorder}"></app-emp-profile>

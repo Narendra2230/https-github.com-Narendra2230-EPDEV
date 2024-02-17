@@ -1,0 +1,63 @@
+<p class="final_score">Overall Score  :
+    <span style="color:#ff7058"> {{pMSFInalRating['associateTotal']}} % </span></p> 
+  
+<div class="opgp_wetg_val_hdr padd_l_r_21">
+    <ul>
+        <li>Objective KPIs <span class="obj-KPI-note"> ( Below KPIs & KRAs Measurement Scale is system generated score ) </span></li>
+        <li class="score_card">Final Objective Score ( {{pMSFInalRating['fixidTotalScore']}} % )</li> 
+    </ul>
+</div>
+
+
+<div class="opgb_self_rating">
+<div class="opgp_weitage_val" [ngStyle]="getContainerWidths()" *ngFor="let kpid of pMSKpiLists;let i=index;">
+        <div class="opgp_rate_wtg padd_l_r_21">
+            <ul>
+                <li><span>{{kpid['weightage']}} %</span> Weightage</li>
+                <li style="text-align: right">{{kpid['kpiNumber']}}</li>  
+            </ul>
+        </div>
+        <div class="opgb_rating_body padd_l_r_21">
+            
+            <div class="kpi_dec">
+                <p><span class="kpi"><b>KPI</b></span><br/>
+                    <span class="kpi_des">{{kpid['kpiName']}}.</span></p>
+            </div>
+
+            <div class="rating_body_hdr">
+                <p><span><b>KRAs</b></span><br/>{{kpid['kpiDescription']}}.</p>
+            </div>
+
+            <div class="self_rating_input">
+                <div class="opgb_sytm_rtng">
+                    <label>Datasource</label>
+                    <input type="text" value="{{kpid['category']}}" class="green_border"
+                        name="text" type="text" disabled placeholder="">
+                </div>
+
+                <div class="opgb_sytm_rtng">
+                    <label>System Rating</label>
+                    <input type="text" (keyup)="onKey($event,'system_rate',i)" value="{{kpid['associateScore']}}"
+                        name="text" type="text" pattern="\d*" maxlength="2" disabled placeholder="">
+                    <small>%</small>
+                </div>
+
+                <div class="opgb_sytm_rtng">
+                    <label>Measurement Scale</label>
+                    <input type="text"  value="{{kpid['associateMeasurementScale']}}" class="red_border pad-right-0"
+                    name="text" type="text"  maxlength="2" disabled placeholder="">
+                </div>
+            </div>
+            
+            <div class="opgb_eliglbe_val"></div>
+          <!--  <div class="opgb_eliglbe_val" *ngIf="kpid['systemScore']!==null && kpid['systemScore']!==0">
+                <p><span>Congratulations!</span>
+                    You are eligible for 50% OGPB by default</p>
+            </div>
+            <div class="opgb_eliglbe_val" *ngIf="kpid['systemScore']===null || kpid['systemScore']===0">
+                <p><span class="error_txt">Oops!</span>
+                    Sorry you are not eligible for OGPB</p>
+            </div> -->
+        </div>
+    </div>
+    </div>
