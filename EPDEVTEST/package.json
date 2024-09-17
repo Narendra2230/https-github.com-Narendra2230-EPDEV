@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.0.1",
     "@angular/router": "~8.0.1",
     "ag-grid-angular": "^22.1.1",
-    "ag-grid-community": "^22.1.1",
+    "ag-grid-community": "^31.3.4",
     "angular-ui-bootstrap": "^2.5.6",
     "angular-webstorage-service": "^1.0.2",
     "exceljs": "^1.12.0",
